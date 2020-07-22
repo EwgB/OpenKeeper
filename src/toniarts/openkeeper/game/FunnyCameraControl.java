@@ -43,7 +43,7 @@ public class FunnyCameraControl implements Control, JmeCloneable {
     protected boolean enabled = true;
     protected Camera cam = null;
 
-    protected Vector3f initialUpVec;
+    protected final Vector3f initialUpVec;
     protected final Vector3f pos = new Vector3f();
     protected Vector3f lookAtOffset = new Vector3f(0, 0, 0);
     protected final Vector3f temp = new Vector3f(0, 0, 0);
@@ -174,21 +174,21 @@ public class FunnyCameraControl implements Control, JmeCloneable {
 
     /**
      * Write the camera
+     *
      * @param ex the exporter
-     * @throws IOException
      */
     @Override
-    public void write(JmeExporter ex) throws IOException {
+    public void write(JmeExporter ex) {
         throw new UnsupportedOperationException("remove ChaseCamera before saving");
     }
 
     /**
      * Read the camera
+     *
      * @param im
-     * @throws IOException
      */
     @Override
-    public void read(JmeImporter im) throws IOException {
+    public void read(JmeImporter im) {
         InputCapsule ic = im.getCapsule(this);
     }
 

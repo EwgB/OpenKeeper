@@ -70,11 +70,7 @@ public class PlayerRoomControl extends AbstractResearchablePlayerControl<Room, R
     public void onBuild(IRoomController room) {
 
         // Add to the list
-        Set<IRoomController> roomSet = roomControllers.get(room.getRoom());
-        if (roomSet == null) {
-            roomSet = new LinkedHashSet<>();
-            roomControllers.put(room.getRoom(), roomSet);
-        }
+        Set<IRoomController> roomSet = roomControllers.computeIfAbsent(room.getRoom(), k -> new LinkedHashSet<>());
         roomSet.add(room);
         roomCount++;
         if (dungeonHeart == null && room.isDungeonHeart()) {

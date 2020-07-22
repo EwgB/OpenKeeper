@@ -102,7 +102,7 @@ public abstract class FontCreator {
 
                 // Update description
                 sb.append("char id=");
-                sb.append(Integer.toString(entry.getCharacter()));
+                sb.append(entry.getCharacter());
                 sb.append("    x=");
                 sb.append(x);
                 sb.append("    y=");

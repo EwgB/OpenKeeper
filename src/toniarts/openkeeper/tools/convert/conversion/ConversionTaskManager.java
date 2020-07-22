@@ -173,9 +173,7 @@ public class ConversionTaskManager {
     }
 
     private void sortNodesChildCountDesc(List<TaskNode> childNodes) {
-        Collections.sort(childNodes, (o1, o2) -> {
-            return Integer.compare(o2.getOutgoingNodes().size(), o1.getOutgoingNodes().size());
-        });
+        childNodes.sort((o1, o2) -> Integer.compare(o2.getOutgoingNodes().size(), o1.getOutgoingNodes().size()));
     }
 
     /**

@@ -81,7 +81,7 @@ public class TriggerAction extends Trigger {
         SET_SLAPS_LIMIT(50),
         SET_TIMER_SPEECH(51);
 
-        private ActionType(int id) {
+        ActionType(int id) {
             this.id = id;
         }
 
@@ -110,7 +110,7 @@ public class TriggerAction extends Trigger {
         TRAP(4),
         KEEPER_SPELL(5);
 
-        private MakeType(int id) {
+        MakeType(int id) {
             this.id = id;
         }
 
@@ -135,7 +135,7 @@ public class TriggerAction extends Trigger {
         PLUS(0x010, "+="),
         MINUS(0x020, "-=");
 
-        private FlagTargetValueActionType(int flagValue, String description) {
+        FlagTargetValueActionType(int flagValue, String description) {
             this.flagValue = flagValue;
             this.description = description;
         }
@@ -271,7 +271,7 @@ public class TriggerAction extends Trigger {
         MANA_VALUE(242),
         MPD_CONTINUAL_INVASION(241);
 
-        private ButtonType(int id) {
+        ButtonType(int id) {
             this.id = id;
         }
 

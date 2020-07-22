@@ -259,7 +259,7 @@ public abstract class KeeperHandState extends AbstractAppState {
     private class InHandLoaderCreatureModelContainer extends EntityContainer<KeeperHandItem> {
 
         public InHandLoaderCreatureModelContainer(EntityData entityData) {
-            super(entityData, new FieldFilter(InHand.class, "playerId", playerId), InHand.class);
+            super(entityData, new FieldFilter<>(InHand.class, "playerId", playerId), InHand.class);
         }
 
         @Override
@@ -297,7 +297,7 @@ public abstract class KeeperHandState extends AbstractAppState {
 
     }
 
-    private class KeeperHandItem implements Comparable<KeeperHandItem> {
+    private static class KeeperHandItem implements Comparable<KeeperHandItem> {
 
         private int index;
         private IEntityViewControl item;

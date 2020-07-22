@@ -276,7 +276,7 @@ public class MpxReader extends Frame {
             if (version == 1) {
                 timePerFrame *= 2D;
             }
-            put(F_FRAME_RATE, new Float(1 / timePerFrame));
+            put(F_FRAME_RATE, (float) (1 / timePerFrame));
         } while (checkFramesize(stream) == null);
 
         switch (version) {
@@ -414,8 +414,8 @@ public class MpxReader extends Frame {
         put(I_MAXIMUM_CODEC_SAMPLE_RATE, 48000);
         put(B_AUDIO, true);
         put(S_MEDIA_TYPE, "Audio");
-        put(S_MEDIA_FORMAT, "Mpeg" + versionString + "-Layer" + Integer.toString(layer));
-        put(S_MEDIA_FILE_FORMAT, "MP" + Integer.toString(layer));
+        put(S_MEDIA_FORMAT, "Mpeg" + versionString + "-Layer" + layer);
+        put(S_MEDIA_FILE_FORMAT, "MP" + layer);
 
         if (mode == STEREO) {
             put(S_MULTI_CHANNEL_MODE, "Stereo");
@@ -522,7 +522,7 @@ public class MpxReader extends Frame {
         if (microseconds > 0) {
             put(I_BITRATE, (int) Math.round(netByteLength * 8000000 / (double) microseconds));
         }
-        put(F_FRAME_RATE, new Float(framesPerTime));
+        put(F_FRAME_RATE, (float) framesPerTime);
         put(I_FRAME_NUMBER, framesMinusOne + 1);
         put(B_VBR_AUDIO, true);
         put(L_MICROSECONDS, microseconds);
@@ -706,7 +706,7 @@ public class MpxReader extends Frame {
      * @param b the input array
      * @return the integer value
      */
-    protected final static int getShortInt(byte b[]) {
+    protected static int getShortInt(byte[] b) {
         return b[0] << 16 & 0xFF0000 | b[1] << 8 & 0xFF00 | b[2] & 0xFF;
     }
 

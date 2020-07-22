@@ -44,7 +44,7 @@ public class GameResult {
         CREATURES_CONVERTED,
         CREATURE_TRAINING,
         ATTEMPTS_AT_LEVEL,
-    };
+    }
 
     private Map<ResultType, Object> data = null;
 

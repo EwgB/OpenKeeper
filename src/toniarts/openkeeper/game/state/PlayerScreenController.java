@@ -87,7 +87,7 @@ public class PlayerScreenController implements IPlayerScreenController {
 
     private enum PauseMenuState {
 
-        MAIN, QUIT, CONFIRMATION;
+        MAIN, QUIT, CONFIRMATION
     }
 
     public static final float SCREEN_UPDATE_INTERVAL = 0.250f;
@@ -139,7 +139,7 @@ public class PlayerScreenController implements IPlayerScreenController {
         if (type == Type.SELL) {
             this.playButtonSound(GlobalCategory.GUI_SELL);
         }
-        state.interactionState.setInteractionState(type, Integer.valueOf(id));
+        state.interactionState.setInteractionState(type, Integer.parseInt(id));
     }
 
     @Override
@@ -1267,11 +1267,7 @@ public class PlayerScreenController implements IPlayerScreenController {
                         // The creature has changed its type
                         if (creatureId != oldCreatureId) {
                             creaturesByTypes.get(oldCreatureId).remove(entity.getId());
-                            Set<EntityId> creatureSet = creaturesByTypes.get(creatureId);
-                            if (creatureSet == null) {
-                                creatureSet = new LinkedHashSet<>();
-                                creaturesByTypes.put(creatureId, creatureSet);
-                            }
+                            Set<EntityId> creatureSet = creaturesByTypes.computeIfAbsent(creatureId, k -> new LinkedHashSet<>());
                             creatureSet.add(entity.getId());
                         }
                     } else {
@@ -1282,11 +1278,7 @@ public class PlayerScreenController implements IPlayerScreenController {
 
                     // New
                     creatureIdsByEntityIds.put(entity.getId(), creatureId);
-                    Set<EntityId> creatureSet = creaturesByTypes.get(creatureId);
-                    if (creatureSet == null) {
-                        creatureSet = new LinkedHashSet<>();
-                        creaturesByTypes.put(creatureId, creatureSet);
-                    }
+                    Set<EntityId> creatureSet = creaturesByTypes.computeIfAbsent(creatureId, k -> new LinkedHashSet<>());
                     creatureSet.add(entity.getId());
                     modifiedCreatures.add(creatureId);
                 }
@@ -1457,7 +1449,7 @@ public class PlayerScreenController implements IPlayerScreenController {
 
     }
 
-    private class GameMenu {
+    private static class GameMenu {
 
         protected String title;
         protected String action;

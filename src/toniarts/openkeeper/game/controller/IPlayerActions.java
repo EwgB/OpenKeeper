@@ -28,21 +28,21 @@ public interface IPlayerActions {
     /**
      * Build a building to the wanted area
      *
-     * @param start start coordinates
-     * @param end end coordinates
+     * @param start    start coordinates
+     * @param end      end coordinates
      * @param playerId the player, the new owner
-     * @param roomId room to build
+     * @param roomId   room to build
      */
-    public void build(Vector2f start, Vector2f end, short playerId, short roomId);
+    void build(Vector2f start, Vector2f end, short playerId, short roomId);
 
     /**
      * Sell building(s) from the wanted area
      *
-     * @param start start coordinates
-     * @param end end coordinates
+     * @param start    start coordinates
+     * @param end      end coordinates
      * @param playerId the player, the seller
      */
-    public void sell(Vector2f start, Vector2f end, short playerId);
+    void sell(Vector2f start, Vector2f end, short playerId);
 
     /**
      * Set some tiles selected/undetected
@@ -52,6 +52,6 @@ public interface IPlayerActions {
      * @param select   select or deselect
      * @param playerId the player who selected the tile
      */
-    public void selectTiles(Vector2f start, Vector2f end, boolean select, short playerId);
+    void selectTiles(Vector2f start, Vector2f end, boolean select, short playerId);
 
 }

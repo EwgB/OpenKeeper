@@ -28,15 +28,15 @@ import toniarts.openkeeper.game.navigation.pathfinding.INavigable;
  */
 public interface IChickenController extends IGameLogicUpdatable, INavigable, IEntityController {
 
-    public void navigateToRandomPoint();
+    void navigateToRandomPoint();
 
-    public StateMachine<IChickenController, ChickenState> getStateMachine();
+    StateMachine<IChickenController, ChickenState> getStateMachine();
 
-    public boolean isStopped();
+    boolean isStopped();
 
-    public boolean isTimeToReEvaluate();
+    boolean isTimeToReEvaluate();
 
-    public void resetReEvaluationTimer();
+    void resetReEvaluationTimer();
 
     /**
      * Evaluates the time spent in current state and compares it to the
@@ -45,8 +45,8 @@ public interface IChickenController extends IGameLogicUpdatable, INavigable, IEn
      *
      * @return {@code true} if state should be changed
      */
-    public boolean isStateTimeExceeded();
+    boolean isStateTimeExceeded();
 
-    public void growIntoChicken();
+    void growIntoChicken();
 
 }

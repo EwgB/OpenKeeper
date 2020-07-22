@@ -42,7 +42,7 @@ public class KeeperSpell implements Comparable<KeeperSpell>, ISoundable, IIndexa
         DONT_CAST_ON_CREATURES(0x0010);
         private final long flagValue;
 
-        private KeeperSpellFlag(long flagValue) {
+        KeeperSpellFlag(long flagValue) {
             this.flagValue = flagValue;
         }
 
@@ -50,14 +50,14 @@ public class KeeperSpell implements Comparable<KeeperSpell>, ISoundable, IIndexa
         public long getFlagValue() {
             return flagValue;
         }
-    };
+    }
 
     public enum HandAnimId implements IValueEnum {
 
         NULL(0),
         POINT(1);
 
-        private HandAnimId(int id) {
+        HandAnimId(int id) {
             this.id = id;
         }
 
@@ -77,7 +77,7 @@ public class KeeperSpell implements Comparable<KeeperSpell>, ISoundable, IIndexa
         ANY_LAND(4),
         ANYWHERE(5);
 
-        private CastRule(int id) {
+        CastRule(int id) {
             this.id = id;
         }
 
@@ -98,7 +98,7 @@ public class KeeperSpell implements Comparable<KeeperSpell>, ISoundable, IIndexa
         ALL(5),
         POSSESSION(6);
 
-        private TargetRule(int id) {
+        TargetRule(int id) {
             this.id = id;
         }
 

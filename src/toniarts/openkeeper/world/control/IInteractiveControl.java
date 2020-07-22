@@ -35,7 +35,7 @@ public interface IInteractiveControl extends Control {
     /**
      * Signifies a state or result for dropping the item
      */
-    public enum DroppableStatus {
+    enum DroppableStatus {
 
         DROPPABLE,
         NOT_DROPPABLE,
@@ -51,7 +51,7 @@ public interface IInteractiveControl extends Control {
      * @param playerId the player who is asking
      * @return the tooltip string
      */
-    public String getTooltip(short playerId);
+    String getTooltip(short playerId);
 
     /**
      * Is the control pickuppable by the keeper
@@ -59,7 +59,7 @@ public interface IInteractiveControl extends Control {
      * @param playerId the player who tries to pick the control up
      * @return {@code true} if the player can pick the control up
      */
-    public boolean isPickable(short playerId);
+    boolean isPickable(short playerId);
 
     /**
      * Is the control interactable by the keeper
@@ -67,7 +67,7 @@ public interface IInteractiveControl extends Control {
      * @param playerId the player who tries to interact with the control
      * @return {@code true} if the player can interact with the control
      */
-    public boolean isInteractable(short playerId);
+    boolean isInteractable(short playerId);
 
     /**
      * The control has been picked up
@@ -75,56 +75,56 @@ public interface IInteractiveControl extends Control {
      * @param playerId the player who picks up the control
      * @return self, for chaining
      */
-    public IInteractiveControl pickUp(short playerId);
+    IInteractiveControl pickUp(short playerId);
 
     /**
      * Get the in hand cursor
      *
      * @return cursor type when the control is held by the keeper
      */
-    public CursorFactory.CursorType getInHandCursor();
+    CursorFactory.CursorType getInHandCursor();
 
     /**
      * Get in hand mesh, when the keeper dangles the control in hand
      *
      * @return the in hand mesh/animation
      */
-    public ArtResource getInHandMesh();
+    ArtResource getInHandMesh();
 
     /**
      * Get in hand icon, when the keeper dangles the control in hand
      *
      * @return the in hand icon
      */
-    public ArtResource getInHandIcon();
+    ArtResource getInHandIcon();
 
     /**
      * Get the control spatial
      *
      * @return the spatial
      */
-    public Spatial getSpatial();
+    Spatial getSpatial();
 
     /**
      * Get the result of dropping the control on a tile. A result what would
      * happen if...
      *
-     * @param tile the tile to be tested against
+     * @param tile     the tile to be tested against
      * @param playerId the player who wants to drop
      * @return the result if the control were to be dropped here
      */
-    public DroppableStatus getDroppableStatus(TileData tile, short playerId);
+    DroppableStatus getDroppableStatus(TileData tile, short playerId);
 
     /**
      * Drop the control on the tile
      *
-     * @param tile tile to drop to
+     * @param tile        tile to drop to
      * @param coordinates real world coordinates inside
-     * @param control if there is already an
-     * {@link toniarts.openkeeper.world.control.IInteractiveControl} at the
-     * position
+     * @param control     if there is already an
+     *                    {@link toniarts.openkeeper.world.control.IInteractiveControl} at the
+     *                    position
      */
-    public void drop(TileData tile, Vector2f coordinates, IInteractiveControl control);
+    void drop(TileData tile, Vector2f coordinates, IInteractiveControl control);
 
     /**
      * Interact with the control. Typically alternative mouse button pressed
@@ -133,22 +133,22 @@ public interface IInteractiveControl extends Control {
      * @return the interaction result, {@code true} if the interaction was
      * successful
      */
-    public boolean interact(short playerId);
+    boolean interact(short playerId);
 
     /**
      * When the control is hovered upon. TODO: playerId
      */
-    public void onHover();
+    void onHover();
 
     /**
      * When the control is hovered upon. The hovering starts. TODO: playerId
      */
-    public void onHoverStart();
+    void onHoverStart();
 
     /**
      * When the control is no longer hovered on. TODO: playerId
      */
-    public void onHoverEnd();
+    void onHoverEnd();
 
-    public short getOwnerId();
+    short getOwnerId();
 }

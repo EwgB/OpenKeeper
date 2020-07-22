@@ -36,17 +36,17 @@ public interface ICreatureEntrance {
      *
      * @return the coordinate
      */
-    public Point getEntranceCoordinate();
+    Point getEntranceCoordinate();
 
     /**
      * Get creatures attracted on this entrance
      *
      * @return
      */
-    public List<CreatureControl> getAttractedCreatures();
+    List<CreatureControl> getAttractedCreatures();
 
-    public CreatureControl spawnCreature(short creatureId, short level,
-            Application app, ThingLoader thingLoader);
+    CreatureControl spawnCreature(short creatureId, short level,
+                                  Application app, ThingLoader thingLoader);
 
-    public CreatureControl spawnCreature(short creatureId, Application app, ThingLoader thingLoader);
+    CreatureControl spawnCreature(short creatureId, Application app, ThingLoader thingLoader);
 }

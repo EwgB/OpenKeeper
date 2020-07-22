@@ -38,7 +38,7 @@ public interface IEntityViewControl<T, S> extends Control {
     /**
      * Signifies a state or result for dropping the item
      */
-    public enum DroppableStatus {
+    enum DroppableStatus {
 
         DROPPABLE,
         NOT_DROPPABLE,
@@ -54,7 +54,7 @@ public interface IEntityViewControl<T, S> extends Control {
      * @param playerId the player who is asking
      * @return the tooltip string
      */
-    public String getTooltip(short playerId);
+    String getTooltip(short playerId);
 
     /**
      * Is the control pickuppable by the keeper
@@ -62,14 +62,14 @@ public interface IEntityViewControl<T, S> extends Control {
      * @param playerId the player who tries to pick the control up
      * @return {@code true} if the player can pick the control up
      */
-    public boolean isPickable(short playerId);
+    boolean isPickable(short playerId);
 
     /**
      * The control has been picked up
      *
      * @param playerId the player who picks up the control
      */
-    public void pickUp(short playerId);
+    void pickUp(short playerId);
 
     /**
      * Is the control interactable by the keeper
@@ -77,14 +77,14 @@ public interface IEntityViewControl<T, S> extends Control {
      * @param playerId the player who tries to interact with the control
      * @return {@code true} if the player can interact with the control
      */
-    public boolean isInteractable(short playerId);
+    boolean isInteractable(short playerId);
 
     /**
      * Interact with the control
      *
      * @param playerId the player who wants to interact
      */
-    public void interact(short playerId);
+    void interact(short playerId);
 
     /**
      * Is the control slappable by the keeper
@@ -92,106 +92,106 @@ public interface IEntityViewControl<T, S> extends Control {
      * @param playerId the player who tries to slap the control
      * @return {@code true} if the player can slap the control
      */
-    public boolean isSlappable(short playerId);
+    boolean isSlappable(short playerId);
 
     /**
      * Slap the control
      *
      * @param playerId the player who wants to slap
      */
-    public void slap(short playerId);
+    void slap(short playerId);
 
     /**
      * Get the in hand cursor
      *
      * @return cursor type when the control is held by the keeper
      */
-    public CursorFactory.CursorType getInHandCursor();
+    CursorFactory.CursorType getInHandCursor();
 
     /**
      * Get in hand mesh, when the keeper dangles the control in hand
      *
      * @return the in hand mesh/animation
      */
-    public ArtResource getInHandMesh();
+    ArtResource getInHandMesh();
 
     /**
      * Get in hand icon, when the keeper dangles the control in hand
      *
      * @return the in hand icon
      */
-    public ArtResource getInHandIcon();
+    ArtResource getInHandIcon();
 
     /**
      * Get the control spatial
      *
      * @return the spatial
      */
-    public Spatial getSpatial();
+    Spatial getSpatial();
 
     /**
      * Get the result of dropping the control on a tile. A result what would
      * happen if...
      *
-     * @param tile the tile to be tested against
-     * @param terrain the terrain
+     * @param tile     the tile to be tested against
+     * @param terrain  the terrain
      * @param playerId the player who wants to drop
      * @return the result if the control were to be dropped here
      */
-    public DroppableStatus getDroppableStatus(MapTile tile, Terrain terrain, short playerId);
+    DroppableStatus getDroppableStatus(MapTile tile, Terrain terrain, short playerId);
 
     /**
      * Drop the control on the tile
      *
-     * @param tile tile to drop to
+     * @param tile        tile to drop to
      * @param coordinates real world coordinates inside
-     * @param control if there is already an
-     * {@link toniarts.openkeeper.view.control.IEntityViewControl} at the
-     * position
+     * @param control     if there is already an
+     *                    {@link toniarts.openkeeper.view.control.IEntityViewControl} at the
+     *                    position
      */
-    public void drop(MapTile tile, Vector2f coordinates, IEntityViewControl control);
+    void drop(MapTile tile, Vector2f coordinates, IEntityViewControl control);
 
     /**
      * When the control is hovered upon
      *
      * @param playerId the player
      */
-    public void onHover(short playerId);
+    void onHover(short playerId);
 
     /**
      * When the control is hovered upon. The hovering starts
      *
      * @param playerId the player
      */
-    public void onHoverStart(short playerId);
+    void onHoverStart(short playerId);
 
     /**
      * When the control is no longer hovered on
      *
      * @param playerId the player
      */
-    public void onHoverEnd(short playerId);
+    void onHoverEnd(short playerId);
 
     /**
      * Get the owner ID of the entity
      *
      * @return the player ID of the owner
      */
-    public short getOwnerId();
+    short getOwnerId();
 
     /**
      * Get the entity ID
      *
      * @return the entity ID
      */
-    public EntityId getEntityId();
+    EntityId getEntityId();
 
-    public void setTargetState(S state);
+    void setTargetState(S state);
 
-    public T getDataObject();
+    T getDataObject();
 
-    public void setDataObject(T data);
+    void setDataObject(T data);
 
-    public void cleanup();
+    void cleanup();
 
 }

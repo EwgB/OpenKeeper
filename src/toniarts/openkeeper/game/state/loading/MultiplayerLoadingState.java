@@ -57,7 +57,7 @@ public abstract class MultiplayerLoadingState extends LoadingState implements IP
         for (String screen : AVAILABLE_SCREENS) {
             Matcher m = p.matcher(screen);
             m.matches();
-            int width = Integer.valueOf(m.group("width"));
+            int width = Integer.parseInt(m.group("width"));
             AVAILABLE_WIDTHS.add(width);
             SCREENS.put(width, screen);
         }

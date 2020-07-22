@@ -34,7 +34,6 @@ import toniarts.openkeeper.utils.PathUtils;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -90,7 +89,7 @@ public class ConvertPaths extends ConversionTask {
                     KcsFile kcsFile = new KcsFile(f);
 
                     // Convert
-                    List<CameraSweepDataEntry> entries = new ArrayList<>(kcsFile.getKcsEntries().size());
+                    ArrayList<CameraSweepDataEntry> entries = new ArrayList<>(kcsFile.getKcsEntries().size());
                     for (KcsEntry kcsEntry : kcsFile.getKcsEntries()) {
 
                         // Convert the rotation matrix to quaternion

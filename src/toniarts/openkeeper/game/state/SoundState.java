@@ -23,7 +23,6 @@ import com.jme3.audio.AudioNode;
 import com.jme3.audio.AudioSource;
 import toniarts.openkeeper.Main;
 import toniarts.openkeeper.game.data.Settings;
-import toniarts.openkeeper.game.sound.MentorType;
 import toniarts.openkeeper.game.sound.SoundCategory;
 import toniarts.openkeeper.game.sound.SoundFile;
 import toniarts.openkeeper.game.sound.SoundGroup;
@@ -53,7 +52,7 @@ public class SoundState extends AbstractPauseAwareState {
 
         private final String name;
 
-        private Background(String name) {
+        Background(String name) {
             this.name = name;
         }
 
@@ -143,16 +142,6 @@ public class SoundState extends AbstractPauseAwareState {
         attachSpeech(soundCategory, speechId, listener);
     }
 
-    /**
-     * Plays general mentor speeches The speech will be put to a queue and played in sequence
-     *
-     * @param type the speech
-     * @param listener can be {@code null}, allows you to listen when the speech starts playing
-     */
-    public void attachMentorSpeech(MentorType type, ISpeechListener listener) {
-        attachSpeech(SoundCategory.SPEECH_MENTOR, type.getId(), listener);
-    }
-
     private void attachSpeech(String soundCategory, int speechId, ISpeechListener listener) {
         if (!Main.getUserSettings().getBoolean(Settings.Setting.VOICE_ENABLED)) {
             return;
@@ -216,9 +205,7 @@ public class SoundState extends AbstractPauseAwareState {
         float volume = Main.getUserSettings().getFloat(Settings.Setting.MASTER_VOLUME)
                 * Main.getUserSettings().getFloat(Settings.Setting.MUSIC_VOLUME);
         backgroundNode.setVolume(volume);
-        app.enqueue(() -> {
-            backgroundNode.play();
-        });
+        app.enqueue(() -> backgroundNode.play());
     }
 
     @Override
@@ -240,7 +227,7 @@ public class SoundState extends AbstractPauseAwareState {
         super.update(tpf);
     }
 
-    private class BackgroundState {
+    private static class BackgroundState {
 
         private SoundCategory sc;
 

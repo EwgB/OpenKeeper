@@ -31,7 +31,7 @@ import java.util.List;
  */
 public class SFChunk {
 
-    public static enum SFSampleLink implements IValueEnum {
+    public enum SFSampleLink implements IValueEnum {
         monoSample(1),
         rightSample(2),
         leftSample(4),
@@ -46,14 +46,14 @@ public class SFChunk {
             return value;
         }
 
-        private SFSampleLink(int value) {
+        SFSampleLink(int value) {
             this.value = value;
         }
 
         private final int value;
-    };
+    }
 
-    public static enum Generators implements IValueEnum {
+    public enum Generators implements IValueEnum {
         startAddrsOffset(0),
         endAddrsOffset(1),
         startloopAddrsOffset(2),
@@ -121,14 +121,14 @@ public class SFChunk {
             return value;
         }
 
-        private Generators(int value) {
+        Generators(int value) {
             this.value = value;
         }
 
         private final int value;
-    };
+    }
 
-    public static enum Modulators implements IValueEnum {
+    public enum Modulators implements IValueEnum {
         NoController(0),
         NoteOnVelocity(2),
         NoteOnKeyNumber(3),
@@ -143,14 +143,14 @@ public class SFChunk {
             return value;
         }
 
-        private Modulators(int value) {
+        Modulators(int value) {
             this.value = value;
         }
 
         private final int value;
-    };
+    }
 
-    public static enum ModulatorTypes implements IValueEnum {
+    public enum ModulatorTypes implements IValueEnum {
         Linear(0),
         Concave(1), // output = log(sqrt(value^2)/(max value)^2)
         Convex(2),
@@ -161,14 +161,14 @@ public class SFChunk {
             return value;
         }
 
-        private ModulatorTypes(int value) {
+        ModulatorTypes(int value) {
             this.value = value;
         }
 
         private final int value;
-    };
+    }
 
-    public static enum Transforms implements IValueEnum {
+    public enum Transforms implements IValueEnum {
         Linear(0),
         Absolute(2); // output = square root ((input value)^2) or output = output * sgn(output)
 
@@ -177,30 +177,30 @@ public class SFChunk {
             return value;
         }
 
-        private Transforms(int value) {
+        Transforms(int value) {
             this.value = value;
         }
 
         private final int value;
-    };
+    }
 
-    public static enum Type {
+    public enum Type {
 
-        RIFF, LIST;
-    };
+        RIFF, LIST
+    }
 
-    public static enum SubType {
+    public enum SubType {
 
         sfbk, INFO, ifil, iver, INAM, isng, irom, IPRD, IENG, ISFT, ICRD, ICMT,
-        ICOP, sdta, smpl, pdta, phdr, pbag, pmod, pgen, inst, ibag, imod, igen, shdr;
-    };
+        ICOP, sdta, smpl, pdta, phdr, pbag, pmod, pgen, inst, ibag, imod, igen, shdr
+    }
 
     protected Type type = null;
     protected SubType subType = null;
     protected long size; // in bytes
-    protected List data = new ArrayList<>();
+    protected final List data = new ArrayList<>();
 
-    protected HashMap<SubType, SFChunk> childs = new HashMap<>();
+    protected final HashMap<SubType, SFChunk> childs = new HashMap<>();
 
     public SFChunk(IResourceReader file) throws IOException {
         String code = file.readString(4);
@@ -362,7 +362,7 @@ public class SFChunk {
         return result;
     }
 
-    protected class sfVersionTag { // <iver-rec>
+    protected static class sfVersionTag { // <iver-rec>
 
         protected int major;
         protected int minor;
@@ -378,7 +378,7 @@ public class SFChunk {
         }
     }
 
-    protected class sfPresetHeader { // <phdr-rec>
+    protected static class sfPresetHeader { // <phdr-rec>
 
         protected String achPresetName;
         protected int wPreset;
@@ -407,7 +407,7 @@ public class SFChunk {
         }
     }
 
-    protected class sfPresetBag { // <pbag-rec>
+    protected static class sfPresetBag { // <pbag-rec>
 
         protected int wGenNdx;
         protected int wModNdx;
@@ -423,7 +423,7 @@ public class SFChunk {
         }
     }
 
-    protected class sfInst { // <inst-rec>
+    protected static class sfInst { // <inst-rec>
 
         protected String achInstName;
         protected int wInstBagNdx;
@@ -439,7 +439,7 @@ public class SFChunk {
         }
     }
 
-    protected class sfInstBag { // <ibag-rec>
+    protected static class sfInstBag { // <ibag-rec>
 
         protected int wInstGenNdx;
         protected int wInstModNdx;
@@ -455,7 +455,7 @@ public class SFChunk {
         }
     }
 
-    protected class sfSample { // <shdr-rec>
+    protected static class sfSample { // <shdr-rec>
 
         protected String achSampleName;
         protected long dwStart;
@@ -491,7 +491,7 @@ public class SFChunk {
         }
     }
 
-    protected class rangesType {
+    protected static class rangesType {
 
         protected short byLo;
         protected short byHi;
@@ -515,7 +515,7 @@ public class SFChunk {
         }
     }
 
-    protected class SFModulator {
+    protected static class SFModulator {
 
         protected Modulators bIndex = null; // A 7 bit value specifying the controller source
         protected boolean cc; // MIDI Continuous Controller Flag
@@ -534,7 +534,7 @@ public class SFChunk {
         }
     }
 
-    protected class SFGenerator {
+    protected static class SFGenerator {
 
         protected Generators bIndex = null;
         protected boolean cc;
@@ -553,7 +553,7 @@ public class SFChunk {
         }
     }
 
-    protected class SFTransform {
+    protected static class SFTransform {
 
         protected Transforms bIndex = null;
         protected boolean cc;

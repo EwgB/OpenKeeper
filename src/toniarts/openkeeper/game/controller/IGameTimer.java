@@ -23,6 +23,6 @@ package toniarts.openkeeper.game.controller;
  */
 public interface IGameTimer {
 
-    public double getGameTime();
+    double getGameTime();
 
 }

@@ -65,7 +65,7 @@ public class ChatHostedService extends AbstractHostedConnectionService {
 
     private RmiHostedService rmiService;
 
-    private List<ChatSessionImpl> players = new CopyOnWriteArrayList<>();
+    private final List<ChatSessionImpl> players = new CopyOnWriteArrayList<>();
 
     /**
      * Creates a new chat service that will use the specified channel for
@@ -166,9 +166,9 @@ public class ChatHostedService extends AbstractHostedConnectionService {
      */
     private class ChatSessionImpl implements ChatSession, ChatSessionListener {
 
-        private HostedConnection conn;
+        private final HostedConnection conn;
         private ChatSessionListener callback;
-        private String name;
+        private final String name;
 
         public ChatSessionImpl(HostedConnection conn, String name) {
             this.conn = conn;

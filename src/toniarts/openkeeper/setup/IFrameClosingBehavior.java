@@ -22,5 +22,5 @@ package toniarts.openkeeper.setup;
  */
 public interface IFrameClosingBehavior {
 
-    public boolean canCloseWindow();
+    boolean canCloseWindow();
 }

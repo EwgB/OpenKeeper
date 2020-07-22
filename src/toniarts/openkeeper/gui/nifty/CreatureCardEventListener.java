@@ -30,16 +30,16 @@ public interface CreatureCardEventListener {
      * User requested to zoom to a creature
      *
      * @param creatureId the creature ID
-     * @param uiState UI state, a.k.a. filter that was selected
+     * @param uiState    UI state, a.k.a. filter that was selected
      */
-    public void zoomTo(short creatureId, CreatureUIState uiState);
+    void zoomTo(short creatureId, CreatureUIState uiState);
 
     /**
      * User requested to pick up a creature
      *
      * @param creatureId the creature ID
-     * @param uiState UI state, a.k.a. filter that was selected
+     * @param uiState    UI state, a.k.a. filter that was selected
      */
-    public void pickUp(short creatureId, CreatureUIState uiState);
+    void pickUp(short creatureId, CreatureUIState uiState);
 
 }

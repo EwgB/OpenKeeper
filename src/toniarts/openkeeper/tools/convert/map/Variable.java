@@ -36,7 +36,7 @@ public class Variable {
         OBJECT(2),
         KEEPER_SPELL(3);
 
-        private SacrificeType(int id) {
+        SacrificeType(int id) {
             this.id = id;
         }
 
@@ -60,7 +60,7 @@ public class Variable {
         CREATURES_ANGRY(8), // TODO: not tested
         EASTER_EGG(9); // TODO: not tested
 
-        private SacrificeRewardType(int id) {
+        SacrificeRewardType(int id) {
             this.id = id;
         }
 
@@ -130,7 +130,7 @@ public class Variable {
             SPELL(5),
             CREATURE(2);
 
-            private AvailabilityType(int id) {
+            AvailabilityType(int id) {
                 this.id = id;
             }
 
@@ -148,7 +148,7 @@ public class Variable {
             AVAILABLE(3),
             UNAVAILABLE_ROOM(4);
 
-            private AvailabilityValue(int id) {
+            AvailabilityValue(int id) {
                 this.id = id;
             }
 
@@ -240,7 +240,7 @@ public class Variable {
             DISTANCE_CAN_HEAR_TILES(30),
             MELEE_RECHARGE_TIME_SECONDS(31);  // +
 
-            private StatType(int id) {
+            StatType(int id) {
                 this.id = id;
             }
 
@@ -524,7 +524,7 @@ public class Variable {
             UNKNOWN_62(62), // value=-377003726, unknown_1=1420541952, unknown_2=0}
             UNKNOWN_63(63); // value=305498471, unknown_1=-878624768, unknown_2=0}
 
-            private MiscType(int id) {
+            MiscType(int id) {
                 this.id = id;
             }
 

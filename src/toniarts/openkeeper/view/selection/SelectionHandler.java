@@ -28,7 +28,7 @@ public abstract class SelectionHandler {
 
         BLUE(ColorRGBA.Blue.mult(5)), RED(ColorRGBA.Red.mult(5));
 
-        private ColorIndicator(ColorRGBA color) {
+        ColorIndicator(ColorRGBA color) {
             this.color = color;
         }
 

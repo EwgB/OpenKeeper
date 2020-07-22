@@ -27,5 +27,5 @@ import com.jme3.scene.Spatial;
 @Deprecated
 public interface ILoader<T> {
 
-    public Spatial load(AssetManager assetManager, T object);
+    Spatial load(AssetManager assetManager, T object);
 }

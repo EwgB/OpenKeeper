@@ -277,9 +277,7 @@ public class ObjectsController implements IObjectsController {
         if (chickenAi == null) {
             throw new RuntimeException("Entity " + entityId + " doesn't represent a chicken!");
         }
-        IChickenController chickenController = chickenControllersByEntityId.computeIfAbsent(entityId, (id) -> {
-            return new WeakReference<>(createChickenControllerInternal(id));
-        }).get();
+        IChickenController chickenController = chickenControllersByEntityId.computeIfAbsent(entityId, (id) -> new WeakReference<>(createChickenControllerInternal(id))).get();
 
         if (chickenController == null) {
             chickenController = createChickenControllerInternal(entityId);

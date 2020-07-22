@@ -19,38 +19,38 @@ package toniarts.openkeeper.game.state;
 import de.lessvoid.nifty.screen.ScreenController;
 
 /**
- *
  * @author ArchDemon
  */
 public interface IMainMenuScreenController extends ScreenController {
 
-    public final static String SOUND_BUTTON_ID = "buttonClick";
-    public final static String SOUND_MENU_ID = "menuClick";
-    public final static String SCREEN_EMPTY_ID = "empty";
-    public final static String SCREEN_START_ID = "start";
-    public final static String SCREEN_DEBRIEFING_ID = "debriefing";
-    public final static String SCREEN_OPTIONS_MAIN_ID = "optionsMain";
-    public final static String PLAYER_LIST_ID = "playersTable";
+    String SOUND_BUTTON_ID = "buttonClick";
+    String SOUND_MENU_ID = "menuClick";
+    String SCREEN_EMPTY_ID = "empty";
+    String SCREEN_START_ID = "start";
+    String SCREEN_DEBRIEFING_ID = "debriefing";
+    String SCREEN_OPTIONS_MAIN_ID = "optionsMain";
+    String PLAYER_LIST_ID = "playersTable";
 
-    public void applySoundSettings();
+    void applySoundSettings();
+
     //// screen id="multiplayerCreate"  ////
     //public void multiplayerSend()
-    public void addComputerPlayer();
+    void addComputerPlayer();
 
     //// screen id="skirmish" and id="multiplayerCreate" ////
-    public void changeAI();
+    void changeAI();
 
-    public void kickPlayer();
+    void kickPlayer();
 
-    public void setPlayerReady();
+    void setPlayerReady();
 
     //public void gameSettings();
-    public void selectRandomMap();
+    void selectRandomMap();
 
     /**
      * Start local multiplayer
      */
-    public void startSkirmish();
+    void startSkirmish();
 
     //// screen id="myPetDungeon" ////
     /**
@@ -58,48 +58,48 @@ public interface IMainMenuScreenController extends ScreenController {
      *
      * @param number the level number as a string
      */
-    public void selectMPDLevel(String number);
+    void selectMPDLevel(String number);
 
     //// screen id="skirmishMapSelect" ////
-    public void cancelMapSelection();
+    void cancelMapSelection();
 
-    public void mapSelected();
+    void mapSelected();
 
     //// screen id="multiplayerLocal" ////
-    public void connectToServer();
+    void connectToServer();
 
-    public void multiplayerCreate();
+    void multiplayerCreate();
 
-    public void multiplayerConnect();
+    void multiplayerConnect();
 
-    public void multiplayerRefresh();
+    void multiplayerRefresh();
 
     //// screen id="extras" ////
-    public void playMovie(String movieFile);
+    void playMovie(String movieFile);
 
     //// screen id="optionsGraphics"  ////
     /**
      * Save the graphics settings
      */
-    public void applyGraphicsSettings();
+    void applyGraphicsSettings();
 
     //// screen id="campaign" ////
-    public void startLevel(String type);
+    void startLevel(String type);
 
     /**
      * Cancel level selection and go back to the campaign map selection
      */
-    public void cancelLevelSelect();
+    void cancelLevelSelect();
 
     //// see CreditsControl.xml ////
     /**
      * TODO name of function set to a variable Called by the gui to restart the
      * autoscroll effect
      */
-    public void restartCredits();
+    void restartCredits();
 
     //// screen id="quitGame" ////
-    public void quitToOS();
+    void quitToOS();
 
     //// screen id="start" and ... ////
     /**
@@ -107,7 +107,7 @@ public interface IMainMenuScreenController extends ScreenController {
      *
      * @param screen the screen id as a string
      */
-    public void goToScreen(String screen);
+    void goToScreen(String screen);
 
     /**
      * Go to screen with cinematic transition
@@ -117,10 +117,10 @@ public interface IMainMenuScreenController extends ScreenController {
      * @param transitionStatic the transition for the finishing position. Not
      * all the transitions return perfectly so this is a workaround
      */
-    public void doTransition(String transition, String screen, String transitionStatic);
+    void doTransition(String transition, String screen, String transitionStatic);
 
     /**
      * Cancel multiplayer lobby
      */
-    public void cancelMultiplayer();
+    void cancelMultiplayer();
 }

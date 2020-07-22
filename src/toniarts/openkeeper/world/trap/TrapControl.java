@@ -50,7 +50,7 @@ public class TrapControl extends HighlightControl implements IInteractiveControl
 
     public enum TrapState {
 
-        NORMAL, BLUEPRINT, DESTROYED;
+        NORMAL, BLUEPRINT, DESTROYED
     }
 
     private final WorldState worldState;
@@ -59,7 +59,7 @@ public class TrapControl extends HighlightControl implements IInteractiveControl
     private final AssetManager assetManager;
     private final TileData tile;
     private TrapState state = TrapState.NORMAL;
-    private int health;
+    private final int health;
 
     public TrapControl(TileData tile, @Nonnull Trap trap, WorldState worldState, AssetManager assetManager) {
         this(tile, trap, worldState, assetManager, false);

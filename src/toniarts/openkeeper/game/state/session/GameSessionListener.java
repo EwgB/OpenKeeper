@@ -41,7 +41,7 @@ public interface GameSessionListener extends MapListener, PlayerListener {
      * @param mapData the map data
      */
     @Asynchronous
-    public void onGameDataLoaded(Collection<Keeper> players, MapData mapData);
+    void onGameDataLoaded(Collection<Keeper> players, MapData mapData);
 
     /**
      * Signal that a player is ready and loaded up
@@ -49,7 +49,7 @@ public interface GameSessionListener extends MapListener, PlayerListener {
      * @param keeperId the keeper ID of the player
      */
     @Asynchronous
-    public void onLoadComplete(short keeperId);
+    void onLoadComplete(short keeperId);
 
     /**
      * Game loading status update from a client
@@ -58,25 +58,25 @@ public interface GameSessionListener extends MapListener, PlayerListener {
      * @param keeperId the keeper ID of the player
      */
     @Asynchronous
-    public void onLoadStatusUpdate(float progress, short keeperId);
+    void onLoadStatusUpdate(float progress, short keeperId);
 
     /**
      * Client should start the visuals
      */
     @Asynchronous
-    public void onGameStarted();
+    void onGameStarted();
 
     /**
      * The game has been paused
      */
     @Asynchronous
-    public void onGamePaused();
+    void onGamePaused();
 
     /**
      * The game has been resumed
      */
     @Asynchronous
-    public void onGameResumed();
+    void onGameResumed();
 
     /**
      * The client should set widescreen mode
@@ -84,7 +84,7 @@ public interface GameSessionListener extends MapListener, PlayerListener {
      * @param enable on/off
      */
     @Asynchronous
-    public void onSetWidescreen(boolean enable);
+    void onSetWidescreen(boolean enable);
 
     /**
      * The client should play a speech
@@ -95,7 +95,7 @@ public interface GameSessionListener extends MapListener, PlayerListener {
      * @param pathId       camera path ID
      */
     @Asynchronous
-    public void onPlaySpeech(int speechId, boolean showText, boolean introduction, int pathId);
+    void onPlaySpeech(int speechId, boolean showText, boolean introduction, int pathId);
 
     /**
      * The client should do a transition
@@ -104,24 +104,24 @@ public interface GameSessionListener extends MapListener, PlayerListener {
      * @param start  the starting coordinates
      */
     @Asynchronous
-    public void onDoTransition(short pathId, Vector3f start);
+    void onDoTransition(short pathId, Vector3f start);
 
     @Asynchronous
-    public void onFlashButton(TriggerAction.MakeType buttonType, short targetId, TriggerAction.ButtonType targetButtonType, boolean enabled, int time);
+    void onFlashButton(TriggerAction.MakeType buttonType, short targetId, TriggerAction.ButtonType targetButtonType, boolean enabled, int time);
 
     @Asynchronous
-    public void onRotateViewAroundPoint(Vector3f point, boolean relative, int angle, int time);
+    void onRotateViewAroundPoint(Vector3f point, boolean relative, int angle, int time);
 
     @Asynchronous
-    public void onShowMessage(int textId);
+    void onShowMessage(int textId);
 
     @Asynchronous
-    public void onZoomViewToPoint(Vector3f point);
+    void onZoomViewToPoint(Vector3f point);
 
     @Asynchronous
-    public void onZoomViewToEntity(EntityId entityId);
+    void onZoomViewToEntity(EntityId entityId);
 
     @Asynchronous
-    public void onShowUnitFlower(EntityId entityId, int interval);
+    void onShowUnitFlower(EntityId entityId, int interval);
 
 }

@@ -28,7 +28,7 @@ public class WadFileEntry {
 
         NOT_COMPRESSED, // 0
         COMPRESSED, // 4
-        UNKNOWN;
+        UNKNOWN
     }
     private int unk1;
     private int nameOffset;

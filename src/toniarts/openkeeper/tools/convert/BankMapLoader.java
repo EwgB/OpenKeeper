@@ -56,9 +56,9 @@ public class BankMapLoader {
         //Find all the bank.map files
         final List<File> bankMapFiles = new ArrayList<>();
         File dataDir = new File(soundFolder);
-        Files.walkFileTree(dataDir.toPath(), new SimpleFileVisitor<Path>() {
+        Files.walkFileTree(dataDir.toPath(), new SimpleFileVisitor<>() {
             @Override
-            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
 
                 //Get all the SDT files
                 if (attrs.isRegularFile() && file.getFileName().toString().toLowerCase().endsWith("bank.map")) {

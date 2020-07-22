@@ -50,7 +50,7 @@ public class SystemMessageState extends AbstractPauseAwareState {
         PLAYER_EXIT("playerexit"),
         CREATURE("creature");
 
-        private MessageType(String icon) {
+        MessageType(String icon) {
             this.icon = icon;
         }
 
@@ -59,7 +59,7 @@ public class SystemMessageState extends AbstractPauseAwareState {
         }
 
         private final String icon;
-    };
+    }
 
     public SystemMessageState(Element systemMessages, boolean enabled) {
         this.systemMessagesQueue = systemMessages;
@@ -143,9 +143,7 @@ public class SystemMessageState extends AbstractPauseAwareState {
      */
     private void removeAllMessages() {
         if (systemMessagesQueue != null && systemMessagesQueue.getChildrenCount() > 0) {
-            systemMessagesQueue.getChildren().forEach((child) -> {
-                child.markForRemoval();
-            });
+            systemMessagesQueue.getChildren().forEach(Element::markForRemoval);
         }
     }
 

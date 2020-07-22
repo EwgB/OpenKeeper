@@ -159,10 +159,8 @@ public class TriggerControl extends Control {
                 value = (Integer) trigger.getUserData("value");
                 break;
             case LEVEL_CREATURES:
-                return false;
-            case LEVEL_PAY_DAY:
-                return false;
             case LEVEL_PLAYED:
+            case LEVEL_PAY_DAY:
                 return false;
             default:
                 LOGGER.log(Level.WARNING, "Target Type not supported{0}!", targetType);
@@ -205,14 +203,13 @@ public class TriggerControl extends Control {
                         getPlayerController(playerId).getCreatureControl().setTypeAvailable(kwdFile.getCreature(targetId), available);
                         break;
                     case DOOR:
+                    case TRAP:
                         break;
                     case KEEPER_SPELL:
                         getPlayerController(playerId).getSpellControl().setTypeAvailable(kwdFile.getKeeperSpellById(targetId), available);
                         break;
                     case ROOM:
                         getPlayerController(playerId).getRoomControl().setTypeAvailable(kwdFile.getRoomById(targetId), available);
-                        break;
-                    case TRAP:
                         break;
                 }
                 break;
@@ -287,9 +284,8 @@ public class TriggerControl extends Control {
                 break;
 
             case SET_CREATURE_MOODS:
-                // TODO this
-                available = trigger.getUserData("available", short.class) != 0;
-                break;
+
+            case SET_TIMER_SPEECH:
 
             case SET_SYSTEM_MESSAGES:
                 // TODO this
@@ -306,11 +302,6 @@ public class TriggerControl extends Control {
             case SET_SLAPS_LIMIT:
                 // TODO this
                 value = trigger.getUserData("value", int.class); // 0 = Off
-                break;
-
-            case SET_TIMER_SPEECH:
-                // TODO this
-                available = trigger.getUserData("available", short.class) != 0;
                 break;
 
             default:

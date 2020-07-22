@@ -23,8 +23,8 @@ package toniarts.openkeeper.game.state.session;
  */
 public interface GameSessionClientService extends GameSession {
 
-    public void addGameSessionListener(GameSessionListener l);
+    void addGameSessionListener(GameSessionListener l);
 
-    public void removeGameSessionListener(GameSessionListener l);
+    void removeGameSessionListener(GameSessionListener l);
 
 }

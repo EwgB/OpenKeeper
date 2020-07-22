@@ -97,7 +97,7 @@ public class NetworkClient implements ChatSession {
         client.send(new MessageTime(getGameTime()).setReliable(true));
     }
 
-    public void start() throws IOException {
+    public void start() {
         LOGGER.info("Network: Player starting");
         client.start();
     }

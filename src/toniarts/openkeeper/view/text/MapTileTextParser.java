@@ -30,9 +30,7 @@ public class MapTileTextParser {
     }
 
     public String parseText(String text, MapTile mapTile) {
-        return TextUtils.parseText(text, (index) -> {
-            return getReplacement(index, mapTile);
-        });
+        return TextUtils.parseText(text, (index) -> getReplacement(index, mapTile));
     }
     
     protected String getReplacement(int index, MapTile mapTile) {

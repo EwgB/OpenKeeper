@@ -37,7 +37,7 @@ public class TableRowViewConverter<T extends TableRow> implements ListBox.ListBo
         for (Object obj : item.getData()) {
 
             // Get the text element for the row
-            Element element = listBoxItem.findElementById("#col-" + String.valueOf(i));
+            Element element = listBoxItem.findElementById("#col-" + i);
             if (obj instanceof String) {
                 displayString(element, item, obj.toString());
             } else if (obj instanceof Boolean) {
@@ -53,7 +53,7 @@ public class TableRowViewConverter<T extends TableRow> implements ListBox.ListBo
         int i = 0;
 
         for (Object obj : item.getData()) {
-            Element element = listBoxItem.findElementById("#col-" + String.valueOf(i));
+            Element element = listBoxItem.findElementById("#col-" + i);
             if (obj instanceof String) {
                 TextRenderer renderer = element.getRenderer(TextRenderer.class);
                 width += renderer.getFont().getWidth(obj.toString());

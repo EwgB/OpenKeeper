@@ -29,34 +29,34 @@ public interface LobbyService {
     /**
      * Set the map
      *
-     * @param mapName the name of the map
+     * @param mapName    the name of the map
      * @param maxPlayers the maximum amount of players on this map
      */
-    public void setMap(String mapName, int maxPlayers);
+    void setMap(String mapName, int maxPlayers);
 
     /**
      * Add a computer player to the game
      */
-    public void addPlayer();
+    void addPlayer();
 
     /**
      * Remove an AI player from the game, or kick an human player out
      *
      * @param keeper the player to remove
      */
-    public void removePlayer(ClientInfo keeper);
+    void removePlayer(ClientInfo keeper);
 
     /**
      * Change an AI player type
      *
      * @param keeper the player to change
-     * @param type the new AI type
+     * @param type   the new AI type
      */
-    public void changeAIType(ClientInfo keeper, AI.AIType type);
+    void changeAIType(ClientInfo keeper, AI.AIType type);
 
     /**
      * Signals that the game should start
      */
-    public void startGame();
+    void startGame();
 
 }

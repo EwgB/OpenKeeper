@@ -30,7 +30,7 @@ public interface IInteractiveControl {
     /**
      * Signifies a state or result for dropping the item
      */
-    public enum DroppableStatus {
+    enum DroppableStatus {
 
         DROPPABLE,
         NOT_DROPPABLE,
@@ -46,7 +46,7 @@ public interface IInteractiveControl {
      * @param playerId the player who tries to pick the control up
      * @return {@code true} if the player can pick the control up
      */
-    public boolean isPickable(short playerId);
+    boolean isPickable(short playerId);
 
     /**
      * Is the control interactable by the keeper
@@ -54,7 +54,7 @@ public interface IInteractiveControl {
      * @param playerId the player who tries to interact with the control
      * @return {@code true} if the player can interact with the control
      */
-    public boolean isInteractable(short playerId);
+    boolean isInteractable(short playerId);
 
     /**
      * The control has been picked up
@@ -62,28 +62,28 @@ public interface IInteractiveControl {
      * @param playerId the player who picks up the control
      * @return self, for chaining
      */
-    public IInteractiveControl pickUp(short playerId);
+    IInteractiveControl pickUp(short playerId);
 
     /**
      * Get the result of dropping the control on a tile. A result what would
      * happen if...
      *
-     * @param tile the tile to be tested against
+     * @param tile     the tile to be tested against
      * @param playerId the player who wants to drop
      * @return the result if the control were to be dropped here
      */
-    public DroppableStatus getDroppableStatus(TileData tile, short playerId);
+    DroppableStatus getDroppableStatus(TileData tile, short playerId);
 
     /**
      * Drop the control on the tile
      *
-     * @param tile tile to drop to
+     * @param tile        tile to drop to
      * @param coordinates real world coordinates inside
-     * @param control if there is already an
-     * {@link toniarts.openkeeper.world.control.IInteractiveControl} at the
-     * position
+     * @param control     if there is already an
+     *                    {@link toniarts.openkeeper.world.control.IInteractiveControl} at the
+     *                    position
      */
-    public void drop(TileData tile, Vector2f coordinates, IInteractiveControl control);
+    void drop(TileData tile, Vector2f coordinates, IInteractiveControl control);
 
     /**
      * Interact with the control. Typically alternative mouse button pressed
@@ -92,12 +92,12 @@ public interface IInteractiveControl {
      * @return the interaction result, {@code true} if the interaction was
      * successful
      */
-    public boolean interact(short playerId);
+    boolean interact(short playerId);
 
     /**
      * Get the owner ID of the interactable thing
      *
      * @return the player ID who owns this
      */
-    public short getOwnerId();
+    short getOwnerId();
 }

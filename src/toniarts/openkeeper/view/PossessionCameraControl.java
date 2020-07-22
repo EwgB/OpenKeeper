@@ -26,15 +26,15 @@ import com.jme3.scene.Spatial;
 import com.jme3.scene.control.AbstractControl;
 
 /**
- *
  * @author ArchDemon
  */
 public abstract class PossessionCameraControl extends AbstractControl {
 
-    public static enum Direction {
+    public enum Direction {
 
         ENTRANCE, EXIT
-    };
+    }
+
     private static final float SPEED = 0.5f;
 
     private final Camera camera;

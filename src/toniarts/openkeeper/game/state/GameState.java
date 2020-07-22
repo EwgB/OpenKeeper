@@ -74,7 +74,7 @@ public class GameState extends AbstractPauseAwareState implements IGameLogicUpda
     private final toniarts.openkeeper.game.data.Level levelObject;
 
     private GameLogicManager gameLogicThread;
-    private TriggerControl triggerControl = null;
+    private final TriggerControl triggerControl = null;
     private CreatureTriggerLogicController creatureTriggerState;
     private ObjectTriggerLogicController objectTriggerState;
     private DoorTriggerLogicController doorTriggerState;
@@ -212,13 +212,7 @@ public class GameState extends AbstractPauseAwareState implements IGameLogicUpda
 
                     // Game logic thread & movement
                     exec = new PauseableScheduledThreadPoolExecutor(2, true);
-                    exec.setThreadFactory(new ThreadFactory() {
-
-                        @Override
-                        public Thread newThread(Runnable r) {
-                            return new Thread(r, "GameLogicAndMovementThread");
-                        }
-                    });
+                    exec.setThreadFactory(r -> new Thread(r, "GameLogicAndMovementThread"));
 //                    gameLogicThread = new GameLogicThread(GameState.this.app,
 //                            worldState, 1.0f / kwdFile.getGameLevel().getTicksPerSec(),
 //                            GameState.this, new CreatureLogicState(worldState.getThingLoader()),
@@ -284,20 +278,17 @@ public class GameState extends AbstractPauseAwareState implements IGameLogicUpda
 
             private void setAvailability(Keeper player, Variable.Availability availability) {
                 switch (availability.getType()) {
-                    case CREATURE: {
+                    case CREATURE:
+                    case ROOM: {
 //                        player.getCreatureControl().setTypeAvailable(kwdFile.getCreature((short) availability.getTypeId()), availability.getValue() == Variable.Availability.AvailabilityValue.ENABLE);
                         break;
-                    }
-                    case ROOM: {
-//                        player.getRoomControl().setTypeAvailable(kwdFile.getRoomById((short) availability.getTypeId()), availability.getValue() == Variable.Availability.AvailabilityValue.ENABLE);
-                        break;
-                    }
+                    }//                        player.getRoomControl().setTypeAvailable(kwdFile.getRoomById((short) availability.getTypeId()), availability.getValue() == Variable.Availability.AvailabilityValue.ENABLE);
                     case SPELL: {
                         //                       if (availability.getValue() == Variable.Availability.AvailabilityValue.ENABLE) {
 
-                            // Enable the spell, no need to research it
+                        // Enable the spell, no need to research it
 //                            player.getSpellControl().setSpellDiscovered(kwdFile.getKeeperSpellById(availability.getTypeId()), true);
- //                       } else {
+                        //                       } else {
 //                            player.getSpellControl().setTypeAvailable(kwdFile.getKeeperSpellById(availability.getTypeId()), false);
  //                       }
                     }

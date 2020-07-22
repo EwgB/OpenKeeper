@@ -219,9 +219,7 @@ public class GameHostedService extends AbstractHostedConnectionService implement
 
         // Hmm, for now this, update the entities
         entityUpdater = Executors.newSingleThreadScheduledExecutor((Runnable r) -> new Thread(r, "EntityDataUpdater"));
-        entityUpdater.scheduleAtFixedRate(() -> {
-            getServiceManager().getService(EntityDataHostedService.class).sendUpdates();
-        }, 0, GameLoop.INTERVAL_FPS_60, TimeUnit.NANOSECONDS);
+        entityUpdater.scheduleAtFixedRate(() -> getServiceManager().getService(EntityDataHostedService.class).sendUpdates(), 0, GameLoop.INTERVAL_FPS_60, TimeUnit.NANOSECONDS);
     }
 
     @Override

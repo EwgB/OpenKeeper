@@ -32,7 +32,7 @@ public class CameraSweepDataLoader implements AssetLoader {
     public static final String FILE_EXTENSION = "csd";
 
     @Override
-    public Object load(AssetInfo assetInfo) throws IOException {
+    public Object load(AssetInfo assetInfo) {
         BinaryImporter importer = BinaryImporter.getInstance();
         return importer.load(assetInfo);
     }

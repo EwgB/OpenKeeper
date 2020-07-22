@@ -86,7 +86,7 @@ public class ModelViewer extends SimpleApplication {
 
         private final String name;
 
-        private Types(String name) {
+        Types(String name) {
             this.name = name;
         }
 
@@ -122,23 +122,20 @@ public class ModelViewer extends SimpleApplication {
 
     private EffectManagerState effectManagerState;
 
-    private final ActionListener actionListener = new ActionListener() {
-        @Override
-        public void onAction(String name, boolean pressed, float tpf) {
+    private final ActionListener actionListener = (name, pressed, tpf) -> {
 
-            // Toggle wireframe
-            if (KEY_MAPPING_TOGGLE_WIREFRAME.equals(name) && !pressed) {
-                wireframe = !wireframe;
-                toggleWireframe();
-            } // Toggle rotation
-            else if (KEY_MAPPING_TOGGLE_ROTATION.equals(name) && !pressed) {
-                rotate = !rotate;
-                toggleRotate();
-            } // Normals
-            else if (KEY_MAPPING_SHOW_NORMALS.equals(name) && !pressed) {
-                showNormals = !showNormals;
-                toggleShowNormals();
-            }
+        // Toggle wireframe
+        if (KEY_MAPPING_TOGGLE_WIREFRAME.equals(name) && !pressed) {
+            wireframe = !wireframe;
+            toggleWireframe();
+        } // Toggle rotation
+        else if (KEY_MAPPING_TOGGLE_ROTATION.equals(name) && !pressed) {
+            rotate = !rotate;
+            toggleRotate();
+        } // Normals
+        else if (KEY_MAPPING_SHOW_NORMALS.equals(name) && !pressed) {
+            showNormals = !showNormals;
+            toggleShowNormals();
         }
     };
 
@@ -305,12 +302,9 @@ public class ModelViewer extends SimpleApplication {
     private void toggleWireframe() {
         Spatial spat = rootNode.getChild(ModelViewer.NODE_NAME);
         if (spat != null) {
-            spat.depthFirstTraversal(new SceneGraphVisitor() {
-                @Override
-                public void visit(Spatial spatial) {
-                    if (spatial instanceof Geometry) {
-                        ((Geometry) spatial).getMaterial().getAdditionalRenderState().setWireframe(wireframe);
-                    }
+            spat.depthFirstTraversal(spatial -> {
+                if (spatial instanceof Geometry) {
+                    ((Geometry) spatial).getMaterial().getAdditionalRenderState().setWireframe(wireframe);
                 }
             });
         }
@@ -340,19 +334,16 @@ public class ModelViewer extends SimpleApplication {
                 // Generate
                 final Node nodeNormals = new Node(ModelViewer.NODE_NAME_NORMALS);
 
-                spat.depthFirstTraversal(new SceneGraphVisitor() {
-                    @Override
-                    public void visit(Spatial spatial) {
-                        if (spatial instanceof Geometry) {
-                            Geometry g = (Geometry) spatial;
-                            Mesh normalMesh = TangentBinormalGenerator.genNormalLines(g.getMesh(), 0.1f);
-                            Geometry normalGeometry = new Geometry(g.getName() + "Normal", normalMesh);
-                            Material mat = new Material(assetManager,
-                                    "Common/MatDefs/Misc/Unshaded.j3md");
-                            mat.setColor("Color", ColorRGBA.Red);
-                            normalGeometry.setMaterial(mat);
-                            nodeNormals.attachChild(normalGeometry);
-                        }
+                spat.depthFirstTraversal(spatial -> {
+                    if (spatial instanceof Geometry) {
+                        Geometry g = (Geometry) spatial;
+                        Mesh normalMesh = TangentBinormalGenerator.genNormalLines(g.getMesh(), 0.1f);
+                        Geometry normalGeometry = new Geometry(g.getName() + "Normal", normalMesh);
+                        Material mat = new Material(assetManager,
+                                "Common/MatDefs/Misc/Unshaded.j3md");
+                        mat.setColor("Color", ColorRGBA.Red);
+                        normalGeometry.setMaterial(mat);
+                        nodeNormals.attachChild(normalGeometry);
                     }
                 });
                 nodeNormals.setCullHint(Spatial.CullHint.Never);
@@ -530,15 +521,12 @@ public class ModelViewer extends SimpleApplication {
         toggleShowNormals();
 
         // Animate!
-        spat.depthFirstTraversal(new SceneGraphVisitor() {
-            @Override
-            public void visit(Spatial spatial) {
-                AnimControl animControl = (AnimControl) spatial.getControl(AnimControl.class);
-                if (animControl != null) {
-                    AnimChannel channel = animControl.createChannel();
-                    channel.setAnim("anim");
-                    AnimationLoader.setLoopModeOnChannel(spatial, channel);
-                }
+        spat.depthFirstTraversal((SceneGraphVisitor) spatial -> {
+            AnimControl animControl = (AnimControl) spatial.getControl(AnimControl.class);
+            if (animControl != null) {
+                AnimChannel channel = animControl.createChannel();
+                channel.setAnim("anim");
+                AnimationLoader.setLoopModeOnChannel(spatial, channel);
             }
         });
     }
@@ -563,12 +551,7 @@ public class ModelViewer extends SimpleApplication {
             //Find all the models
             object = new ArrayList<>();
             File f = new File(directory);
-            File[] files = f.listFiles(new FilenameFilter() {
-                @Override
-                public boolean accept(File dir, String name) {
-                    return name.toLowerCase().endsWith(".".concat(extension));
-                }
-            });
+            File[] files = f.listFiles((dir, name) -> name.toLowerCase().endsWith(".".concat(extension)));
             Path path = new File(rootDirectory).toPath();
             for (File file : files) {
                 String key = file.getName();

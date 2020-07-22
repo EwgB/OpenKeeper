@@ -57,7 +57,7 @@ public class Trap implements Comparable<Trap>, ISoundable, IIndexable {
 
         private final long flagValue;
 
-        private TrapFlag(long flagValue) {
+        TrapFlag(long flagValue) {
             this.flagValue = flagValue;
         }
 
@@ -65,7 +65,7 @@ public class Trap implements Comparable<Trap>, ISoundable, IIndexable {
         public long getFlagValue() {
             return flagValue;
         }
-    };
+    }
 
     public enum TriggerType implements IValueEnum {
 
@@ -74,7 +74,7 @@ public class Trap implements Comparable<Trap>, ISoundable, IIndexable {
         PRESSURE(2),
         TRIGGER(3);
 
-        private TriggerType(int id) {
+        TriggerType(int id) {
             this.id = id;
         }
 
@@ -113,7 +113,7 @@ public class Trap implements Comparable<Trap>, ISoundable, IIndexable {
     private int strengthStringId;
     private int weaknessStringId;
     private int manaUsage; // Short
-    private short unknown4[]; // 246,255; 0,0
+    private short[] unknown4; // 246,255; 0,0
     private int tooltipStringId;
     private int nameStringId;
     private short shotsWhenArmed;

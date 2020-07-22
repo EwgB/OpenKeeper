@@ -35,7 +35,7 @@ public interface MapListener {
      * @param updatedTiles the tiles that changed
      */
     @Asynchronous
-    public void onTilesChange(List<MapTile> updatedTiles);
+    void onTilesChange(List<MapTile> updatedTiles);
 
     /**
      * Map tile should flash
@@ -45,6 +45,6 @@ public interface MapListener {
      * @param keeperId the keeper ID to who these tiles should flash to
      */
     @Asynchronous
-    public void onTileFlash(List<Point> points, boolean enabled, short keeperId);
+    void onTileFlash(List<Point> points, boolean enabled, short keeperId);
 
 }

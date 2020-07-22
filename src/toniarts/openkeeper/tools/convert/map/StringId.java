@@ -24,12 +24,12 @@ package toniarts.openkeeper.tools.convert.map;
  */
 public class StringId {
 
-//    struct StringIds {
+    //    struct StringIds {
 //      uint32_t ids[5];
 //      uint8_t x14[4];
 //     };
-    private final int ids[];
-    private final short x14[];
+    private final int[] ids;
+    private final short[] x14;
 
     public StringId(int[] ids, short[] x14) {
         this.ids = ids;

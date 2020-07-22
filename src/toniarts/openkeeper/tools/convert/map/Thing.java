@@ -60,7 +60,7 @@ public abstract class Thing {
 
             private final long flagValue;
 
-            private ActionPointFlag(long flagValue) {
+            ActionPointFlag(long flagValue) {
                 this.flagValue = flagValue;
             }
 
@@ -68,17 +68,18 @@ public abstract class Thing {
             public long getFlagValue() {
                 return flagValue;
             }
-        };
-        private int startX; // 0-based coordinate
-        private int startY; // 0-based coordinate
-        private int endX; // 0-based coordinate
-        private int endY; // 0-based coordinate
-        private int waitDelay;
-        private EnumSet<ActionPointFlag> flags;
-        private int triggerId;
-        private short id; // 16
-        private short nextWaypointId; // Is always another ActionPoint?
-        private String name; // 18 <- Always just shit
+        }
+
+    private int startX; // 0-based coordinate
+    private int startY; // 0-based coordinate
+    private int endX; // 0-based coordinate
+    private int endY; // 0-based coordinate
+    private int waitDelay;
+    private EnumSet<ActionPointFlag> flags;
+    private int triggerId;
+    private short id; // 16
+    private short nextWaypointId; // Is always another ActionPoint?
+    private String name; // 18 <- Always just shit
 
         public int getStartX() {
             return startX;
@@ -215,7 +216,7 @@ public abstract class Thing {
             START_AS_DYING(0x080);
             private final long flagValue;
 
-            private CreatureFlag(long flagValue) {
+            CreatureFlag(long flagValue) {
                 this.flagValue = flagValue;
             }
 
@@ -223,7 +224,7 @@ public abstract class Thing {
             public long getFlagValue() {
                 return flagValue;
             }
-        };
+        }
 
         /**
          * Creature flags
@@ -236,7 +237,7 @@ public abstract class Thing {
             I_AM_A_MERCENARY(0x008);
             private final long flagValue;
 
-            private CreatureFlag2(long flagValue) {
+            CreatureFlag2(long flagValue) {
                 this.flagValue = flagValue;
             }
 
@@ -244,7 +245,8 @@ public abstract class Thing {
             public long getFlagValue() {
                 return flagValue;
             }
-        };
+        }
+
         private int posX; // 0-based coordinate
         private int posY; // 0-based coordinate
         private int posZ; // ???
@@ -375,7 +377,7 @@ public abstract class Thing {
             HERO_GATE_3X1(37),
             HERO_PORTAL(40);
 
-            private RoomType(int id) {
+            RoomType(int id) {
                 this.id = id;
             }
 
@@ -393,7 +395,7 @@ public abstract class Thing {
             SOUTH(4),
             WEST(6);
 
-            private Direction(int id) {
+            Direction(int id) {
                 this.id = id;
             }
 
@@ -495,7 +497,7 @@ public abstract class Thing {
     public static class Camera extends Thing {
 
         public static int ID_POSSESION = 2;
-        public static int ID_GAME = 3;
+        public static final int ID_GAME = 3;
 
         public enum CameraFlag implements IFlagEnum {
 
@@ -508,7 +510,7 @@ public abstract class Thing {
             DISABLE_MOVE(0x40), // fixed Position
             DISABLE_CHANGE(0x80); // Never used. camera not enter and leave possession.
 
-            private CameraFlag(long flagValue) {
+            CameraFlag(long flagValue) {
                 this.flagValue = flagValue;
             }
 
@@ -518,7 +520,7 @@ public abstract class Thing {
             }
 
             private final long flagValue;
-        };
+        }
 
         private Vector3f position;
         private Vector3f positionMinClipExtent;
@@ -731,7 +733,7 @@ public abstract class Thing {
             SEND_TO_ACTION_POINT(23),
             JAIL_BREAK(27);
 
-            private Objective(int id) {
+            Objective(int id) {
                 this.id = id;
             }
 
@@ -847,20 +849,21 @@ public abstract class Thing {
 //            uint8_t x1e;
 //            uint8_t x1f;
 //            };
-        /**
-         * Represents the party members
-         */
-        public class HeroPartyData implements ITriggerable {
 
-            private int x00;
-            private int x04;
-            private int x08;
-            private int goldHeld;
-            private short level; // level
-            private short x0f;
-            private int objectiveTargetActionPointId;
-            private int initialHealth;
-            private int triggerId; // trigger root
+    /**
+     * Represents the party members
+     */
+    public static class HeroPartyData implements ITriggerable {
+
+        private int x00;
+        private int x04;
+        private int x08;
+        private int goldHeld;
+        private short level; // level
+        private short x0f;
+        private int objectiveTargetActionPointId;
+        private int initialHealth;
+        private int triggerId; // trigger root
             private short objectiveTargetPlayerId;
             private Objective objective;
             private short creatureId;
@@ -1013,8 +1016,8 @@ public abstract class Thing {
         private int x12;
         private List<Integer> effectIds; // 4
         private short frequency;
-        private short id;
-        private short pad[];
+    private short id;
+    private short[] pad;
 
         public int getPosX() {
             return posX;
@@ -1168,7 +1171,7 @@ public abstract class Thing {
             LOCKED(1),
             BLUEPRINT(2);
 
-            private DoorFlag(int id) {
+            DoorFlag(int id) {
                 this.id = id;
             }
 
@@ -1185,7 +1188,7 @@ public abstract class Thing {
         private short doorId;
         private short playerId;
         private DoorFlag flag;
-        private short unknown2[];  // 3
+        private short[] unknown2;  // 3
 
         public int getPosX() {
             return posX;
@@ -1257,7 +1260,7 @@ public abstract class Thing {
 
         private int posX; // 0-based coordinate
         private int posY; // 0-based coordinate
-        private short unknown1[]; // 4
+        private short[] unknown1; // 4
         private int keeperSpellId; // Data 1
         private int moneyAmount; // Data 2
         private int triggerId;
@@ -1413,7 +1416,7 @@ public abstract class Thing {
         private int triggerId;
         private short objectiveTargetPlayerId; // target objective
         private HeroParty.Objective objective;
-        private short unknown1[];
+        private short[] unknown1;
         private EnumSet<Thing.Creature.CreatureFlag2> flags2;
 
         public short getLevel() {
@@ -1477,7 +1480,7 @@ public abstract class Thing {
             return unknown1;
         }
 
-        protected void setUnknown1(short unknown1[]) {
+        protected void setUnknown1(short[] unknown1) {
             this.unknown1 = unknown1;
         }
 

@@ -62,7 +62,7 @@ import java.util.logging.Logger;
  */
 public class GameClientState extends AbstractPauseAwareState {
 
-    private Main app;
+    private final Main app;
 
     private AppStateManager stateManager;
 
@@ -385,9 +385,7 @@ public class GameClientState extends AbstractPauseAwareState {
 
             // FIXME: See in what thread we are
             if (playerState != null && playerState.getPlayerId() == keeperId) {
-                app.enqueue(() -> {
-                    playerState.onGoldChange(keeperId, gold);
-                });
+                app.enqueue(() -> playerState.onGoldChange(keeperId, gold));
             }
         }
 
@@ -400,9 +398,7 @@ public class GameClientState extends AbstractPauseAwareState {
 
             // FIXME: See in what thread we are
             if (playerState != null && playerState.getPlayerId() == keeperId) {
-                app.enqueue(() -> {
-                    playerState.onManaChange(keeperId, mana, manaLoss, manaGain);
-                });
+                app.enqueue(() -> playerState.onManaChange(keeperId, mana, manaLoss, manaGain));
             }
         }
 
@@ -418,16 +414,12 @@ public class GameClientState extends AbstractPauseAwareState {
 
         @Override
         public void onGamePaused() {
-            app.enqueue(() -> {
-                playerState.onPaused(true);
-            });
+            app.enqueue(() -> playerState.onPaused(true));
         }
 
         @Override
         public void onGameResumed() {
-            app.enqueue(() -> {
-                playerState.onPaused(false);
-            });
+            app.enqueue(() -> playerState.onPaused(false));
         }
 
         @Override
@@ -506,9 +498,7 @@ public class GameClientState extends AbstractPauseAwareState {
 
         @Override
         public void onEntityAdded(short keeperId, ResearchableEntity researchableEntity) {
-            setResearchableEntity(keeperId, researchableEntity, () -> {
-                    playerState.onEntityAdded(playerId, researchableEntity);
-                });
+            setResearchableEntity(keeperId, researchableEntity, () -> playerState.onEntityAdded(playerId, researchableEntity));
         }
 
         private void setResearchableEntity(short keeperId, ResearchableEntity researchableEntity, Runnable notifier) {
@@ -523,16 +513,12 @@ public class GameClientState extends AbstractPauseAwareState {
 
         @Override
         public void onEntityRemoved(short keeperId, ResearchableEntity researchableEntity) {
-            setResearchableEntity(keeperId, researchableEntity, () -> {
-                    playerState.onEntityRemoved(playerId, researchableEntity);
-                });
+            setResearchableEntity(keeperId, researchableEntity, () -> playerState.onEntityRemoved(playerId, researchableEntity));
         }
 
         @Override
         public void onResearchStatusChanged(short keeperId, ResearchableEntity researchableEntity) {
-            setResearchableEntity(keeperId, researchableEntity, () -> {
-                    playerState.onResearchStatusChanged(playerId, researchableEntity);
-                });
+            setResearchableEntity(keeperId, researchableEntity, () -> playerState.onResearchStatusChanged(playerId, researchableEntity));
         }
 
         private List<ResearchableEntity> getResearchableEntitiesList(Keeper keeper, ResearchableEntity researchableEntity) {
@@ -560,9 +546,7 @@ public class GameClientState extends AbstractPauseAwareState {
         }
 
         private <T extends ResearchableEntity> void setResearchableEntity(T researchableEntity, List<T> researchableEntities) {
-            int index = Collections.binarySearch(researchableEntities, researchableEntity, (ResearchableEntity o1, ResearchableEntity o2) -> {
-                return getResearchableEntityType(kwdFile, o1.getResearchableType(), o1.getId()).compareTo(getResearchableEntityType(kwdFile, o2.getResearchableType(), o2.getId()));
-            });
+            int index = Collections.binarySearch(researchableEntities, researchableEntity, Comparator.comparing((ResearchableEntity o) -> getResearchableEntityType(kwdFile, o.getResearchableType(), o.getId())));
             if (index < 0) {
                 researchableEntities.add(~index, researchableEntity);
             } else if (index >= 0) {

@@ -190,9 +190,7 @@ public class CustomScroll extends AbstractController {
             resizeRowElement(element);
 
             Element currentRow = getCurrentRow();
-            element.markForMove(currentRow, () -> {
-                element.setIndex(elements.indexOf(element) / rows.size());
-            });
+            element.markForMove(currentRow, () -> element.setIndex(elements.indexOf(element) / rows.size()));
             currentRowIndex++;
             if (rows.size() < currentRowIndex) {
                 currentRowIndex = 1;

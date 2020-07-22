@@ -22,5 +22,5 @@ package toniarts.openkeeper.game.data;
  */
 public interface IFpsSoundable {
 
-    public String getSoundCategoryFirstPerson();
+    String getSoundCategoryFirstPerson();
 }

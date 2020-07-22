@@ -62,7 +62,7 @@ public class GameObject implements Comparable<GameObject>, ISoundable {
         CAST_SHADOWS(0x4000000);
         private final long flagValue;
 
-        private ObjectFlag(long flagValue) {
+        ObjectFlag(long flagValue) {
             this.flagValue = flagValue;
         }
 
@@ -70,7 +70,7 @@ public class GameObject implements Comparable<GameObject>, ISoundable {
         public long getFlagValue() {
             return flagValue;
         }
-    };
+    }
 
     public enum State implements IValueEnum {
 
@@ -139,7 +139,7 @@ public class GameObject implements Comparable<GameObject>, ISoundable {
         DROP_OFF_POINT(62),
         GEM_EXIT_POINT(63);
 
-        private State(int id) {
+        State(int id) {
             this.id = id;
         }
 
@@ -195,7 +195,7 @@ public class GameObject implements Comparable<GameObject>, ISoundable {
     private float speed; // 338
     private float airFriction; // 33c
     private Material material; // 340
-    private short unknown3[];  // always 49,145,0
+    private short[] unknown3;  // always 49,145,0
     private EnumSet<ObjectFlag> flags; // 344
     private int hp; // 348
     private int maxAngle;

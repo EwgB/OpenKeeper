@@ -40,11 +40,11 @@ abstract class Output extends Initializer {
     final static int STANDARD = 0,
             LEFT_CHANNEL = 1,
             RIGHT_CHANNEL = 2;
-    private final static float STANDARD_ARRAY[] = {
-        1, 1
+    private final static float[] STANDARD_ARRAY = {
+            1, 1
     };
-    private final static float MONO_ARRAY[] = {
-        1
+    private final static float[] MONO_ARRAY = {
+            1
     };
     final static int STEREO = 0x0,
             JOINT_STEREO = 0x1,
@@ -59,20 +59,20 @@ abstract class Output extends Initializer {
     int frameCount;
     int startFrameCount;
     int framesMinusOne;
-    Frame info;
+    final Frame info;
     float[][] subbandValues;
     float[][] frameBufferValues;
     int[] pointer;
     int counter;
     private float[] frameBufferZeroValues;
     private byte[] buffer, zeroBuffer;
-    private int obuffersize;
-    private int frameBufferAnalyzerSize;
+    private final int obuffersize;
+    private final int frameBufferAnalyzerSize;
     private int readPos, size;
     private int flushCount = 0;
     private boolean frequencyMode;
     private boolean switched;
-    private boolean bigEndian;
+    private final boolean bigEndian;
 
     /**
      * Constructs an instance of
@@ -145,9 +145,9 @@ abstract class Output extends Initializer {
     private void setNumberOfOccupiedSubbands() {
         Frame i = (Frame) information;
 
-        int frequency = ((Integer) i.get(AudioInformation.I_SAMPLE_RATE)).intValue();
+        int frequency = (Integer) i.get(AudioInformation.I_SAMPLE_RATE);
 
-        int deviceFrequencyLimit = ((Integer) info.get(AudioInformation.I_DEVICE_SAMPLE_RATE)).intValue();
+        int deviceFrequencyLimit = (Integer) info.get(AudioInformation.I_DEVICE_SAMPLE_RATE);
 
         if (deviceFrequencyLimit >= frequency) {
             return;
@@ -260,7 +260,7 @@ abstract class Output extends Initializer {
      * caused from malformed media data
      */
     @Override
-    public final int read(byte b[], int i, int j) throws IOException {
+    public final int read(byte[] b, int i, int j) throws IOException {
         int diff;
         int paddingEnd = 0;
         int length = j;
@@ -358,7 +358,7 @@ abstract class Output extends Initializer {
      * caused by malformed media data
      */
     @Override
-    public final int read(byte b[]) throws IOException {
+    public final int read(byte[] b) throws IOException {
         return read(b, 0, b.length);
     }
 

@@ -37,7 +37,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
  * @author archdemon
  */
 public class SoundsLoader {
@@ -147,8 +146,7 @@ public class SoundsLoader {
     /**
      * Prints sound files in System.out. For debug only
      *
-     * @deprecated @param category
-     * @param useGlobal
+     * @deprecated
      */
     public static void temp(final String category, final boolean useGlobal) {
         List<SoundFile> result = new ArrayList<>();

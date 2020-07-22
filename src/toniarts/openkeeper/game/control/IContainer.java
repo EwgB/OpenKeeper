@@ -24,11 +24,11 @@ import com.jme3.export.Savable;
  */
 public interface IContainer extends Savable {
 
-    public void addControl(IControl control);
+    void addControl(IControl control);
 
-    public boolean removeControl(IControl control);
+    boolean removeControl(IControl control);
 
-    public IControl getControl(int index);
+    IControl getControl(int index);
 
-    public void update(float tpf);
+    void update(float tpf);
 }

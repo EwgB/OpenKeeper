@@ -25,6 +25,6 @@ import toniarts.openkeeper.game.controller.entity.IEntityController;
  */
 public interface IDoorController extends IEntityController {
 
-    public boolean isDestroyed();
+    boolean isDestroyed();
 
 }

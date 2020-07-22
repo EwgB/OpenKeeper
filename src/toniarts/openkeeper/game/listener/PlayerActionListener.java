@@ -28,9 +28,9 @@ import java.util.List;
 public interface PlayerActionListener {
 
     @Asynchronous
-    public void onBuild(short keeperId, List<MapTile> tiles);
+    void onBuild(short keeperId, List<MapTile> tiles);
 
     @Asynchronous
-    public void onSold(short keeperId, List<MapTile> tiles);
+    void onSold(short keeperId, List<MapTile> tiles);
 
 }

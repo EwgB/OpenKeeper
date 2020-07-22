@@ -74,7 +74,7 @@ public abstract class CreatureControl extends AbstractCreatureSteeringControl im
 
     public enum AnimationType {
 
-        MOVE, WORK, IDLE, ATTACK, DYING, STUNNED, OTHER;
+        MOVE, WORK, IDLE, ATTACK, DYING, STUNNED, OTHER
     }
 
     private enum Moods {
@@ -113,8 +113,8 @@ public abstract class CreatureControl extends AbstractCreatureSteeringControl im
     protected float meleeRecharge;
     private CreatureAttack executingAttack;
     private static final int MAX_CREATURE_LEVEL = 10;
-    private Moods mood = Moods.HAPPY;
-    private int efficiencyPersentage = 80;
+    private final Moods mood = Moods.HAPPY;
+    private final int efficiencyPersentage = 80;
     //
 
     protected final StateMachine<CreatureControl, CreatureState> stateMachine;
@@ -123,7 +123,7 @@ public abstract class CreatureControl extends AbstractCreatureSteeringControl im
     private CreatureState state;
     private boolean animationPlaying = false;
     private float lastAttributeUpdateTime = 0;
-    private float lastStateUpdateTime = 0;
+    private final float lastStateUpdateTime = 0;
     private float timeAwake = 0;
     private Task assignedTask;
     private AnimationType playingAnimationType = AnimationType.IDLE;
@@ -156,7 +156,7 @@ public abstract class CreatureControl extends AbstractCreatureSteeringControl im
 
     public CreatureControl(Thing.Creature creatureInstance, Creature creature, WorldState worldState, short playerId, short level) {
         super(creature);
-        stateMachine = new DefaultStateMachine<CreatureControl, CreatureState>(this) {
+        stateMachine = new DefaultStateMachine<>(this) {
 
             @Override
             public void changeState(CreatureState newState) {
@@ -440,10 +440,10 @@ public abstract class CreatureControl extends AbstractCreatureSteeringControl im
     private void playStateAnimation() {
         if (!animationPlaying) {
             if (playingAnimationType == AnimationType.STUNNED && !stateMachine.isInState(CreatureState.STUNNED)) {
-                playAnimation(creature.getAnimGetUpResource());
+                playAnimation(creature.getAnimation(Creature.AnimationType.GET_UP));
                 playingAnimationType = AnimationType.OTHER;
             } else if (steeringBehavior != null && steeringBehavior.isEnabled()) {
-                playAnimation(creature.getAnimWalkResource());
+                playAnimation(creature.getAnimation(Creature.AnimationType.WALK));
                 playingAnimationType = AnimationType.MOVE;
             } else if (stateMachine.getCurrentState() == CreatureState.WORK) {
 
@@ -455,18 +455,18 @@ public abstract class CreatureControl extends AbstractCreatureSteeringControl im
 //                    onAnimationCycleDone();
 //                }
             } else if (stateMachine.getCurrentState() == CreatureState.ENTERING_DUNGEON) {
-                playAnimation(creature.getAnimEntranceResource());
+                playAnimation(creature.getAnimation(Creature.AnimationType.ENTRANCE));
                 playingAnimationType = AnimationType.OTHER;
             } else if (stateMachine.getCurrentState() == CreatureState.FIGHT) {
                 CreatureAttack executeAttack = executingAttack;
                 if (executeAttack != null && executeAttack.isPlayAnimation()) {
                     if (executeAttack.isMelee()) {
                         List<ArtResource> meleeAttackAnimations = new ArrayList<>(2);
-                        if (creature.getAnimMelee1Resource() != null) {
-                            meleeAttackAnimations.add(creature.getAnimMelee1Resource());
+                        if (creature.getAnimation(Creature.AnimationType.MELEE_ATTACK) != null) {
+                            meleeAttackAnimations.add(creature.getAnimation(Creature.AnimationType.MELEE_ATTACK));
                         }
-                        if (creature.getAnimMelee2Resource() != null) {
-                            meleeAttackAnimations.add(creature.getAnimMelee2Resource());
+                        if (creature.getAnimation(Creature.AnimationType.SWIPE) != null) {
+                            meleeAttackAnimations.add(creature.getAnimation(Creature.AnimationType.SWIPE));
                         }
                         ArtResource attackAnim = meleeAttackAnimations.get(0);
                         if (meleeAttackAnimations.size() > 1) {
@@ -474,7 +474,7 @@ public abstract class CreatureControl extends AbstractCreatureSteeringControl im
                         }
                         playAnimation(attackAnim);
                     } else {
-                        playAnimation(creature.getAnimMagicResource());
+                        playAnimation(creature.getAnimation(Creature.AnimationType.CAST_SPELL));
                     }
                 }
                 playingAnimationType = AnimationType.ATTACK;
@@ -483,7 +483,7 @@ public abstract class CreatureControl extends AbstractCreatureSteeringControl im
 
                 //TODO: Dying direction
                 if (playingAnimationType != AnimationType.DYING) {
-                    playAnimation(creature.getAnimDieResource());
+                    playAnimation(creature.getAnimation(Creature.AnimationType.DIE));
                     playingAnimationType = AnimationType.DYING;
                     showUnitFlower(Integer.MAX_VALUE);
                 } else if (stateMachine.getCurrentState() == CreatureState.DEAD) {
@@ -495,15 +495,15 @@ public abstract class CreatureControl extends AbstractCreatureSteeringControl im
                     playingAnimationType = AnimationType.STUNNED;
                 }
             } else if (stateMachine.isInState(CreatureState.DRAGGED)) {
-                playAnimation(creature.getAnimDraggedPoseResource());
+                playAnimation(creature.getAnimation(Creature.AnimationType.DRAGGED));
                 playingAnimationType = AnimationType.OTHER;
             } else {
                 List<ArtResource> idleAnimations = new ArrayList<>(3);
-                if (creature.getAnimIdle1Resource() != null) {
-                    idleAnimations.add(creature.getAnimIdle1Resource());
+                if (creature.getAnimation(Creature.AnimationType.IDLE_1) != null) {
+                    idleAnimations.add(creature.getAnimation(Creature.AnimationType.IDLE_1));
                 }
-                if (creature.getAnimIdle2Resource() != null) {
-                    idleAnimations.add(creature.getAnimIdle2Resource());
+                if (creature.getAnimation(Creature.AnimationType.IDLE_2) != null) {
+                    idleAnimations.add(creature.getAnimation(Creature.AnimationType.IDLE_2));
                 }
                 ArtResource idleAnim = idleAnimations.get(0);
                 if (idleAnimations.size() > 1) {
@@ -831,9 +831,7 @@ public abstract class CreatureControl extends AbstractCreatureSteeringControl im
                     // See distance
                     if (getSpatial().getWorldBound().collideWith(objectControl.getSpatial().getWorldBound()) > 0) {
                         GoldObjectControl goldObjectControl = (GoldObjectControl) objectControl;
-                        worldState.getGameState().getApplication().enqueue(() -> {
-                            goldObjectControl.setGold(goldObjectControl.getGold() + goldToSet);
-                        });
+                        worldState.getGameState().getApplication().enqueue(() -> goldObjectControl.setGold(goldObjectControl.getGold() + goldToSet));
                         gold = 0;
                         return;
                     }
@@ -1067,7 +1065,7 @@ public abstract class CreatureControl extends AbstractCreatureSteeringControl im
 
             // Hmm, proximity should be the same instance? Gotten from the party?
             // FIXME creature always moves on target and can`t stop
-            Cohesion<Vector2> cohersion = new Cohesion<>(this, new InfiniteProximity<Vector2>(this, creatures));
+            Cohesion<Vector2> cohersion = new Cohesion<>(this, new InfiniteProximity<>(this, creatures));
             prioritySteering.add(cohersion);
 
             setSteeringBehavior(prioritySteering);
@@ -1178,7 +1176,7 @@ public abstract class CreatureControl extends AbstractCreatureSteeringControl im
 
     @Override
     public ArtResource getInHandMesh() {
-        return creature.getAnimInHandResource();
+        return creature.getAnimation(Creature.AnimationType.IN_HAND);
     }
 
     @Override

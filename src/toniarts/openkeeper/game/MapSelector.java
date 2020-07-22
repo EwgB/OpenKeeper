@@ -74,9 +74,9 @@ public class MapSelector {
 
         // Sort them
         Comparator c = new MapComparator();
-        Collections.sort(skirmishMaps, c);
-        Collections.sort(multiplayerMaps, c);
-        Collections.sort(mpdMaps, c);
+        skirmishMaps.sort(c);
+        multiplayerMaps.sort(c);
+        mpdMaps.sort(c);
     }
 
     public void random() {
@@ -177,7 +177,7 @@ public class MapSelector {
     /**
      * Small container class that holds the actual map data and the name
      */
-    public class GameMapContainer {
+    public static class GameMapContainer {
 
         private final KwdFile map;
         private final String mapName;

@@ -59,7 +59,7 @@ public class FiveByFiveRotated extends GenericRoom implements ICreatureEntrance 
 
     private final List<CreatureControl> attractedCreatures = new ArrayList<>();
     private Integer goldPerTile;
-    private int centreDecay = -1;
+    private final int centreDecay = -1;
     private boolean created = false;
 
     public FiveByFiveRotated(AssetManager assetManager, RoomInstance roomInstance, ObjectLoader objectLoader, WorldState worldState, EffectManagerState effectManager) {
@@ -213,18 +213,15 @@ public class FiveByFiveRotated extends GenericRoom implements ICreatureEntrance 
                     moveSpatial(tile, start, p);
 
                     // Animate
-                    tile.breadthFirstTraversal(new SceneGraphVisitor() {
-                        @Override
-                        public void visit(Spatial spatial) {
-                            AnimControl animControl = spatial.getControl(AnimControl.class);
-                            if (animControl != null) {
-                                AnimChannel channel = animControl.createChannel();
-                                channel.setAnim("anim");
-                                AnimationLoader.setLoopModeOnChannel(spatial, channel);
+                    tile.breadthFirstTraversal(spatial -> {
+                        AnimControl animControl = spatial.getControl(AnimControl.class);
+                        if (animControl != null) {
+                            AnimChannel channel = animControl.createChannel();
+                            channel.setAnim("anim");
+                            AnimationLoader.setLoopModeOnChannel(spatial, channel);
 
-                                // Don't batch animated objects, seems not to work
-                                spatial.setBatchHint(Spatial.BatchHint.Never);
-                            }
+                            // Don't batch animated objects, seems not to work
+                            spatial.setBatchHint(Spatial.BatchHint.Never);
                         }
                     });
 

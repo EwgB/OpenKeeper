@@ -38,25 +38,25 @@ public abstract class Frame extends AudioInformation /*extends FormatReader*/ {
             JOINT_STEREO = 0x1,
             DUAL_CHANNEL = 0x2,
             SINGLE_CHANNEL = 0x3;
-    final static int FREQUENCY[][] = {
-        {
-            22050, 24000, 16000, RESERVED
-        }, {
-            44100, 48000, 32000, RESERVED
-        }, {
-            11025, 12000, 8000, RESERVED
-        }
-    };
-    final static int RATE[][][] = {
-        {
+    final static int[][] FREQUENCY = {
             {
-                RESERVED, 32000, 48000, 56000, 64000, 80000, 96000, 112000, 128000, 144000, 160000, 176000, 192000, 224000, 256000, RESERVED
+                    22050, 24000, 16000, RESERVED
             }, {
-                RESERVED, 8000, 16000, 24000, 32000, 40000, 48000, 56000, 64000, 80000, 96000, 112000, 128000, 144000, 160000, RESERVED
+            44100, 48000, 32000, RESERVED
+    }, {
+            11025, 12000, 8000, RESERVED
+    }
+    };
+    final static int[][][] RATE = {
+            {
+                    {
+                            RESERVED, 32000, 48000, 56000, 64000, 80000, 96000, 112000, 128000, 144000, 160000, 176000, 192000, 224000, 256000, RESERVED
+                    }, {
+                    RESERVED, 8000, 16000, 24000, 32000, 40000, 48000, 56000, 64000, 80000, 96000, 112000, 128000, 144000, 160000, RESERVED
             }, {
-                RESERVED, 8000, 16000, 24000, 32000, 40000, 48000, 56000, 64000, 80000, 96000, 112000, 128000, 144000, 160000, RESERVED
+                    RESERVED, 8000, 16000, 24000, 32000, 40000, 48000, 56000, 64000, 80000, 96000, 112000, 128000, 144000, 160000, RESERVED
             }
-        }, {
+            }, {
             {
                 RESERVED, 32000, 64000, 96000, 128000, 160000, 192000, 224000, 256000, 288000, 320000, 352000, 384000, 416000, 448000, RESERVED
             }, {
@@ -68,17 +68,19 @@ public abstract class Frame extends AudioInformation /*extends FormatReader*/ {
             {
                 RESERVED, 32000, 48000, 56000, 64000, 80000, 96000, 112000, 128000, 144000, 160000, 176000, 192000, 224000, 256000, RESERVED
             }, {
-                RESERVED, 8000, 16000, 24000, 32000, 40000, 48000, 56000, 64000, 80000, 96000, 112000, 128000, 144000, 160000, RESERVED
-            }, {
-                RESERVED, 8000, 16000, 24000, 32000, 40000, 48000, 56000, 64000, 80000, 96000, 112000, 128000, 144000, 160000, RESERVED
-            }
-        }
+            RESERVED, 8000, 16000, 24000, 32000, 40000, 48000, 56000, 64000, 80000, 96000, 112000, 128000, 144000, 160000, RESERVED
+    }, {
+            RESERVED, 8000, 16000, 24000, 32000, 40000, 48000, 56000, 64000, 80000, 96000, 112000, 128000, 144000, 160000, RESERVED
+    }
+    }
     };
     final static int AUDIO_SYNC_PATTERN = 0xFFE00000; // MPEG 2.5 compliant
     /**
      * Global mpeg2 flags, used in mpeg audio/video/system
      */
-    public boolean audio = true, video, system;
+    public final boolean audio = true;
+    public boolean video;
+    public boolean system;
     int layer;
     int version;
     int orgVersion;
@@ -99,7 +101,7 @@ public abstract class Frame extends AudioInformation /*extends FormatReader*/ {
     boolean freeMode;
     boolean freeModeInitialized;
     int protectionBit;
-    double toc[];
+    double[] toc;
     int bitrateIndex;
     int frequencyIndex;
     int headerlessFrameSize;

@@ -62,7 +62,7 @@ public abstract class PlayerMapViewState extends AbstractAppState implements Map
     private List<TileChangeListener> tileChangeListener;
     private Map<Short, List<RoomListener>> roomListeners;
     private static final float TICK = 1.250f; // FIXME: no, settings
-    private float lastUpdate = 0;
+    private final float lastUpdate = 0;
     private final IMapInformation mapClientService;
 //    private final GameState gameState;
     private final FlashTileViewState flashTileControl;
@@ -187,9 +187,7 @@ public abstract class PlayerMapViewState extends AbstractAppState implements Map
         }
 
         // FIXME: See in what thread we are, perhaps even do everything ready, just the attaching in render thread
-        app.enqueue(() -> {
-            mapLoader.updateTiles(points);
-        });
+        app.enqueue(() -> mapLoader.updateTiles(points));
     }
 
     @Override
@@ -201,9 +199,7 @@ public abstract class PlayerMapViewState extends AbstractAppState implements Map
         }
 
         // FIXME: See in what thread we are, perhaps even do everything ready, just the attaching in render thread
-        app.enqueue(() -> {
-            mapLoader.updateTiles(updatableTiles);
-        });
+        app.enqueue(() -> mapLoader.updateTiles(updatableTiles));
     }
 
     @Override
@@ -1418,11 +1414,11 @@ public abstract class PlayerMapViewState extends AbstractAppState implements Map
 //        }
 //        return null;
 //    }
-    private enum Action {
-        BUILD, SOLD;
-    }
+private enum Action {
+    BUILD, SOLD
+}
 
-    private class TileAction {
+    private static class TileAction {
 
         private final Action action;
         private final MapTile tile;

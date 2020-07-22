@@ -28,19 +28,19 @@ import toniarts.openkeeper.game.map.MapTile;
  */
 public interface IEntityController extends Comparable<IEntityController> {
 
-    public EntityId getEntityId();
+    EntityId getEntityId();
 
-    public short getOwnerId();
+    short getOwnerId();
 
-    public Vector3f getPosition();
+    Vector3f getPosition();
 
-    public MapTile getTile();
+    MapTile getTile();
 
-    public int getHealth();
+    int getHealth();
 
-    public int getMaxHealth();
+    int getMaxHealth();
 
-    public boolean isFullHealth();
+    boolean isFullHealth();
 
     /**
      * Get percentage of health
@@ -51,7 +51,7 @@ public interface IEntityController extends Comparable<IEntityController> {
         return (int) ((getHealth() * 100.0f) / getMaxHealth());
     }
 
-    public boolean isPickedUp();
+    boolean isPickedUp();
 
     /**
      * Removes the entity from the world immediately. Entity loses all its
@@ -59,7 +59,7 @@ public interface IEntityController extends Comparable<IEntityController> {
      *
      * @see #removePossession()
      */
-    public void remove();
+    void remove();
 
     /**
      * Removes all possession from the entity, the possession is dropped back to
@@ -67,27 +67,27 @@ public interface IEntityController extends Comparable<IEntityController> {
      *
      * @see #remove()
      */
-    public void removePossession();
+    void removePossession();
 
     /**
      * Is the entity removed from the world (destroyed, dead...)
      *
      * @return true if the entity does not exist anymore
      */
-    public boolean isRemoved();
+    boolean isRemoved();
 
     /**
      * Assigns the given creature haul us
      *
      * @param creature the creature hauling us
      */
-    public void setHaulable(ICreatureController creature);
+    void setHaulable(ICreatureController creature);
 
     /**
      * Is the entity being dragged, or hauled
      *
      * @return true is hauled
      */
-    public boolean isDragged();
+    boolean isDragged();
 
 }

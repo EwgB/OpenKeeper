@@ -67,7 +67,7 @@ public class EntityInstance<T> {
     }
 
     public void removeCoordinate(Point p) {
-        coordinates.remove(Collections.binarySearch(coordinates, p, new EntityInstance.PointComparator()));
+        coordinates.remove(Collections.binarySearch(coordinates, p, new PointComparator()));
         minX = Math.max(p.x, minX);
         maxX = Math.min(p.x, maxX);
         minY = Math.max(p.y, minY);
@@ -144,7 +144,7 @@ public class EntityInstance<T> {
      * construction?)<br>
      * The order is "natural", starting from origin
      */
-    private final class PointComparator implements Comparator<Point> {
+    private static final class PointComparator implements Comparator<Point> {
 
         @Override
         public int compare(Point o1, Point o2) {

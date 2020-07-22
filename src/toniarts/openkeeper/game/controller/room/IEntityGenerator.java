@@ -32,14 +32,14 @@ public interface IEntityGenerator extends IRoomController {
      *
      * @return the coordinate
      */
-    public Point getEntranceCoordinate();
+    Point getEntranceCoordinate();
 
     /**
      * Get time when the last entity was spawn from this room
      *
      * @return last entity spawn time, in game time
      */
-    public double getLastSpawnTime();
+    double getLastSpawnTime();
 
     /**
      * Notifies that an entity was spawn from this room
@@ -47,6 +47,6 @@ public interface IEntityGenerator extends IRoomController {
      * @param time     the time the entity was spawn
      * @param entityId spawned entity ID
      */
-    public void onSpawn(double time, EntityId entityId);
+    void onSpawn(double time, EntityId entityId);
 
 }

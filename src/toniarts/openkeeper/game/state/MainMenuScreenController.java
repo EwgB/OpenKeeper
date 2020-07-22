@@ -165,7 +165,7 @@ public class MainMenuScreenController implements IMainMenuScreenController {
         TextField port = screen.findNiftyControl("gamePort", TextField.class);
 
         state.multiplayerCreate(game.getRealText(),
-                Integer.valueOf(port.getRealText()),
+                Integer.parseInt(port.getRealText()),
                 player.getRealText());
 
         // Overlay
@@ -782,9 +782,9 @@ public class MainMenuScreenController implements IMainMenuScreenController {
         for (Settings.Setting setting : settings) {
             String keys = "";
             if (setting.getSpecialKey() != null) {
-                keys = (kNames.getName(setting.getSpecialKey()) + " + ").replace("Left ", "").replace("Right ", "");
+                keys = (KeyNames.getName(setting.getSpecialKey()) + " + ").replace("Left ", "").replace("Right ", "");
             }
-            keys += kNames.getName((int) setting.getDefaultValue()).replace("Left ", "").replace("Right ", "");
+            keys += KeyNames.getName((int) setting.getDefaultValue()).replace("Left ", "").replace("Right ", "");
             TableRow row = new TableRow(i++, String.format("${menu.%s}", setting.getTranslationKey()), keys);
             listBox.addItem(row);
         }
@@ -962,23 +962,17 @@ public class MainMenuScreenController implements IMainMenuScreenController {
 
                 @Override
                 public void playerJoined(int playerId, String playerName) {
-                    state.app.enqueue(() -> {
-                        chat.receivedChatLine(playerName + " joined...", playerId, (short) 0);
-                    });
+                    state.app.enqueue(() -> chat.receivedChatLine(playerName + " joined...", playerId, (short) 0));
                 }
 
                 @Override
                 public void newMessage(int playerId, Short keeperId, String playerName, String message) {
-                    state.app.enqueue(() -> {
-                        chat.receivedChatLine(playerName + ": " + message, playerId, (keeperId != null ? keeperId : 0));
-                    });
+                    state.app.enqueue(() -> chat.receivedChatLine(playerName + ": " + message, playerId, (keeperId != null ? keeperId : 0)));
                 }
 
                 @Override
                 public void playerLeft(int playerId, String playerName) {
-                    state.app.enqueue(() -> {
-                        chat.receivedChatLine(playerName + " left...", playerId, (short) 0);
-                    });
+                    state.app.enqueue(() -> chat.receivedChatLine(playerName + " left...", playerId, (short) 0));
                 }
             };
         }
@@ -1112,9 +1106,9 @@ public class MainMenuScreenController implements IMainMenuScreenController {
 
     public static class Cutscene {
 
-        protected String image;
-        protected String click;
-        protected String moviename;
+        protected final String image;
+        protected final String click;
+        protected final String moviename;
 
         public Cutscene(String image, String click, String moviename) {
             this.image = image;

@@ -24,6 +24,6 @@ package toniarts.openkeeper.tools.convert.conversion.graph;
  */
 public interface ITraverser<T extends Node> {
 
-    public void traverse(T startNode, ITraverserAction<T> action);
+    void traverse(T startNode, ITraverserAction<T> action);
 
 }

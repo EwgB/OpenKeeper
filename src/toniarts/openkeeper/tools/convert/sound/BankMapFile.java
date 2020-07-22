@@ -31,11 +31,11 @@ import java.io.IOException;
  */
 public class BankMapFile {
 
-    private final static int HEADER_ID[] = new int[]{
-        0xE9612C01, // dword_674048
-        0x11D231D0, // dword_67404C
-        0xA00009B4, // dword_674050
-        0x03F293C9 // dword_674054
+    private final static int[] HEADER_ID = new int[]{
+            0xE9612C01, // dword_674048
+            0x11D231D0, // dword_67404C
+            0xA00009B4, // dword_674050
+            0x03F293C9 // dword_674054
     };
     // Header
     private final int unknown1; // 0 or 1 // not used

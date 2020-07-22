@@ -28,12 +28,12 @@ public interface IControl extends Savable {
     /**
      * @param parent the spatial to be controlled. This should not be called from user code.
      */
-    public void setParent(IContainer parent);
+    void setParent(IContainer parent);
 
     /**
      * Updates the control. This should not be called from user code.
      *
      * @param tpf Time per frame.
      */
-    public void update(float tpf);
+    void update(float tpf);
 }

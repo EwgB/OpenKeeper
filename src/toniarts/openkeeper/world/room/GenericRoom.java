@@ -53,9 +53,9 @@ public abstract class GenericRoom {
 
     public enum ObjectType {
 
-        GOLD, LAIR, SPELL_BOOK, RESEARCHER, PRISONER, TORTUREE;
+        GOLD, LAIR, SPELL_BOOK, RESEARCHER, PRISONER, TORTUREE
 
-    };
+    }
 
     /**
      * How the objects are laid out, there is always a 1 tile margin from the
@@ -74,7 +74,7 @@ public abstract class GenericRoom {
         /**
          * No touching!
          */
-        ISOLATED;
+        ISOLATED
     }
 
     protected final AssetManager assetManager;
@@ -643,8 +643,8 @@ public abstract class GenericRoom {
 
     private static class RoomCount {
 
-        public String placeholder;
-        public int amount;
+        public final String placeholder;
+        public final int amount;
 
         public RoomCount(String placeholder, int amount) {
             this.placeholder = placeholder;

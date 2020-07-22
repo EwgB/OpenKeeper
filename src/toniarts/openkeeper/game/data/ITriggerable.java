@@ -21,5 +21,5 @@ package toniarts.openkeeper.game.data;
  * @author archdemon
  */
 public interface ITriggerable {
-    public int getTriggerId();
+    int getTriggerId();
 }

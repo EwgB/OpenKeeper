@@ -22,5 +22,5 @@ package toniarts.openkeeper.game.data;
  */
 public interface IIndexable {
 
-    public short getId();
+    short getId();
 }

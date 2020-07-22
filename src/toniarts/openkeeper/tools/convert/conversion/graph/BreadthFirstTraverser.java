@@ -24,10 +24,10 @@ import java.util.Set;
 /**
  * Breadth-first traversing algorithm, traverses only "down" (outgoing nodes)
  *
- * @author Toni Helenius <helenius.toni@gmail.com>
  * @param <T> The type of node
+ * @author Toni Helenius <helenius.toni@gmail.com>
  */
-public class BreadthFirstTraverser<T extends Node> implements ITraverser<T> {
+public class BreadthFirstTraverser<T extends Node<T>> implements ITraverser<T> {
 
     @Override
     public void traverse(T startNode, ITraverserAction<T> action) {
@@ -38,8 +38,7 @@ public class BreadthFirstTraverser<T extends Node> implements ITraverser<T> {
         while (!queue.isEmpty()) {
             T node = queue.poll();
             if (action.onVisitNode(node)) {
-                for (Object childNodeObj : node.getOutgoingNodes()) {
-                    T childNode = (T) childNodeObj;
+                for (T childNode : node.getOutgoingNodes()) {
                     if (!visitedNodes.contains(childNode) && isVisitChildValid(childNode)) {
                         queue.add(childNode);
                         visitedNodes.add(childNode);

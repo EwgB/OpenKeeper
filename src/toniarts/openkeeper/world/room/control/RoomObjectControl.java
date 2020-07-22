@@ -138,13 +138,7 @@ public abstract class RoomObjectControl<T extends ObjectControl, V> {
      */
     protected Collection<Point> getCoordinates() {
         List<Point> coordinates = new ArrayList<>(parent.getRoomInstance().getCoordinates());
-        Iterator<Point> iter = coordinates.iterator();
-        while (iter.hasNext()) {
-            Point p = iter.next();
-            if (!parent.isTileAccessible(null, p)) {
-                iter.remove();
-            }
-        }
+        coordinates.removeIf(p -> !parent.isTileAccessible(null, p));
         return coordinates;
     }
 

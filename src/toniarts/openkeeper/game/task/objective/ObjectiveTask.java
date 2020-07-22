@@ -89,7 +89,7 @@ public interface ObjectiveTask extends Task {
     }
 
     @Override
-    public default void executeTask(ICreatureController creature, float executionDuration) {
+    default void executeTask(ICreatureController creature, float executionDuration) {
         if (!isValid(creature)) {
 
             // Assign next task

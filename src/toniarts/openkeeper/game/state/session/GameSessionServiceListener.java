@@ -33,23 +33,23 @@ public interface GameSessionServiceListener {
     /**
      * Build a building to the wanted area
      *
-     * @param start start coordinates
-     * @param end end coordinates
-     * @param roomId room to build
+     * @param start    start coordinates
+     * @param end      end coordinates
+     * @param roomId   room to build
      * @param playerId the player who builds the room
      */
     @Asynchronous
-    public void onBuild(Vector2f start, Vector2f end, short roomId, short playerId);
+    void onBuild(Vector2f start, Vector2f end, short roomId, short playerId);
 
     /**
      * Sell building(s) from the wanted area
      *
-     * @param start start coordinates
-     * @param end end coordinates
+     * @param start    start coordinates
+     * @param end      end coordinates
      * @param playerId the player who sells the tile
      */
     @Asynchronous
-    public void onSell(Vector2f start, Vector2f end, short playerId);
+    void onSell(Vector2f start, Vector2f end, short playerId);
 
     /**
      * Set some tiles selected/undetected
@@ -60,46 +60,46 @@ public interface GameSessionServiceListener {
      * @param playerId the player who selected the tile
      */
     @Asynchronous
-    public void onSelectTiles(Vector2f start, Vector2f end, boolean select, short playerId);
+    void onSelectTiles(Vector2f start, Vector2f end, boolean select, short playerId);
 
     /**
      * Player wants to interact with an entity
      *
-     * @param entity the entity to be interacted upon
+     * @param entity   the entity to be interacted upon
      * @param playerId the player who interacts
      */
     @Asynchronous
-    public void onInteract(EntityId entity, short playerId);
+    void onInteract(EntityId entity, short playerId);
 
     /**
      * Player wants to pick up an entity
      *
-     * @param entity the entity to be picked up
+     * @param entity   the entity to be picked up
      * @param playerId the player who picks up
      */
     @Asynchronous
-    public void onPickUp(EntityId entity, short playerId);
+    void onPickUp(EntityId entity, short playerId);
 
     /**
      * Player wants to drop an entity
      *
-     * @param entity the entity to be dropped
-     * @param tile the tile 2D coordinates to drop to
-     * @param coordinates the real world coordinates on the tile
+     * @param entity       the entity to be dropped
+     * @param tile         the tile 2D coordinates to drop to
+     * @param coordinates  the real world coordinates on the tile
      * @param dropOnEntity if there is an entity to which we drop this one to
-     * @param playerId the player who drops
+     * @param playerId     the player who drops
      */
     @Asynchronous
-    public void onDrop(EntityId entity, Point tile, Vector2f coordinates, EntityId dropOnEntity, short playerId);
+    void onDrop(EntityId entity, Point tile, Vector2f coordinates, EntityId dropOnEntity, short playerId);
 
     /**
      * Player wants to make a withdrawal of funds
      *
-     * @param amount the amount requested
+     * @param amount   the amount requested
      * @param playerId who requested
      */
     @Asynchronous
-    public void onGetGold(int amount, short playerId);
+    void onGetGold(int amount, short playerId);
 
     /**
      * Player UI transition has ended
@@ -107,7 +107,7 @@ public interface GameSessionServiceListener {
      * @param playerId the player whose transition ended
      */
     @Asynchronous
-    public void onTransitionEnd(short playerId);
+    void onTransitionEnd(short playerId);
 
     /**
      * Player has requested to pause the game
@@ -115,7 +115,7 @@ public interface GameSessionServiceListener {
      * @param playerId the player who wants to pause the game
      */
     @Asynchronous
-    public void onPauseRequest(short playerId);
+    void onPauseRequest(short playerId);
 
     /**
      * Player has requested to resume the game
@@ -123,7 +123,7 @@ public interface GameSessionServiceListener {
      * @param playerId the player who wants to resume the game
      */
     @Asynchronous
-    public void onResumeRequest(short playerId);
+    void onResumeRequest(short playerId);
 
     /**
      * Player has exited the game
@@ -131,15 +131,15 @@ public interface GameSessionServiceListener {
      * @param playerId the player who quits the game
      */
     @Asynchronous
-    public void onExitGame(short playerId);
+    void onExitGame(short playerId);
 
     /**
      * Player has triggered a cheat
      *
-     * @param cheat the cheat triggered
+     * @param cheat    the cheat triggered
      * @param playerId the player who wants to cheat
      */
     @Asynchronous
-    public void onCheatTriggered(CheatState.CheatType cheat, short playerId);
+    void onCheatTriggered(CheatState.CheatType cheat, short playerId);
 
 }

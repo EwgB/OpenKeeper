@@ -40,7 +40,7 @@ public interface GameSessionService extends PlayerListener, PlayerService {
      *
      * @return the entity data
      */
-    public EntityData getEntityData();
+    EntityData getEntityData();
 
     /**
      * Sends the game data to the clients to allow them to load it up visually
@@ -48,12 +48,12 @@ public interface GameSessionService extends PlayerListener, PlayerService {
      * @param players the players
      * @param mapData the map
      */
-    public void sendGameData(Collection<Keeper> players, MapData mapData);
+    void sendGameData(Collection<Keeper> players, MapData mapData);
 
     /**
      * Signals that the game should start
      */
-    public void startGame();
+    void startGame();
 
     /**
      * Signals that map tiles have been changed
@@ -61,7 +61,7 @@ public interface GameSessionService extends PlayerListener, PlayerService {
      * @param updatedTiles the changed tiles
      */
     @Asynchronous
-    public void updateTiles(List<MapTile> updatedTiles);
+    void updateTiles(List<MapTile> updatedTiles);
 
     /**
      * Map tiles should be set flashing
@@ -71,6 +71,6 @@ public interface GameSessionService extends PlayerListener, PlayerService {
      * @param keeperId the keeper whose tiles are involved
      */
     @Asynchronous
-    public void flashTiles(List<Point> points, boolean enabled, short keeperId);
+    void flashTiles(List<Point> points, boolean enabled, short keeperId);
 
 }

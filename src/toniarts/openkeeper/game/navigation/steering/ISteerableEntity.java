@@ -26,8 +26,8 @@ import com.simsilica.es.EntityId;
  */
 public interface ISteerableEntity extends Steerable<Vector2>, Comparable<ISteerableEntity> {
 
-    public EntityId getEntityId();
+    EntityId getEntityId();
 
-    public void setAngularVelocity(float angularVelocity);
+    void setAngularVelocity(float angularVelocity);
 
 }

@@ -47,7 +47,7 @@ public final class MediaQueue {
 
     private void update(int minCapacity) {
         int oldCapacity = elementData.length;
-        Object oldData[] = elementData;
+        Object[] oldData = elementData;
         int newCapacity = oldCapacity << 1;
 
         if (newCapacity < minCapacity) {

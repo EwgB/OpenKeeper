@@ -60,7 +60,7 @@ public abstract class AssetsConverter implements IConversionTaskUpdate {
         FONTS(3, new ConvertProcess[]{}),
         MAP_THUMBNAILS(3, new ConvertProcess[]{TEXTURES});
 
-        private ConvertProcess(int version, ConvertProcess[] dependencies) {
+        ConvertProcess(int version, ConvertProcess[] dependencies) {
             this.version = version;
             this.dependencies = dependencies;
         }

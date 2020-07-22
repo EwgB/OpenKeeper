@@ -35,85 +35,85 @@ public interface Events {
      * <code>Long</code> object containing the available playtime in
      * microseconds.
      */
-    public final static int START_EVENT = AWTEvent.RESERVED_ID_MAX + 1;
+    int START_EVENT = AWTEvent.RESERVED_ID_MAX + 1;
     /**
      * Stop event ID. <br> This event is used as an
      * <code>java.awt.AWTEvent</code>. <br> In this case the event source is a
      * <code>Long</code> object containing the consumed playtime in
      * microseconds.
      */
-    public final static int STOP_EVENT = AWTEvent.RESERVED_ID_MAX + 2;
+    int STOP_EVENT = AWTEvent.RESERVED_ID_MAX + 2;
     /**
      * Resume event ID. <br> This event is used as an
      * <code>java.awt.AWTEvent</code>. <br> In this case the event source is a
      * <code>Long</code> object containing the available playtime in
      * microseconds.
      */
-    public final static int RESUME_EVENT = AWTEvent.RESERVED_ID_MAX + 3;
+    int RESUME_EVENT = AWTEvent.RESERVED_ID_MAX + 3;
     /**
      * Suspend event ID. <br> This event is used as an
      * <code>java.awt.AWTEvent</code>. <br> In this case the event source is a
      * <code>Long</code> object containing the consumed playtime in
      * microseconds.
      */
-    public final static int SUSPEND_EVENT = AWTEvent.RESERVED_ID_MAX + 4;
+    int SUSPEND_EVENT = AWTEvent.RESERVED_ID_MAX + 4;
     /**
      * End of media event ID. This event is used as an
      * <code>java.awt.AWTEvent</code>. In this case the event source is a
      * <code>Long</code> object containing the consumed playtime in
      * microseconds.
      */
-    public final static int EOM_EVENT = AWTEvent.RESERVED_ID_MAX + 5;
+    int EOM_EVENT = AWTEvent.RESERVED_ID_MAX + 5;
     /**
      * Resize event ID. <br> This event is used as an
      * <code>java.awt.AWTEvent</code>. In this case the event source is a
      * <code>java.awt.image.ImageProducer[]</code> object containing the sources
      * of an image stack needed to buffer the output of a video decoder plug-in.
      */
-    public final static int RESIZE_EVENT = AWTEvent.RESERVED_ID_MAX + 6;
+    int RESIZE_EVENT = AWTEvent.RESERVED_ID_MAX + 6;
     /**
      * Repaint event ID. <br> This event is used as an
      * <code>java.awt.AWTEvent</code>. In this case the event source is a
      * <code>Integer</code> containing the imageId of the to repainted image.
      */
-    public final static int REPAINT_EVENT = AWTEvent.RESERVED_ID_MAX + 7;
+    int REPAINT_EVENT = AWTEvent.RESERVED_ID_MAX + 7;
     /**
      * Playtime event ID. <br> This event is used as an
      * <code>java.awt.AWTEvent</code>. In this case the event source is a
      * <code>Long</code> containing the actual playtime in microseconds.
      */
-    public final static int PLAYTIME_EVENT = AWTEvent.RESERVED_ID_MAX + 8;
+    int PLAYTIME_EVENT = AWTEvent.RESERVED_ID_MAX + 8;
     /**
      * Loading event ID. <br> This event is used as an
      * <code>java.awt.AWTEvent</code>. In this case the event source is a
      * <code>Integer</code> containing the actual load level in percent.
      */
-    public final static int LOADING_EVENT = AWTEvent.RESERVED_ID_MAX + 9;
+    int LOADING_EVENT = AWTEvent.RESERVED_ID_MAX + 9;
     /**
      * Analyze event ID. <br> This event is used as an
      * <code>java.awt.AWTEvent</code>. In this case the event source is a
      * <code>float[]</code> containing the actual spectrum, time or other kind
      * of analyze data.
      */
-    public final static int ANALYZE_EVENT = AWTEvent.RESERVED_ID_MAX + 10;
+    int ANALYZE_EVENT = AWTEvent.RESERVED_ID_MAX + 10;
     /**
      * Analyze switch mode event ID. <br> This event is used as an
      * <code>java.awt.AWTEvent</code>. In this case the event source is a
      * <code>String</code> containing a keyword to determine the analyze mode.
      */
-    public final static int ANALYZE_SWITCH_MODE_EVENT = AWTEvent.RESERVED_ID_MAX + 11;
+    int ANALYZE_SWITCH_MODE_EVENT = AWTEvent.RESERVED_ID_MAX + 11;
     /**
      * Skip event ID. <br> This event is used to feedback a dropped audio or
      * video frame.
      */
-    public final static int SKIP_EVENT = AWTEvent.RESERVED_ID_MAX + 12;
+    int SKIP_EVENT = AWTEvent.RESERVED_ID_MAX + 12;
     /**
      * Error event ID. <br> This event is used to feedback a malfunction.
      */
-    public final static int ERROR_EVENT = AWTEvent.RESERVED_ID_MAX + 13;
+    int ERROR_EVENT = AWTEvent.RESERVED_ID_MAX + 13;
     /**
      * Validation event ID. <br> This event is used to feedback an validation
      * case.
      */
-    public final static int VALIDATION_EVENT = AWTEvent.RESERVED_ID_MAX + 14;
+    int VALIDATION_EVENT = AWTEvent.RESERVED_ID_MAX + 14;
 }

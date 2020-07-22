@@ -34,7 +34,7 @@ public enum Material implements IValueEnum {
     MAGIC(6),
     GLASS(7);
 
-    private Material(int id) {
+    Material(int id) {
         this.id = id;
     }
 

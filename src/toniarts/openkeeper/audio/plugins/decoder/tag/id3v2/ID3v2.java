@@ -88,7 +88,7 @@ public final class ID3v2 extends Tag {
     private int tagSize;
     private int version;
     private int skippedDataLength;
-    private MpxReader info;
+    private final MpxReader info;
 
     /**
      * Provides access to ID3v2 tag.
@@ -431,7 +431,7 @@ public final class ID3v2 extends Tag {
         if (l == bin.length) {
             return bin;
         }
-        byte bout[] = new byte[l];
+        byte[] bout = new byte[l];
 
         int readPos = 0;
 
@@ -556,8 +556,8 @@ public final class ID3v2 extends Tag {
         char[] c = s.toCharArray();
         StringBuilder sb = new StringBuilder();
 
-        for (int i = 0; i < c.length; i++) {
-            int ci = (int) c[i];
+        for (char value : c) {
+            int ci = (int) value;
             boolean isNumber = ci >= 48 && ci <= 57; // number must be >= 48 and <= 57
 
             if (!isNumber && started) {
@@ -565,7 +565,7 @@ public final class ID3v2 extends Tag {
             }
             if (isNumber) {
                 started = true;
-                sb.append(c[i]);
+                sb.append(value);
             }
         }
 

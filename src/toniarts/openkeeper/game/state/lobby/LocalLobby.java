@@ -100,7 +100,7 @@ public class LocalLobby implements LobbyService, LobbyClientService {
     @Override
     public List<ClientInfo> getPlayers() {
         List<ClientInfo> keepers = new ArrayList<>(players.values());
-        Collections.sort(keepers, (ClientInfo o1, ClientInfo o2) -> Short.compare(o1.getKeeper().getId(), o2.getKeeper().getId()));
+        keepers.sort(Comparator.comparingInt((ClientInfo o) -> o.getKeeper().getId()));
         return keepers;
     }
 

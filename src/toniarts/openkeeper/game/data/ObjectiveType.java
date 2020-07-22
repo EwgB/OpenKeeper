@@ -23,6 +23,6 @@ package toniarts.openkeeper.game.data;
  */
 public enum ObjectiveType {
 
-    KILL, IMPRISON, CONVERT;
+    KILL, IMPRISON, CONVERT
 
 }

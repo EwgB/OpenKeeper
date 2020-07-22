@@ -29,9 +29,9 @@ import java.util.List;
  */
 public class CameraSweepData implements Savable {
 
-    private List<CameraSweepDataEntry> entries;
+    private ArrayList<CameraSweepDataEntry> entries;
 
-    public CameraSweepData(List<CameraSweepDataEntry> entries) {
+    public CameraSweepData(ArrayList<CameraSweepDataEntry> entries) {
         this.entries = entries;
     }
 
@@ -53,7 +53,7 @@ public class CameraSweepData implements Savable {
     @Override
     public void write(JmeExporter ex) throws IOException {
         OutputCapsule out = ex.getCapsule(this);
-        out.writeSavableArrayList((ArrayList) entries, "entries", null);
+        out.writeSavableArrayList(entries, "entries", null);
     }
 
     @Override

@@ -99,7 +99,7 @@ public interface IPartyController extends INavigable {
     void create();
 
     @Override
-    default public Float getCost(MapTile from, MapTile to, IMapController mapController, IEntityPositionLookup entityPositionLookup) {
+    default Float getCost(MapTile from, MapTile to, IMapController mapController, IEntityPositionLookup entityPositionLookup) {
         return INavigable.super.getCost(from, to, mapController, entityPositionLookup);
     }
 

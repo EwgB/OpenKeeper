@@ -21,6 +21,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
 import java.security.AccessController;
 import java.security.PrivilegedActionException;
 import java.security.PrivilegedExceptionAction;
@@ -64,26 +65,23 @@ public class UTF8Control extends ResourceBundle.Control {
             InputStream stream = null;
             try {
                 stream = AccessController.doPrivileged(
-                        new PrivilegedExceptionAction<InputStream>() {
-                            @Override
-                            public InputStream run() throws IOException {
-                                InputStream is = null;
-                                if (reloadFlag) {
-                                    URL url = classLoader.getResource(resourceName);
-                                    if (url != null) {
-                                        URLConnection connection = url.openConnection();
-                                        if (connection != null) {
-                                    // Disable caches to get fresh data for
-                                            // reloading.
-                                            connection.setUseCaches(false);
-                                            is = connection.getInputStream();
-                                        }
+                        (PrivilegedExceptionAction<InputStream>) () -> {
+                            InputStream is = null;
+                            if (reloadFlag) {
+                                URL url = classLoader.getResource(resourceName);
+                                if (url != null) {
+                                    URLConnection connection = url.openConnection();
+                                    if (connection != null) {
+                                        // Disable caches to get fresh data for
+                                        // reloading.
+                                        connection.setUseCaches(false);
+                                        is = connection.getInputStream();
                                     }
-                                } else {
-                                    is = classLoader.getResourceAsStream(resourceName);
                                 }
-                                return is;
+                            } else {
+                                is = classLoader.getResourceAsStream(resourceName);
                             }
+                            return is;
                         });
             } catch (PrivilegedActionException e) {
                 throw (IOException) e.getException();
@@ -91,7 +89,7 @@ public class UTF8Control extends ResourceBundle.Control {
             if (stream != null) {
                 try {
                     // Only this line is changed to make it to read properties files as UTF-8.
-                    bundle = new PropertyResourceBundle(new InputStreamReader(stream, "UTF-8"));
+                    bundle = new PropertyResourceBundle(new InputStreamReader(stream, StandardCharsets.UTF_8));
                 } finally {
                     stream.close();
                 }

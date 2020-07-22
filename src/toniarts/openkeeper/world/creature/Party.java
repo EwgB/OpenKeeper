@@ -44,7 +44,7 @@ public class Party implements PathFindable {
         INVASION_PARTY(0x1),
         RANDOM_CREATURE_TYPES(0x2);
 
-        private Type(int id) {
+        Type(int id) {
             this.id = id;
         }
 
@@ -52,8 +52,10 @@ public class Party implements PathFindable {
         public int getValue() {
             return id;
         }
+
         private final int id;
-    };
+    }
+
     private final int id;
     private final int triggerId;
     private final String name;

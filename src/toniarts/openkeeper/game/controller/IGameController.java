@@ -66,10 +66,10 @@ public interface IGameController {
      */
     void endGame(short playerId, boolean win);
 
-    public INavigationService getNavigationService();
+    INavigationService getNavigationService();
 
-    public IEntityPositionLookup getEntityLookupService();
+    IEntityPositionLookup getEntityLookupService();
 
-    public IGameWorldController getGameWorldController();
+    IGameWorldController getGameWorldController();
 
 }

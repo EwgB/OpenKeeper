@@ -43,7 +43,7 @@ public class Material {
         UNKNOWN9(0x0100); // Environment mapped, invisible guys have this???
         private final long flagValue;
 
-        private MaterialFlag(long flagValue) {
+        MaterialFlag(long flagValue) {
             this.flagValue = flagValue;
         }
 
@@ -51,7 +51,8 @@ public class Material {
         public long getFlagValue() {
             return flagValue;
         }
-    };
+    }
+
     private String name;
     private List<String> textures;
     private EnumSet<MaterialFlag> flag;

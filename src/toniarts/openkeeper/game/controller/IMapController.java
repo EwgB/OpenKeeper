@@ -43,14 +43,14 @@ public interface IMapController extends IMapInformation, IGameLogicUpdatable {
      *
      * @param listener the listener
      */
-    public void addListener(MapListener listener);
+    void addListener(MapListener listener);
 
     /**
      * Stop listening to map updates
      *
      * @param listener the listener
      */
-    public void removeListener(MapListener listener);
+    void removeListener(MapListener listener);
 
     /**
      * If you want to get notified about room changes
@@ -58,7 +58,7 @@ public interface IMapController extends IMapInformation, IGameLogicUpdatable {
      * @param playerId whose room changes you want to listen
      * @param listener the listener
      */
-    public void addListener(short playerId, RoomListener listener);
+    void addListener(short playerId, RoomListener listener);
 
     /**
      * Stop listening to room updates
@@ -66,7 +66,7 @@ public interface IMapController extends IMapInformation, IGameLogicUpdatable {
      * @param playerId whose room changes you want to listen
      * @param listener the listener
      */
-    public void removeListener(short playerId, RoomListener listener);
+    void removeListener(short playerId, RoomListener listener);
 
     /**
      * Get all the room controllers. FIXME: At least with the current design,
@@ -75,7 +75,7 @@ public interface IMapController extends IMapInformation, IGameLogicUpdatable {
      *
      * @return all the room controllers
      */
-    public Collection<IRoomController> getRoomControllers();
+    Collection<IRoomController> getRoomControllers();
 
     /**
      * Get room instance by coordinates
@@ -83,7 +83,7 @@ public interface IMapController extends IMapInformation, IGameLogicUpdatable {
      * @param p the coordinates
      * @return the room instance in the coordinates
      */
-    public RoomInstance getRoomInstanceByCoordinates(Point p);
+    RoomInstance getRoomInstanceByCoordinates(Point p);
 
     /**
      * Get room controller by coordinates
@@ -91,7 +91,7 @@ public interface IMapController extends IMapInformation, IGameLogicUpdatable {
      * @param p the coordinates
      * @return the room controller in the coordinates, if any
      */
-    public IRoomController getRoomControllerByCoordinates(Point p);
+    IRoomController getRoomControllerByCoordinates(Point p);
 
     /**
      * Get a room controller by a room instance. FIXME: At least with the
@@ -101,7 +101,7 @@ public interface IMapController extends IMapInformation, IGameLogicUpdatable {
      * @param roomInstance the room instance
      * @return room controller associated with the given instance
      */
-    public IRoomController getRoomController(RoomInstance roomInstance);
+    IRoomController getRoomController(RoomInstance roomInstance);
 
     /**
      * Get all the rooms that implement a certain function i.e. serves as a
@@ -110,38 +110,38 @@ public interface IMapController extends IMapInformation, IGameLogicUpdatable {
      * controllers so that they share data
      *
      * @param objectType the object type (or function if you may)
-     * @param playerId the owner of the room
+     * @param playerId   the owner of the room
      * @return list of room controllers that match your search criteria
      */
-    public List<IRoomController> getRoomsByFunction(AbstractRoomController.ObjectType objectType, Short playerId);
+    List<IRoomController> getRoomsByFunction(AbstractRoomController.ObjectType objectType, Short playerId);
 
     /**
      * Get all the coordinates that contain rooms and their instances
      *
      * @return room coordinates
      */
-    public Map<Point, RoomInstance> getRoomCoordinates();
+    Map<Point, RoomInstance> getRoomCoordinates();
 
     /**
      * Get room controllers by the instances
      *
      * @return the room controllers by instances
      */
-    public Map<RoomInstance, IRoomController> getRoomControllersByInstances();
+    Map<RoomInstance, IRoomController> getRoomControllersByInstances();
 
     /**
      * Removes room instances
      *
      * @param instances the instances to remove
      */
-    public void removeRoomInstances(RoomInstance... instances);
+    void removeRoomInstances(RoomInstance... instances);
 
     /**
      * Update rooms in specified coordinates
      *
      * @param coordinates the coordinates
      */
-    public void updateRooms(Point[] coordinates);
+    void updateRooms(Point[] coordinates);
 
     /**
      * Damage a tile
@@ -182,19 +182,19 @@ public interface IMapController extends IMapInformation, IGameLogicUpdatable {
     /**
      * Set specified tiles flashing for certain period of time
      *
-     * @param points the points to flash
+     * @param points   the points to flash
      * @param playerId the player whose flashing will be affected
-     * @param time   the time to flash
+     * @param time     the time to flash
      */
-    public void flashTiles(List<Point> points, short playerId, int time);
+    void flashTiles(List<Point> points, short playerId, int time);
 
     /**
      * Set tile flashing off for specified tiles
      *
-     * @param points the points to unflash
+     * @param points   the points to unflash
      * @param playerId the player whose flashing will be affected
      */
-    public void unFlashTiles(List<Point> points, short playerId);
+    void unFlashTiles(List<Point> points, short playerId);
 
     /**
      * Get the same terrain adjacent (not diagonally) to the stating point(s).
@@ -208,6 +208,6 @@ public interface IMapController extends IMapInformation, IGameLogicUpdatable {
      * @return all the terrain points within the given area that match the
      * terrain in the starting coordinates
      */
-    public Set<Point> getTerrainBatches(List<Point> startingPoints, int x1, int x2, int y1, int y2);
+    Set<Point> getTerrainBatches(List<Point> startingPoints, int x1, int x2, int y1, int y2);
 
 }

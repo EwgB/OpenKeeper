@@ -233,11 +233,7 @@ public class CreaturesController implements ICreaturesController {
 
         entityData.setComponent(entity, creatureComponent);
         entityData.setComponent(entity, creatureExperience);
-        if (healthComponent != null) {
-            entityData.setComponent(entity, healthComponent);
-        } else {
-            entityData.setComponent(entity, new Death(gameTimer.getGameTime()));
-        }
+        entityData.setComponent(entity, Objects.requireNonNullElseGet(healthComponent, () -> new Death(gameTimer.getGameTime())));
         if (sensesComponent != null) {
             entityData.setComponent(entity, sensesComponent);
         }
@@ -452,9 +448,7 @@ public class CreaturesController implements ICreaturesController {
         if (creatureComponent == null) {
             throw new RuntimeException("Entity " + entityId + " doesn't represent a creature!");
         }
-        ICreatureController creatureController = creatureControllersByEntityId.computeIfAbsent(entityId, (id) -> {
-            return new WeakReference<>(createCreatureController(id, creatureComponent));
-        }).get();
+        ICreatureController creatureController = creatureControllersByEntityId.computeIfAbsent(entityId, (id) -> new WeakReference<>(createCreatureController(id, creatureComponent))).get();
 
         // Hmm, the entity IDs seem to be referenced somewhere, they outlast the controllers
         // So maybe this is all very unnecessary...

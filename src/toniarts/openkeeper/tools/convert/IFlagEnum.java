@@ -23,5 +23,5 @@ package toniarts.openkeeper.tools.convert;
  */
 public interface IFlagEnum {
 
-    public long getFlagValue();
+    long getFlagValue();
 }

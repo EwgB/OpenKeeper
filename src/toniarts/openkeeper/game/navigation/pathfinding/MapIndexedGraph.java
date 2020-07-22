@@ -74,7 +74,7 @@ public class MapIndexedGraph implements IndexedGraph<MapTile> {
 
         // The connections depend on the creature type
         Array<Connection<MapTile>> connections = new Array<>(pathFindable.canMoveDiagonally() ? 8 : 4);
-        boolean valids[] = new boolean[4];
+        boolean[] valids = new boolean[4];
 
         valids[0] = addIfValidCoordinate(tile, tile.getX(), tile.getY() - 1, connections); // North
         valids[1] = addIfValidCoordinate(tile, tile.getX() + 1, tile.getY(), connections); // East
@@ -106,7 +106,7 @@ public class MapIndexedGraph implements IndexedGraph<MapTile> {
         if (tile != null) {
             Float cost = pathFindable.getCost(startTile, tile, mapController, entityPositionLookup);
             if (cost != null) {
-                connections.add(new DefaultConnection<MapTile>(startTile, tile) {
+                connections.add(new DefaultConnection<>(startTile, tile) {
 
                     @Override
                     public float getCost() {

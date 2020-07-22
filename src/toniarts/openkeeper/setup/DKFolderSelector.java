@@ -61,26 +61,14 @@ public abstract class DKFolderSelector extends javax.swing.JFrame {
         jLabel1.setText("<html>OpenKeeper needs the original Dungeon Keeper II files in order to work. Please select the Dungeon Keeper II installation folder to continue.</html>");
 
         selectFolderButton.setText("Select Dungeon Keeper II installation folder...");
-        selectFolderButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectFolderButtonActionPerformed(evt);
-            }
-        });
+        selectFolderButton.addActionListener(this::selectFolderButtonActionPerformed);
 
         exitButton.setText("Exit");
-        exitButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitButtonActionPerformed(evt);
-            }
-        });
+        exitButton.addActionListener(this::exitButtonActionPerformed);
 
         continueButton.setText("Continue...");
         continueButton.setEnabled(false);
-        continueButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                continueButtonActionPerformed(evt);
-            }
-        });
+        continueButton.addActionListener(this::continueButtonActionPerformed);
 
         statusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/toniarts/openkeeper/setup/images/Action-ok-icon.png"))); // NOI18N
 
@@ -178,16 +166,13 @@ public abstract class DKFolderSelector extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                DKFolderSelector dialog = new DKFolderSelector() {
-                    @Override
-                    protected void continueOk(String path) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-                };
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            DKFolderSelector dialog = new DKFolderSelector() {
+                @Override
+                protected void continueOk(String path) {
+                    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                }
+            };
         });
     }
 

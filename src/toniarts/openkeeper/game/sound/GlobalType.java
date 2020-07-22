@@ -287,7 +287,7 @@ public enum GlobalType implements IIndexable {
     OPTIONS_NICEWAHBONGDIGI(828), // Global\GuiHD\nicewahbongdigi.mp2
     OPTIONS_NICEWAHBONGDIGI_2(833); // Global\GuiHD\nicewahbongdigi.mp2
 
-    private GlobalType(int value) {
+    GlobalType(int value) {
         this.value = (short) value;
     }
 

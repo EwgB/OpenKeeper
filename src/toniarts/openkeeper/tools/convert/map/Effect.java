@@ -55,7 +55,7 @@ public class Effect implements Comparable<Effect>, IEffect {
         ALWAYS_TRIGGER(0x8000);
         private final long flagValue;
 
-        private EffectFlag(long flagValue) {
+        EffectFlag(long flagValue) {
             this.flagValue = flagValue;
         }
 
@@ -63,7 +63,7 @@ public class Effect implements Comparable<Effect>, IEffect {
         public long getFlagValue() {
             return flagValue;
         }
-    };
+    }
 
     public enum GenerationType implements IValueEnum {
 
@@ -87,7 +87,7 @@ public class Effect implements Comparable<Effect>, IEffect {
         TEST_2(17),
         TEST_3(18);
 
-        private GenerationType(int id) {
+        GenerationType(int id) {
             this.id = id;
         }
 

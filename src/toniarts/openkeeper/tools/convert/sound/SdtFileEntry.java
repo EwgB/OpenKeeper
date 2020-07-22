@@ -36,7 +36,7 @@ public class SdtFileEntry {
         private final int type;
         private final String extension;
 
-        private SoundType(int type, String extension) {
+        SoundType(int type, String extension) {
             this.type = type;
             this.extension = extension;
         }

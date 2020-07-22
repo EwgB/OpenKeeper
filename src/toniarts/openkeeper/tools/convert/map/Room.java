@@ -56,7 +56,7 @@ public class Room implements Comparable<Room>, ISoundable, IIndexable {
         IS_GOOD(0x2000);
         private final long flagValue;
 
-        private RoomFlag(long flagValue) {
+        RoomFlag(long flagValue) {
             this.flagValue = flagValue;
         }
 
@@ -64,7 +64,7 @@ public class Room implements Comparable<Room>, ISoundable, IIndexable {
         public long getFlagValue() {
             return flagValue;
         }
-    };
+    }
 
     public enum TileConstruction implements IValueEnum {
 
@@ -82,7 +82,7 @@ public class Room implements Comparable<Room>, ISoundable, IIndexable {
         HERO_GATE_FRONT_END(12),
         HERO_GATE_3_BY_1(13);
 
-        private TileConstruction(int id) {
+        TileConstruction(int id) {
             this.id = id;
         }
 

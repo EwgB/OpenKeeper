@@ -48,7 +48,7 @@ public class EffectElement implements Comparable<EffectElement>, IEffect {
         ALWAYS_TRIGGER(0x0200);
         private final long flagValue;
 
-        private EffectElementFlag(long flagValue) {
+        EffectElementFlag(long flagValue) {
             this.flagValue = flagValue;
         }
 
@@ -56,8 +56,9 @@ public class EffectElement implements Comparable<EffectElement>, IEffect {
         public long getFlagValue() {
             return flagValue;
         }
-    };
-//    struct EffectElementBlock {
+    }
+
+    //    struct EffectElementBlock {
 //        char m_sName[32];
 //        ArtResource m_kArtResource;
 //        int32_t mass; /* 74 */

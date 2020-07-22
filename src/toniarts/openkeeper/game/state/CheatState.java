@@ -50,7 +50,7 @@ public abstract class CheatState extends AbstractPauseAwareState implements RawI
         WIN_LEVEL("do not fear the reaper");
         private final String cheatMessage;
 
-        private CheatType(final String cheatMessage) {
+        CheatType(final String cheatMessage) {
             this.cheatMessage = cheatMessage;
         }
 

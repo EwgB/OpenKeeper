@@ -72,10 +72,10 @@ public class MP2Loader implements AssetLoader {
          * @param j the maximum number of bytes read
          * @return the total number of bytes read into, or -1 is there is no
          * more data because the end of the stream has been reached.
-         * @exception IOException if an input or output error occurs
+         * @throws IOException if an input or output error occurs
          */
         @Override
-        public int read(byte b[], int i, int j) throws IOException {
+        public int read(byte[] b, int i, int j) throws IOException {
             if (decoder == null) {
                 return -1;
             }
@@ -90,15 +90,15 @@ public class MP2Loader implements AssetLoader {
          * @param b the buffer into which the data is read
          * @return the total number of bytes read into the buffer, or -1 if
          * there is no more data because the end of the stream has been reached
-         * @exception IOException if an input or output error occurs
+         * @throws IOException if an input or output error occurs
          */
         @Override
-        public int read(byte b[]) throws IOException {
+        public int read(byte[] b) throws IOException {
             return read(b, 0, b.length);
         }
 
         @Override
-        public int read() throws IOException {
+        public int read() {
             return -1;
         }
 
@@ -144,14 +144,12 @@ public class MP2Loader implements AssetLoader {
                     (int) info.get(AudioInformation.I_SAMPLE_RATE));
 
             // Read the file
-            while (true) {
-                if (readStream) {
-                    readDataChunkForStream(inputStream, decoder);
-                } else {
-                    readDataChunkForBuffer(decoder);
-                }
-                return audioData;
+            if (readStream) {
+                readDataChunkForStream(inputStream, decoder);
+            } else {
+                readDataChunkForBuffer(decoder);
             }
+            return audioData;
         } catch (IOException | UnsupportedMediaException ex) {
             LOGGER.log(Level.SEVERE, "Failed to read a frame!", ex);
             throw new IOException("Failed to read a frame!");

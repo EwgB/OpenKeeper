@@ -30,7 +30,7 @@ import java.util.logging.Logger;
  */
 public class SprFile {
 
-    private class SprHeader {
+    private static class SprHeader {
 
         protected String tag; // PSFB
         protected int framesCount;
@@ -39,9 +39,9 @@ public class SprFile {
     public final static int[] PALETTE = getHalftonePalette();
 
     private final static String PSFB = "PSFB";
-    private SprHeader header;
-    private File sprFile;
-    private SprEntry[] sprites;
+    private final SprHeader header;
+    private final File sprFile;
+    private final SprEntry[] sprites;
 
     private static final Logger LOGGER = Logger.getLogger(SprFile.class.getName());
 
@@ -120,7 +120,7 @@ public class SprFile {
         return result;
     }
 
-    public void extract(String destination, String fileName) throws FileNotFoundException, IOException {
+    public void extract(String destination, String fileName) throws IOException {
         int i = 0;
         for (SprEntry sprite : sprites) {
             OutputStream outputStream = new FileOutputStream(destination + File.separator + fileName + "#" + i++ + ".png");

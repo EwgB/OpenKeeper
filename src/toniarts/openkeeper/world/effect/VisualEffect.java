@@ -387,13 +387,7 @@ public class VisualEffect {
     public boolean update(float tpf) {
 
         // Update the child effects
-        Iterator<VisualEffect> iterator = effects.iterator();
-        while (iterator.hasNext()) {
-            VisualEffect visualEffect = iterator.next();
-            if (!visualEffect.update(tpf)) {
-                iterator.remove();
-            }
-        }
+        effects.removeIf(visualEffect -> !visualEffect.update(tpf));
 
         // Check the elements
         Iterator<Entry<EffectElement, Spatial>> iter = effectElements.entrySet().iterator();

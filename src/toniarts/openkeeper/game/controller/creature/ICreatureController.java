@@ -36,134 +36,134 @@ import java.awt.*;
  */
 public interface ICreatureController extends IGameLogicUpdatable, INavigable, IEntityController {
 
-    public boolean shouldFleeOrAttack();
+    boolean shouldFleeOrAttack();
 
     /**
      * Checks what the creature sees and hears
      */
-    public void checkSurroundings();
+    void checkSurroundings();
 
     public void unassignCurrentTask();
 
-    public void navigateToRandomPoint();
+    void navigateToRandomPoint();
 
-    public IPartyController getParty();
+    IPartyController getParty();
 
-    public StateMachine<ICreatureController, CreatureState> getStateMachine();
+    StateMachine<ICreatureController, CreatureState> getStateMachine();
 
-    public boolean hasObjective();
+    boolean hasObjective();
 
-    public boolean followObjective();
+    boolean followObjective();
 
-    public boolean needsLair();
+    boolean needsLair();
 
-    public boolean hasLair();
+    boolean hasLair();
 
-    public boolean findLair();
+    boolean findLair();
 
-    public boolean isNeedForSleep();
+    boolean isNeedForSleep();
 
-    public boolean goToSleep();
+    boolean goToSleep();
 
-    public boolean findWork();
+    boolean findWork();
 
-    public boolean isWorker();
+    boolean isWorker();
 
-    public boolean isTooMuchGold();
+    boolean isTooMuchGold();
 
-    public boolean dropGoldToTreasury();
+    boolean dropGoldToTreasury();
 
-    public boolean isStopped();
+    boolean isStopped();
 
-    public void navigateToAssignedTask();
+    void navigateToAssignedTask();
 
-    public boolean isAtAssignedTaskTarget();
+    boolean isAtAssignedTaskTarget();
 
-    public void dropGold();
+    void dropGold();
 
-    public boolean isWorkNavigationRequired();
+    boolean isWorkNavigationRequired();
 
-    public boolean isAssignedTaskValid();
+    boolean isAssignedTaskValid();
 
-    public ICreatureController getAttackTarget();
+    ICreatureController getAttackTarget();
 
-    public boolean isWithinAttackDistance(EntityId attackTarget);
+    boolean isWithinAttackDistance(EntityId attackTarget);
 
-    public void stopCreature();
+    void stopCreature();
 
-    public void executeAttack(EntityId attackTarget);
+    void executeAttack(EntityId attackTarget);
 
-    public void navigateToAttackTarget(EntityId attackTarget);
+    void navigateToAttackTarget(EntityId attackTarget);
 
-    public ICreatureController getFollowTarget();
+    ICreatureController getFollowTarget();
 
-    public Task getAssignedTask();
+    Task getAssignedTask();
 
-    public float getDistanceToCreature(EntityId target);
+    float getDistanceToCreature(EntityId target);
 
-    public void navigateToRandomPointAroundTarget(EntityId target, int radius);
+    void navigateToRandomPointAroundTarget(EntityId target, int radius);
 
-    public void resetFollowTarget();
+    void resetFollowTarget();
 
-    public void flee();
+    void flee();
 
-    public boolean isAttacked();
+    boolean isAttacked();
 
-    public boolean isEnoughSleep();
+    boolean isEnoughSleep();
 
-    public boolean isIncapacitated();
+    boolean isIncapacitated();
 
-    public boolean isTimeToReEvaluate();
+    boolean isTimeToReEvaluate();
 
-    public void resetReEvaluationTimer();
+    void resetReEvaluationTimer();
 
-    public int getGold();
+    int getGold();
 
-    public int getMaxGold();
+    int getMaxGold();
 
-    public void subtractGold(int amount);
+    void subtractGold(int amount);
 
-    public Point getLairLocation();
+    Point getLairLocation();
 
-    public boolean isUnconscious();
+    boolean isUnconscious();
 
-    public Point getCreatureCoordinates();
+    Point getCreatureCoordinates();
 
-    public void setAssignedTask(Task task);
+    void setAssignedTask(Task task);
 
-    public void executeAssignedTask();
+    void executeAssignedTask();
 
-    public Creature getCreature();
+    Creature getCreature();
 
-    public void addGold(int amount);
+    void addGold(int amount);
 
-    public int getObjectiveTargetActionPointId();
+    int getObjectiveTargetActionPointId();
 
-    public void setObjectiveTargetActionPointId(int actionPointId);
+    void setObjectiveTargetActionPointId(int actionPointId);
 
-    public Thing.HeroParty.Objective getObjective();
+    Thing.HeroParty.Objective getObjective();
 
-    public void setObjective(Thing.HeroParty.Objective objective);
+    void setObjective(Thing.HeroParty.Objective objective);
 
-    public boolean isDead();
+    boolean isDead();
 
-    public boolean isImprisoned();
+    boolean isImprisoned();
 
-    public boolean isTortured();
+    boolean isTortured();
 
-    public boolean isStunned();
+    boolean isStunned();
 
-    public int getLevel();
+    int getLevel();
 
-    public void attachPortalGem();
+    void attachPortalGem();
 
-    public void setObjectiveTargetPlayerId(short playerId);
+    void setObjectiveTargetPlayerId(short playerId);
 
-    public short getObjectiveTargetPlayerId();
+    short getObjectiveTargetPlayerId();
 
-    public void setPlayerObjective(ObjectiveType objective);
+    void setPlayerObjective(ObjectiveType objective);
 
-    public void setCreatureLair(EntityId lairId);
+    void setCreatureLair(EntityId lairId);
 
     /**
      * Evaluates the time spent in current state and compares it to the
@@ -172,64 +172,64 @@ public interface ICreatureController extends IGameLogicUpdatable, INavigable, IE
      *
      * @return {@code true} if state should be changed
      */
-    public boolean isStateTimeExceeded();
+    boolean isStateTimeExceeded();
 
-    public void sleep();
+    void sleep();
 
     /**
      * Set a target for us to follow
      *
      * @param target target to follow
      */
-    public void setFollowTarget(EntityId target);
+    void setFollowTarget(EntityId target);
 
-    public boolean shouldNavigateToFollowTarget();
+    boolean shouldNavigateToFollowTarget();
 
-    public boolean isSlapped();
+    boolean isSlapped();
 
-    public boolean isPortalGemInPossession();
+    boolean isPortalGemInPossession();
 
     /**
      * When a creature is hauled to prison, call this to properly seal the enemy
      * to the prison
      */
-    public void imprison();
+    void imprison();
 
     /**
      * Is the (neutral) creature claimed
      *
      * @return returns {@code true} if the creature is owned by a keeper
      */
-    public boolean isClaimed();
+    boolean isClaimed();
 
-    public boolean isHungry();
+    boolean isHungry();
 
-    public boolean goToEat();
+    boolean goToEat();
 
     /**
      * Makes the creature eat the target
      *
      * @param target the devouree
      */
-    public void eat(IEntityController target);
+    void eat(IEntityController target);
 
     /**
      * Marks that we have eaten a single ration of food
      */
-    public void sate();
+    void sate();
 
     /**
      * Get research per second attribute
      *
      * @return research per second
      */
-    public int getResearchPerSecond();
+    int getResearchPerSecond();
 
     /**
      * Gives object to creature
      *
      * @param object the object, might be food, gold, or what ever
      */
-    public void giveObject(IObjectController object);
+    void giveObject(IObjectController object);
 
 }

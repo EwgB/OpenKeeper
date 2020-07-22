@@ -37,7 +37,7 @@ public class AI {
         THICK_SKINNED(7, "1611"),
         PARANOID(8, "1612");
 
-        private AIType(int id, String translationKey) {
+        AIType(int id, String translationKey) {
             this.id = id;
             this.translationKey = translationKey;
         }
@@ -74,7 +74,7 @@ public class AI {
         CLOSE(0),
         RANDOM(1);
 
-        private Distance(int id) {
+        Distance(int id) {
             this.id = id;
         }
 
@@ -92,7 +92,7 @@ public class AI {
         DEGREES_45_AND_90(1),
         DEGREES_90(2);
 
-        private CorridorStyle(int id) {
+        CorridorStyle(int id) {
             this.id = id;
         }
 
@@ -110,7 +110,7 @@ public class AI {
         CREATE_NEW(1),
         IGNORE(2);
 
-        private RoomExpandPolicy(int id) {
+        RoomExpandPolicy(int id) {
             this.id = id;
         }
 
@@ -128,7 +128,7 @@ public class AI {
         WORST_DOOR(1),
         RANDOM(2);
 
-        private DoorUsagePolicy(int id) {
+        DoorUsagePolicy(int id) {
             this.id = id;
         }
 
@@ -147,7 +147,7 @@ public class AI {
         WEAK_ROOM(2),
         STRONG_ROOM(3);
 
-        private BreachRoomPolicy(int id) {
+        BreachRoomPolicy(int id) {
             this.id = id;
         }
 
@@ -167,7 +167,7 @@ public class AI {
         CLOSEST_TO_ENEMY_HEART(3),
         UNKNOWN_255(255); // FIXME Unknown value
 
-        private DigToPolicy(int id) {
+        DigToPolicy(int id) {
             this.id = id;
         }
 
@@ -184,7 +184,7 @@ public class AI {
         SACK(0),
         SACRIFICE(1);
 
-        private CreatureDisposalPolicy(int id) {
+        CreatureDisposalPolicy(int id) {
             this.id = id;
         }
 
@@ -202,7 +202,7 @@ public class AI {
         RANDOM(1),
         ENEMY_LAND(2);
 
-        private SightOfEvilUsagePolicy(int id) {
+        SightOfEvilUsagePolicy(int id) {
             this.id = id;
         }
 
@@ -220,7 +220,7 @@ public class AI {
         AT_HEART_WITH_CREATURES(1),
         AT_HEART(2);
 
-        private CallToArmsUsagePolicy(int id) {
+        CallToArmsUsagePolicy(int id) {
             this.id = id;
         }
 
@@ -238,7 +238,7 @@ public class AI {
         PROBABLE(1),
         UNLIKELY(2);
 
-        private MoveToResearchPolicy(int id) {
+        MoveToResearchPolicy(int id) {
             this.id = id;
         }
 
@@ -257,7 +257,7 @@ public class AI {
         PLACE_IN_PIT(2),
         SACRIFICE(3);
 
-        private ImprisonedCreatureFatePolicy(int id) {
+        ImprisonedCreatureFatePolicy(int id) {
             this.id = id;
         }
 
@@ -275,7 +275,7 @@ public class AI {
     private short openness; // Misc, byte, percentage
     private short removeCallToArmsIfTotalCreaturesLessThan; // Battles, byte
     private short buildLostRoomAfterSeconds; // Rooms, byte
-    private short unknown1[]; // 3 bytes // values: 0, 0, 0
+    private short[] unknown1; // 3 bytes // values: 0, 0, 0
     private boolean createEmptyAreasWhenIdle; // Rooms, hmm int
     private boolean buildBiggerLairAfterClaimingPortal; // Rooms, hmm int
     private boolean sellCapturedRoomsIfLowOnGold; // Rooms, hmm int
@@ -331,7 +331,7 @@ public class AI {
     private short useSpellsInBattle; // Spells, byte, 0-4, 0 being often, 4 being rarely
     private short spellsPowerPreference; // Spells, byte, 0-4, 0 being high power, 4 being low power
     private CallToArmsUsagePolicy useCallToArms; // Spells, byte
-    private short unknown2[]; // 2 bytes // values: 200, 42
+    private short[] unknown2; // 2 bytes // values: 200, 42
     private int mineGoldUntilGoldHeldIsGreaterThan; // Misc, short
     private int waitSecondsAfterPreviousAttackBeforeAttackingAgain; // Battles, short
     private int startingMana; // Misc, int (?) // @ArchDemon: value 0 - 100 (percentage ?)

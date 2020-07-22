@@ -209,7 +209,6 @@ public class ChickenController extends EntityController implements IChickenContr
 
         switch (stateMachine.getCurrentState()) {
             case HATCHING_START:
-                return timeSpent >= getAnimationTime(eggObject, chickenObject, stateMachine.getCurrentState());
             case HATCHING_END:
                 return timeSpent >= getAnimationTime(eggObject, chickenObject, stateMachine.getCurrentState());
             case PECKING:

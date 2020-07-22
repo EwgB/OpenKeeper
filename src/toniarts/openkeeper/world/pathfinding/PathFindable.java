@@ -34,28 +34,28 @@ public interface PathFindable {
     /**
      * Cost for traversing in water
      */
-    public static final float WATER_COST = 1.4f;
+    float WATER_COST = 1.4f;
     /**
      * Default path cost
      */
-    public static final float DEFAULT_COST = 1.0f;
+    float DEFAULT_COST = 1.0f;
 
-    public static final float DESTROY_COST = 1.7f;
-    public static final float ENEMY_DOOR_COST = 1.4f;
-    public static final float ATTACK_COST = 2.0f;
+    float DESTROY_COST = 1.7f;
+    float ENEMY_DOOR_COST = 1.4f;
+    float ATTACK_COST = 2.0f;
 
     /**
      * Can the entity travel from A to B?
      *
-     * @param from the tile we are traversing from, always the adjacent tile
-     * which we know already being accessible
-     * @param to the tile we are travelling to
+     * @param from       the tile we are traversing from, always the adjacent tile
+     *                   which we know already being accessible
+     * @param to         the tile we are travelling to
      * @param worldState world state for your convenience
+     * @return {@code null} if the to tile is not accessible
      * @see #DEFAULT_COST
      * @see #WATER_COST
-     * @return {@code null} if the to tile is not accessible
      */
-    default public Float getCost(final TileData from, final TileData to, final WorldState worldState) {
+    default Float getCost(final TileData from, final TileData to, final WorldState worldState) {
         Terrain terrain = to.getTerrain();
         if (!terrain.getFlags().contains(Terrain.TerrainFlag.SOLID)) {
 
@@ -89,34 +89,34 @@ public interface PathFindable {
      *
      * @return the owner ID
      */
-    public short getOwnerId();
+    short getOwnerId();
 
     /**
      * Can the entity fly
      *
      * @return true for flying
      */
-    public boolean canFly();
+    boolean canFly();
 
     /**
      * Can the entity walk on water
      *
      * @return true for walking on water
      */
-    public boolean canWalkOnWater();
+    boolean canWalkOnWater();
 
     /**
      * Can the entity walk on lava
      *
      * @return true for walking on lava
      */
-    public boolean canWalkOnLava();
+    boolean canWalkOnLava();
 
     /**
      * Can the entity move diagonally
      *
      * @return true for walking diagonally
      */
-    public boolean canMoveDiagonally();
+    boolean canMoveDiagonally();
 
 }

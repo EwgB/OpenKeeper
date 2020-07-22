@@ -61,7 +61,7 @@ public class TangentBinormalGenerator {
     private static final Logger log = Logger.getLogger(
             TangentBinormalGenerator.class.getName());
     private static float toleranceDot;
-    public static boolean debug = false;
+    public static final boolean debug = false;
 
     static {
         setToleranceAngle(45);
@@ -72,7 +72,7 @@ public class TangentBinormalGenerator {
         public final Vector3f position;
         public final Vector3f normal;
         public final Vector2f texCoord;
-        public final ArrayList<Integer> indices = new ArrayList<Integer>();
+        public final ArrayList<Integer> indices = new ArrayList<>();
 
         public VertexInfo(Vector3f position, Vector3f normal, Vector2f texCoord) {
             this.position = position;
@@ -86,7 +86,7 @@ public class TangentBinormalGenerator {
      */
     private static class VertexData {
 
-        public final ArrayList<TriangleData> triangles = new ArrayList<TriangleData>();
+        public final ArrayList<TriangleData> triangles = new ArrayList<>();
 
         public VertexData() {
         }
@@ -100,7 +100,7 @@ public class TangentBinormalGenerator {
         public final Vector3f tangent;
         public final Vector3f binormal;
         public final Vector3f normal;
-        public int[] index = new int[3];
+        public final int[] index = new int[3];
         public int triangleOffset;
 
         public TriangleData(Vector3f tangent, Vector3f binormal, Vector3f normal) {
@@ -117,7 +117,7 @@ public class TangentBinormalGenerator {
     }
 
     private static List<VertexData> initVertexData(int size) {
-        List<VertexData> vertices = new ArrayList<VertexData>(size);
+        List<VertexData> vertices = new ArrayList<>(size);
         for (int i = 0; i < size; i++) {
             vertices.add(new VertexData());
         }
@@ -151,30 +151,22 @@ public class TangentBinormalGenerator {
     }
 
     public static void generateParallel(Spatial scene, ExecutorService executor) {
-        final Set<Mesh> meshes = new HashSet<Mesh>();
-        scene.breadthFirstTraversal(new SceneGraphVisitor() {
-            @Override
-            public void visit(Spatial spatial) {
-                if (spatial instanceof Geometry) {
-                    Geometry geom = (Geometry) spatial;
-                    Mesh mesh = geom.getMesh();
+        final Set<Mesh> meshes = new HashSet<>();
+        scene.breadthFirstTraversal(spatial -> {
+            if (spatial instanceof Geometry) {
+                Geometry geom = (Geometry) spatial;
+                Mesh mesh = geom.getMesh();
 
-                    // Check to ensure mesh has texcoords and normals before generating
-                    if (mesh.getBuffer(Type.TexCoord) != null
-                            && mesh.getBuffer(Type.Normal) != null) {
-                        meshes.add(mesh);
-                    }
+                // Check to ensure mesh has texcoords and normals before generating
+                if (mesh.getBuffer(Type.TexCoord) != null
+                        && mesh.getBuffer(Type.Normal) != null) {
+                    meshes.add(mesh);
                 }
             }
         });
-        List<Future<?>> futures = new ArrayList<Future<?>>();
+        List<Future<?>> futures = new ArrayList<>();
         for (final Mesh m : meshes) {
-            futures.add(executor.submit(new Runnable() {
-                @Override
-                public void run() {
-                    generate(m, true, false);
-                }
-            }));
+            futures.add(executor.submit(() -> generate(m, true, false)));
         }
         for (Future<?> f : futures) {
             try {
@@ -282,8 +274,8 @@ public class TangentBinormalGenerator {
     //add another splitRotated boolean
     private static List<VertexData> splitVertices(Mesh mesh, List<VertexData> vertexData, boolean splitMirorred) {
         int nbVertices = mesh.getBuffer(Type.Position).getNumElements();
-        List<VertexData> newVertices = new ArrayList<VertexData>();
-        Map<Integer, Integer> indiceMap = new HashMap<Integer, Integer>();
+        List<VertexData> newVertices = new ArrayList<>();
+        Map<Integer, Integer> indiceMap = new HashMap<>();
         FloatBuffer normalBuffer = mesh.getFloatBuffer(Type.Normal);
 
         for (int i = 0; i < vertexData.size(); i++) {
@@ -291,8 +283,8 @@ public class TangentBinormalGenerator {
             Vector3f givenNormal = new Vector3f();
             populateFromBuffer(givenNormal, normalBuffer, i);
 
-            ArrayList<TriangleData> trianglesUp = new ArrayList<TriangleData>();
-            ArrayList<TriangleData> trianglesDown = new ArrayList<TriangleData>();
+            ArrayList<TriangleData> trianglesUp = new ArrayList<>();
+            ArrayList<TriangleData> trianglesDown = new ArrayList<>();
             for (TriangleData triangleData : triangles) {
                 if (parity(givenNormal, triangleData.normal) > 0) {
                     trianglesUp.add(triangleData);
@@ -639,7 +631,7 @@ public class TangentBinormalGenerator {
     }
 
     private static ArrayList<VertexInfo> linkVertices(Mesh mesh, boolean splitMirrored) {
-        ArrayList<VertexInfo> vertexMap = new ArrayList<VertexInfo>();
+        ArrayList<VertexInfo> vertexMap = new ArrayList<>();
 
         FloatBuffer vertexBuffer = mesh.getFloatBuffer(Type.Position);
         FloatBuffer normalBuffer = mesh.getFloatBuffer(Type.Normal);

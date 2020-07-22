@@ -197,14 +197,19 @@ public class PossessionCameraState extends AbstractPauseAwareState implements Ac
             return;
         }
 
-        if (name.equals(CAMERA_VIEW_LEFT)) {
-            camera.rotate(value, true);
-        } else if (name.equals(CAMERA_VIEW_RIGHT)) {
-            camera.rotate(-value, true);
-        } else if (name.equals(CAMERA_VIEW_UP)) {
-            camera.rotate(value, false);
-        } else if (name.equals(CAMERA_VIEW_DOWN)) {
-            camera.rotate(-value, false);
+        switch (name) {
+            case CAMERA_VIEW_LEFT:
+                camera.rotate(value, true);
+                break;
+            case CAMERA_VIEW_RIGHT:
+                camera.rotate(-value, true);
+                break;
+            case CAMERA_VIEW_UP:
+                camera.rotate(value, false);
+                break;
+            case CAMERA_VIEW_DOWN:
+                camera.rotate(-value, false);
+                break;
         }
 
         if (name.equals(POSSESSION + Settings.Setting.CAMERA_UP.name())) {

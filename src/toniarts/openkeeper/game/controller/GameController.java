@@ -56,9 +56,9 @@ public class GameController implements IGameLogicUpdatable, AutoCloseable, IGame
     public static final int LEVEL_TIMER_MAX_COUNT = 16;
     private static final int LEVEL_FLAG_MAX_COUNT = 128;
 
-    private String level;
+    private final String level;
     private KwdFile kwdFile;
-    private toniarts.openkeeper.game.data.Level levelObject;
+    private final toniarts.openkeeper.game.data.Level levelObject;
 
     private final SortedMap<Short, Keeper> players = new TreeMap<>();
     private final Map<Short, IPlayerController> playerControllers = new HashMap<>();
@@ -601,7 +601,7 @@ public class GameController implements IGameLogicUpdatable, AutoCloseable, IGame
     }
 
     @Override
-    public void close() throws Exception {
+    public void close() {
         if (steeringCalculatorLoop != null) {
             steeringCalculatorLoop.stop();
             steeringCalculatorLoop = null;

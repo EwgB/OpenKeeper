@@ -33,7 +33,7 @@ public interface LobbySessionListener {
      * @param players the list of players
      */
     @Asynchronous
-    public void onPlayerListChanged(List<ClientInfo> players);
+    void onPlayerListChanged(List<ClientInfo> players);
 
     /**
      * Called when the server has changed the map
@@ -41,16 +41,16 @@ public interface LobbySessionListener {
      * @param mapName the currently selected map
      */
     @Asynchronous
-    public void onMapChanged(String mapName);
+    void onMapChanged(String mapName);
 
     /**
      * Called when the server wants to start the game
      *
      * @param mapName the map we are going to play (you should know already)
      * @param players the player participating in the game (you should know
-     * already)
+     *                already)
      */
     @Asynchronous
-    public void onGameStarted(String mapName, List<ClientInfo> players);
+    void onGameStarted(String mapName, List<ClientInfo> players);
 
 }

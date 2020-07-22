@@ -26,12 +26,12 @@ public interface IGameLoopManager {
     /**
      * Signals start for the manager
      */
-    public void start();
+    void start();
 
     /**
      * Signals stop to the manager
      */
-    public void stop();
+    void stop();
 
     /**
      * Process one game tick. Note that this is not likely run from a render
@@ -39,6 +39,6 @@ public interface IGameLoopManager {
      *
      * @param delta time since the last call to update(), in nanoseconds
      */
-    public void processTick(long delta);
+    void processTick(long delta);
 
 }

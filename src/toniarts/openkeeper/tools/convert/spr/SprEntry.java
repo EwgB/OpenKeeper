@@ -29,13 +29,14 @@ import java.io.IOException;
  */
 public class SprEntry {
 
-    private class SprEntryHeader {
+    private static class SprEntryHeader {
 
         int width;
         int height;
         long offset;
     }
-    private SprEntryHeader header;
+
+    private final SprEntryHeader header;
     protected ByteArrayOutputStream buffer;
 
     public SprEntry(IResourceReader file) throws IOException {

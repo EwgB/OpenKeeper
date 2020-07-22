@@ -25,10 +25,10 @@ import toniarts.openkeeper.tools.convert.AssetsConverter;
  */
 public interface IConversionTaskUpdate {
 
-    public void onUpdateStatus(Integer currentProgress, Integer totalProgress, AssetsConverter.ConvertProcess process);
+    void onUpdateStatus(Integer currentProgress, Integer totalProgress, AssetsConverter.ConvertProcess process);
 
-    public void onComplete(AssetsConverter.ConvertProcess process);
+    void onComplete(AssetsConverter.ConvertProcess process);
 
-    public void onError(Exception ex, AssetsConverter.ConvertProcess process);
+    void onError(Exception ex, AssetsConverter.ConvertProcess process);
 
 }

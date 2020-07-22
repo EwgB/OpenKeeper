@@ -174,7 +174,7 @@ public abstract class WorldState extends AbstractAppState {
     private void initPlayerCreatures() {
 
         // Add the initial creatures and add the listeners
-        Map<Short, List<CreatureControl>> playerCreatures = thingLoader.getCreatures().stream().collect(Collectors.groupingBy(c -> c.getOwnerId()));
+        Map<Short, List<CreatureControl>> playerCreatures = thingLoader.getCreatures().stream().collect(Collectors.groupingBy(CreatureControl::getOwnerId));
         for (Keeper player : gameState.getPlayers()) {
             List<CreatureControl> creatures = playerCreatures.get(player.getId());
 //            player.getCreatureControl().init(creatures, kwdFile.getImp());
@@ -335,9 +335,8 @@ public abstract class WorldState extends AbstractAppState {
     }
 
     /**
-     * @deprecated
-     *
      * @return KwdFile
+     * @deprecated
      */
     public KwdFile getLevelData() {
         return kwdFile;
@@ -407,10 +406,10 @@ public abstract class WorldState extends AbstractAppState {
     /**
      * Determine if a tile at x & y is buildable by the player
      *
-     * @param x x coordinate
-     * @param y y coordinate
+     * @param x      x coordinate
+     * @param y      y coordinate
      * @param player the player
-     * @param room the room to be build
+     * @param room   the room to be build
      * @return is the tile buildable
      */
     public boolean isBuildable(int x, int y, Player player, Room room) {
@@ -448,8 +447,8 @@ public abstract class WorldState extends AbstractAppState {
     /**
      * Determine if a tile (maybe a room) at x & y is claimable by the player
      *
-     * @param x x coordinate
-     * @param y y coordinate
+     * @param x        x coordinate
+     * @param y        y coordinate
      * @param playerId the player
      * @return is the tile claimable by you
      */
@@ -518,8 +517,8 @@ public abstract class WorldState extends AbstractAppState {
      * Update map tiles, on the scene graph
      *
      * @param enqueue if {@code false} this is executed in the current thread,
-     * otherwise it is enqueued to the update loop
-     * @param points the map points to update
+     *                otherwise it is enqueued to the update loop
+     * @param points  the map points to update
      */
     protected void updateTiles(boolean enqueue, Point... points) {
 
@@ -592,8 +591,8 @@ public abstract class WorldState extends AbstractAppState {
     /**
      * Claim a tile at x & y to the player's name
      *
-     * @param x x coordinate
-     * @param y y coordinate
+     * @param x        x coordinate
+     * @param y        y coordinate
      * @param playerId the player, the new owner
      */
     public void claimTile(int x, int y, short playerId) {
@@ -629,8 +628,8 @@ public abstract class WorldState extends AbstractAppState {
      * Build a building to the wanted area
      *
      * @param selectionArea the selection area
-     * @param player the player, the new owner
-     * @param room room to build
+     * @param player        the player, the new owner
+     * @param room          room to build
      */
     public void build(SelectionArea selectionArea, Player player, Room room) {
         Set<Point> updatableTiles = new HashSet<>();
@@ -748,8 +747,8 @@ public abstract class WorldState extends AbstractAppState {
     /**
      * Is the tile (building) sellable by us
      *
-     * @param x x coordinate
-     * @param y y coordinate
+     * @param x      x coordinate
+     * @param y      y coordinate
      * @param player the player, the seller
      */
     public boolean isSellable(int x, int y, Player player) {
@@ -768,7 +767,7 @@ public abstract class WorldState extends AbstractAppState {
      * Sell building(s) from the wanted area
      *
      * @param selectionArea the selection area
-     * @param player the player, the new owner
+     * @param player        the player, the new owner
      */
     public void sell(SelectionArea selectionArea, Player player) {
         Set<Point> updatableTiles = new HashSet<>();
@@ -794,7 +793,7 @@ public abstract class WorldState extends AbstractAppState {
                     if (room.getFlags().contains(Room.RoomFlag.PLACEABLE_ON_LAND)) {
                         tile.setTerrainId(terrain.getDestroyedTypeTerrainId());
                     } else // Water or lava
-                     if (tile.getFlag() == Tile.BridgeTerrainType.LAVA) {
+                        if (tile.getFlag() == Tile.BridgeTerrainType.LAVA) {
                             tile.setTerrainId(kwdFile.getMap().getLava().getTerrainId());
                         } else {
                             tile.setTerrainId(kwdFile.getMap().getWater().getTerrainId());
@@ -841,8 +840,8 @@ public abstract class WorldState extends AbstractAppState {
     /**
      * Plays a positional sound in an given tile
      *
-     * @param x x coordinate
-     * @param y y coordinate
+     * @param x         x coordinate
+     * @param y         y coordinate
      * @param soundFile the sound file
      */
     public void playSoundAtTile(int x, int y, String soundFile) {
@@ -862,8 +861,8 @@ public abstract class WorldState extends AbstractAppState {
     /**
      * Get a random tile, that is not a starting tile
      *
-     * @param start starting coordinates
-     * @param radius radius, in tiles
+     * @param start    starting coordinates
+     * @param radius   radius, in tiles
      * @param creature
      * @return a random tile if one is found
      */
@@ -894,8 +893,8 @@ public abstract class WorldState extends AbstractAppState {
     /**
      * FIXME: This can NOT be. Just for quick easy testing.
      *
-     * @param start start point
-     * @param end end point
+     * @param start        start point
+     * @param end          end point
      * @param pathFindable the entity to find path for
      * @return output path, null if path not found
      */
@@ -913,7 +912,7 @@ public abstract class WorldState extends AbstractAppState {
     /**
      * Check if given tile is accessible by the given creature
      *
-     * @param tile the tile
+     * @param tile         the tile
      * @param pathFindable the entity to test with
      * @return is accessible
      */
@@ -975,7 +974,7 @@ public abstract class WorldState extends AbstractAppState {
     /**
      * Damage a tile
      *
-     * @param point the point
+     * @param point    the point
      * @param playerId the player applying the damage
      * @return you might get gold out of this
      */
@@ -1054,7 +1053,7 @@ public abstract class WorldState extends AbstractAppState {
     /**
      * Heal a tile
      *
-     * @param point the point
+     * @param point    the point
      * @param playerId the player applying the healing
      */
     public void healTile(Point point, short playerId) {
@@ -1123,8 +1122,8 @@ public abstract class WorldState extends AbstractAppState {
     /**
      * Is repairable wall at tile point
      *
-     * @param x x coordinate
-     * @param y y coordinate
+     * @param x        x coordinate
+     * @param y        y coordinate
      * @param playerId for the player
      * @return is the wall repairable
      */
@@ -1137,8 +1136,8 @@ public abstract class WorldState extends AbstractAppState {
     /**
      * Is claimable wall at tile point
      *
-     * @param x x coordinate
-     * @param y y coordinate
+     * @param x        x coordinate
+     * @param y        y coordinate
      * @param playerId for the player
      * @return is the wall claimable
      */
@@ -1151,8 +1150,8 @@ public abstract class WorldState extends AbstractAppState {
     /**
      * Is claimable floor at tile point (not a room)
      *
-     * @param x x coordinate
-     * @param y y coordinate
+     * @param x        x coordinate
+     * @param y        y coordinate
      * @param playerId for the player
      * @return is the floor claimable
      */
@@ -1165,8 +1164,8 @@ public abstract class WorldState extends AbstractAppState {
     /**
      * Is claimable room tile at tile point
      *
-     * @param x x coordinate
-     * @param y y coordinate
+     * @param x        x coordinate
+     * @param y        y coordinate
      * @param playerId for the player
      * @return is the room claimable
      */
@@ -1180,7 +1179,7 @@ public abstract class WorldState extends AbstractAppState {
      * Attempt to claim the tile or room, applies either damage of heal,
      * depending whose tile is it
      *
-     * @param point tile coordinate
+     * @param point    tile coordinate
      * @param playerId for the player
      */
     public void applyClaimTile(Point point, short playerId) {
@@ -1201,7 +1200,7 @@ public abstract class WorldState extends AbstractAppState {
     /**
      * Damage a room
      *
-     * @param point tile coordinate
+     * @param point    tile coordinate
      * @param playerId for the player
      */
     private void damageRoom(Point point, short playerId) {
@@ -1261,7 +1260,7 @@ public abstract class WorldState extends AbstractAppState {
      * rooms
      *
      * @param playerId for the player
-     * @param sum the gold sum
+     * @param sum      the gold sum
      * @return returns a sum of gold that could not be added to player's gold
      */
     public int addGold(short playerId, int sum) {
@@ -1273,8 +1272,8 @@ public abstract class WorldState extends AbstractAppState {
      * rooms
      *
      * @param playerId for the player
-     * @param p a point where to drop the gold, can be {@code  null}
-     * @param sum the gold sum
+     * @param p        a point where to drop the gold, can be {@code  null}
+     * @param sum      the gold sum
      * @return returns a sum of gold that could not be added to player's gold
      */
     public int addGold(short playerId, Point p, int sum) {
@@ -1349,7 +1348,7 @@ public abstract class WorldState extends AbstractAppState {
      * If you want to get notified about the room changes
      *
      * @param playerId the player id of which room you want to assign the
-     * listener to
+     *                 listener to
      * @param listener the listener
      */
     public void addListener(short playerId, RoomListener listener) {
@@ -1403,10 +1402,10 @@ public abstract class WorldState extends AbstractAppState {
     /**
      * Drop object to the world
      *
-     * @param object the object to drop
-     * @param tile the tile to drop on
+     * @param object      the object to drop
+     * @param tile        the tile to drop on
      * @param coordinates coordinates inside the tile
-     * @param control control that this object was dropped on
+     * @param control     control that this object was dropped on
      */
     public void dropObject(ObjectControl object, TileData tile, Vector2f coordinates, IInteractiveControl control) {
         if (object instanceof GoldObjectControl) {
@@ -1419,10 +1418,10 @@ public abstract class WorldState extends AbstractAppState {
     /**
      * Drop a gold object to tile
      *
-     * @param gold the gold to drop
-     * @param tile the tile to drop on
+     * @param gold        the gold to drop
+     * @param tile        the tile to drop on
      * @param coordinates coordinates inside the tile
-     * @param control control that this gold was dropped on
+     * @param control     control that this gold was dropped on
      */
     private void dropGold(GoldObjectControl gold, TileData tile, Vector2f coordinates, IInteractiveControl control) {
 

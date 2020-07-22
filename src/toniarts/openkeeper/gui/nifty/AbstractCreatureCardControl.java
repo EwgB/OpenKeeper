@@ -28,7 +28,7 @@ public abstract class AbstractCreatureCardControl extends AbstractController {
 
     public enum CreatureUIState {
         IDLE, BUSY, FIGHT, WORK, DEFENCE, HAPPY, UNHAPPY, ANGRY
-    };
+    }
 
     private SafeArrayList<CreatureCardEventListener> listeners;
 

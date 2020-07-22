@@ -37,7 +37,7 @@ abstract class BitStream extends BitrateVariation {
     final static int BYTELENGTH = 8;
     private final static int MAX_FRAMESIZE = 1732;
     private final static int AUDIO_SYNC_PATTERN = 0xFFE00000; // MPEG 2.5 compliant
-    final static int BITMASK[] = {
+    final static int[] BITMASK = {
             0x00, 0x01, 0x03, 0x07, 0x0F, 0x1F, 0x3F, 0x7F, 0xFF,};
     int bound;
     private byte[] buf;

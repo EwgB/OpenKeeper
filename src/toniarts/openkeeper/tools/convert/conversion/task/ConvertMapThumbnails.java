@@ -72,14 +72,7 @@ public class ConvertMapThumbnails extends ConversionTask {
 
             // Get the skirmish/mp maps
             File f = new File(dungeonKeeperFolder + PathUtils.DKII_MAPS_FOLDER);
-            File[] files = f.listFiles(new FilenameFilter() {
-
-                @Override
-                public boolean accept(File dir, String name) {
-                    return name.toLowerCase().endsWith(".kwd");
-                }
-
-            });
+            File[] files = f.listFiles((dir, name) -> name.toLowerCase().endsWith(".kwd"));
 
             // Read them
             List<KwdFile> maps = new ArrayList<>(files.length);

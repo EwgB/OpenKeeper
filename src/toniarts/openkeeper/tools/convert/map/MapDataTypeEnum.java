@@ -44,7 +44,7 @@ public enum MapDataTypeEnum implements IValueEnum {
     SHOTS(260),
     EFFECTS(270);
 
-    private MapDataTypeEnum(int id) {
+    MapDataTypeEnum(int id) {
         this.id = id;
     }
 

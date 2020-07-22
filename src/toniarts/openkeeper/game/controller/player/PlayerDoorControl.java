@@ -31,7 +31,7 @@ import java.util.List;
  */
 public class PlayerDoorControl extends AbstractResearchablePlayerControl<Door, ResearchableEntity, PlayerDoorListener> /*implements RoomListener*/ {
 
-    private int doorCount = 0;
+    private final int doorCount = 0;
 
     public PlayerDoorControl(Keeper keeper, List<Door> doors) {
         super(keeper, keeper.getAvailableDoors(), doors);

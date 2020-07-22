@@ -250,53 +250,49 @@ public abstract class MapViewController implements ILoader<KwdFile> {
             return;
         }
 
-        node.depthFirstTraversal(new SceneGraphVisitor() {
-            @Override
-            public void visit(Spatial spatial) {
-                if (!(spatial instanceof Geometry)) {
-                    return;
-                }
+        node.depthFirstTraversal(spatial -> {
+            if (!(spatial instanceof Geometry)) {
+                return;
+            }
 
-                Material material = ((Geometry) spatial).getMaterial();
+            Material material = ((Geometry) spatial).getMaterial();
 
-                // Decay
-                if (terrain.getFlags().contains(Terrain.TerrainFlag.DECAY) && terrain.getTextureFrames() > 1) {
+            // Decay
+            if (terrain.getFlags().contains(Terrain.TerrainFlag.DECAY) && terrain.getTextureFrames() > 1) {
 
-                    Integer texCount = spatial.getUserData(KmfModelLoader.MATERIAL_ALTERNATIVE_TEXTURES_COUNT);
-                    if (texCount != null) {
+                Integer texCount = spatial.getUserData(KmfModelLoader.MATERIAL_ALTERNATIVE_TEXTURES_COUNT);
+                if (texCount != null) {
 
-                        // FIXME: This doesn't sit well with the material thinking (meaning we produce the actual material files)
-                        // Now we have a random starting texture...
-                        int textureIndex = Math.round((terrain.getTextureFrames() - 1) * (1 - tile.getHealthPercent() / 100f));
-                        String diffuseTexture = ((Texture) material.getParam("DiffuseMap").getValue()).getKey().getName().replaceFirst("_DECAY\\d", ""); // Unharmed texture
-                        if (textureIndex > 0) {
+                    // FIXME: This doesn't sit well with the material thinking (meaning we produce the actual material files)
+                    // Now we have a random starting texture...
+                    int textureIndex = Math.round((terrain.getTextureFrames() - 1) * (1 - tile.getHealthPercent() / 100f));
+                    String diffuseTexture = ((Texture) material.getParam("DiffuseMap").getValue()).getKey().getName().replaceFirst("_DECAY\\d", ""); // Unharmed texture
+                    if (textureIndex > 0) {
 
-                            // The first one doesn't have a number
-                            if (textureIndex == 1) {
-                                diffuseTexture = diffuseTexture.replaceFirst(".png", "_DECAY.png");
-                            } else {
-                                diffuseTexture = diffuseTexture.replaceFirst(".png", "_DECAY" + textureIndex + ".png");
-                            }
-                        }
-                        try {
-                            Texture texture = assetManager.loadTexture(new TextureKey(ConversionUtils.getCanonicalAssetKey(diffuseTexture), false));
-                            material.setTexture("DiffuseMap", texture);
-
-                            AssetUtils.assignMapsToMaterial(assetManager, material);
-                        } catch (Exception e) {
-                            LOGGER.log(Level.WARNING, "Error applying decay texture: {0} to {1} terrain! ({2})", new Object[]{diffuseTexture, terrain.getName(), e.getMessage()});
+                        // The first one doesn't have a number
+                        if (textureIndex == 1) {
+                            diffuseTexture = diffuseTexture.replaceFirst(".png", "_DECAY.png");
+                        } else {
+                            diffuseTexture = diffuseTexture.replaceFirst(".png", "_DECAY" + textureIndex + ".png");
                         }
                     }
-                }
-                if (tile.isFlashed(playerId)) {
-                    material.setColor("Ambient", COLOR_FLASH);
-                    material.setBoolean("UseMaterialColors", true);
-                }
-                if (tile.isSelected(playerId)) {
-                    material.setColor("Ambient", COLOR_TAG);
-                    material.setBoolean("UseMaterialColors", true);
-                }
+                    try {
+                        Texture texture = assetManager.loadTexture(new TextureKey(ConversionUtils.getCanonicalAssetKey(diffuseTexture), false));
+                        material.setTexture("DiffuseMap", texture);
 
+                        AssetUtils.assignMapsToMaterial(assetManager, material);
+                    } catch (Exception e) {
+                        LOGGER.log(Level.WARNING, "Error applying decay texture: {0} to {1} terrain! ({2})", new Object[]{diffuseTexture, terrain.getName(), e.getMessage()});
+                    }
+                }
+            }
+            if (tile.isFlashed(playerId)) {
+                material.setColor("Ambient", COLOR_FLASH);
+                material.setBoolean("UseMaterialColors", true);
+            }
+            if (tile.isSelected(playerId)) {
+                material.setColor("Ambient", COLOR_TAG);
+                material.setBoolean("UseMaterialColors", true);
             }
 
         });
@@ -404,33 +400,30 @@ public abstract class MapViewController implements ILoader<KwdFile> {
     private void setRandomTexture(final Spatial spatial, final MapTile tile) {
 
         // Check the data on geometry, basically we could allow the players to play with different skins
-        spatial.depthFirstTraversal(new SceneGraphVisitor() {
-            @Override
-            public void visit(Spatial spatial) {
-                Integer texCount = spatial.getUserData(KmfModelLoader.MATERIAL_ALTERNATIVE_TEXTURES_COUNT);
-                if (texCount != null) {
+        spatial.depthFirstTraversal(spatial1 -> {
+            Integer texCount = spatial1.getUserData(KmfModelLoader.MATERIAL_ALTERNATIVE_TEXTURES_COUNT);
+            if (texCount != null) {
 
-                    // The principle is bit wrong, the random texture is tied to the tile, and not material etc.
-                    // But it is probably just the tops of few tiles, so...
-                    int tex = tile.getRandomTextureIndex();
-                    if (tex != 0) { // 0 is the default anyway
-                        Geometry g = (Geometry) spatial;
-                        Material m = g.getMaterial();
-                        String asset = m.getAssetName();
+                // The principle is bit wrong, the random texture is tied to the tile, and not material etc.
+                // But it is probably just the tops of few tiles, so...
+                int tex = tile.getRandomTextureIndex();
+                if (tex != 0) { // 0 is the default anyway
+                    Geometry g = (Geometry) spatial1;
+                    Material m = g.getMaterial();
+                    String asset = m.getAssetName();
 
-                        // Load new material
-                        AssetInfo newMaterialInfo = assetManager.locateAsset(new AssetKey<>(asset.substring(0,
-                                asset.lastIndexOf(KmfModelLoader.MATERIAL_ALTERNATIVE_TEXTURE_SUFFIX_SEPARATOR) + 1).concat(tex + ".j3m")));
-                        if (newMaterialInfo != null) {
-                            try {
-                                Material newMaterial = assetManager.loadMaterial(newMaterialInfo.getKey().getName());
-                                AssetUtils.assignMapsToMaterial(assetManager, newMaterial);
-                                g.setMaterial(newMaterial);
-                            } catch (Exception e) {
+                    // Load new material
+                    AssetInfo newMaterialInfo = assetManager.locateAsset(new AssetKey<>(asset.substring(0,
+                            asset.lastIndexOf(KmfModelLoader.MATERIAL_ALTERNATIVE_TEXTURE_SUFFIX_SEPARATOR) + 1).concat(tex + ".j3m")));
+                    if (newMaterialInfo != null) {
+                        try {
+                            Material newMaterial = assetManager.loadMaterial(newMaterialInfo.getKey().getName());
+                            AssetUtils.assignMapsToMaterial(assetManager, newMaterial);
+                            g.setMaterial(newMaterial);
+                        } catch (Exception e) {
 
-                                // FIXME: Rock top fails, we may have a problem in the material naming
-                                LOGGER.log(Level.WARNING, "Failed to load a random texture to terrain id " + tile.getTerrainId() + ", texture index " + tex + "!", e);
-                            }
+                            // FIXME: Rock top fails, we may have a problem in the material naming
+                            LOGGER.log(Level.WARNING, "Failed to load a random texture to terrain id " + tile.getTerrainId() + ", texture index " + tex + "!", e);
                         }
                     }
                 }

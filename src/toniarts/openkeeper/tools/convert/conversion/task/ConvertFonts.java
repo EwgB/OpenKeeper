@@ -76,9 +76,9 @@ public class ConvertFonts extends ConversionTask {
 
             // Find all the font files
             final List<File> bf4Files = new ArrayList<>();
-            Files.walkFileTree(new File(dungeonKeeperFolder + PathUtils.DKII_TEXT_DEFAULT_FOLDER).toPath(), new SimpleFileVisitor<Path>() {
+            Files.walkFileTree(new File(dungeonKeeperFolder + PathUtils.DKII_TEXT_DEFAULT_FOLDER).toPath(), new SimpleFileVisitor<>() {
                 @Override
-                public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
 
                     //Get all the BF4 files
                     if (attrs.isRegularFile() && file.getFileName().toString().toLowerCase().endsWith(".bf4")) {

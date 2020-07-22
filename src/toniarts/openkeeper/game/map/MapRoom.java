@@ -33,19 +33,19 @@ public class MapRoom implements Savable {
 
     private int health;
     private int maxHealth;
-    private boolean destroyed = false;
+    private final boolean destroyed = false;
     private short ownerId;
     private short roomId;
     private List<Point> tiles;
     // TODO: Also stuff stored here, enum -> (amount, max amount)
 
     @Override
-    public void write(JmeExporter ex) throws IOException {
+    public void write(JmeExporter ex) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void read(JmeImporter im) throws IOException {
+    public void read(JmeImporter im) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

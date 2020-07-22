@@ -33,7 +33,7 @@ public class Level extends GeneralLevel {
 
     public enum LevelType {
 
-        Level, MPD, Secret;
+        Level, MPD, Secret
     }
     private final LevelType type;
     private final int level;

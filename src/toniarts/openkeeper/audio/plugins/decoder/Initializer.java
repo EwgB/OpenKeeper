@@ -29,7 +29,7 @@ import java.io.InputStream;
  */
 abstract class Initializer extends Decoder {
 
-    int outputChannels;
+    final int outputChannels;
     Equalizer equalizer;
     Synthesizer filter1;
     Synthesizer filter2;
@@ -72,7 +72,7 @@ abstract class Initializer extends Decoder {
 
         equalizer = new Equalizer(f, spline, information);
 
-        float af[] = equalizer.getBands();
+        float[] af = equalizer.getBands();
 
         if (filter1 != null) {
             filter1.setEQ(af);
@@ -108,7 +108,7 @@ abstract class Initializer extends Decoder {
     }
 
     private void initializeSynthesizer() {
-        float af[] = equalizer.getBands();
+        float[] af = equalizer.getBands();
 
         filter1 = new Synthesizer(0, af);
         if (outputChannels == 2) {

@@ -139,7 +139,6 @@ public class CreatureTextParser extends EntityTextParser<Creature> {
             case CAPTURE_ENEMY_CREATURE:
                 return Utils.getMainTextResourceBundle().getString("2621");
             case CARRY_CREATURE_TO_JAIL:
-                return Utils.getMainTextResourceBundle().getString("2619");
             case CARRY_CREATURE_TO_LAIR:
                 return Utils.getMainTextResourceBundle().getString("2619");
             case CARRY_GOLD_TO_TREASURY:

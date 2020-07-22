@@ -31,7 +31,7 @@ import java.util.ArrayList;
  */
 public class Container implements IContainer {
 
-    protected SafeArrayList<IControl> controls = new SafeArrayList<>(IControl.class);
+    protected final SafeArrayList<IControl> controls = new SafeArrayList<>(IControl.class);
 
     private void updateControl(float tpf) {
         if (controls.isEmpty()) {
@@ -149,7 +149,7 @@ public class Container implements IContainer {
     @Override
     public void write(JmeExporter ex) throws IOException {
         OutputCapsule capsule = ex.getCapsule(this);
-        capsule.writeSavableArrayList(new ArrayList(controls), "controlsList", null);
+        capsule.writeSavableArrayList(new ArrayList<>(controls), "controlsList", null);
     }
 
     @Override

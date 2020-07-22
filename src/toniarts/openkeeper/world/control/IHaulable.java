@@ -30,18 +30,18 @@ public interface IHaulable {
     /**
      * Signal that the hauling has started
      */
-    public void haulingStarted();
+    void haulingStarted();
 
     /**
      * Signal that the hauling has ended
      */
-    public void haulingEnded();
+    void haulingEnded();
 
     /**
      * Update the position of the object as it is being hauled
      *
      * @param position the new position
      */
-    public void updatePosition(Vector3f position);
+    void updatePosition(Vector3f position);
 
 }

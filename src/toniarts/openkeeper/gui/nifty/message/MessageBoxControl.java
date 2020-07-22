@@ -151,8 +151,6 @@ public class MessageBoxControl extends AbstractController {
     }
 
     private void cleanButtonPanel() {
-        this.buttonPanel.getChildren().forEach((child)->{
-            child.markForRemoval();
-        });
+        this.buttonPanel.getChildren().forEach(Element::markForRemoval);
     }
 }

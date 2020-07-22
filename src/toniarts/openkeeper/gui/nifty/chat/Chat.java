@@ -45,6 +45,6 @@ public interface Chat extends NiftyControl {
     /**
      * Clear the chat
      */
-    public void clear();
+    void clear();
 
 }

@@ -39,7 +39,7 @@ import java.util.logging.Logger;
 @Deprecated
 public class EffectManagerState extends AbstractAppState {
 
-    public static int ROOM_CLAIM_ID = 2;
+    public static final int ROOM_CLAIM_ID = 2;
 
     private final KwdFile kwdFile;
     private final AssetManager assetManager;
@@ -61,14 +61,8 @@ public class EffectManagerState extends AbstractAppState {
     @Override
     public void update(float tpf) {
 
-        Iterator<VisualEffect> iterator = activeEffects.iterator();
         // Maintain the effects (on every frame?)
-        while (iterator.hasNext()) {
-            VisualEffect visualEffect = iterator.next();
-            if (!visualEffect.update(tpf)) {
-                iterator.remove();
-            }
-        }
+        activeEffects.removeIf(visualEffect -> !visualEffect.update(tpf));
     }
 
     /**
@@ -88,9 +82,7 @@ public class EffectManagerState extends AbstractAppState {
     }
 
     public void clearActiveEffects() {
-        Iterator<VisualEffect> iterator = activeEffects.iterator();
-        while (iterator.hasNext()) {
-            VisualEffect visualEffect = iterator.next();
+        for (VisualEffect visualEffect : activeEffects) {
             visualEffect.removeEffect();
             visualEffect.update(-1);
         }

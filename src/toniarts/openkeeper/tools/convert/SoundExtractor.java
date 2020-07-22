@@ -68,14 +68,14 @@ public class SoundExtractor {
         final List<File> sfxMapFiles = new ArrayList<>();
         //Find all the bank.map files
         final List<File> sf2Files = new ArrayList<>();
-        Files.walkFileTree(dataDir.toPath(), new SimpleFileVisitor<Path>() {
+        Files.walkFileTree(dataDir.toPath(), new SimpleFileVisitor<>() {
             @Override
-            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
 
                 //Get all the SDT files
                 if (attrs.isRegularFile()) {
                     String filename = file.getFileName().toString().toLowerCase();
-                    if (filename.endsWith(".sdt")){
+                    if (filename.endsWith(".sdt")) {
                         sdtFiles.add(file.toFile());
                     } else if (filename.endsWith(".sf2")) {
                         sf2Files.add(file.toFile());

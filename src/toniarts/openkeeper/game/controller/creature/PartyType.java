@@ -29,7 +29,7 @@ public enum PartyType implements IValueEnum {
     INVASION_PARTY(0x1),
     RANDOM_CREATURE_TYPES(0x2);
 
-    private PartyType(int id) {
+    PartyType(int id) {
         this.id = id;
     }
 

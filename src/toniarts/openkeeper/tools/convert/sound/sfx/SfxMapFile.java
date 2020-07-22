@@ -29,18 +29,18 @@ import java.util.Arrays;
  */
 public class SfxMapFile {
 
-    private final static int HEADER_ID[] = new int[] {
-        0xE9612C00, // dword_674038
-        0x11D231D0, // dword_67403C
-        0xB00009B4, // dword_674040
-        0x03F293C9 // dword_674044
+    private final static int[] HEADER_ID = new int[]{
+            0xE9612C00, // dword_674038
+            0x11D231D0, // dword_67403C
+            0xB00009B4, // dword_674040
+            0x03F293C9 // dword_674044
     };
     // Header
     private final int unknown_1; // not used
     private final int unknown_2; // not used
 
     private final File file;
-    private SfxMapFileEntry[] entries;
+    private final SfxMapFileEntry[] entries;
 
     public SfxMapFile(File file) {
         this.file = file;

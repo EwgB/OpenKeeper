@@ -26,7 +26,6 @@ import com.jme3.material.RenderState.BlendMode;
 import com.jme3.math.ColorRGBA;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
-import com.jme3.scene.SceneGraphVisitor;
 import com.jme3.scene.Spatial;
 import com.jme3.texture.Texture;
 import com.jme3.texture.Texture2D;
@@ -47,7 +46,6 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -165,15 +163,11 @@ public class AssetUtils {
     }
 
     private static void assignMapsToMaterial(Spatial model, AssetManager assetManager) {
-        model.depthFirstTraversal(new SceneGraphVisitor() {
-            @Override
-            public void visit(Spatial spatial) {
-                if (spatial instanceof Geometry) {
-                    Material material = ((Geometry) spatial).getMaterial();
-                    assignMapsToMaterial(assetManager, material);
-                }
+        model.depthFirstTraversal(spatial -> {
+            if (spatial instanceof Geometry) {
+                Material material = ((Geometry) spatial).getMaterial();
+                assignMapsToMaterial(assetManager, material);
             }
-
         });
     }
 
@@ -392,7 +386,7 @@ public class AssetUtils {
         }
     }
 
-    private static void prewarmArtResources(List<?> objects, AssetManager assetManager, Main app) throws IllegalArgumentException, IllegalAccessException, InvocationTargetException, Exception {
+    private static void prewarmArtResources(List<?> objects, AssetManager assetManager, Main app) throws Exception {
 
         // Get the fields that house a possible ArtResource
         Class clazz = objects.get(0).getClass();
@@ -451,7 +445,9 @@ public class AssetUtils {
                                         count = 10;
                                         break;
                                     }
-                                    case QUAD: {
+                                    case QUAD:
+                                    case HERO_GATE_2_BY_2:
+                                    case _5_BY_5_ROTATED: {
                                         count = 4;
                                         break;
                                     }
@@ -462,11 +458,6 @@ public class AssetUtils {
                                     case _3_BY_3_ROTATED:
                                     case _3_BY_3: {
                                         count = 9;
-                                        break;
-                                    }
-                                    case HERO_GATE_2_BY_2:
-                                    case _5_BY_5_ROTATED: {
-                                        count = 4;
                                         break;
                                     }
                                     case HERO_GATE_FRONT_END: {
@@ -511,33 +502,30 @@ public class AssetUtils {
      * @param enabled        turn the effect on/off
      */
     public static void setModelHighlight(Spatial spatial, ColorRGBA highlightColor, boolean enabled) {
-        spatial.depthFirstTraversal(new SceneGraphVisitor() {
-            @Override
-            public void visit(Spatial spatial) {
+        spatial.depthFirstTraversal(spatial1 -> {
 
-                if (!(spatial instanceof Geometry)) {
-                    return;
-                }
+            if (!(spatial1 instanceof Geometry)) {
+                return;
+            }
 
-                // Don't highlight non-removables
-                if (Boolean.FALSE.equals(spatial.getUserData(AssetUtils.USER_DATA_KEY_REMOVABLE))
-                        || Boolean.FALSE.equals(spatial.getParent().getParent().getUserData(AssetUtils.USER_DATA_KEY_REMOVABLE))) {
-                    return;
-                }
+            // Don't highlight non-removables
+            if (Boolean.FALSE.equals(spatial1.getUserData(AssetUtils.USER_DATA_KEY_REMOVABLE))
+                    || Boolean.FALSE.equals(spatial1.getParent().getParent().getUserData(AssetUtils.USER_DATA_KEY_REMOVABLE))) {
+                return;
+            }
 
-                try {
-                    Material material = ((Geometry) spatial).getMaterial();
-                    if (material.getMaterialDef().getMaterialParam("Ambient") != null) {
-                        material.setColor("Ambient", highlightColor);
-                    } else {
-                        material.setColor("Color", highlightColor);
-                    }
-                    if (material.getMaterialDef().getMaterialParam("UseMaterialColors") != null) {
-                        material.setBoolean("UseMaterialColors", enabled);
-                    }
-                } catch (Exception e) {
-                    LOGGER.log(Level.WARNING, "Failed to set material color!", e);
+            try {
+                Material material = ((Geometry) spatial1).getMaterial();
+                if (material.getMaterialDef().getMaterialParam("Ambient") != null) {
+                    material.setColor("Ambient", highlightColor);
+                } else {
+                    material.setColor("Color", highlightColor);
                 }
+                if (material.getMaterialDef().getMaterialParam("UseMaterialColors") != null) {
+                    material.setBoolean("UseMaterialColors", enabled);
+                }
+            } catch (Exception e) {
+                LOGGER.log(Level.WARNING, "Failed to set material color!", e);
             }
         });
     }
@@ -557,12 +545,7 @@ public class AssetUtils {
             spatial.setLocalTranslation(0, 0, 0);
         }
          */
-        spatial.breadthFirstTraversal(new SceneGraphVisitor() {
-            @Override
-            public void visit(Spatial spatial) {
-                spatial.setLocalTranslation(0, 0, 0);
-            }
-        });
+        spatial.breadthFirstTraversal(spatial1 -> spatial1.setLocalTranslation(0, 0, 0));
     }
 
     public static void translateToTile(final Spatial spatial, final Point tile) {
@@ -580,27 +563,24 @@ public class AssetUtils {
      * @param spatial the spatial which to change to blueprint
      */
     public static void setBlueprint(AssetManager assetManager, Spatial spatial) {
-        spatial.depthFirstTraversal(new SceneGraphVisitor() {
-            @Override
-            public void visit(Spatial spatial) {
-                if (!(spatial instanceof Geometry)) {
-                    return;
-                }
+        spatial.depthFirstTraversal(spatial1 -> {
+            if (!(spatial1 instanceof Geometry)) {
+                return;
+            }
 
-                // Don't highlight non-removables
-                if (Boolean.FALSE.equals(spatial.getUserData(AssetUtils.USER_DATA_KEY_REMOVABLE))) {
-                    return;
-                }
+            // Don't highlight non-removables
+            if (Boolean.FALSE.equals(spatial1.getUserData(AssetUtils.USER_DATA_KEY_REMOVABLE))) {
+                return;
+            }
 
-                try {
-                    Material mat = new Material(assetManager,
-                            "Common/MatDefs/Misc/Unshaded.j3md");
-                    mat.setColor("Color", new ColorRGBA(0, 0, 0.8f, 0.4f));
-                    mat.getAdditionalRenderState().setBlendMode(BlendMode.Alpha);
-                    spatial.setMaterial(mat);
-                } catch (Exception e) {
-                    LOGGER.log(Level.WARNING, "Failed to set material color!", e);
-                }
+            try {
+                Material mat = new Material(assetManager,
+                        "Common/MatDefs/Misc/Unshaded.j3md");
+                mat.setColor("Color", new ColorRGBA(0, 0, 0.8f, 0.4f));
+                mat.getAdditionalRenderState().setBlendMode(BlendMode.Alpha);
+                spatial1.setMaterial(mat);
+            } catch (Exception e) {
+                LOGGER.log(Level.WARNING, "Failed to set material color!", e);
             }
         });
     }

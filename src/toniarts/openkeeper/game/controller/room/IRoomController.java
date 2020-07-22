@@ -34,87 +34,88 @@ public interface IRoomController {
     /**
      * Constructs a room
      */
-    public void construct();
+    void construct();
 
     /**
      * Checks if the given tile is accessible, from an adjacent tile. If no from
      * tile is given, checks general accessibility
      *
      * @param from from tile, can be {@code null}
-     * @param to the target tile
+     * @param to   the target tile
      * @return true is the tile is accessible
      */
-    public boolean isTileAccessible(Point from, Point to);
+    boolean isTileAccessible(Point from, Point to);
 
     /**
      * Get the actual room instance representation of the room
      *
      * @return the room instance
      */
-    public RoomInstance getRoomInstance();
+    RoomInstance getRoomInstance();
 
     /**
      * Get the number of floor furniture in a room
      *
      * @return floor furniture count
      */
-    public int getFloorFurnitureCount();
+    int getFloorFurnitureCount();
 
     /**
      * Get the number of wall furniture in a room
      *
      * @return wall furniture count
      */
-    public int getWallFurnitureCount();
+    int getWallFurnitureCount();
 
     /**
      * Get the floor furniture IDs
      *
      * @return floor furniture
      */
-    public Set<EntityId> getFloorFurniture();
+    Set<EntityId> getFloorFurniture();
 
     /**
      * Get the wall furniture IDs
      *
      * @return wall furniture
      */
-    public Set<EntityId> getWallFurniture();
+    Set<EntityId> getWallFurniture();
 
-    public boolean canStoreGold();
+    boolean canStoreGold();
 
-    public boolean hasObjectControl(AbstractRoomController.ObjectType objectType);
+    boolean hasObjectControl(AbstractRoomController.ObjectType objectType);
 
-    public <T extends IRoomObjectControl> T getObjectControl(AbstractRoomController.ObjectType objectType);
+    <T extends IRoomObjectControl> T getObjectControl(AbstractRoomController.ObjectType objectType);
 
-    public Room getRoom();
+    Room getRoom();
 
     /**
      * Are we the dungeon heart?
      *
      * @return are we?
      */
-    public boolean isDungeonHeart();
+    boolean isDungeonHeart();
 
     /**
      * Notify and mark the room as destroyed
      */
-    public void destroy();
+    void destroy();
 
     /**
      * Is this room instance destroyed? Not in the world anymore.
      *
-     * @see #destroy()
      * @return is the room destroyed
+     * @see #destroy()
      */
-    public boolean isDestroyed();
+    boolean isDestroyed();
 
     /**
      * Signal that the room has been captured
+     *
      * @param playerId the new owner ID
      */
-    public void captured(short playerId);
+    void captured(short playerId);
 
-    public boolean isFullCapacity();
+    boolean isFullCapacity();
 
 }

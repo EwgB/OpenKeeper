@@ -27,15 +27,15 @@ import toniarts.openkeeper.game.controller.room.AbstractRoomController;
  */
 public interface IObjectController extends IEntityController {
 
-    public int getPickUpPriority();
+    int getPickUpPriority();
 
-    public AbstractRoomController.ObjectType getType();
+    AbstractRoomController.ObjectType getType();
 
-    public boolean isStoredInRoom();
+    boolean isStoredInRoom();
 
-    public boolean isPickableByPlayerCreature(short playerId);
+    boolean isPickableByPlayerCreature(short playerId);
 
-    public boolean isHaulable();
+    boolean isHaulable();
 
     /**
      * Gives the object to the creature, or the creature picks up the object
@@ -43,6 +43,6 @@ public interface IObjectController extends IEntityController {
      * @param creature the creature interacting
      * @return returns true if the object was consumed in the process
      */
-    public boolean creaturePicksUp(ICreatureController creature);
+    boolean creaturePicksUp(ICreatureController creature);
 
 }

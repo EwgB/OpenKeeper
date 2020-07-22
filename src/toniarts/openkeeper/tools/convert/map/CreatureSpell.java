@@ -43,7 +43,7 @@ public class CreatureSpell implements Comparable<CreatureSpell> {
         CAST_ON_OTHERS(0x0100);
         private final long flagValue;
 
-        private CreatureSpellFlag(long flagValue) {
+        CreatureSpellFlag(long flagValue) {
             this.flagValue = flagValue;
         }
 
@@ -51,7 +51,7 @@ public class CreatureSpell implements Comparable<CreatureSpell> {
         public long getFlagValue() {
             return flagValue;
         }
-    };
+    }
 
     public enum AlternativeShot implements IValueEnum {
 
@@ -62,7 +62,7 @@ public class CreatureSpell implements Comparable<CreatureSpell> {
         INVULNERABLE(4),
         INVISIBLE(5);
 
-        private AlternativeShot(int id) {
+        AlternativeShot(int id) {
             this.id = id;
         }
 

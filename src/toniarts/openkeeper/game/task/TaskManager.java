@@ -470,7 +470,7 @@ public class TaskManager implements ITaskManager, IGameLogicUpdatable {
         // Sort by distance & priority
         final Point currentLocation = creature.getCreatureCoordinates();
         List<Task> prioritisedTaskQueue = new ArrayList<>(taskQueue);
-        Collections.sort(prioritisedTaskQueue, (Task t, Task t1) -> {
+        prioritisedTaskQueue.sort((Task t, Task t1) -> {
             int result = Integer.compare(t.getAssigneeCount(), t1.getAssigneeCount());
             if (result == 0) {
                 result = Integer.compare(
@@ -711,7 +711,7 @@ public class TaskManager implements ITaskManager, IGameLogicUpdatable {
         }
 
         // Sort by manhattan distance in relation to the creature
-        Collections.sort(foods, new Comparator<EntityId>() {
+        foods.sort(new Comparator<>() {
 
             private final Point currentLocation = creature.getCreatureCoordinates();
 

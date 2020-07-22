@@ -33,11 +33,11 @@ public interface Hashkeys {
      * The predefined bit protection value key. The standard value is true. If
      * true the flag tries to force a bitProtection (CRC, ADLER, ..).
      */
-    public final static String B_BIT_PROTECTION = "Boolean bitProtection";
+    String B_BIT_PROTECTION = "Boolean bitProtection";
     /**
      * The predefined fast seek value key. The standard value is false. If true
      * the flag tries to force a fast seeking algorithm - for example without
      * vbr support.
      */
-    public final static String B_FAST_SEEKING = "Boolean fastSeeking";
+    String B_FAST_SEEKING = "Boolean fastSeeking";
 }

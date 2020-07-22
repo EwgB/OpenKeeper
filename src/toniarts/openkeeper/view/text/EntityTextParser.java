@@ -38,9 +38,7 @@ public abstract class EntityTextParser<T> {
     }
 
     public String parseText(String text, Entity entity, T dataObject) {
-        return TextUtils.parseText(text, (index) -> {
-            return getReplacement(index, entity, dataObject);
-        });
+        return TextUtils.parseText(text, (index) -> getReplacement(index, entity, dataObject));
     }
     
     protected String getReplacement(int index, Entity entity, T dataObject) {

@@ -237,7 +237,7 @@ import java.io.InterruptedIOException;
 public abstract class Decoder extends AudioInformation implements AudioHashkeys, Hashkeys, Events {
 
     private final InputStream stream;
-    protected Frame information;
+    protected final Frame information;
     /**
      * Marks the integer id for no returned value, which is returned from the
      * <code>fetchPlaytime</code> method.

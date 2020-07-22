@@ -36,13 +36,13 @@ public interface GameSession {
      *
      * @return entity data
      */
-    public EntityData getEntityData();
+    EntityData getEntityData();
 
     /**
      * Signal that we are ready and loaded up
      */
     @Asynchronous
-    public void loadComplete();
+    void loadComplete();
 
     /**
      * Our game loading status update
@@ -50,32 +50,32 @@ public interface GameSession {
      * @param progress our current progress
      */
     @Asynchronous
-    public void loadStatus(float progress);
+    void loadStatus(float progress);
 
     /**
      * Mark us ready to start receiving game updates
      */
     @Asynchronous
-    public void markReady();
+    void markReady();
 
     /**
      * Build a building to the wanted area
      *
-     * @param start start coordinates
-     * @param end end coordinates
+     * @param start  start coordinates
+     * @param end    end coordinates
      * @param roomId room to build
      */
     @Asynchronous
-    public void build(Vector2f start, Vector2f end, short roomId);
+    void build(Vector2f start, Vector2f end, short roomId);
 
     /**
      * Sell building(s) from the wanted area
      *
      * @param start start coordinates
-     * @param end end coordinates
+     * @param end   end coordinates
      */
     @Asynchronous
-    public void sell(Vector2f start, Vector2f end);
+    void sell(Vector2f start, Vector2f end);
 
     /**
      * Set some tiles selected/undetected
@@ -85,7 +85,7 @@ public interface GameSession {
      * @param select select or deselect
      */
     @Asynchronous
-    public void selectTiles(Vector2f start, Vector2f end, boolean select);
+    void selectTiles(Vector2f start, Vector2f end, boolean select);
 
     /**
      * Interact with given entity
@@ -93,7 +93,7 @@ public interface GameSession {
      * @param entity the entity
      */
     @Asynchronous
-    public void interact(EntityId entity);
+    void interact(EntityId entity);
 
     /**
      * Pick up given entity
@@ -101,18 +101,18 @@ public interface GameSession {
      * @param entity the entity
      */
     @Asynchronous
-    public void pickUp(EntityId entity);
+    void pickUp(EntityId entity);
 
     /**
      * Drop the entity on a tile
      *
-     * @param entity the entity to drop
-     * @param tile tile to drop to
-     * @param coordinates real world coordinates inside
+     * @param entity       the entity to drop
+     * @param tile         tile to drop to
+     * @param coordinates  real world coordinates inside
      * @param dropOnEntity if there is already an entity at the position
      */
     @Asynchronous
-    public void drop(EntityId entity, Point tile, Vector2f coordinates, EntityId dropOnEntity);
+    void drop(EntityId entity, Point tile, Vector2f coordinates, EntityId dropOnEntity);
 
     /**
      * Get gold... Rather instantly pick up a lump sum of gold deducted from
@@ -121,30 +121,30 @@ public interface GameSession {
      * @param amount amount of gold to get
      */
     @Asynchronous
-    public void getGold(int amount);
+    void getGold(int amount);
 
     /**
      * Signals that any UI transition has ended
      */
     @Asynchronous
-    public void transitionEnd();
+    void transitionEnd();
 
     /**
      * Request for pausing the game
      */
     @Asynchronous
-    public void pauseGame();
+    void pauseGame();
 
     /**
      * Request for resuming the game
      */
     @Asynchronous
-    public void resumeGame();
+    void resumeGame();
 
     /**
      * We quit!
      */
-    public void exitGame();
+    void exitGame();
 
     /**
      * Trigger a cheat
@@ -152,6 +152,6 @@ public interface GameSession {
      * @param cheat the cheat to trigger
      */
     @Asynchronous
-    public void triggerCheat(CheatState.CheatType cheat);
+    void triggerCheat(CheatState.CheatType cheat);
 
 }

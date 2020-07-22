@@ -43,8 +43,11 @@ public class LobbyUtils {
      */
     public static Keeper getNextKeeper(boolean ai, Set<ClientInfo> players) {
         short id = Player.KEEPER1_ID;
-        List<Short> keepers = players.stream().map(c -> c.getKeeper().getId()).collect(toList());
-        Collections.sort(keepers);
+        List<Short> keepers = players.stream()
+                .map(ClientInfo::getKeeper)
+                .map(Keeper::getId)
+                .sorted()
+                .collect(toList());
         while (Collections.binarySearch(keepers, id) >= 0) {
             id++;
         }
@@ -65,7 +68,7 @@ public class LobbyUtils {
         // Kick excessive players (AI only)
         if (players.size() > maxPlayers) {
             List<ClientInfo> keepers = new ArrayList<>(players);
-            Collections.sort(keepers, (ClientInfo o1, ClientInfo o2) -> Short.compare(o2.getKeeper().getId(), o1.getKeeper().getId()));
+            keepers.sort((ClientInfo o1, ClientInfo o2) -> Short.compare(o2.getKeeper().getId(), o1.getKeeper().getId()));
             int playersToKick = players.size() - maxPlayers;
             int playersKicked = 0;
             kickedPlayers = new HashSet<>(playersToKick);
@@ -82,7 +85,7 @@ public class LobbyUtils {
 
         // Compact the keeper IDs
         List<ClientInfo> keepers = new ArrayList<>(players);
-        Collections.sort(keepers, (ClientInfo o1, ClientInfo o2) -> Short.compare(o1.getKeeper().getId(), o2.getKeeper().getId()));
+        keepers.sort(Comparator.comparingInt((ClientInfo o) -> o.getKeeper().getId()));
         short id = Player.KEEPER1_ID;
         for (ClientInfo keeper : keepers) {
             if (!kickedPlayers.contains(keeper)) {

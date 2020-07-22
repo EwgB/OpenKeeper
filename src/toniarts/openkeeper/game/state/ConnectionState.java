@@ -268,7 +268,7 @@ public class ConnectionState extends AbstractAppState {
 
     public interface ConnectionErrorListener {
 
-        public void showError(final String title, final String message, final Throwable e, final boolean fatal);
+        void showError(final String title, final String message, final Throwable e, final boolean fatal);
     }
 
     private class Connector extends Thread {

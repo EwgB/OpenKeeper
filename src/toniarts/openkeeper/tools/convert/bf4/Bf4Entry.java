@@ -36,7 +36,7 @@ public class Bf4Entry implements Comparable<Bf4Entry> {
         RLE4_DATA(0x0001),
         ONE_BIT_MONOCHROME(0x0002);
 
-        private FontEntryFlag(int value) {
+        FontEntryFlag(int value) {
             this.value = value;
         }
 
@@ -46,7 +46,8 @@ public class Bf4Entry implements Comparable<Bf4Entry> {
         }
 
         private final int value;
-    };
+    }
+
     private Character character;
     private int unknown1;
     private int dataSize;

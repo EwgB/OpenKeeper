@@ -121,16 +121,17 @@ public abstract class Dk2TextureDecoder {
             magic_output_table[i] = d + a;
         }
     }
-    protected long bs[];//Unsigned
+
+    protected long[] bs;//Unsigned
     protected long bs_index;//Unsigned
     protected long bs_red = 0;//Unsigned
     protected long bs_green = 0;//Unsigned
     protected long bs_blue = 0;//Unsigned
     protected long bs_alpha = 0;//Unsigned
-    protected int[] decompress2_chunk = new int[256]; /* buffers */
+    protected final int[] decompress2_chunk = new int[256]; /* buffers */
 
-    protected int[] decompress3_chunk = new int[288];
-    protected int[] decompress4_chunk = new int[512];
+    protected final int[] decompress3_chunk = new int[288];
+    protected final int[] decompress4_chunk = new int[512];
     private static final int norm_7af038 = 0x5A82799A;
     private static final float float_7af03c = 5.4119611e-1f;
     private static final float float_7af040 = 1.306563f;

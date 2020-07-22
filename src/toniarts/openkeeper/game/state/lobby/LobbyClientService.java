@@ -23,8 +23,8 @@ package toniarts.openkeeper.game.state.lobby;
  */
 public interface LobbyClientService extends LobbySession {
 
-    public void addLobbySessionListener(LobbySessionListener l);
+    void addLobbySessionListener(LobbySessionListener l);
 
-    public void removeLobbySessionListener(LobbySessionListener l);
+    void removeLobbySessionListener(LobbySessionListener l);
 
 }

@@ -30,10 +30,7 @@ import toniarts.openkeeper.game.network.game.GameHostedService;
 import toniarts.openkeeper.game.state.lobby.*;
 import toniarts.openkeeper.tools.convert.map.AI;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -305,7 +302,7 @@ public class LobbyHostedService extends AbstractHostedConnectionService implemen
 
     private List<ClientInfo> getPlayers() {
         List<ClientInfo> keepers = new ArrayList<>(players.keySet());
-        Collections.sort(keepers, (ClientInfo o1, ClientInfo o2) -> Short.compare(o1.getKeeper().getId(), o2.getKeeper().getId()));
+        keepers.sort(Comparator.comparingInt((ClientInfo o) -> o.getKeeper().getId()));
 
         // Update pings
         EtherealHost etherealHost = getService(EtherealHost.class);
@@ -323,7 +320,7 @@ public class LobbyHostedService extends AbstractHostedConnectionService implemen
         return keepers;
     }
 
-    private abstract class AbstractLobbySessionImpl implements LobbySession, LobbySessionListener {
+    private abstract static class AbstractLobbySessionImpl implements LobbySession, LobbySessionListener {
 
         private final ClientInfo clientInfo;
 

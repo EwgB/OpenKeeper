@@ -19,26 +19,33 @@ package toniarts.openkeeper.world.effect;
 import toniarts.openkeeper.tools.convert.map.ArtResource;
 
 /**
- *
  * @author ArchDemon
  */
 @Deprecated
 public interface IEffect {
-    public String getName();
-    public ArtResource getArtResource();
+    String getName();
 
-    public float getAirFriction();
-    public float getElasticity();
-    public float getMass();
+    ArtResource getArtResource();
 
-    public float getMinSpeedXy();
-    public float getMaxSpeedXy();
-    public float getMinSpeedYz();
-    public float getMaxSpeedYz();
+    float getAirFriction();
 
-    public float getMinScale();
-    public float getMaxScale();
+    float getElasticity();
 
-    public int getMinHp();
-    public int getMaxHp();
+    float getMass();
+
+    float getMinSpeedXy();
+
+    float getMaxSpeedXy();
+
+    float getMinSpeedYz();
+
+    float getMaxSpeedYz();
+
+    float getMinScale();
+
+    float getMaxScale();
+
+    int getMinHp();
+
+    int getMaxHp();
 }

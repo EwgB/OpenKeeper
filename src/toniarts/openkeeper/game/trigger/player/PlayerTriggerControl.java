@@ -89,12 +89,26 @@ public class PlayerTriggerControl extends TriggerControl {
                 break;
 
             case PLAYER_HAPPY_CREATURES:
-                return false;
-            case PLAYER_ANGRY_CREATURES:
-                return false;
-            case PLAYER_CREATURES_KILLED:
-                return false;
+            case PLAYER_CREATURES_DYING:
+            case PLAYER_CREATURES_GROUPED:
+            case PLAYER_SLAPS:
+            case PLAYER_ROOM_FURNITURE:
+
+            case PLAYER_CREATURE_SACKED:
+            case PLAYER_ENEMY_BREACHED:
+            case PLAYER_DUNGEON_BREACHED:
+            case PLAYER_KILLED:
+            case PLAYER_CREATURES_AT_LEVEL:
+
+            case PLAYER_DESTROYS:
+            case PLAYER_KEEPER_SPELL:
+            case PLAYER_TRAPS:
+            case PLAYER_DOORS:
+
+            case PLAYER_ROOM_SIZE:
             case PLAYER_KILLS_CREATURES:
+            case PLAYER_CREATURES_KILLED:
+            case PLAYER_ANGRY_CREATURES:
                 return false;
 
             case PLAYER_ROOM_SLABS:
@@ -124,15 +138,6 @@ public class PlayerTriggerControl extends TriggerControl {
                     value = getRoomCount(otherPlayerId, roomId);
                 }
                 break;
-
-            case PLAYER_ROOM_SIZE:
-                return false;
-            case PLAYER_DOORS:
-                return false;
-            case PLAYER_TRAPS:
-                return false;
-            case PLAYER_KEEPER_SPELL:
-                return false;
 
             case PLAYER_GOLD:
                 isValue = trigger.getUserData("flag", short.class) == 1;
@@ -173,17 +178,6 @@ public class PlayerTriggerControl extends TriggerControl {
                 }
                 break;
 
-            case PLAYER_DESTROYS:
-                return false;
-            case PLAYER_CREATURES_AT_LEVEL:
-                return false;
-            case PLAYER_KILLED:
-                return false;
-            case PLAYER_DUNGEON_BREACHED:
-                return false;
-            case PLAYER_ENEMY_BREACHED:
-                return false;
-
             case PLAYER_CREATURE_PICKED_UP:
                 PlayerStatsControl psc = getPlayerController(playerId).getStatsControl();
                 creatureId = trigger.getUserData("creatureId", short.class);
@@ -219,17 +213,6 @@ public class PlayerTriggerControl extends TriggerControl {
                     // Certain creature
                     return psc.hasSlapped(levelInfo.getLevelData().getCreature(creatureId));
                 }
-
-            case PLAYER_CREATURE_SACKED:
-                return false;
-            case PLAYER_ROOM_FURNITURE:
-                return false;
-            case PLAYER_SLAPS:
-                return false;
-            case PLAYER_CREATURES_GROUPED:
-                return false;
-            case PLAYER_CREATURES_DYING:
-                return false;
 
             case GUI_TRANSITION_ENDS:
                 return !playerService.isInTransition();

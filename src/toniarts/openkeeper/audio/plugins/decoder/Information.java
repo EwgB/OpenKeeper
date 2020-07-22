@@ -92,7 +92,7 @@ public interface Information {
      * @param key a key in a hashtable
      * @return an information value
      */
-    public Object get(Object key);
+    Object get(Object key);
 
     /**
      * Returns a
@@ -101,7 +101,7 @@ public interface Information {
      *
      * @return a <code>Hashtable</code> representation of      * this <code>Information</code> object
      */
-    public Map<String, Object> getHashtable();
+    Map<String, Object> getHashtable();
 
     /**
      * Obtains a
@@ -112,5 +112,5 @@ public interface Information {
      * @return a String representation all information
      */
     @Override
-    public String toString();
+    String toString();
 }

@@ -20,6 +20,6 @@ public interface IPlayerLoadingProgress extends AppState {
      * @param progress loading progress
      * @param playerId the player ID of which progress this is
      */
-    public void setProgress(final float progress, final short playerId);
+    void setProgress(final float progress, final short playerId);
 
 }

@@ -36,11 +36,11 @@ final class Converter {
     final static int UTF16BE = 2;
     final static int UTF8 = 3;
 
-    String convert(byte b[], boolean unincoding, int coding) throws UnsupportedEncodingException {
+    String convert(byte[] b, boolean unincoding, int coding) throws UnsupportedEncodingException {
         return convert(b, 0, b.length, unincoding, coding);
     }
 
-    String convert(byte b[], int i, int j, boolean unincoding, int coding) throws UnsupportedEncodingException {
+    String convert(byte[] b, int i, int j, boolean unincoding, int coding) throws UnsupportedEncodingException {
         if (unincoding) {
             if (coding == UTF16) {
                 if (j - i < 3) {
@@ -71,10 +71,10 @@ final class Converter {
         return convert8859_1(b, i, i + j, new char[j]);
     }
 
-    private String convert8859_1(byte b[], int i, int j, char c[]) {
+    private String convert8859_1(byte[] b, int i, int j, char[] c) {
         int charIndex = 0;
 
-        for (int byteIndex = i; byteIndex < j;) {
+        for (int byteIndex = i; byteIndex < j; ) {
 
             byte oneb = b[byteIndex++];
 
@@ -87,7 +87,7 @@ final class Converter {
         return new String(c);
     }
 
-    private String convertUTF16(byte b[], int i, int j, char c[], boolean big) {
+    private String convertUTF16(byte[] b, int i, int j, char[] c, boolean big) {
         int k, charIndex = 0;
 
         char onec;
@@ -124,7 +124,7 @@ final class Converter {
         return new String(c);
     }
 
-    private String convertUTF16BE(byte b[], int i, int j, char c[]) {
+    private String convertUTF16BE(byte[] b, int i, int j, char[] c) {
         int k, charIndex = 0;
 
         char onec;
@@ -153,14 +153,14 @@ final class Converter {
         return new String(c);
     }
 
-    private String convertUTF8(byte b[], int i, int j) {
+    private String convertUTF8(byte[] b, int i, int j) {
         int charIndex = 0, k, l, m, n;
 
         char onec = 0;
 
         StringBuilder buffer = new StringBuilder();
 
-        for (int byteIndex = i; byteIndex < j;) {
+        for (int byteIndex = i; byteIndex < j; ) {
 
             byte oneb = b[byteIndex++];
 

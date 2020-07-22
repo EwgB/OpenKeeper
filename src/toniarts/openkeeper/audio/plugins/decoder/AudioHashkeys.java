@@ -32,45 +32,45 @@ public interface AudioHashkeys {
      * The predefined analyze mode string for frequency to amplitude audio
      * analyze data.
      */
-    public final static String FREQUENCY = "Frequency";
+    String FREQUENCY = "Frequency";
     /**
      * The predefined analyze mode string for time to amplitude audio analyze
      * data.
      */
-    public final static String TIME = "Time";
+    String TIME = "Time";
     /**
      * The audio data analyze mode flag key of the current media source. The
      * flag forces to enable a specific analyze mode to examine media data.
      * Examples are spectrum to amplitude and time to amplitude audio data
      * analyze.
      */
-    public final static String S_AUDIO_DATA_ANALYZE_MODE = "String audioDataAnalyzeMode";
+    String S_AUDIO_DATA_ANALYZE_MODE = "String audioDataAnalyzeMode";
     /**
      * The predefined gain value key. The value range is [0.0, 1.0].
      */
-    public final static String F_GAIN = "Float gain";
+    String F_GAIN = "Float gain";
     /**
      * The predefined volume value key. The value range is [0.0, 1.0].
      */
-    public final static String F_VOLUME = "Float volume";
+    String F_VOLUME = "Float volume";
     /**
      * The predefined pan value key. The value range is [-1.0, 1.0].
      */
-    public final static String F_PAN = "Float pan";
+    String F_PAN = "Float pan";
     /**
      * The predefined balance value key. The value range is [-1.0, 1.0].
      */
-    public final static String F_BALANCE = "Float balance";
+    String F_BALANCE = "Float balance";
     /**
      * The predefined mute value key.
      */
-    public final static String B_MUTE = "Boolean mute";
+    String B_MUTE = "Boolean mute";
     /**
      * The predefined equalize value array key. The value range of one array
      * value is [0, Inf.). A value greater than 1 amplifies a frequency band of
      * a signal, otherwise it attenuates the signal within a frequency band.
      */
-    public final static String FA_EQUALIZE = "float[] equalize";
+    String FA_EQUALIZE = "float[] equalize";
     /**
      * The predefined channel mapping array value key. This array is a
      * derivation of a matrix in the sense:
@@ -120,5 +120,5 @@ public interface AudioHashkeys {
      * <p>
      * <code>public final static int STEREO[][] = { 0.53, 0 , 0, 0.23 };</code>
      */
-    public final static String FA_CHANNEL_MAPPING = "float[] channelMapping";
+    String FA_CHANNEL_MAPPING = "float[] channelMapping";
 }

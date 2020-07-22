@@ -28,17 +28,16 @@ public interface AnimationControl extends Control {
 
     /**
      * On animation stop
-     *
      */
-    public void onAnimationStop();
+    void onAnimationStop();
 
     /**
      * Main animation cycle is done
      */
-    public void onAnimationCycleDone();
+    void onAnimationCycleDone();
 
     /**
      * Should we stop the animation
      */
-    public boolean isStopAnimation();
+    boolean isStopAnimation();
 }

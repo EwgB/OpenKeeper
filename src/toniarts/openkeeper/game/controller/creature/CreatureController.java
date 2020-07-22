@@ -1088,11 +1088,9 @@ public class CreatureController extends EntityController implements ICreatureCon
         double timeSpent = gameTimer.getGameTime() - entityData.getComponent(entityId, CreatureAi.class).stateStartTime;
 
         switch (stateMachine.getCurrentState()) {
-            case STUNNED: {
-                // Hmm, this might actually be the level variable, the stun seems to be the time fallen when dropped
-                return timeSpent >= entityData.getComponent(entityId, CreatureComponent.class).stunDuration;
-            }
+            case STUNNED:
             case FALLEN: {
+                // Hmm, this might actually be the level variable, the stun seems to be the time fallen when dropped
                 return timeSpent >= entityData.getComponent(entityId, CreatureComponent.class).stunDuration;
             }
             case GETTING_UP: {

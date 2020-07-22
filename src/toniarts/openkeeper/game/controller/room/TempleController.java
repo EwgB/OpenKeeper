@@ -120,12 +120,12 @@ public class TempleController extends DoubleQuadController {
     /**
      * Finds sub matrix from bigger matrix. Determined by the given size.
      *
-     * @param matrix the matrix to search from
+     * @param matrix  the matrix to search from
      * @param minSize the minimum size of the square to be searched
      * @return null if no such matrix is found, otherwise the lower right
      * coordinate of the matrix
      */
-    private static Point getFirstSubSquare(boolean matrix[][], int minSize) {
+    private static Point getFirstSubSquare(boolean[][] matrix, int minSize) {
 
         // Check the size, is it even possible to find such
         if (matrix.length < minSize || matrix[0].length < minSize) {
@@ -135,7 +135,7 @@ public class TempleController extends DoubleQuadController {
         int i, j;
         int R = matrix.length;         // no rows in M[][]
         int C = matrix[0].length;     // no columns in M[][]
-        int S[][] = new int[R][C];
+        int[][] S = new int[R][C];
 
         int size;
 

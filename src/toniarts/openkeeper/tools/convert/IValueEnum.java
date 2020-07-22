@@ -30,5 +30,5 @@ public interface IValueEnum {
      *
      * @return the id value
      */
-    public int getValue();
+    int getValue();
 }

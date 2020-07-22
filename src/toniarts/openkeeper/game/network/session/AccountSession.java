@@ -50,7 +50,7 @@ public interface AccountSession {
      * request but this is way simpler. This could be expanded to include
      * capabilities, accepted password hashes, and so on.
      */
-    public String getServerInfo();
+    String getServerInfo();
 
     /**
      * Called by the client to provide the player name for this connection and
@@ -63,5 +63,5 @@ public interface AccountSession {
      * asynchronous.
      */
     @Asynchronous
-    public void login(String playerName, int systemMemory);
+    void login(String playerName, int systemMemory);
 }

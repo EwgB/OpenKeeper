@@ -26,21 +26,21 @@ public interface IGameLogicUpdatable {
     /**
      * Signals start for the updatable
      */
-    public void start();
+    void start();
 
     /**
      * Signals stop to the updatable
      */
-    public void stop();
+    void stop();
 
     /**
      * Process one game tick. Note that this is not likely run from a render
      * loop. So you can't modify the scene from here.
      *
-     * @param tpf time since the last call to update(), in seconds. Our tick
-     * rate.
+     * @param tpf      time since the last call to update(), in seconds. Our tick
+     *                 rate.
      * @param gameTime elapsed game time
      */
-    public void processTick(float tpf, double gameTime);
+    void processTick(float tpf, double gameTime);
 
 }

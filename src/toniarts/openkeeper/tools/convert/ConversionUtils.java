@@ -409,7 +409,7 @@ public class ConversionUtils {
         }
 
         @Override
-        public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
+        public FileVisitResult postVisitDirectory(Path dir, IOException exc) {
             return FileVisitResult.TERMINATE; // We already missed our window here
         }
     }

@@ -60,7 +60,7 @@ public class FrontEndLevelControl extends AbstractControl {
 
     @Override
     protected void controlUpdate(float tpf) {
-        if (moved == false) {
+        if (!moved) {
             if (lastTime != null) {
                 long elapsedTime = System.currentTimeMillis() - lastTime;
                 if (active) {

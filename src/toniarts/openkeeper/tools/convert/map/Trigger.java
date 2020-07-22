@@ -27,7 +27,7 @@ import java.util.HashMap;
  */
 public abstract class Trigger {
 
-    protected KwdFile kwdFile; // For toStrings()
+    protected final KwdFile kwdFile; // For toStrings()
     private int id;
     private int idNext; // SiblingID
     private int idChild; // ChildID

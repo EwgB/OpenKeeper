@@ -30,6 +30,6 @@ public interface ITraverserAction<T extends Node> {
      * @param node the visited node
      * @return whether to continue the traversal
      */
-    public boolean onVisitNode(T node);
+    boolean onVisitNode(T node);
 
 }

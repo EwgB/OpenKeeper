@@ -258,12 +258,7 @@ public class CustomTabGroupControl extends AbstractController implements TabGrou
                         + "#button-template");
             } else {
                 buttonTemplate = buttonElement.getElementType().copy();
-                buttonElement.markForRemoval(new EndNotify() {
-                    @Override
-                    public void perform() {
-                        templateRemoved = true;
-                    }
-                });
+                buttonElement.markForRemoval(() -> templateRemoved = true);
             }
         }
         if (contentPanel == null) {

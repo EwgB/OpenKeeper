@@ -33,34 +33,34 @@ public interface LobbySession {
      * @param ready whether we are ready or not
      */
     @Asynchronous
-    public void setReady(boolean ready);
+    void setReady(boolean ready);
 
     /**
      * Check whether we are ready or not
      *
      * @return are we ready
      */
-    public boolean isReady();
+    boolean isReady();
 
     /**
      * Get our unique player ID
      *
      * @return our ID
      */
-    public int getPlayerId();
+    int getPlayerId();
 
     /**
      * Gets the current list of players
      *
      * @return the players
      */
-    public List<ClientInfo> getPlayers();
+    List<ClientInfo> getPlayers();
 
     /**
      * Gets the current map selection
      *
      * @return the name of the map the server uses
      */
-    public String getMap();
+    String getMap();
 
 }

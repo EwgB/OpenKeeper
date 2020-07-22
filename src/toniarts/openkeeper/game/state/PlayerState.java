@@ -75,7 +75,7 @@ public class PlayerState extends AbstractAppState implements PlayerListener {
     private PossessionCameraState possessionCameraState;
 
     private boolean transitionEnd = true;
-    private PlayerScreenController screen;
+    private final PlayerScreenController screen;
 
     private static final Logger LOGGER = Logger.getLogger(PlayerState.class.getName());
 

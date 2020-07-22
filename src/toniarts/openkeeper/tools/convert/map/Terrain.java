@@ -69,7 +69,7 @@ public class Terrain implements Comparable<Terrain>, ISoundable, IFpsSoundable {
         AMBIENT_LIGHT(0x20000000);
         private final long flagValue;
 
-        private TerrainFlag(long flagValue) {
+        TerrainFlag(long flagValue) {
             this.flagValue = flagValue;
         }
 
@@ -77,7 +77,8 @@ public class Terrain implements Comparable<Terrain>, ISoundable, IFpsSoundable {
         public long getFlagValue() {
             return flagValue;
         }
-    };
+    }
+
     //
     // struct Terrain { char name[32]; /* 0
     //

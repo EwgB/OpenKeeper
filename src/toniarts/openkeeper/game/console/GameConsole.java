@@ -52,8 +52,8 @@ public class GameConsole {
         ADD_GOLD,
         ADD_MANA,
         SPAWN_CREATURE,
-        SPAWN_IMPS;
-    };
+        SPAWN_IMPS
+    }
 
     /**
      * These commands don't have parameters
@@ -69,8 +69,8 @@ public class GameConsole {
         UNLOCK_SPELLS,
         UNLOCK_ROOMS_TRAPS,
         REMOVE_FOW,
-        WIN_LEVEL;
-    };
+        WIN_LEVEL
+    }
 
     GameConsole(AppStateManager stateManager) {
         this.stateManager = stateManager;
@@ -88,9 +88,7 @@ public class GameConsole {
         for (ParameterCommands parameterCmd : ParameterCommands.values()) {
             if (parameterCmd.equals(ParameterCommands.SPAWN_CREATURE)) {
                 // make it easier to spawn them by creating an autocompletion
-                creatures.forEach(creature -> {
-                    consoleCommands.registerCommand(parameterCmd.toString().toLowerCase() + " " + creature.getName().toLowerCase().replace(" ", "_"), parameterCommand);
-                });
+                creatures.forEach(creature -> consoleCommands.registerCommand(parameterCmd.toString().toLowerCase() + " " + creature.getName().toLowerCase().replace(" ", "_"), parameterCommand));
             } else {
                 consoleCommands.registerCommand(parameterCmd.toString().toLowerCase(), parameterCommand);
             }

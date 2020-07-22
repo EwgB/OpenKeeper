@@ -39,7 +39,7 @@ public class TriggerGeneric extends Trigger {
         GREATER_OR_EQUAL_TO(5, "\u2265"),
         NOT_EQUAL_TO(6, "!=");
 
-        private ComparisonType(int id, String description) {
+        ComparisonType(int id, String description) {
             this.id = id;
             this.description = description;
         }
@@ -131,7 +131,7 @@ public class TriggerGeneric extends Trigger {
         PLAYER_CREATURES_DYING(74);
 
         // Player
-        private TargetType(int id) {
+        TargetType(int id) {
             this.id = id;
         }
 
@@ -163,7 +163,7 @@ public class TriggerGeneric extends Trigger {
         CREATURE,
         BUTTON,
         FLAG,
-        TIMER;
+        TIMER
     }
     //    struct TriggerBlock {
     //        int x00;

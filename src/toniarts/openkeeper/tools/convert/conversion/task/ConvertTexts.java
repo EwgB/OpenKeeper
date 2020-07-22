@@ -23,6 +23,7 @@ import toniarts.openkeeper.utils.AssetUtils;
 import toniarts.openkeeper.utils.PathUtils;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
@@ -67,9 +68,9 @@ public class ConvertTexts extends ConversionTask {
         final List<File> srtFiles = new ArrayList<>();
         File dataDir = new File(dataDirectory);
         try {
-            Files.walkFileTree(dataDir.toPath(), EnumSet.noneOf(FileVisitOption.class), 1, new SimpleFileVisitor<Path>() {
+            Files.walkFileTree(dataDir.toPath(), EnumSet.noneOf(FileVisitOption.class), 1, new SimpleFileVisitor<>() {
                 @Override
-                public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
 
                     //Get all the STR files
                     if (attrs.isRegularFile() && file.getFileName().toString().toLowerCase().endsWith(".str")) {
@@ -108,7 +109,7 @@ public class ConvertTexts extends ConversionTask {
             String fileName = file.getName();
             fileName = fileName.substring(0, fileName.length() - 3);
             File dictFile = new File(destination.concat(fileName).concat("properties"));
-            try (PrintWriter pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream(dictFile, false), "UTF-8"))) {
+            try (PrintWriter pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream(dictFile, false), StandardCharsets.UTF_8))) {
                 for (Map.Entry<Integer, String> entry : strFile.getEntriesAsSet()) {
                     pw.println(entry.getKey() + "=" + entry.getValue());
                 }

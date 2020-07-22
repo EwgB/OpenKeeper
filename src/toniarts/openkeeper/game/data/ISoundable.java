@@ -22,5 +22,5 @@ package toniarts.openkeeper.game.data;
  */
 public interface ISoundable {
 
-    public String getSoundCategory();
+    String getSoundCategory();
 }

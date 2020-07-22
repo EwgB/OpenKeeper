@@ -53,9 +53,9 @@ import com.jme3.network.service.rmi.Asynchronous;
 public interface AccountSessionListener {
     
     /**
-     *  Called by the server to provide login status to the client after
-     *  a login attempt.
+     * Called by the server to provide login status to the client after
+     * a login attempt.
      */
     @Asynchronous
-    public void notifyLoginStatus( boolean loggedIn );
+    void notifyLoginStatus(boolean loggedIn);
 }

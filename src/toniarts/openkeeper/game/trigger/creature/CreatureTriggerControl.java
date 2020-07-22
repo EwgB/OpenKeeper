@@ -80,18 +80,17 @@ public class CreatureTriggerControl extends AbstractThingTriggerControl<ICreatur
                 }
                 return false;
             case CREATURE_CONVERTED:
+            case CREATURE_SACKED:
+            case CREATURE_HUNGER_SATED:
+            case CREATURE_LEAVES:
+            case CREATURE_STEALS:
+            case CREATURE_AFRAID:
                 return false;
             case CREATURE_CLAIMED:
                 if (instanceControl != null) {
                     return instanceControl.isClaimed();
                 }
             case CREATURE_ANGRY:
-                return false;
-            case CREATURE_AFRAID:
-                return false;
-            case CREATURE_STEALS:
-                return false;
-            case CREATURE_LEAVES:
                 return false;
             case CREATURE_STUNNED:
                 if (instanceControl != null) {
@@ -121,14 +120,10 @@ public class CreatureTriggerControl extends AbstractThingTriggerControl<ICreatur
                     break;
                 }
                 return false;
-            case CREATURE_HUNGER_SATED:
-                return false;
             case CREATURE_PICKS_UP_PORTAL_GEM:
                 if (instanceControl != null) {
                     return instanceControl.isPortalGemInPossession();
                 }
-                return false;
-            case CREATURE_SACKED:
                 return false;
             case CREATURE_PICKED_UP:
                 if (instanceControl != null) {
@@ -160,6 +155,8 @@ public class CreatureTriggerControl extends AbstractThingTriggerControl<ICreatur
                 break;
 
             case MAKE_HUNGRY:
+
+            case REMOVE_FROM_MAP:
                 break;
 
             case SHOW_HEALTH_FLOWER:
@@ -170,9 +167,6 @@ public class CreatureTriggerControl extends AbstractThingTriggerControl<ICreatur
 
             case ALTER_SPEED:
                 boolean available = trigger.getUserData("available", short.class) != 0; // 0 = Walk, !0 = Run
-                break;
-
-            case REMOVE_FROM_MAP:
                 break;
 
             case SET_FIGHT_FLAG:

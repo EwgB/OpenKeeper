@@ -49,18 +49,18 @@ public interface ChatSessionListener {
      * Called when a new player has joined the chat.
      */
     @Asynchronous
-    public void playerJoined(int playerId, String playerName);
+    void playerJoined(int playerId, String playerName);
 
     /**
      * Called when a player has sent a message to the chat.
      */
     @Asynchronous
-    public void newMessage(int playerId, Short keeperId, String playerName, String message);
+    void newMessage(int playerId, Short keeperId, String playerName, String message);
 
     /**
      * Called when an existing player has left the chat.
      */
     @Asynchronous
-    public void playerLeft(int playerId, String playerName);
+    void playerLeft(int playerId, String playerName);
 
 }

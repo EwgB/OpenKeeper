@@ -42,7 +42,7 @@ public class Door implements Comparable<Door>, ISoundable, IIndexable {
         IS_GOOD(0x0080); // Good (as in alignment)
         private final long flagValue;
 
-        private DoorFlag(long flagValue) {
+        DoorFlag(long flagValue) {
             this.flagValue = flagValue;
         }
 
@@ -50,7 +50,8 @@ public class Door implements Comparable<Door>, ISoundable, IIndexable {
         public long getFlagValue() {
             return flagValue;
         }
-    };
+    }
+
     private String name;
     private ArtResource mesh;
     private ArtResource guiIcon;

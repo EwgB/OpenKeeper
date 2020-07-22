@@ -45,7 +45,7 @@ public class Shot implements Comparable<Shot>, ISoundable {
         RECOIL(0x0100);
         private final long flagValue;
 
-        private ShotFlag(long flagValue) {
+        ShotFlag(long flagValue) {
             this.flagValue = flagValue;
         }
 
@@ -53,7 +53,7 @@ public class Shot implements Comparable<Shot>, ISoundable {
         public long getFlagValue() {
             return flagValue;
         }
-    };
+    }
 
     /**
      * Shot process flags
@@ -71,7 +71,7 @@ public class Shot implements Comparable<Shot>, ISoundable {
         HIT_THING(0x0100);
         private final long flagValue;
 
-        private ShotProcessFlag(long flagValue) {
+        ShotProcessFlag(long flagValue) {
             this.flagValue = flagValue;
         }
 
@@ -79,7 +79,7 @@ public class Shot implements Comparable<Shot>, ISoundable {
         public long getFlagValue() {
             return flagValue;
         }
-    };
+    }
 
     public enum DamageType implements IValueEnum {
 
@@ -93,7 +93,7 @@ public class Shot implements Comparable<Shot>, ISoundable {
         HIT_THING(7),
         CONSTANT_FOR_TREMOR(8);
 
-        private DamageType(int id) {
+        DamageType(int id) {
             this.id = id;
         }
 
@@ -112,7 +112,7 @@ public class Shot implements Comparable<Shot>, ISoundable {
         ALL_CREATURES(3),
         DEAD_BODIES(4);
 
-        private CollideType(int id) {
+        CollideType(int id) {
             this.id = id;
         }
 
@@ -166,7 +166,7 @@ public class Shot implements Comparable<Shot>, ISoundable {
         POISON_SPIT(38),
         JACK_IN_THE_BOX(39);
 
-        private ProcessType(int id) {
+        ProcessType(int id) {
             this.id = id;
         }
 
@@ -192,7 +192,7 @@ public class Shot implements Comparable<Shot>, ISoundable {
         NON_LETHAL_TRAP(14),
         MELEE_SCYTHE(15);
 
-        private AttackCategory(int id) {
+        AttackCategory(int id) {
             this.id = id;
         }
 

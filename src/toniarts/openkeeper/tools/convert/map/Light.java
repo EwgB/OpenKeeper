@@ -49,7 +49,7 @@ public class Light {
         COLOR_BLUE(0x00002000); // If this is set, add 256 to the blue value of the light
         private final long flagValue;
 
-        private LightFlag(long flagValue) {
+        LightFlag(long flagValue) {
             this.flagValue = flagValue;
         }
 
@@ -57,7 +57,8 @@ public class Light {
         public long getFlagValue() {
             return flagValue;
         }
-    };
+    }
+
     private Vector3f mKPos;
     private float radius;
     private EnumSet<LightFlag> flags;

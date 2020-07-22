@@ -52,7 +52,7 @@ public class EAAudioHeader {
         EA_LAYER_3("EALayer3"),
         UNKNOWN("Unknown");
 
-        private Compression(String description) {
+        Compression(String description) {
             this.description = description;
         }
 

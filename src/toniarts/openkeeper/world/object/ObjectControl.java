@@ -45,7 +45,7 @@ public class ObjectControl extends HighlightControl implements IInteractiveContr
 
     public enum ObjectState {
 
-        NORMAL, PICKED_UP, OWNED_BY_CREATURE, STORED_IN_ROOM, REMOVED;
+        NORMAL, PICKED_UP, OWNED_BY_CREATURE, STORED_IN_ROOM, REMOVED
     }
 
     protected final WorldState worldState;

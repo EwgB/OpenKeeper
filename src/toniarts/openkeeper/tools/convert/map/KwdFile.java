@@ -665,6 +665,9 @@ public final class KwdFile {
                 break;
 
             case TERRAIN_MESH:
+
+            case MESH_COLLECTION: // FIXME nothing todo ?! has just the name, reference to GROP meshes probably
+            case UNKNOWN:
                 artResource.setData("unknown_1", file.readUnsignedInteger());
                 artResource.setData("unknown_2", file.readUnsignedInteger());
                 artResource.setData("unknown_3", file.readUnsignedInteger());
@@ -687,13 +690,6 @@ public final class KwdFile {
                 artResource.setData(ArtResource.KEY_ID, file.readUnsignedInteger());
                 artResource.setData("unknown_1", file.readUnsignedInteger());
                 artResource.setData("unknown_2", file.readUnsignedInteger());
-                break;
-
-            case MESH_COLLECTION: // FIXME nothing todo ?! has just the name, reference to GROP meshes probably
-            case UNKNOWN:
-                artResource.setData("unknown_1", file.readUnsignedInteger());
-                artResource.setData("unknown_2", file.readUnsignedInteger());
-                artResource.setData("unknown_3", file.readUnsignedInteger());
                 break;
 
             default:
@@ -1223,7 +1219,7 @@ public final class KwdFile {
             creature.setLight(readLight(file));
             Attraction[] attractions = new Attraction[2];
             for (int x = 0; x < attractions.length; x++) {
-                Attraction attraction = creature.new Attraction();
+                Attraction attraction = new Attraction();
                 attraction.setPresent(file.readUnsignedInteger());
                 attraction.setRoomId(file.readUnsignedShort());
                 attraction.setRoomSize(file.readUnsignedShort());
@@ -1234,7 +1230,7 @@ public final class KwdFile {
             creature.setFirstPersonOscillateScale(file.readIntegerAsFloat());
             List<Spell> spells = new ArrayList<>(3);
             for (int x = 0; x < 3; x++) {
-                Spell spell = creature.new Spell();
+                Spell spell = new Spell();
                 spell.setShotOffset(file.readIntegerAsFloat(),
                         file.readIntegerAsFloat(),
                         file.readIntegerAsFloat());
@@ -1254,7 +1250,7 @@ public final class KwdFile {
             creature.setSpells(spells);
             Creature.Resistance[] resistances = new Creature.Resistance[4];
             for (int x = 0; x < resistances.length; x++) {
-                Creature.Resistance resistance = creature.new Resistance();
+                Creature.Resistance resistance = new Resistance();
                 resistance.setAttackType(file.readByteAsEnum(Creature.AttackType.class));
                 resistance.setValue(file.readUnsignedByte());
                 resistances[x] = resistance;
@@ -1270,7 +1266,7 @@ public final class KwdFile {
             creature.setHateJobs(hateJobs);
             JobAlternative[] alternatives = new JobAlternative[3];
             for (int x = 0; x < alternatives.length; x++) {
-                JobAlternative alternative = creature.new JobAlternative();
+                JobAlternative alternative = new JobAlternative();
                 alternative.setJobType(file.readIntegerAsEnum(Creature.JobType.class));
                 alternative.setMoodChange(file.readUnsignedShort());
                 alternative.setManaChange(file.readUnsignedShort());
@@ -1400,7 +1396,7 @@ public final class KwdFile {
             creature.setAnimation(AnimationType.BACK_OFF, readArtResource(file));
             X1323[] x1323s = new X1323[48];
             for (int x = 0; x < x1323s.length; x++) {
-                X1323 x1323 = creature.new X1323();
+                X1323 x1323 = new X1323();
                 x1323.setX00(file.readUnsignedShort());
                 x1323.setX02(file.readUnsignedShort());
                 x1323s[x] = x1323;
@@ -1465,7 +1461,7 @@ public final class KwdFile {
     private Creature.JobPreference[] readJobPreferences(int count, Creature creature, IResourceReader file) throws IOException {
         Creature.JobPreference[] preferences = new Creature.JobPreference[count];
         for (int x = 0; x < preferences.length; x++) {
-            Creature.JobPreference jobPreference = creature.new JobPreference();
+            Creature.JobPreference jobPreference = new JobPreference();
             jobPreference.setJobType(file.readIntegerAsEnum(Creature.JobType.class));
             jobPreference.setMoodChange(file.readUnsignedShort());
             jobPreference.setManaChange(file.readUnsignedShort());
@@ -1859,7 +1855,7 @@ public final class KwdFile {
                     thing = new Thing.Object();
                     ((Thing.Object) thing).setPosX(file.readInteger());
                     ((Thing.Object) thing).setPosY(file.readInteger());
-                    short unknown1[] = new short[4];
+                    short[] unknown1 = new short[4];
                     for (int x = 0; x < unknown1.length; x++) {
                         unknown1[x] = file.readUnsignedByte();
                     }
@@ -1899,7 +1895,7 @@ public final class KwdFile {
                     ((Thing.Door) thing).setDoorId(file.readUnsignedByte());
                     ((Thing.Door) thing).setPlayerId(file.readUnsignedByte());
                     ((Thing.Door) thing).setFlag(file.readByteAsEnum(Thing.Door.DoorFlag.class));
-                    short unknown2[] = new short[3];
+                    short[] unknown2 = new short[3];
                     for (int x = 0; x < unknown2.length; x++) {
                         unknown2[x] = file.readUnsignedByte();
                     }
@@ -1961,7 +1957,7 @@ public final class KwdFile {
                     ((GoodCreature) thing).setObjectiveTargetPlayerId(file.readUnsignedByte());
                     ((GoodCreature) thing).setObjective(file.readByteAsEnum(Thing.HeroParty.Objective.class));
                     ((GoodCreature) thing).setCreatureId(file.readUnsignedByte());
-                    short unknown1[] = new short[2];
+                    short[] unknown1 = new short[2];
                     for (int x = 0; x < unknown1.length; x++) {
                         unknown1[x] = file.readUnsignedByte();
                     }
@@ -2015,7 +2011,7 @@ public final class KwdFile {
                         creature.setObjectiveTargetPlayerId(file.readUnsignedByte());
                         creature.setObjective(file.readByteAsEnum(Thing.HeroParty.Objective.class));
                         creature.setCreatureId(file.readUnsignedByte());
-                        short unknown1[] = new short[2];
+                        short[] unknown1 = new short[2];
                         for (int index = 0; index < unknown1.length; index++) {
                             unknown1[index] = file.readUnsignedByte();
                         }
@@ -2315,6 +2311,13 @@ public final class KwdFile {
 
                         case PLAYER_CREATURES_KILLED:
                         case PLAYER_KILLS_CREATURES:
+
+                        case PLAYER_CREATURES_AT_LEVEL:
+
+                        case PLAYER_DOORS:
+                        case PLAYER_TRAPS:
+                        case PLAYER_KEEPER_SPELL:
+                        case PLAYER_DESTROYS:
                             ((TriggerGeneric) trigger).setTargetValueComparison(file.readByteAsEnum(TriggerGeneric.ComparisonType.class));
                             trigger.setUserData("targetId", file.readUnsignedByte()); // playerId
                             trigger.setUserData("flag", file.readUnsignedByte()); // 0x1 = Value, !0x1 = Player
@@ -2332,17 +2335,7 @@ public final class KwdFile {
                             trigger.setUserData("playerId", file.readUnsignedByte());
                             trigger.setUserData("value", file.readUnsignedInteger());
                             break;
-
-                        case PLAYER_DOORS:
-                        case PLAYER_TRAPS:
-                        case PLAYER_KEEPER_SPELL:
-                        case PLAYER_DESTROYS:
-                            ((TriggerGeneric) trigger).setTargetValueComparison(file.readByteAsEnum(TriggerGeneric.ComparisonType.class));
-                            trigger.setUserData("targetId", file.readUnsignedByte()); // doorId, trapId, keeperSpellId,
-                            trigger.setUserData("flag", file.readUnsignedByte()); // 0x1 = Value, !0x1 = Player
-                            trigger.setUserData("playerId", file.readUnsignedByte());
-                            trigger.setUserData("value", file.readUnsignedInteger());
-                            break;
+                        // doorId, trapId, keeperSpellId,
 
                         case PLAYER_SLAPS:
                         case PLAYER_GOLD:
@@ -2357,15 +2350,9 @@ public final class KwdFile {
                             trigger.setUserData("playerId", file.readUnsignedByte());
                             trigger.setUserData("value", file.readUnsignedInteger());
                             break;
-
-                        case PLAYER_CREATURES_AT_LEVEL:
-                            ((TriggerGeneric) trigger).setTargetValueComparison(file.readByteAsEnum(TriggerGeneric.ComparisonType.class));
-                            // FIXME some bug in editor
-                            trigger.setUserData("targetId", file.readUnsignedByte()); // = 0, must be a level
-                            trigger.setUserData("flag", file.readUnsignedByte()); // 0x1 = Value, !0x1 = Player
-                            trigger.setUserData("playerId", file.readUnsignedByte()); // level also
-                            trigger.setUserData("value", file.readUnsignedInteger());
-                            break;
+                        // FIXME some bug in editor
+                        // = 0, must be a level
+                        // level also
 
                         case LEVEL_PAY_DAY:
                         case CREATURE_KILLED:
@@ -2501,6 +2488,9 @@ public final class KwdFile {
                         case ALTER_SPEED:  // 0 = Walk, !0 = Run
                         case SET_FIGHT_FLAG: // 0 = Don`t Fight, !0 = Fight
                         case SET_PORTAL_STATUS: // 0 = Closed, !0 = Open
+                            // in player triggers
+                        case DISPLAY_SLAB_OWNER:
+                            // FIXME Show wrong values in editor
                             trigger.setUserData("available", file.readUnsignedByte());  // 0 = Off, !0 = On
                             file.readAndCheckNull(7); // file.skipBytes(7);
                             break;
@@ -2511,6 +2501,8 @@ public final class KwdFile {
                             break;
 
                         case INITIALIZE_TIMER:
+
+                        case SET_TIME_LIMIT:
                             trigger.setUserData("timerId", file.readUnsignedByte()); // timerId + 1, 16 - Time Limit
                             file.readAndCheckNull(3); // file.skipBytes(3);
                             trigger.setUserData("value", file.readUnsignedInteger()); // limit 4 bytes, only for Time limit (max 100 s)
@@ -2530,14 +2522,8 @@ public final class KwdFile {
                             trigger.setUserData("available", file.readUnsignedByte()); // 0 = Unavailable, !0 = Available
                             file.readAndCheckNull(4); // file.skipBytes(4);
                             break;
-                        // in player triggers
-                        case DISPLAY_SLAB_OWNER:
-                            // FIXME Show wrong values in editor
-                            trigger.setUserData("available", file.readUnsignedByte());  // 0 = Off, !0 = On
-                            //((TriggerAction) trigger).setActionTargetValue1(ConversionUtils.toUnsignedInteger(file)); // limit 4 bytes
-                            // 1635984
-                            file.readAndCheckNull(7); // file.skipBytes(7);
-                            break;
+                        //((TriggerAction) trigger).setActionTargetValue1(ConversionUtils.toUnsignedInteger(file)); // limit 4 bytes
+                        // 1635984
 
                         case DISPLAY_NEXT_ROOM_TYPE: // 0 = Off or roomId
                         case MAKE_OBJECTIVE: // 0 = Off, 1 = Kill, 2 = Imprison, 3 = Convert
@@ -2582,12 +2568,7 @@ public final class KwdFile {
                             trigger.setUserData("value", file.readUnsignedInteger());
                             file.readAndCheckNull(4); // file.skipBytes(4);
                             break;
-
-                        case SET_TIME_LIMIT:
-                            trigger.setUserData("timerId", file.readUnsignedByte()); // timerId + 1, 16 - Time Limit
-                            file.readAndCheckNull(3); // file.skipBytes(3);
-                            trigger.setUserData("value", file.readUnsignedInteger()); // Seconds
-                            break;
+                        // Seconds
 
                         case FOLLOW_CAMERA_PATH:
                             trigger.setUserData("pathId", file.readUnsignedByte());
@@ -2746,11 +2727,7 @@ public final class KwdFile {
                     creaturePool.setPlayerId(file.readInteger());
 
                     // Add
-                    Map<Integer, CreaturePool> playerCreaturePool = creaturePools.get(creaturePool.getPlayerId());
-                    if (playerCreaturePool == null) {
-                        playerCreaturePool = new HashMap<>(12);
-                        creaturePools.put(creaturePool.getPlayerId(), playerCreaturePool);
-                    }
+                    Map<Integer, CreaturePool> playerCreaturePool = creaturePools.computeIfAbsent(creaturePool.getPlayerId(), k -> new HashMap<>(12));
                     playerCreaturePool.put(creaturePool.getCreatureId(), creaturePool);
                     break;
 
@@ -3165,7 +3142,7 @@ public final class KwdFile {
     /**
      * Kwd header, few different kinds, handles all
      */
-    private class KwdHeader {
+    private static class KwdHeader {
         // struct kwdHeader {
         //     unsigned int id;
         //     unsigned int size;

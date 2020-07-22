@@ -84,7 +84,7 @@ public class GameLevel implements ISoundable, ITriggerable {
         IS_MY_PET_DUNGEON_LEVEL(0x2000); // The map is My Pet Dungeon level
         private final long flagValue;
 
-        private LevFlag(long flagValue) {
+        LevFlag(long flagValue) {
             this.flagValue = flagValue;
         }
 
@@ -92,7 +92,7 @@ public class GameLevel implements ISoundable, ITriggerable {
         public long getFlagValue() {
             return flagValue;
         }
-    };
+    }
 
     public enum TextTable implements IValueEnum {
 
@@ -157,7 +157,7 @@ public class GameLevel implements ISoundable, ITriggerable {
         MULTI_PLAYER_19(58, "MULTIPLAYER", "LEVELM19_BRIEFING"),
         MULTI_PLAYER_20(59, "MULTIPLAYER", "LEVELM20_BRIEFING");
 
-        private TextTable(int id, String levelDictFile, String levelBriefingDictFile) {
+        TextTable(int id, String levelDictFile, String levelBriefingDictFile) {
             this.id = id;
             this.levelDictFile = levelDictFile;
             this.levelBriefingDictFile = levelBriefingDictFile;
@@ -222,7 +222,7 @@ public class GameLevel implements ISoundable, ITriggerable {
         REAPER_TALISMAN_2(50),
         REAPER_TALISMAN_3(51);
 
-        private LevelReward(int id) {
+        LevelReward(int id) {
             this.id = id;
         }
 
@@ -240,13 +240,13 @@ public class GameLevel implements ISoundable, ITriggerable {
     protected String information;
     protected int triggerId;
     protected int ticksPerSec;
-    protected short x01184[];
+    protected short[] x01184;
     protected List<String> messages;
     protected EnumSet<LevFlag> lvlFlags;
     protected String soundCategory;
     protected short talismanPieces;
-    protected List<LevelReward> rewardPrev = new ArrayList<>();
-    protected List<LevelReward> rewardNext = new ArrayList<>();
+    protected final List<LevelReward> rewardPrev = new ArrayList<>();
+    protected final List<LevelReward> rewardNext = new ArrayList<>();
     protected short soundTrack;
     protected TextTable textTableId;
     protected int textTitleId;
@@ -271,7 +271,7 @@ public class GameLevel implements ISoundable, ITriggerable {
     protected String heroName;
     //
     protected List<FilePath> paths;
-    protected int unknown[];
+    protected int[] unknown;
 
     //
     protected final static String TEXT_DIR = "Interface/Texts/";

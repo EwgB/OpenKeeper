@@ -95,17 +95,13 @@ public class ChickenAiSystem implements IGameLogicUpdatable {
 
     private ObjectViewState.GameObjectAnimState getAnimStateFromAiState(ChickenState chickenState) {
         switch (chickenState) {
-            case HATCHING_START: {
-                return ObjectViewState.GameObjectAnimState.MESH_RESOURCE;
-            }
-            case HATCHING_END: {
-                return ObjectViewState.GameObjectAnimState.ADDITIONAL_RESOURCE_1;
-            }
-            case PECKING: {
-                return ObjectViewState.GameObjectAnimState.ADDITIONAL_RESOURCE_1;
-            }
+            case HATCHING_START:
             case WANDERING: {
                 return ObjectViewState.GameObjectAnimState.MESH_RESOURCE;
+            }
+            case HATCHING_END:
+            case PECKING: {
+                return ObjectViewState.GameObjectAnimState.ADDITIONAL_RESOURCE_1;
             }
         }
 

@@ -94,11 +94,7 @@ public class StreamingClientService extends AbstractClientService {
             StreamedMessage message = (StreamedMessage) m;
 
             // Set up a buffer for this client
-            Map<Integer, ByteBuffer> messageBuffers = messageReceiveMap.get(source.getId());
-            if (messageBuffers == null) {
-                messageBuffers = new HashMap<>();
-                messageReceiveMap.put(source.getId(), messageBuffers);
-            }
+            Map<Integer, ByteBuffer> messageBuffers = messageReceiveMap.computeIfAbsent(source.getId(), k -> new HashMap<>());
 
             // Handle buffer for client's message type
             ByteBuffer messageBuffer = messageBuffers.get(message.getMessageType());

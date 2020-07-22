@@ -55,7 +55,7 @@ public class TableColumn {
 
     protected static TableColumn parse(String property) throws ClassNotFoundException {
         String[] params = property.split(";");
-        return new TableColumn(params[0], Integer.valueOf(params[1]), Class.forName(params[2]), new Color(params[3]));
+        return new TableColumn(params[0], Integer.parseInt(params[1]), Class.forName(params[2]), new Color(params[3]));
     }
 
     @Override

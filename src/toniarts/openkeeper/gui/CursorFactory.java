@@ -43,7 +43,7 @@ public final class CursorFactory {
         PICKAXE_TAG,
         SPELL_POSSESS,
         NO_SPELL_POSSESS,
-        SPELL_CAST;
+        SPELL_CAST
     }
     private static volatile HashMap<CursorType, JmeCursor> cursors;
     private static final Object lock = new Object();

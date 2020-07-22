@@ -34,7 +34,7 @@ import java.util.Map;
  */
 public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
 
-    public static enum AnimationType {
+    public enum AnimationType {
         WALK,
         RUN,
         BACK_OFF,
@@ -89,7 +89,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         NULL_4, // always null
     }
 
-    public static enum OffsetType {
+    public enum OffsetType {
         PORTAL_ENTRANCE,
         PRAYING,
         FALL_BACK_GET_UP,
@@ -140,7 +140,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
 
         private final long flagValue;
 
-        private CreatureFlag(long flagValue) {
+        CreatureFlag(long flagValue) {
             this.flagValue = flagValue;
         }
 
@@ -149,8 +149,6 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
             return flagValue;
         }
     }
-
-    ;
 
     /**
      * Creature flags, extended
@@ -163,7 +161,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         AVAILABLE_VIA_HERO_PORTAL(8);
         private final long flagValue;
 
-        private CreatureFlag2(long flagValue) {
+        CreatureFlag2(long flagValue) {
             this.flagValue = flagValue;
         }
 
@@ -172,8 +170,6 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
             return flagValue;
         }
     }
-
-    ;
 
     public enum CreatureFlag3 implements IFlagEnum {
         UNK_1(1),
@@ -183,7 +179,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
 
         private final long flagValue;
 
-        private CreatureFlag3(long flagValue) {
+        CreatureFlag3(long flagValue) {
             this.flagValue = flagValue;
         }
 
@@ -192,8 +188,6 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
             return flagValue;
         }
     }
-
-    ;
 
     public enum AttackType implements IValueEnum {
 
@@ -244,7 +238,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         // MISTRESS_FREEZE(),
         // CAST_ARMOUR(),
 
-        private AttackType(int id) {
+        AttackType(int id) {
             this.id = id;
         }
 
@@ -287,7 +281,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         JAIL_BREAK(27),
         TOLLING(28);
 
-        private JobType(int id) {
+        JobType(int id) {
             this.id = id;
         }
 
@@ -316,7 +310,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         FIGHTER(2),
         SCOUT(3);
 
-        private JobClass(int id) {
+        JobClass(int id) {
             this.id = id;
         }
 
@@ -336,7 +330,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         FLANKER(3),
         SUPPORT(4);
 
-        private FightStyle(int id) {
+        FightStyle(int id) {
             this.id = id;
         }
 
@@ -359,7 +353,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         WEST(6),
         NORTH_WEST(7);
 
-        private DeathFallDirection(int id) {
+        DeathFallDirection(int id) {
             this.id = id;
         }
 
@@ -398,7 +392,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         RIGHT_KING_FGBS_SLASH(22),
         UNK_36(36); // FIXME
 
-        private Swipe(int id) {
+        Swipe(int id) {
             this.id = id;
         }
 
@@ -424,7 +418,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         FEAR_ATTACK(9),
         GHOST_POSSESSION(10);
 
-        private SpecialAbility(int id) {
+        SpecialAbility(int id) {
             this.id = id;
         }
 
@@ -456,7 +450,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         MAIDEN(15),
         GHOST(16);
 
-        private GammaEffect(int id) {
+        GammaEffect(int id) {
             this.id = id;
         }
 
@@ -499,16 +493,16 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
     private short unk2e2;
     private ArtResource portraitResource; // d40
     private Light light; // d94
-    private Attraction attractions[];
+    private Attraction[] attractions;
     private float firstPersonWaddleScale; // dbc Movement
     private float firstPersonOscillateScale; // dc0 Movement
     private List<Spell> spells;
-    private Resistance resistances[];
-    private JobPreference happyJobs[];
-    private JobPreference unhappyJobs[];
-    private JobPreference angryJobs[];
-    private JobType hateJobs[];
-    private JobAlternative alternativeJobs[];
+    private Resistance[] resistances;
+    private JobPreference[] happyJobs;
+    private JobPreference[] unhappyJobs;
+    private JobPreference[] angryJobs;
+    private JobType[] hateJobs;
+    private JobAlternative[] alternativeJobs;
     private int unkea0; // ea0
     private float unkea8; // ea8
     private int unk3ab; // eac
@@ -537,9 +531,9 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
     private Swipe spellSwipe; // f45
     private SpecialAbility firstPersonSpecialAbility1; // f46, Special abilities, 1st person
     private SpecialAbility firstPersonSpecialAbility2;
-    private short unkf48[]; // f48
+    private short[] unkf48; // f48
     private short creatureId; // f4b
-    private short unk3ea[]; // f4c
+    private short[] unk3ea; // f4c
     private AttackType meleeAttackType; // f50
     private short unk3eb2;
     private short lairObjectId; // f52
@@ -556,15 +550,15 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
     private ArtResource firstPersonMeleeResource; // 1027
     private int unk6; // 107b
     private final Map<OffsetType, Vector3f> animationOffsets = new HashMap<>(8);
-    private X1323 x1323[];
+    private X1323[] x1323;
     private int uniqueNameTextId;
-    private int x14e1[]; // 14e1
+    private int[] x14e1; // 14e1
     private int firstPersonSpecialAbility1Count; // 14e9, available uses or something, not really sure
     private int firstPersonSpecialAbility2Count;
     private ArtResource uniqueResource; // 14f1
     private EnumSet<CreatureFlag3> flags3;
     // When the file is embedded in the globals, there is some extra stuff
-    private short unknownExtraBytes[]; // 80
+    private short[] unknownExtraBytes; // 80
     private EnumSet<CreatureFlag2> flags2; // ???
     private int unknown;
     private float unknown_1;
@@ -599,166 +593,6 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
 
     public Attributes getAttributes() {
         return attributes;
-    }
-
-    /**
-     * @return
-     * @deprecated use getAnimation(AnimationType.WALK)
-     */
-    public ArtResource getAnimWalkResource() {
-        return animation.get(AnimationType.WALK);
-    }
-
-    /**
-     * @return
-     * @deprecated use getAnimation(AnimationType.BEING_DRAGGED)
-     */
-    public ArtResource getAnimDraggedPoseResource() {
-        return animation.get(AnimationType.DRAGGED);
-    }
-
-    /**
-     * @return
-     * @deprecated use getAnimation(AnimationType.MELEE_1)
-     */
-    public ArtResource getAnimMelee1Resource() {
-        return animation.get(AnimationType.MELEE_ATTACK);
-    }
-
-    /**
-     * @return
-     * @deprecated use getAnimation(AnimationType.CAST_SPELL)
-     */
-    public ArtResource getAnimMagicResource() {
-        return animation.get(AnimationType.CAST_SPELL);
-    }
-
-    /**
-     * @return
-     * @deprecated use getAnimation(AnimationType.DIE)
-     */
-    public ArtResource getAnimDieResource() {
-        return animation.get(AnimationType.DIE);
-    }
-
-    /**
-     * @return
-     * @deprecated use getAnimation(AnimationType.IN_HAND)
-     */
-    public ArtResource getAnimInHandResource() {
-        return animation.get(AnimationType.IN_HAND);
-    }
-
-    /**
-     * @return
-     * @deprecated use getAnimation(AnimationType.SLEEPING)
-     */
-    public ArtResource getAnimSleepResource() {
-        return animation.get(AnimationType.SLEEPING);
-    }
-
-    /**
-     * @return
-     * @deprecated use getAnimation(AnimationType.EATING)
-     */
-    public ArtResource getAnimEatResource() {
-        return animation.get(AnimationType.EATING);
-    }
-
-    /**
-     * @return
-     * @deprecated use getAnimation(AnimationType.RESEARCHING)
-     */
-    public ArtResource getAnimResearchResource() {
-        return animation.get(AnimationType.RESEARCHING);
-    }
-
-    /**
-     * @return
-     * @deprecated use getAnimation(AnimationType.IDLE_1)
-     */
-    public ArtResource getAnimIdle1Resource() {
-        return animation.get(AnimationType.IDLE_1);
-    }
-
-    /**
-     * @return
-     * @deprecated use getAnimation(AnimationType.FALL_OVER_AND_UP)
-     */
-    public ArtResource getAnimFallbackResource() {
-        return animation.get(AnimationType.FALLBACK);
-    }
-
-    /**
-     * @return
-     * @deprecated use getAnimation(AnimationType.GET_UP)
-     */
-    public ArtResource getAnimGetUpResource() {
-        return animation.get(AnimationType.GET_UP);
-    }
-
-    /**
-     * @return
-     * @deprecated use getAnimation(AnimationType.ENTRANCE)
-     */
-    public ArtResource getAnimEntranceResource() {
-        return animation.get(AnimationType.ENTRANCE);
-    }
-
-    /**
-     * @return
-     * @deprecated use getAnimation(AnimationType.IDLE_2)
-     */
-    public ArtResource getAnimIdle2Resource() {
-        return animation.get(AnimationType.IDLE_2);
-    }
-
-    /**
-     * @return
-     * @deprecated use getAnimation(AnimationType.MELEE_2)
-     */
-    public ArtResource getAnimMelee2Resource() {
-        return animation.get(AnimationType.SWIPE);
-    }
-
-    /**
-     * @return
-     * @deprecated use getAnimation(AnimationType.DRUNK_IDLE)
-     */
-    public ArtResource getDrunkIdle() {
-        return animation.get(AnimationType.DRUNK_IDLE);
-    }
-
-    /**
-     * @return
-     * @deprecated use getAnimation(AnimationType.BACK_OFF)
-     */
-    public ArtResource getAnimWalkbackResource() {
-        return animation.get(AnimationType.BACK_OFF);
-    }
-
-    /**
-     * @return
-     * @deprecated use getAnimation(AnimationType.STAND_STILL)
-     */
-    public ArtResource getAnimPoseFrameResource() {
-        return animation.get(AnimationType.STAND_STILL);
-    }
-
-    /**
-     * @return
-     * @deprecated use getAnimation(AnimationType.STEALTH_WALK)
-     */
-    public ArtResource getAnimWalk2Resource() {
-        return animation.get(AnimationType.STEALTH_WALK);
-    }
-
-    /**
-     * @return
-     * @deprecated use getAnimation(AnimationType.DEATH_POSE)
-     */
-    public ArtResource getAnimDiePoseResource() {
-        return animation.get(AnimationType.DEATH_POSE);
     }
 
     public ArtResource getIcon1Resource() {
@@ -1559,7 +1393,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         return true;
     }
 
-    public class Attraction {
+    public static class Attraction {
 
         private int present; // dac
         private int roomId; // db0
@@ -1590,7 +1424,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         }
     }
 
-    public class Spell { // bytes in these structs might be product of padding
+    public static class Spell { // bytes in these structs might be product of padding
 
         private Vector3f shotOffset;
         private short x0c;
@@ -1684,7 +1518,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         }
     }
 
-    public class Resistance {
+    public static class Resistance {
 
         private AttackType attackType;
         private short value;
@@ -1706,7 +1540,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         }
     }
 
-    public class JobPreference {
+    public static class JobPreference {
 
         private JobType jobType;
         private int moodChange;
@@ -1773,7 +1607,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         }
     }
 
-    public class JobAlternative {
+    public static class JobAlternative {
 
         private JobType jobType;
         private int moodChange;
@@ -1804,7 +1638,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         }
     }
 
-    public class X1323 {
+    public static class X1323 {
 
         private int x00;
         private int x02;
@@ -1826,7 +1660,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         }
     }
 
-    public class Attributes {
+    public static class Attributes {
 
         private int expForNextLevel; // f00
         private int expPerSecond; // f04

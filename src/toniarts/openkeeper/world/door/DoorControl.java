@@ -51,7 +51,7 @@ public class DoorControl extends HighlightControl implements IInteractiveControl
 
     public enum DoorState {
 
-        CLOSED, OPEN, BLUEPRINT, DESTROYED;
+        CLOSED, OPEN, BLUEPRINT, DESTROYED
     }
 
     private final WorldState worldState;
@@ -64,7 +64,7 @@ public class DoorControl extends HighlightControl implements IInteractiveControl
     private boolean locked = false;
     private final TileData tile;
     private DoorState state = DoorState.CLOSED;
-    private int health;
+    private final int health;
     private boolean animating = false;
     private DoorState animatedState = DoorState.CLOSED;
 

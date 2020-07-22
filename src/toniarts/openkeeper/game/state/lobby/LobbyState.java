@@ -177,9 +177,7 @@ public class LobbyState extends AbstractAppState {
         if (isRenderThread()) {
             stateManager.getState(MainMenuState.class).setEnabled(false);
         } else {
-            app.enqueue(() -> {
-                stateManager.getState(MainMenuState.class).setEnabled(false);
-            });
+            app.enqueue(() -> stateManager.getState(MainMenuState.class).setEnabled(false));
         }
         stateManager.detach(this);
     }
@@ -199,9 +197,7 @@ public class LobbyState extends AbstractAppState {
 
         @Override
         public void onPlayerListChanged(List<ClientInfo> players) {
-            runOnRenderThread(() -> {
-                listener.onPlayerListChanged(players);
-            });
+            runOnRenderThread(() -> listener.onPlayerListChanged(players));
 
             // Start game if we are all ready
             if (lobbyState.isHosting()) {
@@ -216,16 +212,12 @@ public class LobbyState extends AbstractAppState {
 
         @Override
         public void onMapChanged(String mapName) {
-            runOnRenderThread(() -> {
-                listener.onMapChanged(mapName);
-            });
+            runOnRenderThread(() -> listener.onMapChanged(mapName));
         }
 
         @Override
         public void onGameStarted(String mapName, List<ClientInfo> players) {
-            runOnRenderThread(() -> {
-                listener.onGameStarted(mapName, players);
-            });
+            runOnRenderThread(() -> listener.onGameStarted(mapName, players));
             lobbyState.startGame(players);
         }
 

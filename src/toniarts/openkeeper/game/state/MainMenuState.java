@@ -310,7 +310,7 @@ public class MainMenuState extends AbstractAppState {
     public void multiplayerConnect(String hostAddress, String player) {
         String[] address = hostAddress.split(":");
         String host = address[0];
-        Integer port = (address.length == 2) ? Integer.valueOf(address[1]) : Main.getUserSettings().getInteger(Setting.MULTIPLAYER_LAST_PORT);
+        Integer port = (address.length == 2) ? Integer.parseInt(address[1]) : Main.getUserSettings().getInteger(Setting.MULTIPLAYER_LAST_PORT);
 
         // Connect, connection is lazy
         ConnectionState connectionState = new ConnectionState(host, port, player) {
@@ -343,9 +343,7 @@ public class MainMenuState extends AbstractAppState {
         stateManager.attach(lobbyState);
 
         if (doTransition) {
-            app.enqueue(() -> {
-                screen.goToScreen("skirmishLobby");
-            });
+            app.enqueue(() -> screen.goToScreen("skirmishLobby"));
         }
     }
 
@@ -560,9 +558,7 @@ public class MainMenuState extends AbstractAppState {
 
         @Override
         public void showError(String title, String message, Throwable e, boolean fatal) {
-            app.enqueue(() -> {
-                screen.showError(title, message);
-            });
+            app.enqueue(() -> screen.showError(title, message));
         }
 
     }

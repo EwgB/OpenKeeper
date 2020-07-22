@@ -59,7 +59,7 @@ public abstract class TgqFile implements AutoCloseable {
 
     private static final Logger LOGGER = Logger.getLogger(TgqFile.class.getName());
 
-    public static void main(final String[] args) throws IOException {
+    public static void main(final String[] args) {
 
         if (args.length != 2) {
             throw new RuntimeException("Please provide a TGQ movie file as first parameter and frame output folder as the second parameter!");
@@ -107,7 +107,7 @@ public abstract class TgqFile implements AutoCloseable {
     }
 
     @Override
-    public void close() throws Exception {
+    public void close() {
         file.close();
     }
 

@@ -27,74 +27,73 @@ import de.lessvoid.nifty.screen.ScreenController;
  */
 public interface IPlayerScreenController extends ScreenController {
 
-    public static final String SCREEN_HUD_ID = "hud";
-    public static final String SCREEN_POSSESSION_ID = "possession";
-    public static final String SCREEN_CINEMATIC_ID = "cinematic";
-    public static final String SCREEN_EMPTY_ID = "empty";
+    String SCREEN_HUD_ID = "hud";
+    String SCREEN_POSSESSION_ID = "possession";
+    String SCREEN_CINEMATIC_ID = "cinematic";
+    String SCREEN_EMPTY_ID = "empty";
 
     /**
      * Select active item on HUD
      *
      * @param iState name of InteractionState#Type
-     * @see
-     * toniarts.openkeeper.view.PlayerInteractionState.InteractionState.Type
-     * @param id id of selected item
+     * @param id     id of selected item
+     * @see toniarts.openkeeper.view.PlayerInteractionState.InteractionState.Type
      */
-    public void select(String iState, String id);
+    void select(String iState, String id);
 
-    public void playSound(String category, String id);
+    void playSound(String category, String id);
 
-    public void playButtonSound(String category);
+    void playButtonSound(String category);
 
-    public void togglePanel();
+    void togglePanel();
 
-    public void toggleObjective();
+    void toggleObjective();
 
-    public void pauseMenu();
+    void pauseMenu();
 
-    public void onPaused(boolean paused);
+    void onPaused(boolean paused);
 
-    public void pauseMenuNavigate(String menu, String backMenu,
-            String confirmationTitle, String confirmMethod);
+    void pauseMenuNavigate(String menu, String backMenu,
+                           String confirmationTitle, String confirmMethod);
 
-    public void zoomToDungeon();
+    void zoomToDungeon();
 
-    public void workersAmount(String uiState);
+    void workersAmount(String uiState);
 
-    public void grabGold();
+    void grabGold();
 
-    public String getTooltipText(String bundleId);
+    String getTooltipText(String bundleId);
 
-    public void quitToMainMenu();
+    void quitToMainMenu();
 
-    public void quitToOS();
+    void quitToOS();
 
     /**
      *
      * @param tpf
      */
-    public void update(float tpf);
+    void update(float tpf);
 
-    public void cleanup();
+    void cleanup();
 
     /**
      * Zoom to entity
      *
      * @param entityId the entity ID to zoom to
      */
-    public void zoomToEntity(EntityId entityId);
+    void zoomToEntity(EntityId entityId);
 
     /**
      * Zoom to position
      *
      * @param position the position to zoom to
      */
-    public void zoomToPosition(Vector3f position);
+    void zoomToPosition(Vector3f position);
 
     /**
      * Pick up an entity
      *
      * @param entityId the entity ID to pick up
      */
-    public void pickUpEntity(EntityId entityId);
+    void pickUpEntity(EntityId entityId);
 }

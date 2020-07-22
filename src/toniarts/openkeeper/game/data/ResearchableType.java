@@ -23,6 +23,6 @@ package toniarts.openkeeper.game.data;
  */
 public enum ResearchableType {
 
-    ROOM, SPELL, DOOR, TRAP;
+    ROOM, SPELL, DOOR, TRAP
 
 }

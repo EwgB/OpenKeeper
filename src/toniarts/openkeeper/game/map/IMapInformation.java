@@ -81,11 +81,11 @@ public interface IMapInformation {
     /**
      * Is the tile (building) sellable by us
      *
-     * @param p coordinate
+     * @param p        coordinate
      * @param playerId the player, the seller
      * @return true if we can sell
      */
-    public boolean isSellable(Point p, short playerId);
+    boolean isSellable(Point p, short playerId);
 
     /**
      * Get terrain in given tile. FIXME: I don't think we should use the KWD
@@ -94,43 +94,43 @@ public interface IMapInformation {
      * @param tile the map tile
      * @return the terrain
      */
-    public Terrain getTerrain(MapTile tile);
+    Terrain getTerrain(MapTile tile);
 
     /**
      * Is claimable wall at tile point
      *
-     * @param p coordinate
+     * @param p        coordinate
      * @param playerId for the player
      * @return is the wall claimable
      */
-    public boolean isClaimableWall(Point p, short playerId);
+    boolean isClaimableWall(Point p, short playerId);
 
     /**
      * Is claimable floor at tile point (not a room)
      *
-     * @param p coordinate
+     * @param p        coordinate
      * @param playerId for the player
      * @return is the floor claimable
      */
-    public boolean isClaimableTile(Point p, short playerId);
+    boolean isClaimableTile(Point p, short playerId);
 
     /**
      * Is repairable wall at tile point
      *
-     * @param p coordinate
+     * @param p        coordinate
      * @param playerId for the player
      * @return is the wall repairable
      */
-    public boolean isRepairableWall(Point p, short playerId);
+    boolean isRepairableWall(Point p, short playerId);
 
     /**
      * Is claimable room tile at tile point
      *
-     * @param p coordinate
+     * @param p        coordinate
      * @param playerId for the player
      * @return is the room claimable
      */
-    public boolean isClaimableRoom(Point p, short playerId);
+    boolean isClaimableRoom(Point p, short playerId);
 
     /**
      * Is water tile at the coordinates
@@ -138,7 +138,7 @@ public interface IMapInformation {
      * @param p coordinate
      * @return is the tile water
      */
-    public boolean isWater(Point p);
+    boolean isWater(Point p);
 
     /**
      * Is water tile at the coordinates
@@ -146,6 +146,6 @@ public interface IMapInformation {
      * @param p coordinate
      * @return is the tile lava
      */
-    public boolean isLava(Point p);
+    boolean isLava(Point p);
 
 }

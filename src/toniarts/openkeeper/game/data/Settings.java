@@ -171,7 +171,7 @@ public class Settings {
         SFX_VOLUME(Float.class, 0.5f, SettingCategory.SOUND),
         SFX_ENABLED(Boolean.class, true, SettingCategory.SOUND);
 
-        private Setting(Class clazz, Integer specialKey, Object defValue, SettingCategory category, Integer resourceKey) {
+        Setting(Class clazz, Integer specialKey, Object defValue, SettingCategory category, Integer resourceKey) {
             this.clazz = clazz;
             this.specialKey = specialKey;
             this.defValue = defValue;
@@ -179,11 +179,11 @@ public class Settings {
             this.resourceKey = resourceKey;
         }
 
-        private Setting(Class clazz, Object defValue, SettingCategory category, Integer resourceKey) {
+        Setting(Class clazz, Object defValue, SettingCategory category, Integer resourceKey) {
             this(clazz, null, defValue, category, resourceKey);
         }
 
-        private Setting(Class clazz, Object defValue, SettingCategory category) {
+        Setting(Class clazz, Object defValue, SettingCategory category) {
             this(clazz, null, defValue, category, null);
         }
 

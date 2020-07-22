@@ -85,73 +85,73 @@ public interface IGameWorldController {
      *
      * @return map controller
      */
-    public IMapController getMapController();
+    IMapController getMapController();
 
     /**
      * Build a building to the wanted area
      *
-     * @param start start location
-     * @param end end location
+     * @param start    start location
+     * @param end      end location
      * @param playerId the player who is building the room
-     * @param roomId the room ID to be build
+     * @param roomId   the room ID to be build
      */
-    public void build(Vector2f start, Vector2f end, short playerId, short roomId);
+    void build(Vector2f start, Vector2f end, short playerId, short roomId);
 
     /**
      * Sell a building from wanted area
      *
-     * @param start start location
-     * @param end end location
+     * @param start    start location
+     * @param end      end location
      * @param playerId the player who is selling the room
      */
-    public void sell(Vector2f start, Vector2f end, short playerId);
+    void sell(Vector2f start, Vector2f end, short playerId);
 
     /**
      * Interact with given entity
      *
-     * @param entity the entity to interact with
+     * @param entity   the entity to interact with
      * @param playerId the player who interacts
      */
-    public void interact(EntityId entity, short playerId);
+    void interact(EntityId entity, short playerId);
 
     /**
      * Pick up the given entity
      *
-     * @param entity the entity to pick up
+     * @param entity   the entity to pick up
      * @param playerId the player who picks up
      */
-    public void pickUp(EntityId entity, short playerId);
+    void pickUp(EntityId entity, short playerId);
 
     /**
      * Drop the entity on a tile
      *
-     * @param entity the entity to drop
-     * @param tile tile to drop to
-     * @param coordinates real world coordinates inside
+     * @param entity       the entity to drop
+     * @param tile         tile to drop to
+     * @param coordinates  real world coordinates inside
      * @param dropOnEntity if there is already an entity at the position
-     * @param playerId the player dropping this entity
+     * @param playerId     the player dropping this entity
      */
-    public void drop(EntityId entity, Point tile, Vector2f coordinates, EntityId dropOnEntity, short playerId);
+    void drop(EntityId entity, Point tile, Vector2f coordinates, EntityId dropOnEntity, short playerId);
 
     /**
      * Get gold, subtract the amount of gold and places it to the keeper's hand
      *
-     * @param amount amount of gold to get
+     * @param amount   amount of gold to get
      * @param playerId the player who is getting the gold
      */
-    public void getGold(int amount, short playerId);
+    void getGold(int amount, short playerId);
 
     /**
      * Get the creatures controller
      *
      * @return creatures controller
      */
-    public ICreaturesController getCreaturesController();
+    ICreaturesController getCreaturesController();
 
     /**
      * Get the objects controller
      *
      * @return objects controller
      */
-    public IObjectsController getObjectsController();
+    IObjectsController getObjectsController();
 }

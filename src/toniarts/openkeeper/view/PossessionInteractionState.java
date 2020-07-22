@@ -53,7 +53,7 @@ public abstract class PossessionInteractionState extends AbstractPauseAwareState
 
     private CreatureControl target;
     private RawInputListener inputListener;
-    public Vector2f mousePosition = Vector2f.ZERO;
+    public final Vector2f mousePosition = Vector2f.ZERO;
     private Action action;
 
     private static final Logger logger = Logger.getLogger(PossessionInteractionState.class.getName());

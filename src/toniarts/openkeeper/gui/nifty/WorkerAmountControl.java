@@ -38,7 +38,7 @@ public class WorkerAmountControl extends AbstractCreatureCardControl {
 
         private final int value;
 
-        private State(int value) {
+        State(int value) {
             this.value = value;
         }
 

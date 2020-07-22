@@ -61,7 +61,7 @@ public class ArtResource {
         BLOOD(0x40000);
         private final long flagValue;
 
-        private ArtResourceFlag(long flagValue) {
+        ArtResourceFlag(long flagValue) {
             this.flagValue = flagValue;
         }
 
@@ -69,7 +69,7 @@ public class ArtResource {
         public long getFlagValue() {
             return flagValue;
         }
-    };
+    }
 
     public enum ArtResourceType implements IValueEnum {
 
@@ -84,7 +84,7 @@ public class ArtResource {
         MESH_COLLECTION(8), // unknown_1, unknown_2, unknown_3. In editor no attributes
         UNKNOWN(12); // unknown_1, unknown_2, unknown_3. In editor no attributes. FIXME unknown flag
 
-        private ArtResourceType(int id) {
+        ArtResourceType(int id) {
             this.id = id;
         }
 

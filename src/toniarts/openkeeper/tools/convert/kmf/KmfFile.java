@@ -59,10 +59,10 @@ public class KmfFile {
             throw new RuntimeException("Type must be 1 -3! Was " + index + "!");
         }
     }
-    private int version;
+    private final int version;
     private Type type;
     private List<Material> materials;
-    private List<Mesh> meshes;
+    private final List<Mesh> meshes;
     private Anim anim;
     private List<Grop> grops;
     private static final String KMF_HEADER_IDENTIFIER = "KMSH";

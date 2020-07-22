@@ -32,7 +32,7 @@ public class Tile {
 
         WATER(1), LAVA(2);
 
-        private BridgeTerrainType(int id) {
+        BridgeTerrainType(int id) {
             this.id = id;
         }
 

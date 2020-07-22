@@ -197,9 +197,9 @@ public class Normal extends GenericRoom {
     /**
      * Get the pillar resource. These are actually in object list. But there are
      * no mapping to my knowledge. So hard code :(
-     * @deprecated use toniarts.openkeeper.world.room.GenericRoom.getPillarObject
      *
      * @return room pillar resource
+     * @deprecated use toniarts.openkeeper.world.room.GenericRoom.getPillarObject
      */
     protected String getPillarResource() {
         return roomInstance.getRoom().getCompleteResource().getName() + "_Pillar";

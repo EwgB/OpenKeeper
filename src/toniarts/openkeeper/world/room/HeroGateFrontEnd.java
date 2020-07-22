@@ -93,22 +93,19 @@ public class HeroGateFrontEnd extends GenericRoom {
 
     private void animate(Spatial object, final boolean randomizeAnimation) {
         // Animate
-        object.breadthFirstTraversal(new SceneGraphVisitor() {
-            @Override
-            public void visit(Spatial spatial) {
-                AnimControl animControl = spatial.getControl(AnimControl.class);
-                if (animControl != null) {
-                    AnimChannel channel = animControl.createChannel();
-                    channel.setAnim("anim");
-                    channel.setLoopMode(LoopMode.Loop);
-                    if (randomizeAnimation) {
-                        channel.setSpeed(FastMath.nextRandomInt(6, 10) / 10f);
-                        channel.setTime(FastMath.nextRandomFloat() * channel.getAnimMaxTime());
-                    }
-
-                    // Don't batch animated objects, seems not to work
-                    object.setBatchHint(Spatial.BatchHint.Never);
+        object.breadthFirstTraversal(spatial -> {
+            AnimControl animControl = spatial.getControl(AnimControl.class);
+            if (animControl != null) {
+                AnimChannel channel = animControl.createChannel();
+                channel.setAnim("anim");
+                channel.setLoopMode(LoopMode.Loop);
+                if (randomizeAnimation) {
+                    channel.setSpeed(FastMath.nextRandomInt(6, 10) / 10f);
+                    channel.setTime(FastMath.nextRandomFloat() * channel.getAnimMaxTime());
                 }
+
+                // Don't batch animated objects, seems not to work
+                object.setBatchHint(Spatial.BatchHint.Never);
             }
         });
     }
@@ -216,6 +213,7 @@ public class HeroGateFrontEnd extends GenericRoom {
                     for (int x = 1; x < 21; x++) {
                         switch (x) {
                             case 6:
+                            case 15:
                                 attachAndCreateLevel(map, LevelType.Level, x, "a", assetManager, start, p, false);
                                 map.attachChild(loadObject("3dmaplevel" + x + "a" + "_arrows", assetManager, start, p, false));
                                 attachAndCreateLevel(map, LevelType.Level, x, "b", assetManager, start, p, false);
@@ -228,12 +226,6 @@ public class HeroGateFrontEnd extends GenericRoom {
                                 map.attachChild(loadObject("3dmaplevel" + x + "b" + "_arrows", assetManager, start, p, false));
                                 attachAndCreateLevel(map, LevelType.Level, x, "c", assetManager, start, p, false);
                                 map.attachChild(loadObject("3dmaplevel" + x + "c" + "_arrows", assetManager, start, p, false));
-                                break;
-                            case 15:
-                                attachAndCreateLevel(map, LevelType.Level, x, "a", assetManager, start, p, false);
-                                map.attachChild(loadObject("3dmaplevel" + x + "a" + "_arrows", assetManager, start, p, false));
-                                attachAndCreateLevel(map, LevelType.Level, x, "b", assetManager, start, p, false);
-                                map.attachChild(loadObject("3dmaplevel" + x + "b" + "_arrows", assetManager, start, p, false));
                                 break;
                             default:
                                 attachAndCreateLevel(map, LevelType.Level, x, null, assetManager, start, p, false);
