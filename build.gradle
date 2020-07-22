@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'kotlin'
 apply plugin: 'application'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
@@ -65,6 +66,7 @@ dependencies {
     implementation "com.simsilica:zay-es-net:1.4.3"
     implementation "com.simsilica:sio2:1.5.0"
     implementation "com.simsilica:sim-ethereal:1.5.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 }
 
 sourceSets {
@@ -111,4 +113,23 @@ compileJava {
 
 wrapper {
     gradleVersion = '6.5.1'
+}
+buildscript {
+    ext.kotlin_version = '1.3.72'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
