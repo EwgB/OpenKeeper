@@ -30,78 +30,78 @@ public interface PlayerService {
     /**
      * Set widescreen mode to the player
      *
-     * @param enable set widescreen on/off
+     * @param enable   set widescreen on/off
      * @param playerId the player to set to
      */
-    public void setWidescreen(boolean enable, short playerId);
+    void setWidescreen(boolean enable, short playerId);
 
     /**
      * Play a speech on the player
      *
-     * @param speechId the speech ID
-     * @param showText show subtitles
+     * @param speechId     the speech ID
+     * @param showText     show subtitles
      * @param introduction whether this is an introduction or not
-     * @param pathId camera path
-     * @param playerId the player to hear the speech
+     * @param pathId       camera path
+     * @param playerId     the player to hear the speech
      */
-    public void playSpeech(int speechId, boolean showText, boolean introduction, int pathId, short playerId);
+    void playSpeech(int speechId, boolean showText, boolean introduction, int pathId, short playerId);
 
     /**
      * Is any of the players in UI transition (cinematic playing)
      *
      * @return true if in transition
      */
-    public boolean isInTransition();
+    boolean isInTransition();
 
     /**
      * Do an UI transition, a cinematic
      *
-     * @param pathId the camera path to use
-     * @param start starting coordinates
+     * @param pathId   the camera path to use
+     * @param start    starting coordinates
      * @param playerId the player ID who should play the transition
      */
-    public void doTransition(short pathId, Vector3f start, short playerId);
+    void doTransition(short pathId, Vector3f start, short playerId);
 
     /**
      * Flash UI button for player
      *
-     * @param buttonType the button type
-     * @param targetId the ID of the record, type specified by
-     * {@link #TriggerAction.MakeType}
+     * @param buttonType       the button type
+     * @param targetId         the ID of the record, type specified by
+     *                         {@link TriggerAction.MakeType}
      * @param targetButtonType if the button type is
-     * {@link TriggerAction.MakeType#MISC_BUTTON} this specifies the button
-     * @param enabled turn flashing on/off ?
-     * @param time time to flash
-     * @param playerId the player ID whose button should flash
+     *                         {@link TriggerAction.MakeType#MISC_BUTTON} this specifies the button
+     * @param enabled          turn flashing on/off ?
+     * @param time             time to flash
+     * @param playerId         the player ID whose button should flash
      */
-    public void flashButton(TriggerAction.MakeType buttonType, short targetId, TriggerAction.ButtonType targetButtonType, boolean enabled, int time, short playerId);
+    void flashButton(TriggerAction.MakeType buttonType, short targetId, TriggerAction.ButtonType targetButtonType, boolean enabled, int time, short playerId);
 
     /**
      * Rotate camera around a point
      *
-     * @param point the point to rotate around
+     * @param point    the point to rotate around
      * @param relative relative to current position?
-     * @param angle rotation angle
-     * @param time time to rotate
+     * @param angle    rotation angle
+     * @param time     time to rotate
      * @param playerId the player ID whose camera should rotate
      */
-    public void rotateViewAroundPoint(Vector3f point, boolean relative, int angle, int time, short playerId);
+    void rotateViewAroundPoint(Vector3f point, boolean relative, int angle, int time, short playerId);
 
     /**
      * Show info message for player
      *
-     * @param textId the text ID
+     * @param textId   the text ID
      * @param playerId the player ID who should get the message
      */
-    public void showMessage(int textId, short playerId);
+    void showMessage(int textId, short playerId);
 
     /**
      * Zoom camera to a point
      *
-     * @param point the point to zoom to
+     * @param point    the point to zoom to
      * @param playerId the player ID whose camera should be moved
      */
-    public void zoomViewToPoint(Vector3f point, short playerId);
+    void zoomViewToPoint(Vector3f point, short playerId);
 
     /**
      * Zoom camera to an entity
@@ -109,14 +109,14 @@ public interface PlayerService {
      * @param entityId the entity to zoom to
      * @param playerId the player ID whose camera should be moved
      */
-    public void zoomViewToEntity(EntityId entityId, short playerId);
+    void zoomViewToEntity(EntityId entityId, short playerId);
 
     /**
      * Sets the game as paused
      *
      * @param paused true is paused
      */
-    public void setGamePaused(boolean paused);
+    void setGamePaused(boolean paused);
 
     /**
      * Show unit flower of an entity
@@ -125,6 +125,6 @@ public interface PlayerService {
      * @param interval show for how many seconds
      * @param playerId the player ID who should see the flower
      */
-    public void showUnitFlower(EntityId entityId, int interval, short playerId);
+    void showUnitFlower(EntityId entityId, int interval, short playerId);
 
 }

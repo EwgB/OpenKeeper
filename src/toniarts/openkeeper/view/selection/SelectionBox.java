@@ -50,7 +50,6 @@ public class SelectionBox extends AbstractBox
      * the given amount in <em>each</em> direction. So, for example, a box
      * with extent of 0.5 would be the unit cube.
      *
-     * @param name the name of the box.
      * @param x the size of the box along the x axis, in both directions.
      * @param y the size of the box along the y axis, in both directions.
      * @param z the size of the box along the z axis, in both directions.
@@ -69,7 +68,6 @@ public class SelectionBox extends AbstractBox
      * the given amount in <em>each</em> direction. So, for example, a box
      * with extent of 0.5 would be the unit cube.
      * 
-     * @param name the name of the box.
      * @param center the center of the box.
      * @param x the size of the box along the x axis, in both directions.
      * @param y the size of the box along the y axis, in both directions.
@@ -86,11 +84,10 @@ public class SelectionBox extends AbstractBox
      * Constructor instantiates a new <code>Box</code> object.
      * <p>
      * The minimum and maximum point are provided, these two points define the
-     * shape and size of the box but not itпїЅ??s orientation or position. You should
+     * shape and size of the box but not its orientation or position. You should
      * use the {@link #setLocalTranslation()} and {@link #setLocalRotation()}
      * methods to define those properties.
-     * 
-     * @param name the name of the box.
+     *
      * @param min the minimum point that defines the box.
      * @param max the maximum point that defines the box.
      */
@@ -105,7 +102,7 @@ public class SelectionBox extends AbstractBox
     /**
      * Creates a clone of this box.
      * <p>
-     * The cloned box will have пїЅ??_cloneпїЅ?? appended to itпїЅ??s name, but all other
+     * The cloned box will have 'clone' appended to its name, but all other
      * properties will be the same as this box.
      */
     @Override

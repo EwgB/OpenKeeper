@@ -37,9 +37,9 @@ abstract class TileConstructor {
     /**
      * Compares the given terrain tile to terrain tile at the given coordinates
      *
-     * @param tiles the tiles
-     * @param x the x
-     * @param y the y
+     * @param mapData the tiles
+     * @param x       the x
+     * @param y       the y
      * @param terrain terrain tile to compare with
      * @return are the tiles same
      */

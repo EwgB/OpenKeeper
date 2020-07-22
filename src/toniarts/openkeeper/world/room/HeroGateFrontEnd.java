@@ -135,7 +135,7 @@ public class HeroGateFrontEnd extends GenericRoom {
      *
      * @param map                node to attach to
      * @param type               level type
-     * @param level              level number
+     * @param levelnumber        level number
      * @param variation          variation, like level "a" etc.
      * @param assetManager       the asset manager instance
      * @param start              starting point for the room

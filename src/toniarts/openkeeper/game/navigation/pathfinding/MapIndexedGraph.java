@@ -130,8 +130,8 @@ public class MapIndexedGraph implements IndexedGraph<MapTile> {
      * @param mapController        the map controller
      * @param entityPositionLookup entity position lookup
      * @return {@code null} if the to tile is not accessible
-     * @see #DEFAULT_COST
-     * @see #WATER_COST
+     * @see INavigable#DEFAULT_COST
+     * @see INavigable#WATER_COST
      */
     protected static Float getCost(final INavigable navigable, final MapTile from, final MapTile to, final IMapController mapController,
                                    IEntityPositionLookup entityPositionLookup) {

@@ -148,7 +148,9 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         public long getFlagValue() {
             return flagValue;
         }
-    };
+    }
+
+    ;
 
     /**
      * Creature flags, extended
@@ -169,7 +171,9 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         public long getFlagValue() {
             return flagValue;
         }
-    };
+    }
+
+    ;
 
     public enum CreatureFlag3 implements IFlagEnum {
         UNK_1(1),
@@ -187,7 +191,9 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         public long getFlagValue() {
             return flagValue;
         }
-    };
+    }
+
+    ;
 
     public enum AttackType implements IValueEnum {
 
@@ -246,6 +252,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         public int getValue() {
             return id;
         }
+
         private final int id;
     }
 
@@ -298,6 +305,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
             }
             return result.trim();
         }
+
         private final int id;
     }
 
@@ -316,6 +324,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         public int getValue() {
             return id;
         }
+
         private final int id;
     }
 
@@ -335,6 +344,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         public int getValue() {
             return id;
         }
+
         private final int id;
     }
 
@@ -357,6 +367,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         public int getValue() {
             return id;
         }
+
         private final int id;
     }
 
@@ -395,6 +406,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         public int getValue() {
             return id;
         }
+
         private final int id;
     }
 
@@ -452,6 +464,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         public int getValue() {
             return id;
         }
+
         private final int id;
     }
 
@@ -589,120 +602,120 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
     }
 
     /**
-     * @deprecated use getAnimation(AnimationType.WALK)
      * @return
+     * @deprecated use getAnimation(AnimationType.WALK)
      */
     public ArtResource getAnimWalkResource() {
         return animation.get(AnimationType.WALK);
     }
 
     /**
-     * @deprecated use getAnimation(AnimationType.BEING_DRAGGED)
      * @return
+     * @deprecated use getAnimation(AnimationType.BEING_DRAGGED)
      */
     public ArtResource getAnimDraggedPoseResource() {
         return animation.get(AnimationType.DRAGGED);
     }
 
     /**
-     * @deprecated use getAnimation(AnimationType.MELEE_1)
      * @return
+     * @deprecated use getAnimation(AnimationType.MELEE_1)
      */
     public ArtResource getAnimMelee1Resource() {
         return animation.get(AnimationType.MELEE_ATTACK);
     }
 
     /**
-     * @deprecated use getAnimation(AnimationType.CAST_SPELL)
      * @return
+     * @deprecated use getAnimation(AnimationType.CAST_SPELL)
      */
     public ArtResource getAnimMagicResource() {
         return animation.get(AnimationType.CAST_SPELL);
     }
 
     /**
-     * @deprecated use getAnimation(AnimationType.DIE)
      * @return
+     * @deprecated use getAnimation(AnimationType.DIE)
      */
     public ArtResource getAnimDieResource() {
         return animation.get(AnimationType.DIE);
     }
 
     /**
-     * @deprecated use getAnimation(AnimationType.IN_HAND)
      * @return
+     * @deprecated use getAnimation(AnimationType.IN_HAND)
      */
     public ArtResource getAnimInHandResource() {
         return animation.get(AnimationType.IN_HAND);
     }
 
     /**
-     * @deprecated use getAnimation(AnimationType.SLEEPING)
      * @return
+     * @deprecated use getAnimation(AnimationType.SLEEPING)
      */
     public ArtResource getAnimSleepResource() {
         return animation.get(AnimationType.SLEEPING);
     }
 
     /**
-     * @deprecated use getAnimation(AnimationType.EATING)
      * @return
+     * @deprecated use getAnimation(AnimationType.EATING)
      */
     public ArtResource getAnimEatResource() {
         return animation.get(AnimationType.EATING);
     }
 
     /**
-     * @deprecated use getAnimation(AnimationType.RESEARCHING)
      * @return
+     * @deprecated use getAnimation(AnimationType.RESEARCHING)
      */
     public ArtResource getAnimResearchResource() {
         return animation.get(AnimationType.RESEARCHING);
     }
 
     /**
-     * @deprecated use getAnimation(AnimationType.IDLE_1)
      * @return
+     * @deprecated use getAnimation(AnimationType.IDLE_1)
      */
     public ArtResource getAnimIdle1Resource() {
         return animation.get(AnimationType.IDLE_1);
     }
 
     /**
-     * @deprecated use getAnimation(AnimationType.FALL_OVER_AND_UP)
      * @return
+     * @deprecated use getAnimation(AnimationType.FALL_OVER_AND_UP)
      */
     public ArtResource getAnimFallbackResource() {
         return animation.get(AnimationType.FALLBACK);
     }
 
     /**
-     * @deprecated use getAnimation(AnimationType.GET_UP)
      * @return
+     * @deprecated use getAnimation(AnimationType.GET_UP)
      */
     public ArtResource getAnimGetUpResource() {
         return animation.get(AnimationType.GET_UP);
     }
 
     /**
-     * @deprecated use getAnimation(AnimationType.ENTRANCE)
      * @return
+     * @deprecated use getAnimation(AnimationType.ENTRANCE)
      */
     public ArtResource getAnimEntranceResource() {
         return animation.get(AnimationType.ENTRANCE);
     }
 
     /**
-     * @deprecated use getAnimation(AnimationType.IDLE_2)
      * @return
+     * @deprecated use getAnimation(AnimationType.IDLE_2)
      */
     public ArtResource getAnimIdle2Resource() {
         return animation.get(AnimationType.IDLE_2);
     }
 
     /**
-     * @deprecated use getAnimation(AnimationType.MELEE_2)
      * @return
+     * @deprecated use getAnimation(AnimationType.MELEE_2)
      */
     public ArtResource getAnimMelee2Resource() {
         return animation.get(AnimationType.SWIPE);
@@ -717,32 +730,32 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
     }
 
     /**
-     * @deprecated use getAnimation(AnimationType.BACK_OFF)
      * @return
+     * @deprecated use getAnimation(AnimationType.BACK_OFF)
      */
     public ArtResource getAnimWalkbackResource() {
         return animation.get(AnimationType.BACK_OFF);
     }
 
     /**
-     * @deprecated use getAnimation(AnimationType.STAND_STILL)
      * @return
+     * @deprecated use getAnimation(AnimationType.STAND_STILL)
      */
     public ArtResource getAnimPoseFrameResource() {
         return animation.get(AnimationType.STAND_STILL);
     }
 
     /**
-     * @deprecated use getAnimation(AnimationType.STEALTH_WALK)
      * @return
+     * @deprecated use getAnimation(AnimationType.STEALTH_WALK)
      */
     public ArtResource getAnimWalk2Resource() {
         return animation.get(AnimationType.STEALTH_WALK);
     }
 
     /**
-     * @deprecated use getAnimation(AnimationType.DEATH_POSE)
      * @return
+     * @deprecated use getAnimation(AnimationType.DEATH_POSE)
      */
     public ArtResource getAnimDiePoseResource() {
         return animation.get(AnimationType.DEATH_POSE);

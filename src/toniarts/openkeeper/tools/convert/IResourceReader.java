@@ -16,6 +16,8 @@
  */
 package toniarts.openkeeper.tools.convert;
 
+import toniarts.openkeeper.tools.convert.map.KwdFile;
+
 import java.io.Closeable;
 import java.io.IOException;
 import java.util.Date;
@@ -23,7 +25,6 @@ import java.util.EnumSet;
 import java.util.List;
 
 /**
- *
  * @author archdemon
  */
 public interface IResourceReader extends Closeable {
@@ -33,11 +34,10 @@ public interface IResourceReader extends Closeable {
      * Skips the file to the correct position after an item is read<br>
      * <b>Use this directly with Things & Triggers!</b>
      *
-     * @throws java.io.IOException
-     * @see #toniarts.opendungeonkeeper.tools.convert.map.KwdFile.checkOffset(
-     * toniarts.opendungeonkeeper.tools.convert.map.KwdFile.KwdHeader, java.io.RandomAccessFile, long)
      * @param itemSize the item size
-     * @param offset the file offset before the last item was read
+     * @param offset   the file offset before the last item was read
+     * @throws java.io.IOException
+     * @see toniarts.openkeeper.tools.convert.map.KwdFile#checkOffset(KwdFile.KwdHeader, IResourceReader, long)
      */
     void checkOffset(long itemSize, long offset) throws IOException;
 
@@ -98,9 +98,9 @@ public interface IResourceReader extends Closeable {
     float readIntegerAsFloat() throws IOException;
 
     /**
-     * @see java.io.RandomAccessFile.readShort()
      * @return
      * @throws IOException
+     * @see java.io.RandomAccessFile#readShort()
      */
     short readRealShort() throws IOException;
 
@@ -122,9 +122,9 @@ public interface IResourceReader extends Closeable {
      * Reads bytes from a file and converts them to a string
      *
      * @param length string length
-     * @see #ConversionUtils.toString(byte[])
      * @return fresh String
      * @throws IOException the reading may fail
+     * @see ConversionUtils#toString(byte[])
      */
     String readString(int length) throws IOException;
 
@@ -132,9 +132,9 @@ public interface IResourceReader extends Closeable {
      * Reads bytes from a file and converts them to a string
      *
      * @param length string length
-     * @see #ConversionUtils.toStringUtf16(byte[])
      * @return fresh String
      * @throws IOException the reading may fail
+     * @see ConversionUtils#toStringUtf16(byte[])
      */
     String readStringUtf16(int length) throws IOException;
 
@@ -153,7 +153,7 @@ public interface IResourceReader extends Closeable {
      *
      * @return JAVA native int
      * @throws IOException may fail
-     * @see #ResourceReader.readUnsignedIntegerAsLong()
+     * @see ResourceReader#readUnsignedIntegerAsLong()
      */
     int readUnsignedInteger() throws IOException;
 

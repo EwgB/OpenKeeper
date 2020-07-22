@@ -24,7 +24,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
  * @author ArchDemon
  */
 public abstract class TriggerData {
@@ -73,8 +72,8 @@ public abstract class TriggerData {
     }
 
     /**
-     * Called by {@link TriggerGenericData#attachChildAt(TriggerActionData)} and
-     * * {@link TriggerGenericData#detachChild(TriggerActionData)} - don't call
+     * Called by {@link TriggerGenericData#attachChildAt(TriggerData, int)} and
+     * {@link TriggerGenericData#detachChild(TriggerData)} - don't call
      * directly. <code>setParent</code> sets the parent of this
      * TriggerActionData.
      *
@@ -85,7 +84,7 @@ public abstract class TriggerData {
     }
 
     /**
-     * determines if the provided TriggerGenericData is the parent, or parent's
+     * Determines if the provided TriggerGenericData is the parent, or parent's
      * parent, etc. of this TriggerActionData.
      *
      * @param ancestor the ancestor object to look for.

@@ -98,7 +98,7 @@ public class TagContent extends HashMap<String, Object> implements Information {
      * type in this example is the MIME-typ, so the type together with the sub
      * type is a complete definition of this object.
      *
-     * @param type the sub type of the tag as a text representation
+     * @param subtype the sub type of the tag as a text representation
      */
     public void setSubtype(String subtype) {
         if (subtype == null) {
@@ -115,7 +115,7 @@ public class TagContent extends HashMap<String, Object> implements Information {
      * is the MIME-typ, so the type together with the sub type is a complete
      * definition of this object.
      *
-     * @param type the sub type of the tag as a binary representation
+     * @param subtype the sub type of the tag as a binary representation
      */
     public void setSubtype(byte[] subtype) {
         if (subtype == null) {
@@ -157,7 +157,7 @@ public class TagContent extends HashMap<String, Object> implements Information {
      * "org.ljmf.Information picture"
      * <code>Object</code>.
      *
-     * @param type the description of the tag as a text representation
+     * @param desc the description of the tag as a text representation
      */
     public void setDescription(String desc) {
         if (desc == null) {
@@ -184,7 +184,7 @@ public class TagContent extends HashMap<String, Object> implements Information {
      * unsynchronizedLyrics"
      * <code>Object</code>.
      *
-     * @param type the content of the tag as a text representation
+     * @param content the content of the tag as a text representation
      */
     public void setContent(String content) {
         if (content == null) {
@@ -199,7 +199,7 @@ public class TagContent extends HashMap<String, Object> implements Information {
      * picture"
      * <code>Object</code>.
      *
-     * @param type the content of the tag as a binary representation
+     * @param content the content of the tag as a binary representation
      */
     public void setContent(byte[] content) {
         if (content == null) {
@@ -214,7 +214,7 @@ public class TagContent extends HashMap<String, Object> implements Information {
      * unsynchronizedLyrics"
      * <code>Object</code>.
      *
-     * @param type the content of the tag as a text representation
+     * @return the content of the tag as a text representation
      */
     public String getTextContent() {
         return (String) get(S_CONTENT_TEXT);

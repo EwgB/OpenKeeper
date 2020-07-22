@@ -63,6 +63,7 @@ public class KmfModelLoader implements AssetLoader {
         textureFixes.put("Goblinbak", "GoblinBack");
         textureFixes.put("Goblin2", "GoblinFront");
     }
+
     /**
      * If the material has multiple texture options, the material is named
      * &lt;material&gt;&lt;this suffix&gt;&lt;texture index&gt;. Texture index
@@ -79,7 +80,7 @@ public class KmfModelLoader implements AssetLoader {
     /* Already saved materials are stored here */
     private static final Map<toniarts.openkeeper.tools.convert.kmf.Material, String> materialCache = new HashMap<>();
 
-    public static void main(final String[] args) throws IOException {
+    public static void main(final String[] args) {
 
         //Take Dungeon Keeper 2 root folder as parameter
         if (args.length != 2 || !new File(args[1]).exists()) {
@@ -96,7 +97,7 @@ public class KmfModelLoader implements AssetLoader {
             public InputStream openStream() {
                 try {
                     final File file = new File(dkIIFolder);
-                    key = new AssetKey() {
+                    key = new AssetKey<>() {
                         @Override
                         public String getName() {
                             return file.toPath().getFileName().toString();
@@ -153,7 +154,7 @@ public class KmfModelLoader implements AssetLoader {
     /**
      * Creates a grop, a.k.a. a group, links existing models to one scene?
      *
-     * @param root root node
+     * @param root    root node
      * @param kmfFile the KMF file
      */
     private void createGroup(Node root, KmfFile kmfFile) {
@@ -170,7 +171,7 @@ public class KmfModelLoader implements AssetLoader {
     /**
      * Converts input stream to a file by writing it to a temp file (yeah...)
      *
-     * @param is the InputStream
+     * @param is     the InputStream
      * @param prefix temp file prefix
      * @return random access file
      * @throws IOException
@@ -198,8 +199,8 @@ public class KmfModelLoader implements AssetLoader {
      * Handle mesh creation
      *
      * @param sourceMesh the mesh
-     * @param materials materials map
-     * @param root the root node
+     * @param materials  materials map
+     * @param root       the root node
      */
     private void handleMesh(toniarts.openkeeper.tools.convert.kmf.Mesh sourceMesh, Map<Integer, List<Material>> materials, Node root) {
 
@@ -261,9 +262,9 @@ public class KmfModelLoader implements AssetLoader {
     /**
      * Handle mesh creation
      *
-     * @param anim the anim
+     * @param anim      the anim
      * @param materials materials map
-     * @param root the root node
+     * @param root      the root node
      */
     private void handleAnim(Anim anim, Map<Integer, List<Material>> materials, Node root) {
 
@@ -337,7 +338,7 @@ public class KmfModelLoader implements AssetLoader {
                     if (!frameInfos.containsKey(frame)) {
                         frameInfos.put(frame, new ArrayList<>());
                     }
-                    KmfModelLoader.FrameInfo frameInfo = new KmfModelLoader.FrameInfo(lastPose, nextPose, geomFactor);
+                    KmfModelLoader.FrameInfo frameInfo = new FrameInfo(lastPose, nextPose, geomFactor);
                     int x = Collections.binarySearch(frameInfos.get(frame), frameInfo);
                     if (x < 0) {
                         frameInfos.get(frame).add(~x, frameInfo);
@@ -355,15 +356,11 @@ public class KmfModelLoader implements AssetLoader {
                         if (frame == nextPose) { // Last frame
 
                             // Create a new frameInfo with weight as 1
-                            frameInfo = new KmfModelLoader.FrameInfo(frameInfo.previousPoseFrame, frameInfo.nextPoseFrame, 1f);
+                            frameInfo = new FrameInfo(frameInfo.previousPoseFrame, frameInfo.nextPoseFrame, 1f);
                         }
 
-                        if (frameIndices.get(frame).get(frameInfo) == null) {
-                            frameIndices.get(frame).put(frameInfo, new ArrayList<>());
-                        }
-                        if (frameOffsets.get(frame).get(frameInfo) == null) {
-                            frameOffsets.get(frame).put(frameInfo, new ArrayList<>());
-                        }
+                        frameIndices.get(frame).computeIfAbsent(frameInfo, k -> new ArrayList<>());
+                        frameOffsets.get(frame).computeIfAbsent(frameInfo, k -> new ArrayList<>());
                         frameIndices.get(frame).get(frameInfo).add(i);
                         frameOffsets.get(frame).get(frameInfo).add(new Vector3f(coord.x, -coord.z, coord.y));
                     }
@@ -378,14 +375,10 @@ public class KmfModelLoader implements AssetLoader {
                         }
 
                         // Create a new frameInfo with weight as 1
-                        KmfModelLoader.FrameInfo fi = new KmfModelLoader.FrameInfo(previousFrame.previousPoseFrame, previousFrame.nextPoseFrame, 1f);
+                        KmfModelLoader.FrameInfo fi = new FrameInfo(previousFrame.previousPoseFrame, previousFrame.nextPoseFrame, 1f);
 
-                        if (frameIndices.get(frame).get(fi) == null) {
-                            frameIndices.get(frame).put(fi, new ArrayList<>());
-                        }
-                        if (frameOffsets.get(frame).get(fi) == null) {
-                            frameOffsets.get(frame).put(fi, new ArrayList<>());
-                        }
+                        frameIndices.get(frame).computeIfAbsent(fi, k -> new ArrayList<>());
+                        frameOffsets.get(frame).computeIfAbsent(fi, k -> new ArrayList<>());
                         frameIndices.get(frame).get(fi).add(i);
                         frameOffsets.get(frame).get(fi).add(new Vector3f(coord.x, -coord.z, coord.y));
 
@@ -429,7 +422,9 @@ public class KmfModelLoader implements AssetLoader {
                         for (int integer = 0; integer < list.size(); integer++) {
                             array[integer] = list.get(integer);
                         }
-                        Pose p = new Pose(index + ": " + frame + ", " + entry.getKey().previousPoseFrame + " - " + entry.getKey().nextPoseFrame, frameOffsets.get(frame).get(entry.getKey()).toArray(new Vector3f[frameOffsets.get(frame).get(entry.getKey()).size()]), array);
+                        Pose p = new Pose(index + ": " + frame + ", " + entry.getKey().previousPoseFrame + " - " + entry.getKey().nextPoseFrame,
+                                frameOffsets.get(frame).get(entry.getKey()).toArray(new Vector3f[0]),
+                                array);
                         poses.get(frame).put(entry.getKey(), p);
                     }
                 }
@@ -462,7 +457,7 @@ public class KmfModelLoader implements AssetLoader {
             }
 
             // Create a pose track for this mesh
-            PoseTrack poseTrack = new PoseTrack(index, times, frameList.toArray(new PoseFrame[frameList.size()]));
+            PoseTrack poseTrack = new PoseTrack(index, times, frameList.toArray(new PoseFrame[0]));
             poseTracks.add(poseTrack);
 
             // Create lod levels
@@ -488,7 +483,7 @@ public class KmfModelLoader implements AssetLoader {
 
         // Create the animation itself and attach the animation
         com.jme3.animation.Animation animation = new com.jme3.animation.Animation("anim", (anim.getFrames() - 1) / 30f);
-        animation.setTracks(poseTracks.toArray(new PoseTrack[poseTracks.size()]));
+        animation.setTracks(poseTracks.toArray(new PoseTrack[0]));
         AnimControl control = new AnimControl();
         control.addAnim(animation);
         node.addControl(control);
@@ -537,10 +532,10 @@ public class KmfModelLoader implements AssetLoader {
      * Creates a geometry from the given mesh, applies material and LOD control
      * to it
      *
-     * @param index mesh index (just for naming)
-     * @param name the name, just for logging
-     * @param mesh the mesh
-     * @param materials list of materials
+     * @param index         mesh index (just for naming)
+     * @param name          the name, just for logging
+     * @param mesh          the mesh
+     * @param materials     list of materials
      * @param materialIndex the material index
      * @return
      */
@@ -585,7 +580,7 @@ public class KmfModelLoader implements AssetLoader {
     /**
      * Set some flags on the material that do not get saved
      *
-     * @param material material to modify
+     * @param material    material to modify
      * @param kmfMaterial the KMF material entry
      */
     private void setMaterialFlags(Material material, toniarts.openkeeper.tools.convert.kmf.Material kmfMaterial) {
@@ -598,11 +593,10 @@ public class KmfModelLoader implements AssetLoader {
     /**
      * <i>Extracts</i> the materials from the KMF file
      *
-     * @param kmfFile the KMF file
+     * @param kmfFile              the KMF file
      * @param generateMaterialFile should we create J3M material file (in total
-     * conversion always yes)
-     * @param assetInfo the asset info
-     * @param engineTextureFile instance of engine textures file
+     *                             conversion always yes)
+     * @param assetInfo            the asset info
      * @return returns materials by the material index
      * @throws IOException may fail
      */
@@ -611,7 +605,7 @@ public class KmfModelLoader implements AssetLoader {
         //
         // Create the materials
         //
-        Map<Integer, List<Material>> materials = new HashMap(kmfFile.getMaterials().size());
+        Map<Integer, List<Material>> materials = new HashMap<>(kmfFile.getMaterials().size());
         int i = 0;
         for (toniarts.openkeeper.tools.convert.kmf.Material mat : kmfFile.getMaterials()) {
             Material material = null;
@@ -755,7 +749,7 @@ public class KmfModelLoader implements AssetLoader {
     /**
      * Loads a JME texture of the texture name
      *
-     * @param texture the texture name
+     * @param texture   the texture name
      * @param assetInfo the assetInfo
      * @return texture file
      */
@@ -763,15 +757,14 @@ public class KmfModelLoader implements AssetLoader {
 
         // Load the texture
         TextureKey textureKey = new TextureKey(ConversionUtils.getCanonicalAssetKey(AssetsConverter.TEXTURES_FOLDER.concat("/").concat(texture).concat(".png")), false);
-        Texture tex = assetInfo.getManager().loadTexture(textureKey);
-        return tex;
+        return assetInfo.getManager().loadTexture(textureKey);
     }
 
     /**
      * A frame info identifies an vertex transition, it has the start and the
      * end pose frame indexes (key frames) which will identify it
      */
-    private class FrameInfo implements Comparable<KmfModelLoader.FrameInfo> {
+    private static class FrameInfo implements Comparable<KmfModelLoader.FrameInfo> {
 
         private final int previousPoseFrame;
         private final int nextPoseFrame;

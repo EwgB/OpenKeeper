@@ -93,9 +93,9 @@ public final class ID3v2 extends Tag {
     /**
      * Provides access to ID3v2 tag.
      *
-     * @param in Input stream to read from. Stream position must be set to
-     * beginning of file (i.e. position of ID3v2 tag)
-     * @exception IOException if an I/O errors occur
+     * @param stream Input stream to read from. Stream position must be set to
+     *               beginning of file (i.e. position of ID3v2 tag)
+     * @throws IOException if an I/O errors occur
      */
     public ID3v2(InputStream stream, MpxReader info) throws IOException {
         super();

@@ -178,9 +178,9 @@ public class WadFile {
     /**
      * Extract a single file to a given location
      *
-     * @param fileName file to extract
+     * @param fileName    file to extract
      * @param destination destination directory
-     * @param rawWad the opened WAD file
+     * @param rawWad      the opened WAD file
      */
     private File extractFileData(String fileName, String destination, IResourceReader rawWad) {
 
@@ -208,7 +208,7 @@ public class WadFile {
     /**
      * Extract a single file to a given location
      *
-     * @param fileName file to extract
+     * @param fileName    file to extract
      * @param destination destination directory
      * @return the file for the extracted contents
      */
@@ -228,7 +228,7 @@ public class WadFile {
      * Extract a single file
      *
      * @param fileName the file to extract
-     * @param rawWad the opened WAD file
+     * @param rawWad   the opened WAD file
      * @return the file data
      */
     private ByteArrayOutputStream getFileData(String fileName, IResourceReader rawWad) {
@@ -285,7 +285,7 @@ public class WadFile {
     /**
      * Some file entries in the WAD are compressed (type 4?), this decompresses the file data
      *
-     * @param bytes the compressed bytes
+     * @param src      the compressed bytes
      * @param fileName just for logging
      * @return the decompressed bytes
      */

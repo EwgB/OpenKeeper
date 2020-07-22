@@ -34,7 +34,7 @@ import java.io.InputStream;
  * <code>MpxReader</code> class acts also as a
  * <code>AudioHeader</code> class storing audio header related data.
  *
- * @author	Michael Scheerer
+ * @author Michael Scheerer
  */
 public class MpxReader extends Frame {
 
@@ -90,12 +90,12 @@ public class MpxReader extends Frame {
      * second argument is a boolean flag indicating if the end of media is
      * determinable. The source input stream may be multiplexed.
      *
-     * @param stream the audio input stream
+     * @param stream          the audio input stream
      * @param eomDeterminable true if the end of media is determinable
      * @return the <code>MediaInformation</code> object containing all relevant
      * information related to the audio source
-     * @exception UnsupportedMediaException if this media format can't be
-     * handled
+     * @throws UnsupportedMediaException if this media format can't be
+     *                                   handled
      */
     public MediaInformation readInformation(InputStream stream, boolean eomDeterminable) throws UnsupportedMediaException {
 
@@ -342,11 +342,11 @@ public class MpxReader extends Frame {
      * reference pattern. It returns
      * <code>false</code> if the readed pattern equals the reference pattern.
      *
-     * @param stream the input stream
+     * @param stream  the input stream
      * @param pattern the reference pattern
-     * @return                 <code>false</code> if the readed pattern equals the reference
+     * @return <code>false</code> if the readed pattern equals the reference
      * pattern
-     * @exception IOException if an I/O error occurs
+     * @throws IOException if an I/O error occurs
      */
     private boolean read(InputStream stream, byte pattern) throws IOException {
         int buf = stream.read();
@@ -372,7 +372,7 @@ public class MpxReader extends Frame {
      * <li>The source is set but is not playing back</li>
      * <li>This framework is running in streaming mode</li>
      * </ul>
-     *
+     * <p>
      * If no value is fetched, the method returns a long array containing always
      * <code>org.ljmf.audio.codec.decoder.Decoder.NO_VALUE</code>. In addition
      * the source stream will be reset to the old read position.
@@ -380,7 +380,7 @@ public class MpxReader extends Frame {
      * @return a long array with the current playtime on index 0 and the current
      * playtime since the last video key frame on index 1 in microseconds * * *
      * or <code>org.ljmf.audio.codec.decoder.Decoder.NO_VALUE</code>
-     * @see org.ljmf.audio.codec.Decoder#NO_VALUE
+     * @see Decoder#NO_VALUE
      */
     protected long[] fetchPlaytime() {
         long[] ret = new long[1];
@@ -396,10 +396,10 @@ public class MpxReader extends Frame {
      * <code>org.ljmf.audio.codec.decoder.Decoder.NO_VALUE</code>.
      *
      * @param playtime the playtime, which correspondents to the returned byte
-     * position
+     *                 position
      * @return the byte position * * * *
      * or <code>org.ljmf.audio.codec.decoder.Decoder.NO_VALUE</code>
-     * @see org.ljmf.audio.codec.decoder.Decoder#NO_VALUE
+     * @see Decoder#NO_VALUE
      */
     protected final long fetchBytePosition(long playtime) {
         if (toc == null || microseconds == 0) {
@@ -723,7 +723,7 @@ public class MpxReader extends Frame {
      * flag indicating if the end of media is determinable. The source input
      * stream may be multiplexed.
      *
-     * @param stream the input stream
+     * @param inputstream     the input stream
      * @param eomDeterminable true if the end of media is determinable
      * @return the <code>Decoder</code> object based on information about the
      * detected media format or <code>null</code>

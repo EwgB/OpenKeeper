@@ -87,8 +87,8 @@ eclipse {
         downloadSources=true
     }
     jdt {
-        sourceCompatibility = 1.8
-        targetCompatibility = 1.8
+        sourceCompatibility = 11
+        targetCompatibility = 11
     }
     project {
         natures 'org.springsource.ide.eclipse.gradle.core.nature'
@@ -103,7 +103,7 @@ idea {
 }
 
 compileJava {
-    sourceCompatibility = '1.8'
+    sourceCompatibility = '11'
     options.incremental = true
     // We have annotation processors in log4j, only needed for writing plugins, disable the warnings
     options.compilerArgs += ["-proc:none"]
@@ -125,11 +125,11 @@ buildscript {
 }
 compileKotlin {
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
 }
 compileTestKotlin {
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
 }

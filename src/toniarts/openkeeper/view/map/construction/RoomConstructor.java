@@ -78,8 +78,7 @@ public abstract class RoomConstructor {
      * for the wall spatials by the map loader in normal map drawing situation
      *
      * @return constructed wall
-     * @see #getWallSpatial(java.awt.Point,
-     * toniarts.openkeeper.world.room.WallSection.WallDirection)
+     * @see #getWallSpatial(Point, WallSection.WallDirection)
      */
     protected BatchNode constructWall() {
         return null;

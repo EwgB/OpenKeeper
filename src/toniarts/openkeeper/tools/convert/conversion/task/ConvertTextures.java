@@ -73,7 +73,7 @@ public class ConvertTextures extends ConversionTask {
      * Extract and copy DK II textures
      *
      * @param dungeonKeeperFolder DK II main folder
-     * @param destination Destination folder
+     * @param destination         Destination folder
      */
     private void convertTextures(String dungeonKeeperFolder, String destination) {
         LOGGER.log(Level.INFO, "Extracting textures to: {0}", destination);
@@ -93,15 +93,9 @@ public class ConvertTextures extends ConversionTask {
         int total = etFile.getFileCount() + frontEnd.getWadFileEntries().size() + engineTextures.getWadFileEntries().size();
 
         // Process each container in its own thread
-        executorService.submit(() -> {
-            extractEngineTextureContainer(progress, total, etFile, destination);
-        });
-        executorService.submit(() -> {
-            extractTextureContainer(progress, total, frontEnd, destination);
-        });
-        executorService.submit(() -> {
-            extractTextureContainer(progress, total, engineTextures, destination);
-        });
+        executorService.submit(() -> extractEngineTextureContainer(progress, total, etFile, destination));
+        executorService.submit(() -> extractTextureContainer(progress, total, frontEnd, destination));
+        executorService.submit(() -> extractTextureContainer(progress, total, engineTextures, destination));
 
         executorService.shutdown();
         try {
@@ -121,8 +115,7 @@ public class ConvertTextures extends ConversionTask {
 
         // Get the engine textures file
         try {
-            EngineTexturesFile etFile = new EngineTexturesFile(new File(ConversionUtils.getRealFileName(dungeonKeeperFolder, "DK2TextureCache".concat(File.separator).concat("EngineTextures.dat"))));
-            return etFile;
+            return new EngineTexturesFile(new File(ConversionUtils.getRealFileName(dungeonKeeperFolder, "DK2TextureCache".concat(File.separator).concat("EngineTextures.dat"))));
         } catch (IOException e) {
             throw new RuntimeException("Failed to open the EngineTextures file!", e);
         }
@@ -163,9 +156,9 @@ public class ConvertTextures extends ConversionTask {
     /**
      * Extracts the wad files and updates the progress bar
      *
-     * @param i current entry number
-     * @param total total entry number
-     * @param wad wad file
+     * @param progress    current entry number
+     * @param total       total entry number
+     * @param wad         wad file
      * @param destination destination directory
      */
     private void extractTextureContainer(AtomicInteger progress, int total, WadFile wad, String destination) {

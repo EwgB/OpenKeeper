@@ -30,11 +30,11 @@ public interface INavigable {
     /**
      * Cost for traversing in water
      */
-    public static final float WATER_COST = 1.4f;
+    float WATER_COST = 1.4f;
     /**
      * Default path cost
      */
-    public static final float DEFAULT_COST = 1.0f;
+    float DEFAULT_COST = 1.0f;
 
     /**
      * Can the entity travel from A to B?
@@ -48,8 +48,8 @@ public interface INavigable {
      * @see #WATER_COST
      * @return {@code null} if the to tile is not accessible
      */
-    default public Float getCost(final MapTile from, final MapTile to, final IMapController mapController,
-            final IEntityPositionLookup entityPositionLookup) {
+    default Float getCost(final MapTile from, final MapTile to, final IMapController mapController,
+                          final IEntityPositionLookup entityPositionLookup) {
         return MapIndexedGraph.getCost(this, from, to, mapController, entityPositionLookup);
     }
 
@@ -58,34 +58,34 @@ public interface INavigable {
      *
      * @return the owner ID
      */
-    public short getOwnerId();
+    short getOwnerId();
 
     /**
      * Can the entity fly
      *
      * @return true for flying
      */
-    public boolean canFly();
+    boolean canFly();
 
     /**
      * Can the entity walk on water
      *
      * @return true for walking on water
      */
-    public boolean canWalkOnWater();
+    boolean canWalkOnWater();
 
     /**
      * Can the entity walk on lava
      *
      * @return true for walking on lava
      */
-    public boolean canWalkOnLava();
+    boolean canWalkOnLava();
 
     /**
      * Can the entity move diagonally
      *
      * @return true for walking diagonally
      */
-    public boolean canMoveDiagonally();
+    boolean canMoveDiagonally();
 
 }

@@ -41,11 +41,9 @@ abstract class Initializer extends Decoder {
      * <code>MediaInformation</code> object managing all necessary objects
      * needed for the global decoder system.
      *
-     * @param control the <code>MediaControl</code> object containing all
-     *                requests related to the audio decoding
-     * @param info    the <code>Frame</code> object containing the necessary
-     *                information about the source
-     * @param in      the input stream
+     * @param info the <code>Frame</code> object containing the necessary
+     *             information about the source
+     * @param in   the input stream
      */
     Initializer(Frame info, InputStream in) {
         super(info, in);

@@ -94,8 +94,7 @@ public class EffectGeometry extends Geometry {
      * Get the number of images along the X axis (width).
      *
      * @return the number of images along the X axis (width).
-     *
-     * @see PG#setFrames(int)
+     * @see #setFrames(int)
      */
     public int getFrames() {
         return frames;

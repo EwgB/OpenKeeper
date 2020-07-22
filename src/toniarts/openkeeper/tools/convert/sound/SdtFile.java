@@ -114,9 +114,9 @@ public class SdtFile {
     /**
      * Extract a single file to a given location
      *
-     * @param fileName file to extract
+     * @param entry       file to extract
      * @param destination destination directory
-     * @param rawSdt the opened SDT file
+     * @param rawSdt      the opened SDT file
      */
     private void extractFileData(SdtFileEntry entry, String destination, IResourceReader rawSdt) {
         if (entry == null) {
@@ -143,7 +143,7 @@ public class SdtFile {
     /**
      * Extract a single file
      *
-     * @param fileName the file to extract
+     * @param fileEntry the file to extract
      * @param rawSdt the opened SDT file
      * @return the file data
      */

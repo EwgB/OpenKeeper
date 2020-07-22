@@ -122,8 +122,7 @@ abstract class BitrateVariation extends Output {
      * <code>decodeFrame()</code> method must perform a
      * <code>super</code> call to ensure an analyzer view update.
      *
-     * @param an event id number as an integer value send from an overwritten
-     *           method
+     * @param eventId an event id number as an integer value sent from an overwritten method
      * @return an event id number as an integer value
      * @throws IOException            if an I/O error occurs
      * @throws InterruptedIOException if the decoding process is interrupted

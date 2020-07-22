@@ -16,6 +16,8 @@
  */
 package toniarts.openkeeper.tools.convert;
 
+import toniarts.openkeeper.tools.convert.map.KwdFile;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -25,7 +27,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
  * @author archdemon
  */
 public class ResourceReader implements IResourceReader {
@@ -77,7 +78,7 @@ public class ResourceReader implements IResourceReader {
      *
      * @return JAVA native int
      * @throws IOException may fail
-     * @see #ResourceReader.readUnsignedIntegerAsLong()
+     * @see ResourceReader#readUnsignedIntegerAsLong()
      */
     @Override
     public int readUnsignedInteger() throws IOException {
@@ -160,9 +161,9 @@ public class ResourceReader implements IResourceReader {
     }
 
     /**
-     * @see java.io.RandomAccessFile.readShort()
      * @return
      * @throws IOException
+     * @see java.io.RandomAccessFile#readShort()
      */
     @Override
     public short readRealShort() throws IOException {
@@ -178,9 +179,9 @@ public class ResourceReader implements IResourceReader {
      * Reads bytes from a file and converts them to a string
      *
      * @param length string length
-     * @see #ConversionUtils.toString(byte[])
      * @return fresh String
      * @throws IOException the reading may fail
+     * @see ConversionUtils#toString(byte[])
      */
     @Override
     public String readString(int length) throws IOException {
@@ -193,9 +194,9 @@ public class ResourceReader implements IResourceReader {
      * Reads bytes from a file and converts them to a string
      *
      * @param length string length
-     * @see #ConversionUtils.toStringUtf16(byte[])
      * @return fresh String
      * @throws IOException the reading may fail
+     * @see ConversionUtils#toStringUtf16(byte[])
      */
     @Override
     public String readStringUtf16(int length) throws IOException {
@@ -383,13 +384,12 @@ public class ResourceReader implements IResourceReader {
      * Skips the file to the correct position after an item is read<br>
      * <b>Use this directly with Things & Triggers!</b>
      *
-     * @throws java.io.IOException
-     * @see #toniarts.opendungeonkeeper.tools.convert.map.KwdFile.checkOffset(
-     * toniarts.opendungeonkeeper.tools.convert.map.KwdFile.KwdHeader, java.io.RandomAccessFile,
-     * long)
      * @param itemSize the item size
-     * @param offset the file offset before the last item was read
+     * @param offset   the file offset before the last item was read
+     * @throws java.io.IOException
+     * @see toniarts.openkeeper.tools.convert.map.KwdFile#checkOffset(KwdFile.KwdHeader, IResourceReader, long)
      */
+    @SuppressWarnings("JavadocReference")
     @Override
     public void checkOffset(long itemSize, long offset) throws IOException {
         long expected = offset + itemSize;
