@@ -16,10 +16,11 @@
  */
 package toniarts.openkeeper.tools.convert.map;
 
-import java.awt.Color;
-import java.util.EnumSet;
-import javax.vecmath.Vector3f;
 import toniarts.openkeeper.tools.convert.IFlagEnum;
+
+import javax.vecmath.Vector3f;
+import java.awt.*;
+import java.util.EnumSet;
 
 /**
  * Adapted from C-code

@@ -17,9 +17,9 @@
 package toniarts.openkeeper.world.creature;
 
 import com.jme3.asset.AssetManager;
-import java.awt.Color;
-import java.awt.Graphics2D;
 import toniarts.openkeeper.world.control.UnitFlowerControl;
+
+import java.awt.*;
 
 /**
  * Unit flower control for creatures

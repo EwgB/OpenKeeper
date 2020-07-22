@@ -16,12 +16,13 @@
  */
 package toniarts.openkeeper.game.controller.player;
 
-import java.util.List;
 import toniarts.openkeeper.game.data.Keeper;
 import toniarts.openkeeper.game.data.ResearchableEntity;
 import toniarts.openkeeper.game.data.ResearchableType;
 import toniarts.openkeeper.game.listener.PlayerTrapListener;
 import toniarts.openkeeper.tools.convert.map.Trap;
+
+import java.util.List;
 
 /**
  * Holds a list of player traps and functionality related to them

@@ -16,13 +16,12 @@
  */
 package toniarts.openkeeper.tools.convert.bf4;
 
-import java.awt.image.BufferedImage;
-import java.awt.image.DataBuffer;
-import java.awt.image.DataBufferByte;
-import java.awt.image.IndexColorModel;
-import java.awt.image.MultiPixelPackedSampleModel;
-import java.awt.image.Raster;
-import java.awt.image.WritableRaster;
+import toniarts.openkeeper.tools.convert.IResourceReader;
+import toniarts.openkeeper.tools.convert.ResourceReader;
+import toniarts.openkeeper.tools.convert.bf4.Bf4Entry.FontEntryFlag;
+
+import javax.imageio.stream.MemoryCacheImageInputStream;
+import java.awt.image.*;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
@@ -31,11 +30,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import javax.imageio.stream.MemoryCacheImageInputStream;
-import toniarts.openkeeper.tools.convert.ConversionUtils;
-import toniarts.openkeeper.tools.convert.IResourceReader;
-import toniarts.openkeeper.tools.convert.ResourceReader;
-import toniarts.openkeeper.tools.convert.bf4.Bf4Entry.FontEntryFlag;
 
 /**
  * Reads the Dungeon Keeper 2 BF4 files, bitmap fonts that is<br>

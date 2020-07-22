@@ -38,10 +38,11 @@ package toniarts.openkeeper.game.network.session;
 import com.jme3.network.service.AbstractClientService;
 import com.jme3.network.service.ClientServiceManager;
 import com.jme3.network.service.rmi.RmiClientService;
+import toniarts.openkeeper.game.network.NetworkConstants;
+
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.logging.Level;
-import toniarts.openkeeper.game.network.NetworkConstants;
 
 /**
  * Provides super-basic account services like logging in. This could be expanded

@@ -18,17 +18,14 @@ package toniarts.openkeeper.game.controller.room;
 
 import com.jme3.math.FastMath;
 import com.simsilica.es.EntityId;
-import java.awt.Point;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.EnumSet;
-import java.util.List;
-import java.util.Set;
 import toniarts.openkeeper.common.RoomInstance;
 import toniarts.openkeeper.game.controller.IObjectsController;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
 import toniarts.openkeeper.world.room.WallSection.WallDirection;
+
+import java.awt.*;
+import java.util.List;
+import java.util.*;
 
 /**
  * Constructs "normal" rooms

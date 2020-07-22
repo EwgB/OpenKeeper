@@ -16,12 +16,6 @@
  */
 package toniarts.openkeeper.game.controller.player;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import toniarts.openkeeper.game.controller.room.IRoomController;
 import toniarts.openkeeper.game.data.Keeper;
 import toniarts.openkeeper.game.data.ResearchableEntity;
@@ -29,6 +23,8 @@ import toniarts.openkeeper.game.data.ResearchableType;
 import toniarts.openkeeper.game.listener.PlayerRoomListener;
 import toniarts.openkeeper.game.listener.RoomListener;
 import toniarts.openkeeper.tools.convert.map.Room;
+
+import java.util.*;
 
 /**
  * Holds a list of player rooms and functionality related to them

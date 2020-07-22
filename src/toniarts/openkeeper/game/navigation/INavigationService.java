@@ -17,9 +17,10 @@
 package toniarts.openkeeper.game.navigation;
 
 import com.badlogic.gdx.ai.pfa.GraphPath;
-import java.awt.Point;
 import toniarts.openkeeper.game.map.MapTile;
 import toniarts.openkeeper.game.navigation.pathfinding.INavigable;
+
+import java.awt.*;
 
 /**
  * Provides access to navigation inside the game world. Pathfinding and such.

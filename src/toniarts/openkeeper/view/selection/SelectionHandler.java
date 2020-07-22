@@ -10,10 +10,11 @@ import com.jme3.renderer.queue.RenderQueue;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.Spatial.CullHint;
 import com.jme3.scene.debug.WireBox;
-import java.awt.Point;
 import toniarts.openkeeper.Main;
 import toniarts.openkeeper.utils.WorldUtils;
 import toniarts.openkeeper.world.MapLoader;
+
+import java.awt.*;
 
 /**
  * Class that contains the SelectionLogic of the Selection-Helper-Box in the

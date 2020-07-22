@@ -21,7 +21,6 @@ import de.lessvoid.nifty.controls.Console;
 import de.lessvoid.nifty.controls.ConsoleCommands;
 import de.lessvoid.nifty.controls.ConsoleCommands.ConsoleCommand;
 import de.lessvoid.nifty.tools.Color;
-import java.util.Collection;
 import toniarts.openkeeper.game.data.Keeper;
 import toniarts.openkeeper.game.state.CheatState;
 import toniarts.openkeeper.game.state.GameClientState;
@@ -29,6 +28,8 @@ import toniarts.openkeeper.game.state.GameState;
 import toniarts.openkeeper.game.state.PlayerState;
 import toniarts.openkeeper.tools.convert.map.Creature;
 import toniarts.openkeeper.world.WorldState;
+
+import java.util.Collection;
 
 /**
  *

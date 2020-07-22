@@ -16,10 +16,11 @@
  */
 package toniarts.openkeeper.tools.convert.map;
 
-import java.util.EnumSet;
 import toniarts.openkeeper.game.data.IIndexable;
 import toniarts.openkeeper.game.data.ISoundable;
 import toniarts.openkeeper.tools.convert.IFlagEnum;
+
+import java.util.EnumSet;
 
 /**
  * Stub for the container class for the Doors.kwd

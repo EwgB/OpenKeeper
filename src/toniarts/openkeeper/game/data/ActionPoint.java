@@ -17,12 +17,13 @@
 package toniarts.openkeeper.game.data;
 
 import com.jme3.math.Vector2f;
-import java.awt.Point;
+import toniarts.openkeeper.game.control.Container;
+import toniarts.openkeeper.tools.convert.map.Thing;
+
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
-import toniarts.openkeeper.game.control.Container;
-import toniarts.openkeeper.tools.convert.map.Thing;
 
 /**
  * Represents an action point, areas of intrests in a map

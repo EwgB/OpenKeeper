@@ -20,8 +20,9 @@ import de.lessvoid.nifty.controls.ListBox.ListBoxViewConverter;
 import de.lessvoid.nifty.elements.Element;
 import de.lessvoid.nifty.elements.render.TextRenderer;
 import de.lessvoid.nifty.tools.Color;
-import java.util.logging.Logger;
 import toniarts.openkeeper.utils.MapThumbnailGenerator;
+
+import java.util.logging.Logger;
 
 /**
  * Handles the displaying of the items in the ChatBox.

@@ -18,15 +18,16 @@ package toniarts.openkeeper.world;
 
 import com.jme3.math.Vector2f;
 import com.jme3.scene.Node;
-import java.awt.Point;
-import java.util.ArrayList;
-import java.util.List;
-import javax.annotation.Nullable;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
 import toniarts.openkeeper.tools.convert.map.Terrain;
 import toniarts.openkeeper.tools.convert.map.Tile;
 import toniarts.openkeeper.utils.Utils;
 import toniarts.openkeeper.world.creature.CreatureControl;
+
+import javax.annotation.Nullable;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Wrapper for a map tile

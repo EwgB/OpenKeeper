@@ -16,17 +16,14 @@
  */
 package toniarts.openkeeper.world.room.control;
 
-import java.awt.Point;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 import toniarts.openkeeper.world.ThingLoader;
 import toniarts.openkeeper.world.creature.CreatureControl;
 import toniarts.openkeeper.world.object.ObjectControl;
 import toniarts.openkeeper.world.room.GenericRoom;
+
+import java.awt.*;
+import java.util.List;
+import java.util.*;
 
 /**
  * Room object controller. FIXME: Cache the coorninates and listen to changes in

@@ -20,9 +20,10 @@ import com.badlogic.gdx.ai.steer.behaviors.FollowPath;
 import com.badlogic.gdx.ai.steer.behaviors.ReachOrientation;
 import com.badlogic.gdx.ai.steer.utils.paths.LinePath;
 import com.badlogic.gdx.math.Vector2;
-import java.awt.Point;
-import java.util.List;
 import toniarts.openkeeper.utils.WorldUtils;
+
+import java.awt.*;
+import java.util.List;
 
 /**
  * A steering factory, static methods for constructing steerings for entities

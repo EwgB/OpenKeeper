@@ -16,11 +16,12 @@
  */
 package toniarts.openkeeper.tools.convert.kmf;
 
+import toniarts.openkeeper.tools.convert.IFlagEnum;
+
 import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
-import toniarts.openkeeper.tools.convert.IFlagEnum;
 
 /**
  * KMF Material wrapper

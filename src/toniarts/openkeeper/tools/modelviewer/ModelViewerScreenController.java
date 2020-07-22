@@ -29,24 +29,16 @@ import de.lessvoid.nifty.elements.Element;
 import de.lessvoid.nifty.screen.Screen;
 import de.lessvoid.nifty.screen.ScreenController;
 import de.lessvoid.nifty.spi.render.RenderFont;
-import java.io.File;
-import java.util.List;
-import java.util.ResourceBundle;
 import toniarts.openkeeper.Main;
 import toniarts.openkeeper.game.sound.SoundFile;
 import toniarts.openkeeper.tools.convert.AssetsConverter;
 import toniarts.openkeeper.tools.convert.ConversionUtils;
-import toniarts.openkeeper.tools.convert.map.ArtResource;
-import toniarts.openkeeper.tools.convert.map.Creature;
-import toniarts.openkeeper.tools.convert.map.Door;
-import toniarts.openkeeper.tools.convert.map.Effect;
-import toniarts.openkeeper.tools.convert.map.GameLevel;
-import toniarts.openkeeper.tools.convert.map.GameObject;
-import toniarts.openkeeper.tools.convert.map.Room;
-import toniarts.openkeeper.tools.convert.map.Shot;
-import toniarts.openkeeper.tools.convert.map.Terrain;
-import toniarts.openkeeper.tools.convert.map.Trap;
+import toniarts.openkeeper.tools.convert.map.*;
 import toniarts.openkeeper.utils.Utils;
+
+import java.io.File;
+import java.util.List;
+import java.util.ResourceBundle;
 
 /**
  *

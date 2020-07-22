@@ -19,7 +19,6 @@ package toniarts.openkeeper.world.trap;
 import com.jme3.asset.AssetManager;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
-import java.util.logging.Logger;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
 import toniarts.openkeeper.tools.convert.map.Thing;
 import toniarts.openkeeper.utils.AssetUtils;
@@ -28,6 +27,8 @@ import toniarts.openkeeper.world.ILoader;
 import toniarts.openkeeper.world.MapLoader;
 import toniarts.openkeeper.world.WorldState;
 import toniarts.openkeeper.world.control.UnitFlowerControl;
+
+import java.util.logging.Logger;
 
 /**
  * Loads traps. FIXME: bluebrint setting under the editor doesn't seem to stick,

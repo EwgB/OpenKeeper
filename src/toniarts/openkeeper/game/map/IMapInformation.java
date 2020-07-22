@@ -16,9 +16,10 @@
  */
 package toniarts.openkeeper.game.map;
 
-import java.awt.Point;
-import java.util.List;
 import toniarts.openkeeper.tools.convert.map.Terrain;
+
+import java.awt.*;
+import java.util.List;
 
 /**
  * A kind of a map container with no editing functionalities

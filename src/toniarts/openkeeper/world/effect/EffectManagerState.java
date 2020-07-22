@@ -22,12 +22,13 @@ import com.jme3.app.state.AppStateManager;
 import com.jme3.asset.AssetManager;
 import com.jme3.math.Vector3f;
 import com.jme3.scene.Node;
+import toniarts.openkeeper.tools.convert.map.KwdFile;
+import toniarts.openkeeper.world.WorldState;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
-import toniarts.openkeeper.tools.convert.map.KwdFile;
-import toniarts.openkeeper.world.WorldState;
 
 /**
  * An app state to manage ALL the effects in the world. Mainly their lifetime.

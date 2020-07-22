@@ -16,14 +16,11 @@
  */
 package toniarts.openkeeper.game.trigger;
 
-import java.util.logging.Logger;
-import toniarts.openkeeper.game.controller.ICreaturesController;
-import toniarts.openkeeper.game.controller.IGameController;
-import toniarts.openkeeper.game.controller.IGameTimer;
-import toniarts.openkeeper.game.controller.ILevelInfo;
-import toniarts.openkeeper.game.controller.IMapController;
+import toniarts.openkeeper.game.controller.*;
 import toniarts.openkeeper.game.state.session.PlayerService;
 import toniarts.openkeeper.game.trigger.player.PlayerTriggerControl;
+
+import java.util.logging.Logger;
 
 /**
  * A base trigger control for Things, they seem to be very similar

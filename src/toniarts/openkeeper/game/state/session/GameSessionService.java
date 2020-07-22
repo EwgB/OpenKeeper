@@ -18,13 +18,14 @@ package toniarts.openkeeper.game.state.session;
 
 import com.jme3.network.service.rmi.Asynchronous;
 import com.simsilica.es.EntityData;
-import java.awt.Point;
-import java.util.Collection;
-import java.util.List;
 import toniarts.openkeeper.game.data.Keeper;
 import toniarts.openkeeper.game.listener.PlayerListener;
 import toniarts.openkeeper.game.map.MapData;
 import toniarts.openkeeper.game.map.MapTile;
+
+import java.awt.*;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * This is server's perspective of game flow things. The services we offer our

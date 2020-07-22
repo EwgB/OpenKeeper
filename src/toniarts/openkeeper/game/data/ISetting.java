@@ -16,8 +16,6 @@
  */
 package toniarts.openkeeper.game.data;
 
-import java.util.List;
-
 /**
  * General setting
  *
@@ -30,35 +28,35 @@ public interface ISetting<T> {
      *
      * @return the setting object type
      */
-    public Class<T> getSettingClass();
+    Class<T> getSettingClass();
 
     /**
      * Get the setting identifier key
      *
      * @return the key
      */
-    public String getKey();
+    String getKey();
 
     /**
      * Get the default value for this setting
      *
      * @return default value
      */
-    public T getDefaultValue();
+    T getDefaultValue();
 
     /**
      * Get the setting category
      *
      * @return category
      */
-    public Settings.SettingCategory getCategory();
+    Settings.SettingCategory getCategory();
 
     /**
      * Get the translation key
      *
      * @return key in resource bundle
      */
-    public Integer getTranslationKey();
+    Integer getTranslationKey();
 
     /**
      * Get settings by category

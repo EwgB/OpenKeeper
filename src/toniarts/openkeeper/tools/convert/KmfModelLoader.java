@@ -17,12 +17,7 @@
 package toniarts.openkeeper.tools.convert;
 
 import com.jme3.animation.AnimControl;
-import com.jme3.asset.AssetInfo;
-import com.jme3.asset.AssetKey;
-import com.jme3.asset.AssetLoader;
-import com.jme3.asset.MaterialKey;
-import com.jme3.asset.ModelKey;
-import com.jme3.asset.TextureKey;
+import com.jme3.asset.*;
 import com.jme3.material.Material;
 import com.jme3.material.RenderState;
 import com.jme3.material.plugin.export.material.J3MExporter;
@@ -30,46 +25,25 @@ import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector2f;
 import com.jme3.math.Vector3f;
 import com.jme3.renderer.queue.RenderQueue;
-import com.jme3.scene.AssetLinkNode;
-import com.jme3.scene.Geometry;
 import com.jme3.scene.Mesh;
-import com.jme3.scene.Node;
-import com.jme3.scene.VertexBuffer;
+import com.jme3.scene.*;
 import com.jme3.scene.VertexBuffer.Type;
 import com.jme3.scene.control.LodControl;
 import com.jme3.texture.Texture;
 import com.jme3.util.BufferUtils;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import toniarts.openkeeper.animation.Pose;
 import toniarts.openkeeper.animation.PoseTrack;
 import toniarts.openkeeper.animation.PoseTrack.PoseFrame;
-import static toniarts.openkeeper.tools.convert.KmfModelLoader.inputStreamToFile;
-import toniarts.openkeeper.tools.convert.kmf.Anim;
-import toniarts.openkeeper.tools.convert.kmf.AnimSprite;
-import toniarts.openkeeper.tools.convert.kmf.AnimVertex;
-import toniarts.openkeeper.tools.convert.kmf.Grop;
-import toniarts.openkeeper.tools.convert.kmf.KmfFile;
-import toniarts.openkeeper.tools.convert.kmf.MeshSprite;
-import toniarts.openkeeper.tools.convert.kmf.MeshVertex;
-import toniarts.openkeeper.tools.convert.kmf.Triangle;
-import toniarts.openkeeper.tools.convert.kmf.Uv;
+import toniarts.openkeeper.tools.convert.kmf.*;
 import toniarts.openkeeper.tools.modelviewer.ModelViewer;
 import toniarts.openkeeper.utils.PathUtils;
 import toniarts.openkeeper.utils.TangentBinormalGenerator;
+
+import java.io.*;
+import java.util.*;
+import java.util.Map.Entry;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Loads up and converts a Dungeon Keeper II model to JME model<br>

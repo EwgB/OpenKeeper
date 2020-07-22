@@ -24,10 +24,6 @@ import com.jme3.network.service.rmi.RmiClientService;
 import com.jme3.network.service.rpc.RpcClientService;
 import com.simsilica.es.client.EntityDataClientService;
 import com.simsilica.ethereal.EtherealClient;
-import java.io.IOException;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import toniarts.openkeeper.game.network.chat.ChatClientService;
 import toniarts.openkeeper.game.network.chat.ChatSession;
 import toniarts.openkeeper.game.network.chat.ChatSessionListener;
@@ -38,6 +34,11 @@ import toniarts.openkeeper.game.network.message.MessageServerInfo;
 import toniarts.openkeeper.game.network.message.MessageTime;
 import toniarts.openkeeper.game.network.session.AccountClientService;
 import toniarts.openkeeper.game.network.streaming.StreamingClientService;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *

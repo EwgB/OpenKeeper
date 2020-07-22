@@ -16,12 +16,9 @@
  */
 package toniarts.openkeeper.common;
 
-import java.awt.Point;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
+import java.awt.*;
 import java.util.List;
+import java.util.*;
 
 /**
  * Holds an entity instance, series of coordinates that together form an entity

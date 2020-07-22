@@ -21,17 +21,7 @@ import com.jme3.math.Vector2f;
 import com.jme3.renderer.RenderManager;
 import com.jme3.renderer.ViewPort;
 import com.jme3.scene.control.AbstractControl;
-import com.simsilica.es.Entity;
-import com.simsilica.es.EntityComponent;
-import com.simsilica.es.EntityData;
-import com.simsilica.es.EntityId;
-import com.simsilica.es.WatchedEntity;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import com.simsilica.es.*;
 import toniarts.openkeeper.game.component.Interaction;
 import toniarts.openkeeper.game.component.Owner;
 import toniarts.openkeeper.game.map.MapTile;
@@ -40,8 +30,11 @@ import toniarts.openkeeper.tools.convert.map.ArtResource;
 import toniarts.openkeeper.tools.convert.map.Terrain;
 import toniarts.openkeeper.utils.AssetUtils;
 import toniarts.openkeeper.view.animation.AnimationControl;
-import static toniarts.openkeeper.view.map.MapViewController.COLOR_FLASH;
 import toniarts.openkeeper.view.text.TextParser;
+
+import java.util.*;
+
+import static toniarts.openkeeper.view.map.MapViewController.COLOR_FLASH;
 
 /**
  * General entity controller, a bridge between entities and view

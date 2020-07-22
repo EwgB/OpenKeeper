@@ -16,12 +16,13 @@
  */
 package toniarts.openkeeper.game.controller;
 
-import java.util.Collection;
-import java.util.List;
 import toniarts.openkeeper.game.data.ActionPoint;
 import toniarts.openkeeper.game.data.GameTimer;
 import toniarts.openkeeper.game.data.Keeper;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
+
+import java.util.Collection;
+import java.util.List;
 
 /**
  * General level related info

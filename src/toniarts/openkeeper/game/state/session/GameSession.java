@@ -20,8 +20,9 @@ import com.jme3.math.Vector2f;
 import com.jme3.network.service.rmi.Asynchronous;
 import com.simsilica.es.EntityData;
 import com.simsilica.es.EntityId;
-import java.awt.Point;
 import toniarts.openkeeper.game.state.CheatState;
+
+import java.awt.*;
 
 /**
  * Clients view on game service

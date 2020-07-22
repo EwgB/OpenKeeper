@@ -16,9 +16,10 @@
  */
 package toniarts.openkeeper.game.task.objective;
 
-import java.util.Deque;
 import toniarts.openkeeper.game.controller.creature.ICreatureController;
 import toniarts.openkeeper.game.task.Task;
+
+import java.util.Deque;
 
 /**
  * Interface for chainable complex tasks

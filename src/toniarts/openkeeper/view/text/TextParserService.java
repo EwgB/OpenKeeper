@@ -18,15 +18,16 @@ package toniarts.openkeeper.view.text;
 
 import com.simsilica.es.Entity;
 import com.simsilica.es.EntityComponent;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 import toniarts.openkeeper.game.map.IMapInformation;
 import toniarts.openkeeper.game.map.MapTile;
 import toniarts.openkeeper.tools.convert.map.Creature;
 import toniarts.openkeeper.tools.convert.map.Door;
 import toniarts.openkeeper.tools.convert.map.GameObject;
 import toniarts.openkeeper.tools.convert.map.Trap;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * A kind of facade to the different kind of parsers. Many of them share the

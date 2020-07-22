@@ -21,12 +21,13 @@ import com.simsilica.es.Entity;
 import com.simsilica.es.EntityData;
 import com.simsilica.es.EntityId;
 import com.simsilica.es.EntitySet;
+import toniarts.openkeeper.game.component.Death;
+import toniarts.openkeeper.tools.convert.map.Variable;
+
 import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
-import toniarts.openkeeper.game.component.Death;
-import toniarts.openkeeper.tools.convert.map.Variable;
 
 /**
  * The waste disposal class, removes entities after reasonable amount of time

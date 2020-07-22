@@ -18,12 +18,7 @@ package toniarts.openkeeper.gui.nifty;
 
 import de.lessvoid.nifty.EndNotify;
 import de.lessvoid.nifty.Nifty;
-import de.lessvoid.nifty.controls.AbstractController;
-import de.lessvoid.nifty.controls.ButtonClickedEvent;
-import de.lessvoid.nifty.controls.Parameters;
-import de.lessvoid.nifty.controls.Tab;
-import de.lessvoid.nifty.controls.TabGroup;
-import de.lessvoid.nifty.controls.TabSelectedEvent;
+import de.lessvoid.nifty.controls.*;
 import de.lessvoid.nifty.controls.tabs.TabGroupMember;
 import de.lessvoid.nifty.controls.tabs.builder.TabBuilder;
 import de.lessvoid.nifty.effects.EffectEventId;
@@ -32,10 +27,11 @@ import de.lessvoid.nifty.elements.events.ElementShowEvent;
 import de.lessvoid.nifty.input.NiftyInputEvent;
 import de.lessvoid.nifty.loaderv2.types.ElementType;
 import de.lessvoid.nifty.screen.Screen;
+import org.bushe.swing.event.EventTopicSubscriber;
+
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.bushe.swing.event.EventTopicSubscriber;
 
 /**
  *

@@ -19,12 +19,13 @@ package toniarts.openkeeper.game.state.session;
 import com.jme3.math.Vector3f;
 import com.jme3.network.service.rmi.Asynchronous;
 import com.simsilica.es.EntityId;
-import java.util.Collection;
 import toniarts.openkeeper.game.data.Keeper;
 import toniarts.openkeeper.game.listener.MapListener;
 import toniarts.openkeeper.game.listener.PlayerListener;
 import toniarts.openkeeper.game.map.MapData;
 import toniarts.openkeeper.tools.convert.map.TriggerAction;
+
+import java.util.Collection;
 
 /**
  * The game callbacks the server sends to the client

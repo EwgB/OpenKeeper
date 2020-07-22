@@ -16,12 +16,13 @@
  */
 package toniarts.openkeeper.tools.convert.kcs;
 
+import toniarts.openkeeper.tools.convert.IResourceReader;
+import toniarts.openkeeper.tools.convert.ResourceReader;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import toniarts.openkeeper.tools.convert.IResourceReader;
-import toniarts.openkeeper.tools.convert.ResourceReader;
 
 /**
  * Stores the KCS file entries<br>

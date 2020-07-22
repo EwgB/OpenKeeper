@@ -16,11 +16,12 @@
  */
 package toniarts.openkeeper.tools.convert.spr;
 
+import toniarts.openkeeper.tools.convert.IResourceReader;
+
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import javax.imageio.ImageIO;
-import toniarts.openkeeper.tools.convert.IResourceReader;
 
 /**
  *

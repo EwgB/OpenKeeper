@@ -21,10 +21,6 @@ import com.jme3.app.state.AbstractAppState;
 import com.jme3.app.state.AppStateManager;
 import com.jme3.asset.AssetManager;
 import com.jme3.scene.Node;
-import java.awt.Point;
-import java.util.List;
-import java.util.Map;
-import java.util.logging.Logger;
 import toniarts.openkeeper.Main;
 import toniarts.openkeeper.game.listener.MapListener;
 import toniarts.openkeeper.game.listener.PlayerActionListener;
@@ -37,6 +33,11 @@ import toniarts.openkeeper.view.map.MapViewController;
 import toniarts.openkeeper.world.effect.EffectManagerState;
 import toniarts.openkeeper.world.listener.RoomListener;
 import toniarts.openkeeper.world.listener.TileChangeListener;
+
+import java.awt.*;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Logger;
 
 /**
  * Handles the handling of game world for a player, visually

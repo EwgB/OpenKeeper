@@ -16,14 +16,15 @@
  */
 package toniarts.openkeeper.world.room;
 
-import java.awt.Point;
-import java.util.List;
-import javax.annotation.Nullable;
 import toniarts.openkeeper.tools.convert.map.Room;
 import toniarts.openkeeper.tools.convert.map.Thing;
 import toniarts.openkeeper.world.EntityInstance;
 import toniarts.openkeeper.world.MapData;
 import toniarts.openkeeper.world.TileData;
+
+import javax.annotation.Nullable;
+import java.awt.*;
+import java.util.List;
 
 /**
  * Holds a room instance, series of coordinates that together form a room

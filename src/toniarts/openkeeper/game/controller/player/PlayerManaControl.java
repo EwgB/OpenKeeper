@@ -17,11 +17,12 @@
 package toniarts.openkeeper.game.controller.player;
 
 import com.jme3.util.SafeArrayList;
-import java.util.Map;
 import toniarts.openkeeper.game.data.Keeper;
 import toniarts.openkeeper.game.listener.PlayerManaListener;
 import toniarts.openkeeper.tools.convert.map.Variable;
 import toniarts.openkeeper.tools.convert.map.Variable.MiscVariable.MiscType;
+
+import java.util.Map;
 
 /**
  * Controller of player mana

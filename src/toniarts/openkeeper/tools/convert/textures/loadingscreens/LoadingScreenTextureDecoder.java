@@ -16,9 +16,10 @@
  */
 package toniarts.openkeeper.tools.convert.textures.loadingscreens;
 
+import toniarts.openkeeper.tools.convert.textures.Dk2TextureDecoder;
+
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
-import toniarts.openkeeper.tools.convert.textures.Dk2TextureDecoder;
 
 /**
  * Decoder for the .444 textures<br>

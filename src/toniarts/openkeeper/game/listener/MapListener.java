@@ -17,9 +17,10 @@
 package toniarts.openkeeper.game.listener;
 
 import com.jme3.network.service.rmi.Asynchronous;
-import java.awt.Point;
-import java.util.List;
 import toniarts.openkeeper.game.map.MapTile;
+
+import java.awt.*;
+import java.util.List;
 
 /**
  * Listen to map (tile) changes

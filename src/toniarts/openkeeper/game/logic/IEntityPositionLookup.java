@@ -17,11 +17,12 @@
 package toniarts.openkeeper.game.logic;
 
 import com.simsilica.es.EntityId;
-import java.awt.Point;
-import java.util.List;
-import java.util.Set;
 import toniarts.openkeeper.game.controller.entity.IEntityController;
 import toniarts.openkeeper.game.map.MapTile;
+
+import java.awt.*;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Simple entity directory that offers handy lookup methods

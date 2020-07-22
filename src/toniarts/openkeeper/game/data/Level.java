@@ -16,14 +16,15 @@
  */
 package toniarts.openkeeper.game.data;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Logger;
-import javax.annotation.Nullable;
 import toniarts.openkeeper.Main;
 import toniarts.openkeeper.tools.convert.ConversionUtils;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
 import toniarts.openkeeper.utils.PathUtils;
+
+import javax.annotation.Nullable;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Logger;
 
 public class Level extends GeneralLevel {
 

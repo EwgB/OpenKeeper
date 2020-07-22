@@ -18,7 +18,6 @@ package toniarts.openkeeper.game.task.creature;
 
 import com.jme3.math.Vector2f;
 import com.simsilica.es.EntityId;
-import java.awt.Point;
 import toniarts.openkeeper.game.controller.IMapController;
 import toniarts.openkeeper.game.controller.IObjectsController;
 import toniarts.openkeeper.game.controller.creature.ICreatureController;
@@ -31,6 +30,8 @@ import toniarts.openkeeper.game.task.AbstractCapacityCriticalRoomTask;
 import toniarts.openkeeper.game.task.TaskManager;
 import toniarts.openkeeper.game.task.TaskType;
 import toniarts.openkeeper.utils.WorldUtils;
+
+import java.awt.*;
 
 /**
  * Research researchable entities for the keeper

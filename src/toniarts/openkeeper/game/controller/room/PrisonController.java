@@ -16,13 +16,14 @@
  */
 package toniarts.openkeeper.game.controller.room;
 
-import java.awt.Point;
-import java.util.Collection;
 import toniarts.openkeeper.common.RoomInstance;
 import toniarts.openkeeper.game.controller.IGameTimer;
 import toniarts.openkeeper.game.controller.IObjectsController;
 import toniarts.openkeeper.game.controller.room.storage.RoomPrisonerControl;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
+
+import java.awt.*;
+import java.util.Collection;
 
 /**
  * Manages prison. Prison has a special door and special navigation for

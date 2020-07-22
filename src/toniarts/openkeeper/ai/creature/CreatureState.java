@@ -21,7 +21,7 @@ import com.badlogic.gdx.ai.msg.Telegram;
 import toniarts.openkeeper.world.creature.CreatureControl;
 
 /**
- * State machine for creature AI. TODO: needs to be hierarchial so that this
+ * State machine for creature AI. TODO: needs to be hierarchical so that this
  * class doesn't grow to be millions of lines
  *
  * @author Toni Helenius <helenius.toni@gmail.com>
@@ -30,7 +30,6 @@ import toniarts.openkeeper.world.creature.CreatureControl;
 public enum CreatureState implements State<CreatureControl> {
 
     IDLE() {
-
         @Override
         public void enter(CreatureControl entity) {
 
@@ -106,7 +105,6 @@ public enum CreatureState implements State<CreatureControl> {
         }
     },
     WANDER() {
-
         @Override
         public void enter(CreatureControl entity) {
 //                    entity.wander();
@@ -153,7 +151,6 @@ public enum CreatureState implements State<CreatureControl> {
             return true;
         }
     }, SLAPPED {
-
         @Override
         public void enter(CreatureControl entity) {
 
@@ -174,7 +171,6 @@ public enum CreatureState implements State<CreatureControl> {
             return true;
         }
     }, WORK {
-
         @Override
         public void enter(CreatureControl entity) {
             entity.navigateToAssignedTask();
@@ -219,7 +215,6 @@ public enum CreatureState implements State<CreatureControl> {
         }
 
     }, FIGHT {
-
         @Override
         public void enter(CreatureControl entity) {
             entity.unassingCurrentTask();
@@ -255,7 +250,6 @@ public enum CreatureState implements State<CreatureControl> {
         }
 
     }, FOLLOW {
-
         @Override
         public void enter(CreatureControl entity) {
             //entity.followTarget(entity.getFollowTarget());
@@ -300,7 +294,6 @@ public enum CreatureState implements State<CreatureControl> {
 
     },
     ENTERING_DUNGEON {
-
         @Override
         public void enter(CreatureControl entity) {
 
@@ -323,7 +316,6 @@ public enum CreatureState implements State<CreatureControl> {
 
     },
     PICKED_UP {
-
         @Override
         public void enter(CreatureControl entity) {
 
@@ -345,7 +337,6 @@ public enum CreatureState implements State<CreatureControl> {
         }
 
     }, FLEE {
-
         @Override
         public void enter(CreatureControl entity) {
             entity.unassingCurrentTask();
@@ -392,7 +383,6 @@ public enum CreatureState implements State<CreatureControl> {
         }
 
     }, STUNNED {
-
         @Override
         public void enter(CreatureControl entity) {
 
@@ -413,7 +403,6 @@ public enum CreatureState implements State<CreatureControl> {
             return true;
         }
     }, IMPRISONED {
-
         @Override
         public void enter(CreatureControl entity) {
 
@@ -434,7 +423,6 @@ public enum CreatureState implements State<CreatureControl> {
             return true;
         }
     }, TORTURED {
-
         @Override
         public void enter(CreatureControl entity) {
 
@@ -455,7 +443,6 @@ public enum CreatureState implements State<CreatureControl> {
             return true;
         }
     }, SLEEPING {
-
         @Override
         public void enter(CreatureControl entity) {
 
@@ -478,7 +465,6 @@ public enum CreatureState implements State<CreatureControl> {
             return true;
         }
     }, RECUPERATING {
-
         @Override
         public void enter(CreatureControl entity) {
 

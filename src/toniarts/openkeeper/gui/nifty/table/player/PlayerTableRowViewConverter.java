@@ -19,7 +19,7 @@ package toniarts.openkeeper.gui.nifty.table.player;
 import de.lessvoid.nifty.elements.Element;
 import de.lessvoid.nifty.elements.render.TextRenderer;
 import de.lessvoid.nifty.tools.Color;
-import toniarts.openkeeper.gui.nifty.table.*;
+import toniarts.openkeeper.gui.nifty.table.TableRowViewConverter;
 import toniarts.openkeeper.utils.MapThumbnailGenerator;
 
 /**

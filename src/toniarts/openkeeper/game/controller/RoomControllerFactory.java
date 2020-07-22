@@ -16,27 +16,14 @@
  */
 package toniarts.openkeeper.game.controller;
 
+import toniarts.openkeeper.common.RoomInstance;
+import toniarts.openkeeper.game.controller.room.*;
+import toniarts.openkeeper.tools.convert.map.KwdFile;
+import toniarts.openkeeper.tools.convert.map.Variable;
+
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import toniarts.openkeeper.common.RoomInstance;
-import toniarts.openkeeper.game.controller.room.CasinoController;
-import toniarts.openkeeper.game.controller.room.CombatPitController;
-import toniarts.openkeeper.game.controller.room.DoubleQuadController;
-import toniarts.openkeeper.game.controller.room.FiveByFiveRotatedController;
-import toniarts.openkeeper.game.controller.room.HatcheryController;
-import toniarts.openkeeper.game.controller.room.IRoomController;
-import toniarts.openkeeper.game.controller.room.LairController;
-import toniarts.openkeeper.game.controller.room.LibraryController;
-import toniarts.openkeeper.game.controller.room.NormalRoomController;
-import toniarts.openkeeper.game.controller.room.PrisonController;
-import toniarts.openkeeper.game.controller.room.TempleController;
-import toniarts.openkeeper.game.controller.room.ThreeByThreeController;
-import toniarts.openkeeper.game.controller.room.TortureChamberController;
-import toniarts.openkeeper.game.controller.room.TreasuryController;
-import toniarts.openkeeper.game.controller.room.WorkshopController;
-import toniarts.openkeeper.tools.convert.map.KwdFile;
-import toniarts.openkeeper.tools.convert.map.Variable;
 
 /**
  * A factory class you can use to build buildings

@@ -16,10 +16,11 @@
  */
 package toniarts.openkeeper.tools.convert.map;
 
-import toniarts.openkeeper.tools.convert.IValueEnum;
-import toniarts.openkeeper.tools.convert.IFlagEnum;
-import java.util.EnumSet;
 import toniarts.openkeeper.game.data.ISoundable;
+import toniarts.openkeeper.tools.convert.IFlagEnum;
+import toniarts.openkeeper.tools.convert.IValueEnum;
+
+import java.util.EnumSet;
 
 /**
  * Container class for Shots.kwd<br>

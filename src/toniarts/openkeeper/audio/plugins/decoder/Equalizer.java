@@ -18,7 +18,7 @@
  */
 package toniarts.openkeeper.audio.plugins.decoder;
 
-import java.lang.reflect.*;
+import java.lang.reflect.Array;
 
 /**
  * The

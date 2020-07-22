@@ -36,29 +36,6 @@ import com.jme3.system.AppSettings;
 import com.jme3.system.JmeSystem;
 import de.lessvoid.nifty.Nifty;
 import de.lessvoid.nifty.render.batch.BatchRenderConfiguration;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.net.URL;
-import java.net.URLClassLoader;
-import java.util.AbstractMap;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Properties;
-import java.util.Queue;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.JFrame;
 import toniarts.openkeeper.audio.plugins.MP2Loader;
 import toniarts.openkeeper.cinematics.CameraSweepDataLoader;
 import toniarts.openkeeper.game.data.Settings;
@@ -80,6 +57,20 @@ import toniarts.openkeeper.utils.PathUtils;
 import toniarts.openkeeper.utils.SettingUtils;
 import toniarts.openkeeper.utils.UTF8Control;
 import toniarts.openkeeper.video.MovieState;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.net.URLClassLoader;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Main entry point of OpenKeeper
@@ -104,7 +95,7 @@ public class Main extends SimpleApplication {
         super(new StatsAppState(), new DebugKeysAppState());
     }
 
-    public static void main(String[] args) throws InvocationTargetException, InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
 
         // Create main application instance
         parseArguments(args);
@@ -117,7 +108,7 @@ public class Main extends SimpleApplication {
         initSettings(app);
 
         // Finally start it if everything went ok
-        if (checkSetup(app)) {
+        if (checkSetup()) {
             app.start();
         } else {
             LOGGER.warning("Application setup not complete!!");
@@ -158,11 +149,10 @@ public class Main extends SimpleApplication {
     /**
      * Check that we have all we need to run this app
      *
-     * @param app the app (we need asset managers etc.)
      * @return true if the app is ok for running!
      * @throws InterruptedException lots of threads waiting
      */
-    private static boolean checkSetup(final Main app) throws InterruptedException {
+    private static boolean checkSetup() throws InterruptedException {
 
         boolean saveSetup = false;
 
@@ -239,8 +229,8 @@ public class Main extends SimpleApplication {
      * Get the application settings, global OpenKeeper settings, nothing much
      * here
      *
-     * @see #getUserSettings()
      * @return application settings
+     * @see #getUserSettings()
      */
     public static AppSettings getSettings() {
         return SettingUtils.getInstance().getSettings();
@@ -271,25 +261,21 @@ public class Main extends SimpleApplication {
      * Opens up a given frame and waits for it to finish
      *
      * @param frame the frame to open
-     * @throws InterruptedException
      */
     private static void openFrameAndWait(final JFrame frame) throws InterruptedException {
         frame.setVisible(true);
 
-        Thread t = new Thread() {
-            @Override
-            public void run() {
-                synchronized (LOCK) {
-                    while (frame.isVisible()) {
-                        try {
-                            LOCK.wait();
-                        } catch (InterruptedException e) {
-                            LOGGER.warning("Lock interrupted!");
-                        }
+        Thread t = new Thread(() -> {
+            synchronized (LOCK) {
+                while (frame.isVisible()) {
+                    try {
+                        LOCK.wait();
+                    } catch (InterruptedException e) {
+                        LOGGER.warning("Lock interrupted!");
                     }
                 }
             }
-        };
+        });
         t.start();
 
         frame.addWindowListener(new WindowAdapter() {
@@ -374,7 +360,7 @@ public class Main extends SimpleApplication {
                     guiXMLs.add(new AbstractMap.SimpleImmutableEntry<>("Interface/MainMenu.xml", PathUtils.getBytesFromInputStream(Main.this.getClass().getResourceAsStream("/Interface/MainMenu.xml"))));
                     guiXMLs.add(new AbstractMap.SimpleImmutableEntry<>("Interface/GameHUD.xml", PathUtils.getBytesFromInputStream(Main.this.getClass().getResourceAsStream("/Interface/GameHUD.xml"))));
 
-                    // Validate the XML, great for debuging purposes
+                    // Validate the XML, great for debugging purposes
                     for (Map.Entry<String, byte[]> xml : guiXMLs) {
                         try {
                             nifty.validateXml(new ByteArrayInputStream(xml.getValue()));
@@ -479,21 +465,20 @@ public class Main extends SimpleApplication {
      *
      * @return array of application icons
      */
-    public static BufferedImage[] getApplicationIcons() {
+    public static List<BufferedImage> getApplicationIcons() {
         try {
-            return new BufferedImage[]{
-                ImageIO.read(CursorFactory.class.getResource("icons/openkeeper256.png")),
-                ImageIO.read(CursorFactory.class.getResource("icons/openkeeper128.png")),
-                ImageIO.read(CursorFactory.class.getResource("icons/openkeeper64.png")),
-                ImageIO.read(CursorFactory.class.getResource("icons/openkeeper48.png")),
-                ImageIO.read(CursorFactory.class.getResource("icons/openkeeper32.png")),
-                ImageIO.read(CursorFactory.class.getResource("icons/openkeeper24.png")),
-                ImageIO.read(CursorFactory.class.getResource("icons/openkeeper16.png"))
-            };
+            return List.of(
+                    ImageIO.read(CursorFactory.class.getResource("icons/openkeeper256.png")),
+                    ImageIO.read(CursorFactory.class.getResource("icons/openkeeper128.png")),
+                    ImageIO.read(CursorFactory.class.getResource("icons/openkeeper64.png")),
+                    ImageIO.read(CursorFactory.class.getResource("icons/openkeeper48.png")),
+                    ImageIO.read(CursorFactory.class.getResource("icons/openkeeper32.png")),
+                    ImageIO.read(CursorFactory.class.getResource("icons/openkeeper24.png")),
+                    ImageIO.read(CursorFactory.class.getResource("icons/openkeeper16.png")));
         } catch (IOException ex) {
             LOGGER.log(Level.SEVERE, "Failed to load the application icons!", ex);
         }
-        return null;
+        return Collections.emptyList();
     }
 
     /**

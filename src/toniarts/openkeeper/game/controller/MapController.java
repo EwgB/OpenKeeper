@@ -16,22 +16,9 @@
  */
 package toniarts.openkeeper.game.controller;
 
-import com.jme3.export.InputCapsule;
-import com.jme3.export.JmeExporter;
-import com.jme3.export.JmeImporter;
-import com.jme3.export.OutputCapsule;
-import com.jme3.export.Savable;
+import com.jme3.export.*;
 import com.jme3.math.Vector2f;
 import com.jme3.util.SafeArrayList;
-import java.awt.Point;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import toniarts.openkeeper.common.RoomInstance;
 import toniarts.openkeeper.game.control.Container;
 import toniarts.openkeeper.game.controller.creature.ICreatureController;
@@ -42,12 +29,13 @@ import toniarts.openkeeper.game.listener.MapListener;
 import toniarts.openkeeper.game.listener.RoomListener;
 import toniarts.openkeeper.game.map.MapData;
 import toniarts.openkeeper.game.map.MapTile;
-import toniarts.openkeeper.tools.convert.map.KwdFile;
-import toniarts.openkeeper.tools.convert.map.Player;
-import toniarts.openkeeper.tools.convert.map.Room;
-import toniarts.openkeeper.tools.convert.map.Terrain;
-import toniarts.openkeeper.tools.convert.map.Variable;
+import toniarts.openkeeper.tools.convert.map.*;
 import toniarts.openkeeper.utils.WorldUtils;
+
+import java.awt.*;
+import java.io.IOException;
+import java.util.List;
+import java.util.*;
 
 /**
  * This is controller for the map related functions

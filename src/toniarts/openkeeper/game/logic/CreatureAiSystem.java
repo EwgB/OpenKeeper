@@ -21,13 +21,14 @@ import com.simsilica.es.Entity;
 import com.simsilica.es.EntityData;
 import com.simsilica.es.EntityId;
 import com.simsilica.es.EntitySet;
+import toniarts.openkeeper.game.component.CreatureAi;
+import toniarts.openkeeper.game.controller.ICreaturesController;
+import toniarts.openkeeper.game.controller.creature.ICreatureController;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import toniarts.openkeeper.game.component.CreatureAi;
-import toniarts.openkeeper.game.controller.ICreaturesController;
-import toniarts.openkeeper.game.controller.creature.ICreatureController;
 
 /**
  * Handles creature logic updates, the creature AI updates that is. The AI is

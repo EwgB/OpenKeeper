@@ -17,6 +17,11 @@
 package toniarts.openkeeper.game;
 
 import com.jme3.math.FastMath;
+import toniarts.openkeeper.Main;
+import toniarts.openkeeper.tools.convert.map.GameLevel;
+import toniarts.openkeeper.tools.convert.map.KwdFile;
+import toniarts.openkeeper.utils.PathUtils;
+
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
@@ -28,10 +33,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import toniarts.openkeeper.Main;
-import toniarts.openkeeper.tools.convert.map.GameLevel;
-import toniarts.openkeeper.tools.convert.map.KwdFile;
-import toniarts.openkeeper.utils.PathUtils;
 
 /**
  * Class isolate map selection

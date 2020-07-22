@@ -16,18 +16,13 @@
  */
 package toniarts.openkeeper.tools.convert.map;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.EnumSet;
-import java.util.Enumeration;
-import java.util.List;
-import java.util.Map;
-import java.util.ResourceBundle;
 import toniarts.openkeeper.Main;
 import toniarts.openkeeper.game.data.ISoundable;
 import toniarts.openkeeper.game.data.ITriggerable;
 import toniarts.openkeeper.tools.convert.IFlagEnum;
 import toniarts.openkeeper.tools.convert.IValueEnum;
+
+import java.util.*;
 
 /**
  *

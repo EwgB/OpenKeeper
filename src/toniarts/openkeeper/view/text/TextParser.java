@@ -18,12 +18,13 @@ package toniarts.openkeeper.view.text;
 
 import com.simsilica.es.Entity;
 import com.simsilica.es.EntityComponent;
-import java.util.Collection;
 import toniarts.openkeeper.game.map.MapTile;
 import toniarts.openkeeper.tools.convert.map.Creature;
 import toniarts.openkeeper.tools.convert.map.Door;
 import toniarts.openkeeper.tools.convert.map.GameObject;
 import toniarts.openkeeper.tools.convert.map.Trap;
+
+import java.util.Collection;
 
 /**
  * Provides text parsing services for users

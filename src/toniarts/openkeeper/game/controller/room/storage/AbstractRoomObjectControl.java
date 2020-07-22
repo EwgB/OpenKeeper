@@ -17,13 +17,6 @@
 package toniarts.openkeeper.game.controller.room.storage;
 
 import com.simsilica.es.EntityId;
-import java.awt.Point;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 import toniarts.openkeeper.game.component.Decay;
 import toniarts.openkeeper.game.component.ObjectComponent;
 import toniarts.openkeeper.game.component.Owner;
@@ -34,6 +27,10 @@ import toniarts.openkeeper.game.controller.ObjectsController;
 import toniarts.openkeeper.game.controller.room.IRoomController;
 import toniarts.openkeeper.tools.convert.map.GameObject;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
+
+import java.awt.*;
+import java.util.List;
+import java.util.*;
 
 /**
  * Room object controller. FIXME: Cache the coordinates and listen to changes in

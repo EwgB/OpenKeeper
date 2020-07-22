@@ -17,11 +17,7 @@
 package toniarts.openkeeper.game.trigger.party;
 
 import com.jme3.util.SafeArrayList;
-import toniarts.openkeeper.game.controller.ICreaturesController;
-import toniarts.openkeeper.game.controller.IGameController;
-import toniarts.openkeeper.game.controller.IGameTimer;
-import toniarts.openkeeper.game.controller.ILevelInfo;
-import toniarts.openkeeper.game.controller.IMapController;
+import toniarts.openkeeper.game.controller.*;
 import toniarts.openkeeper.game.controller.creature.IPartyController;
 import toniarts.openkeeper.game.logic.IGameLogicUpdatable;
 

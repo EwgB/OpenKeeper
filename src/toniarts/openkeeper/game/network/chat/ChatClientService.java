@@ -38,11 +38,12 @@ package toniarts.openkeeper.game.network.chat;
 import com.jme3.network.service.AbstractClientService;
 import com.jme3.network.service.ClientServiceManager;
 import com.jme3.network.service.rmi.RmiClientService;
+import toniarts.openkeeper.game.network.NetworkConstants;
+
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import toniarts.openkeeper.game.network.NetworkConstants;
 
 /**
  * Client-side service providing access to the chat server.

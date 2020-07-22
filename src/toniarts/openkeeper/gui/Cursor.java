@@ -22,11 +22,12 @@ import com.jme3.texture.Image;
 import com.jme3.texture.Image.Format;
 import com.jme3.texture.Texture;
 import com.jme3.util.BufferUtils;
+import toniarts.openkeeper.tools.convert.AssetsConverter;
+import toniarts.openkeeper.tools.convert.ConversionUtils;
+
 import java.io.File;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
-import toniarts.openkeeper.tools.convert.AssetsConverter;
-import toniarts.openkeeper.tools.convert.ConversionUtils;
 
 public class Cursor extends JmeCursor {
 

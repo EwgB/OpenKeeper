@@ -20,6 +20,7 @@ package toniarts.openkeeper.tools.modelviewer;
  *
  * @author ArchDemon
  */
+
 import com.jme3.animation.AnimControl;
 import com.jme3.asset.AssetManager;
 import com.jme3.material.Material;
@@ -31,6 +32,7 @@ import com.jme3.scene.debug.Arrow;
 import com.jme3.scene.debug.Grid;
 import com.jme3.scene.debug.SkeletonDebugger;
 import com.jme3.scene.shape.Line;
+
 import static toniarts.openkeeper.tools.modelviewer.DebugUtils.makeGeometry;
 
 /**

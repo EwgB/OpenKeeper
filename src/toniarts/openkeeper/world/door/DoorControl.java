@@ -22,7 +22,6 @@ import com.jme3.renderer.RenderManager;
 import com.jme3.renderer.ViewPort;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
-import java.util.ResourceBundle;
 import toniarts.openkeeper.gui.CursorFactory;
 import toniarts.openkeeper.tools.convert.ConversionUtils;
 import toniarts.openkeeper.tools.convert.map.ArtResource;
@@ -39,6 +38,8 @@ import toniarts.openkeeper.world.control.IInteractiveControl;
 import toniarts.openkeeper.world.control.IUnitFlowerControl;
 import toniarts.openkeeper.world.control.UnitFlowerControl;
 import toniarts.openkeeper.world.object.HighlightControl;
+
+import java.util.ResourceBundle;
 
 /**
  * The door control, handles door stuff, you know... Open sesame!

@@ -16,9 +16,10 @@
  */
 package toniarts.openkeeper.game.network.message;
 
-import java.util.Collection;
 import toniarts.openkeeper.game.data.Keeper;
 import toniarts.openkeeper.game.map.MapData;
+
+import java.util.Collection;
 
 /**
  * Wrapper for game data

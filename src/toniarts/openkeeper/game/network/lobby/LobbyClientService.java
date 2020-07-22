@@ -19,15 +19,16 @@ package toniarts.openkeeper.game.network.lobby;
 import com.jme3.network.service.AbstractClientService;
 import com.jme3.network.service.ClientServiceManager;
 import com.jme3.network.service.rmi.RmiClientService;
+import toniarts.openkeeper.game.network.NetworkConstants;
+import toniarts.openkeeper.game.state.lobby.ClientInfo;
+import toniarts.openkeeper.game.state.lobby.LobbySession;
+import toniarts.openkeeper.game.state.lobby.LobbySessionListener;
+
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
-import toniarts.openkeeper.game.network.NetworkConstants;
-import toniarts.openkeeper.game.state.lobby.ClientInfo;
-import toniarts.openkeeper.game.state.lobby.LobbySession;
-import toniarts.openkeeper.game.state.lobby.LobbySessionListener;
 
 /**
  * Client side service for the game lobby services

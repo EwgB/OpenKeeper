@@ -16,6 +16,12 @@
  */
 package toniarts.openkeeper.tools.convert.conversion.task;
 
+import toniarts.openkeeper.tools.convert.AssetsConverter;
+import toniarts.openkeeper.tools.convert.ConversionUtils;
+import toniarts.openkeeper.tools.convert.sound.SdtFile;
+import toniarts.openkeeper.utils.AssetUtils;
+import toniarts.openkeeper.utils.PathUtils;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.FileVisitResult;
@@ -27,11 +33,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import toniarts.openkeeper.tools.convert.AssetsConverter;
-import toniarts.openkeeper.tools.convert.ConversionUtils;
-import toniarts.openkeeper.tools.convert.sound.SdtFile;
-import toniarts.openkeeper.utils.AssetUtils;
-import toniarts.openkeeper.utils.PathUtils;
 
 /**
  * Dungeon Keeper II sounds conversion. Extracts all sounds to WAV and MP2

@@ -16,11 +16,12 @@
  */
 package toniarts.openkeeper.world;
 
-import java.awt.Point;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
 import toniarts.openkeeper.tools.convert.map.Tile;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.awt.*;
 
 /**
  * This is just a wrapper for the MAP file really. I really wish they are clean

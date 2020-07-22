@@ -16,11 +16,12 @@
  */
 package toniarts.openkeeper.game.controller;
 
-import java.util.Collection;
 import toniarts.openkeeper.game.data.GameResult;
 import toniarts.openkeeper.game.logic.IEntityPositionLookup;
 import toniarts.openkeeper.game.navigation.INavigationService;
 import toniarts.openkeeper.game.task.ITaskManager;
+
+import java.util.Collection;
 
 /**
  * Game controller. Controls the game

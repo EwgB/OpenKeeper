@@ -16,12 +16,7 @@
  */
 package toniarts.openkeeper.game.trigger.creature;
 
-import java.util.logging.Logger;
-import toniarts.openkeeper.game.controller.ICreaturesController;
-import toniarts.openkeeper.game.controller.IGameController;
-import toniarts.openkeeper.game.controller.IGameTimer;
-import toniarts.openkeeper.game.controller.ILevelInfo;
-import toniarts.openkeeper.game.controller.IMapController;
+import toniarts.openkeeper.game.controller.*;
 import toniarts.openkeeper.game.controller.creature.ICreatureController;
 import toniarts.openkeeper.game.data.ObjectiveType;
 import toniarts.openkeeper.game.state.session.PlayerService;
@@ -32,6 +27,8 @@ import toniarts.openkeeper.tools.convert.ConversionUtils;
 import toniarts.openkeeper.tools.convert.map.Thing;
 import toniarts.openkeeper.tools.convert.map.TriggerAction;
 import toniarts.openkeeper.tools.convert.map.TriggerGeneric;
+
+import java.util.logging.Logger;
 
 /**
  *

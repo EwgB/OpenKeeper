@@ -16,13 +16,14 @@
  */
 package toniarts.openkeeper.game.controller.player;
 
-import java.util.ArrayList;
-import java.util.List;
 import toniarts.openkeeper.game.data.Keeper;
 import toniarts.openkeeper.game.data.ResearchableEntity;
 import toniarts.openkeeper.game.listener.PlayerResearchableEntityListener;
 import toniarts.openkeeper.tools.convert.map.KeeperSpell;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Manages player research

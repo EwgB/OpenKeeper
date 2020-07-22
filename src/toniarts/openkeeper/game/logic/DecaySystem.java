@@ -21,12 +21,13 @@ import com.simsilica.es.Entity;
 import com.simsilica.es.EntityData;
 import com.simsilica.es.EntityId;
 import com.simsilica.es.EntitySet;
-import java.util.Collections;
-import java.util.Set;
-import java.util.logging.Logger;
 import toniarts.openkeeper.game.component.Decay;
 import toniarts.openkeeper.game.component.Health;
 import toniarts.openkeeper.game.component.Position;
+
+import java.util.Collections;
+import java.util.Set;
+import java.util.logging.Logger;
 
 /**
  * Handles entity decaying

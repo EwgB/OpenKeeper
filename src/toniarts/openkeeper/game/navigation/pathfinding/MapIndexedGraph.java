@@ -25,9 +25,10 @@ import toniarts.openkeeper.game.controller.IMapController;
 import toniarts.openkeeper.game.controller.room.IRoomController;
 import toniarts.openkeeper.game.logic.IEntityPositionLookup;
 import toniarts.openkeeper.game.map.MapTile;
+import toniarts.openkeeper.tools.convert.map.Terrain;
+
 import static toniarts.openkeeper.game.navigation.pathfinding.INavigable.DEFAULT_COST;
 import static toniarts.openkeeper.game.navigation.pathfinding.INavigable.WATER_COST;
-import toniarts.openkeeper.tools.convert.map.Terrain;
 
 /**
  * Map representation for the path finding

@@ -18,7 +18,8 @@ package toniarts.openkeeper.game.component;
 
 import com.badlogic.gdx.math.Vector2;
 import com.simsilica.es.EntityComponent;
-import java.awt.Point;
+
+import java.awt.*;
 import java.util.List;
 
 /**

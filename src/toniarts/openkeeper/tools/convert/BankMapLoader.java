@@ -16,6 +16,9 @@
  */
 package toniarts.openkeeper.tools.convert;
 
+import toniarts.openkeeper.tools.convert.sound.BankMapFile;
+import toniarts.openkeeper.utils.PathUtils;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.FileVisitResult;
@@ -25,9 +28,6 @@ import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
-
-import toniarts.openkeeper.tools.convert.sound.BankMapFile;
-import toniarts.openkeeper.utils.PathUtils;
 
 /**
  * Simple class to open up and browse through the *Bank.map files

@@ -18,13 +18,14 @@ package toniarts.openkeeper.game.task.objective;
 
 import com.jme3.math.Vector2f;
 import com.simsilica.es.EntityId;
-import java.awt.Point;
-import java.util.ArrayDeque;
-import java.util.Date;
-import java.util.Deque;
 import toniarts.openkeeper.game.controller.creature.ICreatureController;
 import toniarts.openkeeper.game.task.Task;
 import toniarts.openkeeper.game.task.TaskType;
+
+import java.awt.*;
+import java.util.ArrayDeque;
+import java.util.Date;
+import java.util.Deque;
 
 /**
  * A decorator for some simple task to create complex task chains

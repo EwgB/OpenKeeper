@@ -16,14 +16,7 @@
  */
 package toniarts.openkeeper.game.trigger.player;
 
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import toniarts.openkeeper.game.controller.ICreaturesController;
-import toniarts.openkeeper.game.controller.IGameController;
-import toniarts.openkeeper.game.controller.IGameTimer;
-import toniarts.openkeeper.game.controller.ILevelInfo;
-import toniarts.openkeeper.game.controller.IMapController;
+import toniarts.openkeeper.game.controller.*;
 import toniarts.openkeeper.game.controller.player.PlayerStatsControl;
 import toniarts.openkeeper.game.controller.room.ICreatureEntrance;
 import toniarts.openkeeper.game.controller.room.IRoomController;
@@ -37,6 +30,10 @@ import toniarts.openkeeper.tools.convert.ConversionUtils;
 import toniarts.openkeeper.tools.convert.map.TriggerAction;
 import toniarts.openkeeper.tools.convert.map.TriggerGeneric;
 import toniarts.openkeeper.utils.WorldUtils;
+
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Trigger control that is targeted for specified player

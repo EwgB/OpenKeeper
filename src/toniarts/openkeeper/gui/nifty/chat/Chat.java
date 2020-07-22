@@ -17,6 +17,7 @@
 package toniarts.openkeeper.gui.nifty.chat;
 
 import de.lessvoid.nifty.controls.NiftyControl;
+
 import java.util.List;
 
 /**

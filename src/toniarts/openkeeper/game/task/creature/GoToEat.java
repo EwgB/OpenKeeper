@@ -19,7 +19,6 @@ package toniarts.openkeeper.game.task.creature;
 import com.jme3.math.Vector2f;
 import com.simsilica.es.EntityData;
 import com.simsilica.es.EntityId;
-import java.awt.Point;
 import toniarts.openkeeper.game.component.Food;
 import toniarts.openkeeper.game.component.Position;
 import toniarts.openkeeper.game.controller.IMapController;
@@ -29,6 +28,8 @@ import toniarts.openkeeper.game.map.MapTile;
 import toniarts.openkeeper.game.navigation.INavigationService;
 import toniarts.openkeeper.game.task.AbstractTask;
 import toniarts.openkeeper.game.task.TaskType;
+
+import java.awt.*;
 
 /**
  * Go to eat!

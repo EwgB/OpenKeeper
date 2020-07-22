@@ -16,11 +16,12 @@
  */
 package toniarts.openkeeper.game.task;
 
-import java.awt.Point;
 import toniarts.openkeeper.game.controller.IMapController;
 import toniarts.openkeeper.game.controller.creature.ICreatureController;
 import toniarts.openkeeper.game.controller.room.IRoomController;
 import toniarts.openkeeper.game.navigation.INavigationService;
+
+import java.awt.*;
 
 /**
  * A base class for tasks that we should keep track off

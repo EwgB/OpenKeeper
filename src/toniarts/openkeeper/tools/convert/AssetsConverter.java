@@ -18,6 +18,12 @@ package toniarts.openkeeper.tools.convert;
 
 import com.jme3.asset.AssetManager;
 import com.jme3.system.AppSettings;
+import toniarts.openkeeper.Main;
+import toniarts.openkeeper.tools.convert.conversion.ConversionTaskManager;
+import toniarts.openkeeper.tools.convert.conversion.task.*;
+import toniarts.openkeeper.tools.convert.map.KwdFile;
+import toniarts.openkeeper.utils.PathUtils;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -26,21 +32,6 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import toniarts.openkeeper.Main;
-import toniarts.openkeeper.tools.convert.conversion.ConversionTaskManager;
-import toniarts.openkeeper.tools.convert.conversion.task.ConvertFonts;
-import toniarts.openkeeper.tools.convert.conversion.task.ConvertHiScores;
-import toniarts.openkeeper.tools.convert.conversion.task.ConvertMapThumbnails;
-import toniarts.openkeeper.tools.convert.conversion.task.ConvertModels;
-import toniarts.openkeeper.tools.convert.conversion.task.ConvertMouseCursors;
-import toniarts.openkeeper.tools.convert.conversion.task.ConvertPaths;
-import toniarts.openkeeper.tools.convert.conversion.task.ConvertSounds;
-import toniarts.openkeeper.tools.convert.conversion.task.ConvertTexts;
-import toniarts.openkeeper.tools.convert.conversion.task.ConvertTextures;
-import toniarts.openkeeper.tools.convert.conversion.task.IConversionTask;
-import toniarts.openkeeper.tools.convert.conversion.task.IConversionTaskUpdate;
-import toniarts.openkeeper.tools.convert.map.KwdFile;
-import toniarts.openkeeper.utils.PathUtils;
 
 /**
  *

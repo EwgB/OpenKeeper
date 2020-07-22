@@ -25,10 +25,11 @@ import com.jme3.texture.Image.Format;
 import com.jme3.texture.Texture2D;
 import com.jme3.texture.image.ColorSpace;
 import com.jme3.util.BufferUtils;
+import toniarts.openkeeper.video.tgq.TgqFrame;
+
 import java.nio.ByteBuffer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import toniarts.openkeeper.video.tgq.TgqFrame;
 
 /**
  * This class has been modified for our usage, for watching TGQ movies.<br>

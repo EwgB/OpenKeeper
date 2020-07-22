@@ -23,16 +23,13 @@ import com.jme3.audio.AudioData;
 import com.jme3.audio.AudioKey;
 import com.jme3.audio.AudioStream;
 import com.jme3.util.BufferUtils;
+import toniarts.openkeeper.audio.plugins.decoder.*;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import toniarts.openkeeper.audio.plugins.decoder.AudioInformation;
-import toniarts.openkeeper.audio.plugins.decoder.Decoder;
-import toniarts.openkeeper.audio.plugins.decoder.MediaInformation;
-import toniarts.openkeeper.audio.plugins.decoder.MpxReader;
-import toniarts.openkeeper.audio.plugins.decoder.UnsupportedMediaException;
 
 /**
  * Plays MPx files, not MP3s though

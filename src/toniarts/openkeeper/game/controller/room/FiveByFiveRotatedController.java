@@ -18,10 +18,6 @@ package toniarts.openkeeper.game.controller.room;
 
 import com.jme3.math.FastMath;
 import com.simsilica.es.EntityId;
-import java.awt.Point;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 import toniarts.openkeeper.common.RoomInstance;
 import toniarts.openkeeper.game.controller.IGameTimer;
 import toniarts.openkeeper.game.controller.IObjectsController;
@@ -29,6 +25,11 @@ import toniarts.openkeeper.game.controller.room.storage.RoomGoldControl;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
 import toniarts.openkeeper.tools.convert.map.Variable;
 import toniarts.openkeeper.utils.Utils;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Constructs 5 by 5 "rotated" buildings. As far as I know, only Dungeon Heart

@@ -22,6 +22,8 @@ import com.jme3.network.MessageListener;
 import com.jme3.network.serializing.Serializer;
 import com.jme3.network.service.AbstractClientService;
 import com.jme3.network.service.ClientServiceManager;
+import toniarts.openkeeper.game.network.message.StreamedMessage;
+
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
@@ -31,7 +33,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import toniarts.openkeeper.game.network.message.StreamedMessage;
 
 /**
  * A client that listens for our streamed packages and notifies you when they

@@ -16,6 +16,13 @@
  */
 package toniarts.openkeeper.tools.convert.conversion.task;
 
+import toniarts.openkeeper.tools.convert.AssetsConverter;
+import toniarts.openkeeper.tools.convert.FontCreator;
+import toniarts.openkeeper.tools.convert.bf4.Bf4File;
+import toniarts.openkeeper.utils.AssetUtils;
+import toniarts.openkeeper.utils.PathUtils;
+
+import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -31,12 +38,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.imageio.ImageIO;
-import toniarts.openkeeper.tools.convert.AssetsConverter;
-import toniarts.openkeeper.tools.convert.FontCreator;
-import toniarts.openkeeper.tools.convert.bf4.Bf4File;
-import toniarts.openkeeper.utils.AssetUtils;
-import toniarts.openkeeper.utils.PathUtils;
 
 /**
  * Dungeon Keeper II font conversion. Converts all fonts to jME friendly bitmap

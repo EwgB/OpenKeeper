@@ -21,18 +21,13 @@ import com.simsilica.es.Entity;
 import com.simsilica.es.EntityData;
 import com.simsilica.es.EntityId;
 import com.simsilica.es.EntitySet;
-import java.util.Collections;
-import java.util.Set;
-import toniarts.openkeeper.game.component.CreatureAi;
-import toniarts.openkeeper.game.component.CreatureViewState;
-import toniarts.openkeeper.game.component.Death;
-import toniarts.openkeeper.game.component.Health;
-import toniarts.openkeeper.game.component.Navigation;
-import toniarts.openkeeper.game.component.Position;
-import toniarts.openkeeper.game.component.TaskComponent;
+import toniarts.openkeeper.game.component.*;
 import toniarts.openkeeper.game.controller.creature.CreatureState;
 import toniarts.openkeeper.game.task.TaskType;
 import toniarts.openkeeper.tools.convert.map.Creature;
+
+import java.util.Collections;
+import java.util.Set;
 
 /**
  * Handles creature animation states. These are based on the creature states and

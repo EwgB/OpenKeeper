@@ -20,12 +20,13 @@ import com.jme3.export.InputCapsule;
 import com.jme3.export.JmeExporter;
 import com.jme3.export.JmeImporter;
 import com.jme3.export.OutputCapsule;
-import java.awt.Point;
+import toniarts.openkeeper.game.control.Control;
+import toniarts.openkeeper.game.controller.IMapController;
+
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import toniarts.openkeeper.game.control.Control;
-import toniarts.openkeeper.game.controller.IMapController;
 
 /**
  * Purpose of this class is to flash certain map tiles for given time.

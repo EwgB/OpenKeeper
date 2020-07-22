@@ -18,11 +18,6 @@ package toniarts.openkeeper.game.navigation;
 
 import com.badlogic.gdx.ai.pfa.DefaultGraphPath;
 import com.badlogic.gdx.ai.pfa.GraphPath;
-import java.awt.Point;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.logging.Logger;
 import toniarts.openkeeper.common.RoomInstance;
 import toniarts.openkeeper.game.controller.IMapController;
 import toniarts.openkeeper.game.logic.IEntityPositionLookup;
@@ -32,6 +27,12 @@ import toniarts.openkeeper.game.navigation.pathfinding.MapDistance;
 import toniarts.openkeeper.game.navigation.pathfinding.MapIndexedGraph;
 import toniarts.openkeeper.game.navigation.pathfinding.MapPathFinder;
 import toniarts.openkeeper.utils.Utils;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.logging.Logger;
 
 /**
  * Offers navigation related services

@@ -36,9 +36,9 @@
 
 package toniarts.openkeeper.game.network.chat;
 
-import java.util.List;
-
 import com.jme3.network.service.rmi.Asynchronous;
+
+import java.util.List;
 
 /**
  *  A client's view of the chat services.

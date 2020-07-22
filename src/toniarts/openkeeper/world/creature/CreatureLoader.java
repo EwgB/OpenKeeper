@@ -20,7 +20,6 @@ import com.jme3.asset.AssetManager;
 import com.jme3.math.Vector2f;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
-import java.util.logging.Logger;
 import toniarts.openkeeper.ai.creature.CreatureState;
 import toniarts.openkeeper.tools.convert.map.Creature;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
@@ -31,6 +30,8 @@ import toniarts.openkeeper.world.MapLoader;
 import toniarts.openkeeper.world.WorldState;
 import toniarts.openkeeper.world.control.UnitFlowerControl;
 import toniarts.openkeeper.world.listener.CreatureListener;
+
+import java.util.logging.Logger;
 
 /**
  * Loads up creatures

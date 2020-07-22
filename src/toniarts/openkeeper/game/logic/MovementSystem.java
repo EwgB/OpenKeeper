@@ -23,20 +23,17 @@ import com.simsilica.es.Entity;
 import com.simsilica.es.EntityData;
 import com.simsilica.es.EntityId;
 import com.simsilica.es.EntitySet;
-import java.awt.Point;
+import toniarts.openkeeper.game.component.Mobile;
+import toniarts.openkeeper.game.component.Navigation;
+import toniarts.openkeeper.game.component.Position;
+import toniarts.openkeeper.game.navigation.steering.*;
+
+import java.awt.*;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
-import toniarts.openkeeper.game.component.Mobile;
-import toniarts.openkeeper.game.component.Navigation;
-import toniarts.openkeeper.game.component.Position;
-import toniarts.openkeeper.game.navigation.steering.EntitySteeringBehavior;
-import toniarts.openkeeper.game.navigation.steering.EntitySteeringFactory;
-import toniarts.openkeeper.game.navigation.steering.ISteerableEntity;
-import toniarts.openkeeper.game.navigation.steering.SteerableEntity;
-import toniarts.openkeeper.game.navigation.steering.SteeringUtils;
 
 /**
  * Handles moving of the entities

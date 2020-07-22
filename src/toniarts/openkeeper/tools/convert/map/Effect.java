@@ -16,11 +16,12 @@
  */
 package toniarts.openkeeper.tools.convert.map;
 
-import java.util.EnumSet;
-import java.util.List;
 import toniarts.openkeeper.tools.convert.IFlagEnum;
 import toniarts.openkeeper.tools.convert.IValueEnum;
 import toniarts.openkeeper.world.effect.IEffect;
+
+import java.util.EnumSet;
+import java.util.List;
 
 /**
  * Container class for Effects.kwd

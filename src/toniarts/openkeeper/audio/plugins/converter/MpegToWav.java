@@ -16,14 +16,15 @@
  */
 package toniarts.openkeeper.audio.plugins.converter;
 
-import java.io.FileInputStream;
-import java.io.RandomAccessFile;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
 import toniarts.openkeeper.audio.plugins.decoder.AudioInformation;
 import toniarts.openkeeper.audio.plugins.decoder.Decoder;
 import toniarts.openkeeper.audio.plugins.decoder.MediaInformation;
 import toniarts.openkeeper.audio.plugins.decoder.MpxReader;
+
+import java.io.FileInputStream;
+import java.io.RandomAccessFile;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 
 /**
  * Crude example of converting MPx to WAV with the Doppio library

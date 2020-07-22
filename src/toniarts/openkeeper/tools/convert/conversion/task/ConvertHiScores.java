@@ -16,13 +16,14 @@
  */
 package toniarts.openkeeper.tools.convert.conversion.task;
 
-import java.io.File;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import toniarts.openkeeper.game.data.HiScores;
 import toniarts.openkeeper.tools.convert.AssetsConverter;
 import toniarts.openkeeper.tools.convert.hiscores.HiScoresEntry;
 import toniarts.openkeeper.tools.convert.hiscores.HiScoresFile;
+
+import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Dungeon Keeper II hiscores conversion. Converts all hiscore files to our own

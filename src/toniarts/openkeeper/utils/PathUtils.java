@@ -16,13 +16,14 @@
  */
 package toniarts.openkeeper.utils;
 
+import toniarts.openkeeper.tools.convert.ConversionUtils;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import toniarts.openkeeper.tools.convert.ConversionUtils;
 
 public class PathUtils {
 

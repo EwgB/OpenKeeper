@@ -16,16 +16,14 @@
  */
 package toniarts.openkeeper.tools.convert.conversion.task;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.nio.file.FileVisitOption;
-import java.nio.file.FileVisitResult;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.SimpleFileVisitor;
+import toniarts.openkeeper.tools.convert.AssetsConverter;
+import toniarts.openkeeper.tools.convert.str.MbToUniFile;
+import toniarts.openkeeper.tools.convert.str.StrFile;
+import toniarts.openkeeper.utils.AssetUtils;
+import toniarts.openkeeper.utils.PathUtils;
+
+import java.io.*;
+import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -33,11 +31,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import toniarts.openkeeper.tools.convert.AssetsConverter;
-import toniarts.openkeeper.tools.convert.str.MbToUniFile;
-import toniarts.openkeeper.tools.convert.str.StrFile;
-import toniarts.openkeeper.utils.AssetUtils;
-import toniarts.openkeeper.utils.PathUtils;
 
 /**
  * Dungeon Keeper II texts conversion. Converts all interface texts to plain

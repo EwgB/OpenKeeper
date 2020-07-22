@@ -16,9 +16,10 @@
  */
 package toniarts.openkeeper.video.tgq;
 
+import toniarts.openkeeper.tools.convert.ConversionUtils;
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import toniarts.openkeeper.tools.convert.ConversionUtils;
 
 /**
  * EA audio frame holder<br>

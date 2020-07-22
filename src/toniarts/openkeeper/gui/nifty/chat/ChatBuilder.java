@@ -18,6 +18,7 @@ package toniarts.openkeeper.gui.nifty.chat;
 
 import de.lessvoid.nifty.builder.ControlBuilder;
 import de.lessvoid.nifty.tools.SizeValue;
+
 import javax.annotation.Nonnull;
 
 /**

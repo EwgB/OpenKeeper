@@ -17,12 +17,13 @@
 package toniarts.openkeeper.game.task.objective;
 
 import com.jme3.math.Vector2f;
-import java.awt.Point;
 import toniarts.openkeeper.game.controller.IMapController;
 import toniarts.openkeeper.game.controller.creature.ICreatureController;
 import toniarts.openkeeper.game.navigation.INavigationService;
 import toniarts.openkeeper.game.task.TaskType;
 import toniarts.openkeeper.utils.WorldUtils;
+
+import java.awt.*;
 
 /**
  * A simple task to order troops around

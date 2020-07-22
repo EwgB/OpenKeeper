@@ -17,17 +17,7 @@
 package toniarts.openkeeper.game.controller;
 
 import com.simsilica.es.EntityData;
-import java.util.Map;
-import toniarts.openkeeper.game.controller.player.PlayerCreatureControl;
-import toniarts.openkeeper.game.controller.player.PlayerDoorControl;
-import toniarts.openkeeper.game.controller.player.PlayerGoldControl;
-import toniarts.openkeeper.game.controller.player.PlayerHandControl;
-import toniarts.openkeeper.game.controller.player.PlayerManaControl;
-import toniarts.openkeeper.game.controller.player.PlayerResearchControl;
-import toniarts.openkeeper.game.controller.player.PlayerRoomControl;
-import toniarts.openkeeper.game.controller.player.PlayerSpellControl;
-import toniarts.openkeeper.game.controller.player.PlayerStatsControl;
-import toniarts.openkeeper.game.controller.player.PlayerTrapControl;
+import toniarts.openkeeper.game.controller.player.*;
 import toniarts.openkeeper.game.data.Keeper;
 import toniarts.openkeeper.game.listener.PlayerListener;
 import toniarts.openkeeper.game.listener.PlayerResearchableEntityListener;
@@ -36,6 +26,8 @@ import toniarts.openkeeper.tools.convert.map.Creature;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
 import toniarts.openkeeper.tools.convert.map.Player;
 import toniarts.openkeeper.tools.convert.map.Variable;
+
+import java.util.Map;
 
 /**
  * Player controller, hosts and provides player related methods

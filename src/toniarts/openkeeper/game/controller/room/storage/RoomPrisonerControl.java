@@ -17,12 +17,13 @@
 package toniarts.openkeeper.game.controller.room.storage;
 
 import com.simsilica.es.EntityId;
-import java.awt.Point;
 import toniarts.openkeeper.game.controller.IGameTimer;
 import toniarts.openkeeper.game.controller.IObjectsController;
 import toniarts.openkeeper.game.controller.room.AbstractRoomController.ObjectType;
 import toniarts.openkeeper.game.controller.room.IRoomController;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
+
+import java.awt.*;
 
 /**
  * Holds out the prisoners populating a room

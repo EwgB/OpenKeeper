@@ -16,13 +16,14 @@
  */
 package toniarts.openkeeper.game.controller.room;
 
-import java.util.Map;
 import toniarts.openkeeper.common.RoomInstance;
 import toniarts.openkeeper.game.controller.IGameTimer;
 import toniarts.openkeeper.game.controller.IObjectsController;
 import toniarts.openkeeper.game.controller.room.storage.RoomGoldControl;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
 import toniarts.openkeeper.tools.convert.map.Variable;
+
+import java.util.Map;
 
 /**
  * The Treasury

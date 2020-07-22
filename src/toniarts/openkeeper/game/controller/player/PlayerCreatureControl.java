@@ -17,16 +17,11 @@
 package toniarts.openkeeper.game.controller.player;
 
 import com.simsilica.es.EntityId;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import toniarts.openkeeper.game.data.Keeper;
 import toniarts.openkeeper.tools.convert.map.Creature;
 import toniarts.openkeeper.world.listener.CreatureListener;
+
+import java.util.*;
 
 /**
  * Holds a list of player creatures and functionality related to them

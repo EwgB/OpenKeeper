@@ -16,21 +16,18 @@
  */
 package toniarts.openkeeper.video;
 
+import toniarts.openkeeper.video.tgq.EAAudioFrame;
+import toniarts.openkeeper.video.tgq.EAAudioHeader;
+import toniarts.openkeeper.video.tgq.TgqFile;
+import toniarts.openkeeper.video.tgq.TgqFrame;
+
+import javax.sound.sampled.*;
 import java.io.File;
 import java.nio.ByteBuffer;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.sound.sampled.AudioFormat;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.DataLine;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.SourceDataLine;
-import toniarts.openkeeper.video.tgq.EAAudioFrame;
-import toniarts.openkeeper.video.tgq.EAAudioHeader;
-import toniarts.openkeeper.video.tgq.TgqFile;
-import toniarts.openkeeper.video.tgq.TgqFrame;
 
 /**
  * "Mediaplayer" for TGQ files<br>

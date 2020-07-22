@@ -18,7 +18,7 @@
  */
 package toniarts.openkeeper.audio.plugins.decoder;
 
-import java.io.*;
+import java.io.InputStream;
 
 /**
  * The

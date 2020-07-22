@@ -20,9 +20,11 @@ import com.jme3.asset.AssetManager;
 import com.jme3.scene.BatchNode;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
-import java.awt.Point;
 import toniarts.openkeeper.utils.AssetUtils;
 import toniarts.openkeeper.view.map.construction.DoubleQuadConstructor;
+
+import java.awt.*;
+
 import static toniarts.openkeeper.world.MapLoader.TILE_WIDTH;
 
 /**

@@ -16,14 +16,12 @@
  */
 package toniarts.openkeeper.game.state.lobby;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import static java.util.stream.Collectors.toList;
 import toniarts.openkeeper.game.data.Keeper;
 import toniarts.openkeeper.tools.convert.map.Player;
+
+import java.util.*;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  * Some helper functions for game lobby management

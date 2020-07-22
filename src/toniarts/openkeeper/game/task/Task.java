@@ -18,9 +18,10 @@ package toniarts.openkeeper.game.task;
 
 import com.jme3.math.Vector2f;
 import com.simsilica.es.EntityId;
-import java.awt.Point;
-import java.util.Date;
 import toniarts.openkeeper.game.controller.creature.ICreatureController;
+
+import java.awt.*;
+import java.util.Date;
 
 /**
  * Represents a task to be carried out by entities in the game world

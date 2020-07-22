@@ -17,11 +17,7 @@
 package toniarts.openkeeper.gui.nifty.table;
 
 import de.lessvoid.nifty.Nifty;
-import de.lessvoid.nifty.builder.EffectBuilder;
-import de.lessvoid.nifty.builder.HoverEffectBuilder;
-import de.lessvoid.nifty.builder.ImageBuilder;
-import de.lessvoid.nifty.builder.PanelBuilder;
-import de.lessvoid.nifty.builder.TextBuilder;
+import de.lessvoid.nifty.builder.*;
 import de.lessvoid.nifty.controls.Parameters;
 import de.lessvoid.nifty.controls.label.builder.LabelBuilder;
 import de.lessvoid.nifty.controls.listbox.ListBoxControl;
@@ -30,6 +26,7 @@ import de.lessvoid.nifty.elements.Element;
 import de.lessvoid.nifty.input.mapping.MenuInputMapping;
 import de.lessvoid.nifty.screen.Screen;
 import de.lessvoid.nifty.tools.Color;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;

@@ -19,12 +19,13 @@ package toniarts.openkeeper.game.logic;
 import com.simsilica.es.Entity;
 import com.simsilica.es.EntityData;
 import com.simsilica.es.EntitySet;
-import java.util.Map;
 import toniarts.openkeeper.game.component.CreatureComponent;
 import toniarts.openkeeper.game.component.CreatureImprisoned;
 import toniarts.openkeeper.game.component.Health;
 import toniarts.openkeeper.game.component.Position;
 import toniarts.openkeeper.tools.convert.map.Variable;
+
+import java.util.Map;
 
 /**
  * Handles creatures left imprisoned and rotting. Essentially just decreases the

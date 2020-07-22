@@ -40,11 +40,14 @@ import com.jme3.network.service.AbstractHostedConnectionService;
 import com.jme3.network.service.HostedServiceManager;
 import com.jme3.network.service.rmi.RmiHostedService;
 import com.jme3.network.service.rmi.RmiRegistry;
-import java.util.*;
-import java.util.concurrent.*;
+import toniarts.openkeeper.game.network.NetworkConstants;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import toniarts.openkeeper.game.network.NetworkConstants;
+
 import static toniarts.openkeeper.game.network.lobby.LobbyHostedService.ATTRIBUTE_KEEPER_ID;
 
 /**

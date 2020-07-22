@@ -16,13 +16,14 @@
  */
 package toniarts.openkeeper.game.controller.creature;
 
-import java.util.Collection;
-import java.util.Set;
 import toniarts.openkeeper.game.controller.IMapController;
 import toniarts.openkeeper.game.logic.IEntityPositionLookup;
 import toniarts.openkeeper.game.map.MapTile;
 import toniarts.openkeeper.game.navigation.pathfinding.INavigable;
 import toniarts.openkeeper.tools.convert.map.Thing;
+
+import java.util.Collection;
+import java.util.Set;
 
 /**
  * Creature party controller interface

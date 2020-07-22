@@ -19,7 +19,6 @@ package toniarts.openkeeper.view.control;
 import com.jme3.asset.AssetManager;
 import com.simsilica.es.EntityData;
 import com.simsilica.es.EntityId;
-import java.util.Objects;
 import toniarts.openkeeper.game.component.ObjectViewState;
 import toniarts.openkeeper.gui.CursorFactory;
 import toniarts.openkeeper.tools.convert.map.ArtResource;
@@ -27,6 +26,8 @@ import toniarts.openkeeper.tools.convert.map.GameObject;
 import toniarts.openkeeper.utils.Utils;
 import toniarts.openkeeper.view.animation.AnimationLoader;
 import toniarts.openkeeper.view.text.TextParser;
+
+import java.util.Objects;
 
 /**
  * View control that is intended specifically for objects

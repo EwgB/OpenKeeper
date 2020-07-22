@@ -18,8 +18,10 @@
  */
 package toniarts.openkeeper.audio.plugins.decoder.tag;
 
-import java.util.*;
 import toniarts.openkeeper.audio.plugins.decoder.Information;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * The

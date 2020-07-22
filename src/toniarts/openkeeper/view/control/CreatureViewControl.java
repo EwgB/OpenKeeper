@@ -21,8 +21,6 @@ import com.jme3.scene.Spatial;
 import com.simsilica.es.EntityComponent;
 import com.simsilica.es.EntityData;
 import com.simsilica.es.EntityId;
-import java.util.Collection;
-import java.util.Objects;
 import toniarts.openkeeper.game.component.CreatureAi;
 import toniarts.openkeeper.game.controller.creature.CreatureState;
 import toniarts.openkeeper.gui.CursorFactory;
@@ -31,6 +29,9 @@ import toniarts.openkeeper.tools.convert.map.Creature;
 import toniarts.openkeeper.utils.Utils;
 import toniarts.openkeeper.view.animation.AnimationLoader;
 import toniarts.openkeeper.view.text.TextParser;
+
+import java.util.Collection;
+import java.util.Objects;
 
 /**
  * View control that is intended specifically for creatures

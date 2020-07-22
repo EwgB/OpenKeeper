@@ -18,8 +18,9 @@ package toniarts.openkeeper.game.component;
 
 import com.simsilica.es.EntityComponent;
 import com.simsilica.es.EntityId;
-import java.awt.Point;
 import toniarts.openkeeper.game.task.TaskType;
+
+import java.awt.*;
 
 /**
  * Simple task component. States that the entity is on a mission

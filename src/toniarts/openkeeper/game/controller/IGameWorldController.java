@@ -18,8 +18,9 @@ package toniarts.openkeeper.game.controller;
 
 import com.jme3.math.Vector2f;
 import com.simsilica.es.EntityId;
-import java.awt.Point;
 import toniarts.openkeeper.game.listener.PlayerActionListener;
+
+import java.awt.*;
 
 /**
  * Controls the game world, map and the entities

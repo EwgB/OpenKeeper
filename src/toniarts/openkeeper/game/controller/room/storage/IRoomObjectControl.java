@@ -17,9 +17,10 @@
 package toniarts.openkeeper.game.controller.room.storage;
 
 import com.simsilica.es.EntityId;
-import java.awt.Point;
-import java.util.Collection;
 import toniarts.openkeeper.game.controller.room.AbstractRoomController;
+
+import java.awt.*;
+import java.util.Collection;
 
 /**
  * General room object control

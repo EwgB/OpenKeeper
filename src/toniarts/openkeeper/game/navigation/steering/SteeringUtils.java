@@ -19,10 +19,11 @@ package toniarts.openkeeper.game.navigation.steering;
 import com.badlogic.gdx.ai.pfa.GraphPath;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
-import java.util.ArrayList;
-import java.util.List;
 import toniarts.openkeeper.game.map.MapTile;
 import toniarts.openkeeper.utils.WorldUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Some common methods used by steering

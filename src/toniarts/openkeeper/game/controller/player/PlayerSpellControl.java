@@ -16,12 +16,13 @@
  */
 package toniarts.openkeeper.game.controller.player;
 
-import java.util.List;
 import toniarts.openkeeper.game.data.Keeper;
 import toniarts.openkeeper.game.data.PlayerSpell;
 import toniarts.openkeeper.game.data.ResearchableEntity;
 import toniarts.openkeeper.game.listener.PlayerSpellListener;
 import toniarts.openkeeper.tools.convert.map.KeeperSpell;
+
+import java.util.List;
 
 /**
  * Holds and manages player's spells. In the original game the research status

@@ -16,11 +16,12 @@
  */
 package toniarts.openkeeper.world.room.control;
 
-import java.awt.Point;
 import toniarts.openkeeper.world.ThingLoader;
 import toniarts.openkeeper.world.creature.CreatureControl;
 import toniarts.openkeeper.world.object.ObjectControl;
 import toniarts.openkeeper.world.room.GenericRoom;
+
+import java.awt.*;
 
 /**
  * Holds out the prisoners populating a room

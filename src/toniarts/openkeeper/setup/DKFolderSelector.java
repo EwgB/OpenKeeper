@@ -16,15 +16,13 @@
  */
 package toniarts.openkeeper.setup;
 
-import java.awt.event.WindowEvent;
-import java.util.Arrays;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
 import toniarts.openkeeper.Main;
 import toniarts.openkeeper.utils.PathUtils;
 
+import javax.swing.*;
+import java.awt.event.WindowEvent;
+
 /**
- *
  * @author Toni Helenius <helenius.toni@gmail.com>
  */
 public abstract class DKFolderSelector extends javax.swing.JFrame {
@@ -38,7 +36,7 @@ public abstract class DKFolderSelector extends javax.swing.JFrame {
         initComponents();
 
         statusIcon.setVisible(false);
-        setIconImages(Arrays.asList(Main.getApplicationIcons()));
+        setIconImages(Main.getApplicationIcons());
     }
 
     /**
@@ -161,7 +159,7 @@ public abstract class DKFolderSelector extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -174,13 +172,7 @@ public abstract class DKFolderSelector extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DKFolderSelector.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DKFolderSelector.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DKFolderSelector.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(DKFolderSelector.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -198,6 +190,7 @@ public abstract class DKFolderSelector extends javax.swing.JFrame {
             }
         });
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton continueButton;
     private javax.swing.JButton exitButton;

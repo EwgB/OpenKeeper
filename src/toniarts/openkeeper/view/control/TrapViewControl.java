@@ -20,8 +20,6 @@ import com.jme3.asset.AssetManager;
 import com.jme3.scene.Spatial;
 import com.simsilica.es.EntityData;
 import com.simsilica.es.EntityId;
-import java.util.Objects;
-import java.util.ResourceBundle;
 import toniarts.openkeeper.game.component.TrapViewState;
 import toniarts.openkeeper.gui.CursorFactory;
 import toniarts.openkeeper.tools.convert.map.ArtResource;
@@ -29,6 +27,9 @@ import toniarts.openkeeper.tools.convert.map.Trap;
 import toniarts.openkeeper.utils.AssetUtils;
 import toniarts.openkeeper.utils.Utils;
 import toniarts.openkeeper.view.text.TextParser;
+
+import java.util.Objects;
+import java.util.ResourceBundle;
 
 /**
  * View control that is intended specifically for traps

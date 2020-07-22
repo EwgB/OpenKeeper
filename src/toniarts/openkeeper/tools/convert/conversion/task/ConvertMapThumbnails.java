@@ -16,6 +16,15 @@
  */
 package toniarts.openkeeper.tools.convert.conversion.task;
 
+import toniarts.openkeeper.tools.convert.AssetsConverter;
+import toniarts.openkeeper.tools.convert.ConversionUtils;
+import toniarts.openkeeper.tools.convert.map.GameLevel;
+import toniarts.openkeeper.tools.convert.map.KwdFile;
+import toniarts.openkeeper.utils.AssetUtils;
+import toniarts.openkeeper.utils.MapThumbnailGenerator;
+import toniarts.openkeeper.utils.PathUtils;
+
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FilenameFilter;
@@ -24,14 +33,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import toniarts.openkeeper.tools.convert.AssetsConverter;
-import toniarts.openkeeper.tools.convert.ConversionUtils;
-import toniarts.openkeeper.tools.convert.map.GameLevel;
-import toniarts.openkeeper.tools.convert.map.KwdFile;
-import toniarts.openkeeper.utils.AssetUtils;
-import toniarts.openkeeper.utils.MapThumbnailGenerator;
-import toniarts.openkeeper.utils.PathUtils;
 
 /**
  * Dungeon Keeper II map thumbnail generation. The original has a few thumbnails

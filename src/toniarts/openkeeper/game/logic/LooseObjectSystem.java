@@ -21,15 +21,7 @@ import com.simsilica.es.Entity;
 import com.simsilica.es.EntityData;
 import com.simsilica.es.EntityId;
 import com.simsilica.es.EntitySet;
-import java.awt.Point;
-import java.util.Collections;
-import java.util.Map;
-import java.util.Set;
-import toniarts.openkeeper.game.component.Gold;
-import toniarts.openkeeper.game.component.ObjectComponent;
-import toniarts.openkeeper.game.component.Placeable;
-import toniarts.openkeeper.game.component.Position;
-import toniarts.openkeeper.game.component.RoomStorage;
+import toniarts.openkeeper.game.component.*;
 import toniarts.openkeeper.game.controller.GameWorldController;
 import toniarts.openkeeper.game.controller.IMapController;
 import toniarts.openkeeper.game.controller.IPlayerController;
@@ -37,6 +29,11 @@ import toniarts.openkeeper.game.controller.room.AbstractRoomController;
 import toniarts.openkeeper.game.controller.room.IRoomController;
 import toniarts.openkeeper.game.map.MapTile;
 import toniarts.openkeeper.tools.convert.map.Player;
+
+import java.awt.*;
+import java.util.Collections;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * A simple state to scan the loose objects inside rooms. The loose objects are

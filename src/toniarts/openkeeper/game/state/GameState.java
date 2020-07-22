@@ -19,26 +19,8 @@ package toniarts.openkeeper.game.state;
 import com.badlogic.gdx.ai.GdxAI;
 import com.jme3.app.Application;
 import com.jme3.app.state.AppStateManager;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.TreeMap;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.annotation.Nullable;
 import toniarts.openkeeper.Main;
-import toniarts.openkeeper.game.data.GameResult;
-import toniarts.openkeeper.game.data.GameTimer;
-import toniarts.openkeeper.game.data.GeneralLevel;
-import toniarts.openkeeper.game.data.ISoundable;
-import toniarts.openkeeper.game.data.Keeper;
-import toniarts.openkeeper.game.data.Settings;
+import toniarts.openkeeper.game.data.*;
 import toniarts.openkeeper.game.logic.GameLogicManager;
 import toniarts.openkeeper.game.logic.IGameLogicUpdatable;
 import toniarts.openkeeper.game.logic.MovementThread;
@@ -60,6 +42,16 @@ import toniarts.openkeeper.utils.PathUtils;
 import toniarts.openkeeper.utils.PauseableScheduledThreadPoolExecutor;
 import toniarts.openkeeper.view.PlayerCameraState;
 import toniarts.openkeeper.world.WorldState;
+
+import javax.annotation.Nullable;
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
+import java.util.Map.Entry;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * The GAME state!

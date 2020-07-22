@@ -16,11 +16,12 @@
  */
 package toniarts.openkeeper.tools.convert.sound.sfx;
 
+import toniarts.openkeeper.tools.convert.IResourceReader;
+import toniarts.openkeeper.tools.convert.ResourceReader;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
-import toniarts.openkeeper.tools.convert.IResourceReader;
-import toniarts.openkeeper.tools.convert.ResourceReader;
 
 /**
  *

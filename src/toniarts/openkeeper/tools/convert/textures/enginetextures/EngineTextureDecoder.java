@@ -16,9 +16,10 @@
  */
 package toniarts.openkeeper.tools.convert.textures.enginetextures;
 
+import toniarts.openkeeper.tools.convert.textures.Dk2TextureDecoder;
+
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
-import toniarts.openkeeper.tools.convert.textures.Dk2TextureDecoder;
 
 /**
  * Decoder for the engine textures<br>

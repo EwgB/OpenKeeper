@@ -16,13 +16,14 @@
  */
 package toniarts.openkeeper.game.controller.player;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 import toniarts.openkeeper.game.data.IIndexable;
 import toniarts.openkeeper.game.data.Keeper;
 import toniarts.openkeeper.game.data.ResearchableEntity;
 import toniarts.openkeeper.game.listener.PlayerResearchableEntityListener;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * Abstract base for player controls that have availabilities

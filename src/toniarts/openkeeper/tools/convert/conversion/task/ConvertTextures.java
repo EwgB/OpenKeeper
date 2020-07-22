@@ -16,6 +16,15 @@
  */
 package toniarts.openkeeper.tools.convert.conversion.task;
 
+import toniarts.openkeeper.tools.convert.AssetsConverter;
+import toniarts.openkeeper.tools.convert.ConversionUtils;
+import toniarts.openkeeper.tools.convert.textures.enginetextures.EngineTexturesFile;
+import toniarts.openkeeper.tools.convert.textures.loadingscreens.LoadingScreenFile;
+import toniarts.openkeeper.tools.convert.wad.WadFile;
+import toniarts.openkeeper.utils.AssetUtils;
+import toniarts.openkeeper.utils.PathUtils;
+
+import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
@@ -27,14 +36,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.imageio.ImageIO;
-import toniarts.openkeeper.tools.convert.AssetsConverter;
-import toniarts.openkeeper.tools.convert.ConversionUtils;
-import toniarts.openkeeper.tools.convert.textures.enginetextures.EngineTexturesFile;
-import toniarts.openkeeper.tools.convert.textures.loadingscreens.LoadingScreenFile;
-import toniarts.openkeeper.tools.convert.wad.WadFile;
-import toniarts.openkeeper.utils.AssetUtils;
-import toniarts.openkeeper.utils.PathUtils;
 
 /**
  * Dungeon Keeper II textures conversion. Converts textures to PNG.

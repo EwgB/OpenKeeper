@@ -20,15 +20,16 @@ import com.jme3.app.Application;
 import com.jme3.asset.AssetManager;
 import com.jme3.scene.BatchNode;
 import com.jme3.scene.Spatial;
-import java.awt.Point;
-import java.util.ArrayList;
-import java.util.List;
 import toniarts.openkeeper.utils.AssetUtils;
 import toniarts.openkeeper.world.ThingLoader;
 import toniarts.openkeeper.world.WorldState;
 import toniarts.openkeeper.world.creature.CreatureControl;
 import toniarts.openkeeper.world.effect.EffectManagerState;
 import toniarts.openkeeper.world.object.ObjectLoader;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Portal is the only one I think

@@ -16,20 +16,17 @@
  */
 package toniarts.openkeeper.game.map;
 
-import com.jme3.export.InputCapsule;
-import com.jme3.export.JmeExporter;
-import com.jme3.export.JmeImporter;
-import com.jme3.export.OutputCapsule;
-import com.jme3.export.Savable;
+import com.jme3.export.*;
 import com.jme3.math.FastMath;
-import java.awt.Point;
+import toniarts.openkeeper.tools.convert.map.Terrain;
+import toniarts.openkeeper.tools.convert.map.Tile;
+import toniarts.openkeeper.tools.convert.map.Tile.BridgeTerrainType;
+
+import java.awt.*;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.IntStream;
-import toniarts.openkeeper.tools.convert.map.Terrain;
-import toniarts.openkeeper.tools.convert.map.Tile;
-import toniarts.openkeeper.tools.convert.map.Tile.BridgeTerrainType;
 
 /**
  * A presentation of a single map tile

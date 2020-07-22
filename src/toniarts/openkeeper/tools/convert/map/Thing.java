@@ -16,14 +16,15 @@
  */
 package toniarts.openkeeper.tools.convert.map;
 
-import java.util.EnumSet;
-import java.util.List;
-import javax.vecmath.Vector3f;
 import toniarts.openkeeper.game.data.IIndexable;
 import toniarts.openkeeper.game.data.ITriggerable;
 import toniarts.openkeeper.tools.convert.IFlagEnum;
 import toniarts.openkeeper.tools.convert.IValueEnum;
 import toniarts.openkeeper.tools.convert.map.Thing.HeroParty.Objective;
+
+import javax.vecmath.Vector3f;
+import java.util.EnumSet;
+import java.util.List;
 
 /**
  * Container class for *Things.kld

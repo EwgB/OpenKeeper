@@ -17,22 +17,18 @@
 package toniarts.openkeeper.game.trigger.door;
 
 import com.simsilica.es.EntityData;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import toniarts.openkeeper.game.component.DoorComponent;
 import toniarts.openkeeper.game.component.Trigger;
-import toniarts.openkeeper.game.controller.ICreaturesController;
-import toniarts.openkeeper.game.controller.IDoorsController;
-import toniarts.openkeeper.game.controller.IGameController;
-import toniarts.openkeeper.game.controller.IGameTimer;
-import toniarts.openkeeper.game.controller.ILevelInfo;
-import toniarts.openkeeper.game.controller.IMapController;
+import toniarts.openkeeper.game.controller.*;
 import toniarts.openkeeper.game.controller.door.IDoorController;
 import toniarts.openkeeper.game.state.session.PlayerService;
 import toniarts.openkeeper.game.trigger.AbstractThingTriggerControl;
 import toniarts.openkeeper.game.trigger.AbstractThingTriggerLogicController;
 import toniarts.openkeeper.tools.convert.map.Thing;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * A state for handling door triggers

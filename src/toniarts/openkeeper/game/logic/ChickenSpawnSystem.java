@@ -20,19 +20,7 @@ import com.jme3.util.SafeArrayList;
 import com.simsilica.es.Entity;
 import com.simsilica.es.EntityId;
 import com.simsilica.es.EntitySet;
-import java.awt.Point;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Optional;
-import java.util.Set;
-import toniarts.openkeeper.game.component.ChickenGenerator;
-import toniarts.openkeeper.game.component.Decay;
-import toniarts.openkeeper.game.component.Food;
-import toniarts.openkeeper.game.component.Owner;
-import toniarts.openkeeper.game.component.Position;
+import toniarts.openkeeper.game.component.*;
 import toniarts.openkeeper.game.controller.ILevelInfo;
 import toniarts.openkeeper.game.controller.IMapController;
 import toniarts.openkeeper.game.controller.IObjectsController;
@@ -44,6 +32,10 @@ import toniarts.openkeeper.tools.convert.map.Room;
 import toniarts.openkeeper.tools.convert.map.Variable;
 import toniarts.openkeeper.utils.Utils;
 import toniarts.openkeeper.utils.WorldUtils;
+
+import java.awt.*;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * Handles spawing chickens in hatcheries and coops

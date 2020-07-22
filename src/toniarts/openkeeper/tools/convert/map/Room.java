@@ -16,13 +16,14 @@
  */
 package toniarts.openkeeper.tools.convert.map;
 
-import java.awt.Color;
-import java.util.EnumSet;
-import java.util.List;
 import toniarts.openkeeper.game.data.IIndexable;
 import toniarts.openkeeper.game.data.ISoundable;
 import toniarts.openkeeper.tools.convert.IFlagEnum;
 import toniarts.openkeeper.tools.convert.IValueEnum;
+
+import java.awt.*;
+import java.util.EnumSet;
+import java.util.List;
 
 /**
  * Container class for the Rooms

@@ -18,23 +18,18 @@ package toniarts.openkeeper.game.data;
 
 import com.jme3.input.KeyInput;
 import com.jme3.system.AppSettings;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import toniarts.openkeeper.Main;
+
+import java.awt.image.BufferedImage;
+import java.io.*;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
-import toniarts.openkeeper.Main;
+
 import static toniarts.openkeeper.Main.TITLE;
 import static toniarts.openkeeper.Main.getApplicationIcons;
-import static toniarts.openkeeper.game.data.Level.LevelType.Level;
-import static toniarts.openkeeper.game.data.Level.LevelType.MPD;
-import static toniarts.openkeeper.game.data.Level.LevelType.Secret;
 
 /**
  * Holds all kinds of game settings. These are per user, stored in user folder.
@@ -237,20 +232,22 @@ public class Settings {
             }
             return settings;
         }
+
         private final Class clazz;
         private final Object defValue;
         private final SettingCategory category;
         private final Integer resourceKey;
         private final Integer specialKey;  // Control, Alt, Shift
     }
+
     private final static Settings INSTANCE;
     private final AppSettings settings;
     private final static int MAX_FPS = 200;
     private final static String USER_HOME_FOLDER = System.getProperty("user.home").concat(File.separator).concat(".").concat(Main.TITLE).concat(File.separator);
     private final static String USER_SETTINGS_FILE = USER_HOME_FOLDER.concat("openkeeper.properties");
     public final static List<String> OPENGL = Settings.getRenderers();
-    public final static List<Integer> SAMPLES = new ArrayList<>(Arrays.asList(new Integer[]{0, 2, 4, 6, 8, 16}));
-    public final static List<Integer> ANISOTROPHIES = new ArrayList<>(Arrays.asList(new Integer[]{0, 2, 4, 8, 16}));
+    public final static List<Integer> SAMPLES = new ArrayList<>(Arrays.asList(0, 2, 4, 6, 8, 16));
+    public final static List<Integer> ANISOTROPHIES = new ArrayList<>(Arrays.asList(0, 2, 4, 8, 16));
     private static final Logger LOGGER = Logger.getLogger(Settings.class.getName());
 
     static {
@@ -278,7 +275,7 @@ public class Settings {
 
         // Assing some app level settings
         settings.setTitle(TITLE);
-        settings.setIcons(getApplicationIcons());
+        settings.setIcons(getApplicationIcons().toArray(BufferedImage[]::new));
     }
 
     /**
@@ -300,8 +297,9 @@ public class Settings {
     }
 
     /**
-     * @see com.​jme3.​system.AppSettings.LWJGL_OPENGL* constants
-     * @return list of avaliable renderers
+     * See com.​jme3.​system.AppSettings.LWJGL_OPENGL* constants
+     *
+     * @return list of available renderers
      */
     public static List<String> getRenderers() {
         List<String> renderers = new ArrayList<>();
@@ -382,7 +380,7 @@ public class Settings {
      * Save a setting value
      *
      * @param setting setting to save
-     * @param value the value to be saved
+     * @param value   the value to be saved
      */
     public void setSetting(ISetting setting, Object value) {
         setSetting(setting.getKey(), value);
@@ -434,7 +432,7 @@ public class Settings {
      * @param level the secret level
      * @return the secret level status
      */
-    public SecretLevelStatus getSecredLevelStatus(Level level) {
+    public SecretLevelStatus getSecretLevelStatus(Level level) {
         switch (level.getType()) {
             case Secret:
                 return SecretLevelStatus.valueOf((String) getSetting(Setting.SECRET_LEVEL_STATUS.toString() + level, Setting.SECRET_LEVEL_STATUS.getDefaultValue()));
@@ -454,7 +452,7 @@ public class Settings {
     /**
      * Get level status (MPD or normal)
      *
-     * @param level the level
+     * @param level  the level
      * @param status the level status
      */
     public void setLevelStatus(Level level, LevelStatus status) {
@@ -471,10 +469,10 @@ public class Settings {
     /**
      * Get secret level status
      *
-     * @param level the secret level
+     * @param level  the secret level
      * @param status the secret level status
      */
-    public void setSecredLevelStatus(Level level, SecretLevelStatus status) {
+    public void setSecretLevelStatus(Level level, SecretLevelStatus status) {
         switch (level.getType()) {
             case Secret:
                 setSetting(Setting.SECRET_LEVEL_STATUS.toString() + level, status);

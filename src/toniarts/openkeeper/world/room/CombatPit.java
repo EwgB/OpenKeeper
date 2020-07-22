@@ -20,12 +20,14 @@ import com.jme3.asset.AssetManager;
 import com.jme3.scene.BatchNode;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
-import java.awt.Point;
 import toniarts.openkeeper.utils.AssetUtils;
-import static toniarts.openkeeper.world.MapLoader.TILE_WIDTH;
 import toniarts.openkeeper.world.WorldState;
 import toniarts.openkeeper.world.effect.EffectManagerState;
 import toniarts.openkeeper.world.object.ObjectLoader;
+
+import java.awt.*;
+
+import static toniarts.openkeeper.world.MapLoader.TILE_WIDTH;
 
 /**
  * TODO: not completed

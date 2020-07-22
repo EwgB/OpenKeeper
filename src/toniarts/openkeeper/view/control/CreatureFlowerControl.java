@@ -20,18 +20,13 @@ import com.jme3.asset.AssetManager;
 import com.simsilica.es.EntityComponent;
 import com.simsilica.es.EntityData;
 import com.simsilica.es.EntityId;
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.util.Collection;
-import toniarts.openkeeper.game.component.CreatureAi;
-import toniarts.openkeeper.game.component.CreatureComponent;
-import toniarts.openkeeper.game.component.CreatureExperience;
-import toniarts.openkeeper.game.component.PlayerObjective;
-import toniarts.openkeeper.game.component.PortalGem;
-import toniarts.openkeeper.game.component.TaskComponent;
+import toniarts.openkeeper.game.component.*;
 import toniarts.openkeeper.game.task.TaskType;
 import toniarts.openkeeper.tools.convert.map.Creature;
 import toniarts.openkeeper.tools.convert.map.Player;
+
+import java.awt.*;
+import java.util.Collection;
 
 /**
  * Unit flower control for creatures

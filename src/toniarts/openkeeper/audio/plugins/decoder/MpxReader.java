@@ -18,10 +18,12 @@
  */
 package toniarts.openkeeper.audio.plugins.decoder;
 
-import java.io.*;
 import toniarts.openkeeper.audio.plugins.decoder.tag.Tag;
 import toniarts.openkeeper.audio.plugins.decoder.tag.id3v1.ID3v1;
 import toniarts.openkeeper.audio.plugins.decoder.tag.id3v2.ID3v2;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * The

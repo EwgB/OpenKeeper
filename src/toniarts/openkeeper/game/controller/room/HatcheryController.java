@@ -18,7 +18,6 @@ package toniarts.openkeeper.game.controller.room;
 
 import com.simsilica.es.EntityData;
 import com.simsilica.es.EntityId;
-import java.awt.Point;
 import toniarts.openkeeper.common.RoomInstance;
 import toniarts.openkeeper.game.component.ChickenGenerator;
 import toniarts.openkeeper.game.controller.IGameTimer;
@@ -26,6 +25,8 @@ import toniarts.openkeeper.game.controller.IObjectsController;
 import toniarts.openkeeper.game.controller.room.storage.RoomFoodControl;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
 import toniarts.openkeeper.utils.Utils;
+
+import java.awt.*;
 
 /**
  * The hatchery

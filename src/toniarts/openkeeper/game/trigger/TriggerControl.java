@@ -16,28 +16,20 @@
  */
 package toniarts.openkeeper.game.trigger;
 
-import java.awt.Point;
-import java.util.EnumSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import toniarts.openkeeper.game.control.Control;
-import toniarts.openkeeper.game.controller.ICreaturesController;
-import toniarts.openkeeper.game.controller.IGameController;
-import toniarts.openkeeper.game.controller.IGameTimer;
-import toniarts.openkeeper.game.controller.ILevelInfo;
-import toniarts.openkeeper.game.controller.IMapController;
-import toniarts.openkeeper.game.controller.IPlayerController;
+import toniarts.openkeeper.game.controller.*;
 import toniarts.openkeeper.game.controller.creature.PartyType;
 import toniarts.openkeeper.game.data.ActionPoint;
 import toniarts.openkeeper.game.data.Keeper;
 import toniarts.openkeeper.tools.convert.ConversionUtils;
-import toniarts.openkeeper.tools.convert.map.Creature;
-import toniarts.openkeeper.tools.convert.map.KwdFile;
-import toniarts.openkeeper.tools.convert.map.Player;
-import toniarts.openkeeper.tools.convert.map.TriggerAction;
+import toniarts.openkeeper.tools.convert.map.*;
 import toniarts.openkeeper.tools.convert.map.TriggerAction.FlagTargetValueActionType;
-import toniarts.openkeeper.tools.convert.map.TriggerGeneric;
 import toniarts.openkeeper.utils.WorldUtils;
+
+import java.awt.*;
+import java.util.EnumSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *

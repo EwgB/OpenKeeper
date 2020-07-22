@@ -16,9 +16,10 @@
  */
 package toniarts.openkeeper.tools.convert.map;
 
-import java.util.Objects;
 import toniarts.openkeeper.tools.convert.ConversionUtils;
 import toniarts.openkeeper.tools.convert.IValueEnum;
+
+import java.util.Objects;
 
 /**
  * Container class for *Variables.kld

@@ -20,27 +20,18 @@ import com.jme3.math.FastMath;
 import com.jme3.math.Vector3f;
 import com.simsilica.es.EntityData;
 import com.simsilica.es.EntityId;
-import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import toniarts.openkeeper.game.component.DoorComponent;
-import toniarts.openkeeper.game.component.DoorViewState;
-import toniarts.openkeeper.game.component.Health;
-import toniarts.openkeeper.game.component.Interaction;
-import toniarts.openkeeper.game.component.Owner;
-import toniarts.openkeeper.game.component.Position;
-import toniarts.openkeeper.game.component.TrapComponent;
 import toniarts.openkeeper.game.component.Trigger;
+import toniarts.openkeeper.game.component.*;
 import toniarts.openkeeper.game.controller.door.DoorController;
 import toniarts.openkeeper.game.controller.door.IDoorController;
 import toniarts.openkeeper.game.map.MapTile;
-import toniarts.openkeeper.tools.convert.map.Door;
-import toniarts.openkeeper.tools.convert.map.KwdFile;
-import toniarts.openkeeper.tools.convert.map.Terrain;
-import toniarts.openkeeper.tools.convert.map.Thing;
-import toniarts.openkeeper.tools.convert.map.Variable;
+import toniarts.openkeeper.tools.convert.map.*;
 import toniarts.openkeeper.utils.WorldUtils;
 import toniarts.openkeeper.world.MapLoader;
+
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * This is a controller that controls all the doors in the world TODO:

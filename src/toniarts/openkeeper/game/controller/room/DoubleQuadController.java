@@ -16,13 +16,13 @@
  */
 package toniarts.openkeeper.game.controller.room;
 
-import java.awt.Point;
-import java.util.HashSet;
-import java.util.Set;
 import toniarts.openkeeper.common.RoomInstance;
 import toniarts.openkeeper.game.controller.IObjectsController;
-import static toniarts.openkeeper.game.controller.room.AbstractRoomController.hasSameTile;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
+
+import java.awt.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *

@@ -17,10 +17,11 @@
 package toniarts.openkeeper.world.room;
 
 import com.jme3.app.Application;
-import java.awt.Point;
-import java.util.List;
 import toniarts.openkeeper.world.ThingLoader;
 import toniarts.openkeeper.world.creature.CreatureControl;
+
+import java.awt.*;
+import java.util.List;
 
 /**
  * Signifies that a room is an entrance for creatures

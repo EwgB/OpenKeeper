@@ -19,12 +19,13 @@ package toniarts.openkeeper.view.map;
 import com.jme3.app.Application;
 import com.jme3.app.state.AbstractAppState;
 import com.jme3.app.state.AppStateManager;
-import java.awt.Point;
+import toniarts.openkeeper.Main;
+
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import toniarts.openkeeper.Main;
 
 /**
  * Simple app state that keeps tile flashing

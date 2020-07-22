@@ -16,10 +16,11 @@
  */
 package toniarts.openkeeper.game.logic;
 
+import toniarts.openkeeper.utils.IGameLoopManager;
+
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import toniarts.openkeeper.utils.IGameLoopManager;
 
 /**
  * Runs the game logic tasks, well, doesn't literally run them but wraps them up

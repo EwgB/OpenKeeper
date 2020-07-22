@@ -31,10 +31,11 @@ import com.jme3.scene.Spatial;
 import com.jme3.scene.shape.Box;
 import com.jme3.scene.shape.Line;
 import com.jme3.util.TangentBinormalGenerator;
-import java.awt.Point;
 import toniarts.openkeeper.tools.convert.map.Terrain;
 import toniarts.openkeeper.world.TileData;
 import toniarts.openkeeper.world.WorldState;
+
+import java.awt.*;
 
 /**
  * Collision detector for movement<br>

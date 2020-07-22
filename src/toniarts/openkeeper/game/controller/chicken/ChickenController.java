@@ -21,15 +21,7 @@ import com.badlogic.gdx.ai.fsm.StateMachine;
 import com.badlogic.gdx.ai.pfa.GraphPath;
 import com.simsilica.es.EntityData;
 import com.simsilica.es.EntityId;
-import java.awt.Point;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import toniarts.openkeeper.game.component.ChickenAi;
-import toniarts.openkeeper.game.component.Mobile;
-import toniarts.openkeeper.game.component.Navigation;
-import toniarts.openkeeper.game.component.Owner;
-import toniarts.openkeeper.game.component.Position;
-import toniarts.openkeeper.game.component.RoomStorage;
+import toniarts.openkeeper.game.component.*;
 import toniarts.openkeeper.game.controller.IGameTimer;
 import toniarts.openkeeper.game.controller.IMapController;
 import toniarts.openkeeper.game.controller.IObjectsController;
@@ -40,6 +32,10 @@ import toniarts.openkeeper.game.navigation.steering.SteeringUtils;
 import toniarts.openkeeper.tools.convert.map.ArtResource;
 import toniarts.openkeeper.tools.convert.map.GameObject;
 import toniarts.openkeeper.utils.WorldUtils;
+
+import java.awt.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Controls an entity with {@link ChickenAi} component. Basically supports the

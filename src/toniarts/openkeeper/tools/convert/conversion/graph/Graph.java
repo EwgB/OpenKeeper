@@ -16,12 +16,7 @@
  */
 package toniarts.openkeeper.tools.convert.conversion.graph;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Serves as a kinda root for the graph and offers methods for construction of a

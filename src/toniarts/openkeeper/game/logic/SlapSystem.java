@@ -20,23 +20,17 @@ import com.simsilica.es.Entity;
 import com.simsilica.es.EntityData;
 import com.simsilica.es.EntityId;
 import com.simsilica.es.EntitySet;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import toniarts.openkeeper.game.component.CreatureComponent;
-import toniarts.openkeeper.game.component.CreatureEfficiency;
-import toniarts.openkeeper.game.component.CreatureMood;
-import toniarts.openkeeper.game.component.Health;
-import toniarts.openkeeper.game.component.Interaction;
-import toniarts.openkeeper.game.component.ObjectComponent;
-import toniarts.openkeeper.game.component.Owner;
-import toniarts.openkeeper.game.component.Slapped;
+import toniarts.openkeeper.game.component.*;
 import toniarts.openkeeper.game.controller.IPlayerController;
 import toniarts.openkeeper.game.controller.player.PlayerStatsControl;
 import toniarts.openkeeper.tools.convert.map.Creature;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
 import toniarts.openkeeper.tools.convert.map.Variable;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Manages slapping of entities, the added effects etc

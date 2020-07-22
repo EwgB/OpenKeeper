@@ -16,15 +16,16 @@
  */
 package toniarts.openkeeper.world.room.control;
 
-import java.awt.Point;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map.Entry;
 import toniarts.openkeeper.world.ThingLoader;
 import toniarts.openkeeper.world.creature.CreatureControl;
 import toniarts.openkeeper.world.object.GoldObjectControl;
 import toniarts.openkeeper.world.room.GenericRoom;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map.Entry;
 
 /**
  * Not really a JME control currently. Manages how the gold places in the room.

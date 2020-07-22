@@ -18,8 +18,9 @@ package toniarts.openkeeper.game.state.loading;
 
 import com.jme3.asset.TextureKey;
 import com.jme3.texture.Texture;
-import java.util.Locale;
 import toniarts.openkeeper.Main;
+
+import java.util.Locale;
 
 /**
  * Loading screen state without any progression

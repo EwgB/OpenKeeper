@@ -16,8 +16,9 @@
  */
 package toniarts.openkeeper.tools.convert.bf4;
 
-import java.awt.image.BufferedImage;
 import toniarts.openkeeper.tools.convert.IValueEnum;
+
+import java.awt.image.BufferedImage;
 
 /**
  * BF4 entry a.k.a. FontEntry

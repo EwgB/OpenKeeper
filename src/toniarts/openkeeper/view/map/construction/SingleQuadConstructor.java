@@ -25,6 +25,7 @@ import toniarts.openkeeper.game.map.MapData;
 import toniarts.openkeeper.game.map.MapTile;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
 import toniarts.openkeeper.tools.convert.map.Terrain;
+
 import static toniarts.openkeeper.view.map.MapViewController.TILE_WIDTH;
 
 /**

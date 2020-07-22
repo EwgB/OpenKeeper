@@ -20,23 +20,11 @@ import com.simsilica.es.Entity;
 import com.simsilica.es.EntityData;
 import com.simsilica.es.EntityId;
 import com.simsilica.es.EntitySet;
-import java.awt.Point;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import toniarts.openkeeper.game.component.DoorComponent;
 import toniarts.openkeeper.game.component.Owner;
 import toniarts.openkeeper.game.component.Position;
 import toniarts.openkeeper.game.component.Senses;
-import toniarts.openkeeper.game.controller.ICreaturesController;
-import toniarts.openkeeper.game.controller.IDoorsController;
-import toniarts.openkeeper.game.controller.IEntityWrapper;
-import toniarts.openkeeper.game.controller.IMapController;
-import toniarts.openkeeper.game.controller.IObjectsController;
+import toniarts.openkeeper.game.controller.*;
 import toniarts.openkeeper.game.controller.creature.ICreatureController;
 import toniarts.openkeeper.game.controller.door.IDoorController;
 import toniarts.openkeeper.game.controller.entity.EntityController;
@@ -44,6 +32,10 @@ import toniarts.openkeeper.game.controller.entity.IEntityController;
 import toniarts.openkeeper.game.map.MapTile;
 import toniarts.openkeeper.tools.convert.map.Terrain;
 import toniarts.openkeeper.utils.WorldUtils;
+
+import java.awt.*;
+import java.util.List;
+import java.util.*;
 
 /**
  * Maintains a tile based position map of all the entities for a quick lookup

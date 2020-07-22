@@ -21,6 +21,7 @@
 package toniarts.openkeeper.utils;
 
 import com.jme3.math.FastMath;
+
 import java.time.LocalDateTime;
 
 public class FullMoon {
@@ -42,14 +43,10 @@ public class FullMoon {
     /**
      * Checks if the specific date is on full moon
      *
-     * @param year
-     * @param month
-     * @param day
-     * @param hour
      * @return true if it is full moon
      */
     public static boolean isFullMoon(final int year, final int month, final int day, final int hour) {
-        // percentiage to 100% phase
+        // percentage to 100% phase
         double diffToFull = (1 - getMoonPhase(year, month, day, hour)) * 100;
         return diffToFull < DEVIATION;
     }
@@ -57,9 +54,6 @@ public class FullMoon {
     /**
      * Returns the number of julian days for the specified day.
      *
-     * @param year
-     * @param month
-     * @param day
      * @return the number of julian days for the specified day.
      */
     private static double getJulianDays(int year, int month, final double day) {
@@ -81,7 +75,6 @@ public class FullMoon {
 
     private static double getSunPosition(double j) {
         double n, x, e, l, dl, v;
-        double m2;
         int i;
 
         n = 360 / 365.2422 * j;
@@ -106,9 +99,7 @@ public class FullMoon {
 
     private static double getMoonPosition(final double j, final double ls) {
 
-        double ms, l, mm, n, ev, sms, z, x, lm, bm, ae, ec;
-        double d;
-        double ds, as, dm;
+        double ms, l, mm, ev, sms, ae, ec;
         int i;
 
         ms = 0.985647332099 * j - 3.762863;
@@ -124,9 +115,6 @@ public class FullMoon {
         mm = l - 0.1114041 * j - 349.383063;
         i = (int) mm / 360;
         mm -= i * 360.0;
-        n = 151.950429 - 0.0529539 * j;
-        i = (int) n / 360;
-        n -= i * 360.0;
         ev = 1.2739 * Math.sin((2 * (l - ls) - mm) * FastMath.DEG_TO_RAD);
         sms = Math.sin(ms * FastMath.DEG_TO_RAD);
         ae = 0.1858 * sms;
@@ -140,10 +128,6 @@ public class FullMoon {
     /**
      * Calculates more accurately than Moon_phase , the phase of the moon at the given epoch.
      *
-     * @param year
-     * @param month
-     * @param day
-     * @param hour
      * @return the moon phase as a real number (0-1)
      */
     private static double getMoonPhase(final int year, final int month, final int day, final int hour) {
@@ -151,10 +135,6 @@ public class FullMoon {
         double ls = getSunPosition(j);
         double lm = getMoonPosition(j, ls);
 
-        double t = lm - ls;
-        if (t < 0) {
-            t += 360;
-        }
         return (1.0 - Math.cos((lm - ls) * FastMath.DEG_TO_RAD)) / 2;
     }
 }

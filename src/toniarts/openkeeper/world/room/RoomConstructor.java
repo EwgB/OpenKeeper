@@ -17,12 +17,12 @@
 package toniarts.openkeeper.world.room;
 
 import com.jme3.asset.AssetManager;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import static toniarts.openkeeper.tools.convert.map.Room.TileConstruction.*;
 import toniarts.openkeeper.world.WorldState;
 import toniarts.openkeeper.world.effect.EffectManagerState;
 import toniarts.openkeeper.world.object.ObjectLoader;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * A factory class you can use to build buildings

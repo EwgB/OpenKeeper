@@ -31,10 +31,6 @@ import com.jme3.math.Vector2f;
 import com.jme3.math.Vector3f;
 import com.jme3.renderer.Camera;
 import com.jme3.scene.Spatial;
-import java.awt.Point;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.logging.Logger;
 import toniarts.openkeeper.Main;
 import toniarts.openkeeper.cinematics.Cinematic;
 import toniarts.openkeeper.game.control.Container;
@@ -52,6 +48,11 @@ import toniarts.openkeeper.tools.convert.map.Thing;
 import toniarts.openkeeper.utils.WorldUtils;
 import toniarts.openkeeper.view.camera.PlayerCameraControl;
 import toniarts.openkeeper.view.camera.PlayerCameraRotateControl;
+
+import java.awt.*;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.logging.Logger;
 
 /**
  * The player camera state. Listens for camera movement inputs.

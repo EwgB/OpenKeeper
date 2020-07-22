@@ -19,12 +19,13 @@ package toniarts.openkeeper.game.trigger;
 import com.jme3.util.SafeArrayList;
 import com.simsilica.es.Entity;
 import com.simsilica.es.EntitySet;
-import java.util.Map;
-import java.util.Set;
 import toniarts.openkeeper.game.component.Trigger;
 import toniarts.openkeeper.game.controller.IEntityWrapper;
 import toniarts.openkeeper.game.controller.entity.IEntityController;
 import toniarts.openkeeper.game.logic.IGameLogicUpdatable;
+
+import java.util.Map;
+import java.util.Set;
 
 /**
  * A state for handling thing triggers

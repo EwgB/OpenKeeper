@@ -17,9 +17,10 @@
 package toniarts.openkeeper.game.trigger;
 
 import com.jme3.util.SafeArrayList;
+import toniarts.openkeeper.tools.convert.map.TriggerGeneric;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import toniarts.openkeeper.tools.convert.map.TriggerGeneric;
 
 /**
  *

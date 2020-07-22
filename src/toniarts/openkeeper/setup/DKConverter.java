@@ -17,19 +17,17 @@
 package toniarts.openkeeper.setup;
 
 import com.jme3.asset.AssetManager;
+import toniarts.openkeeper.Main;
+import toniarts.openkeeper.tools.convert.AssetsConverter;
+
+import javax.swing.*;
 import java.awt.event.WindowEvent;
 import java.lang.reflect.InvocationTargetException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
-import javax.swing.ToolTipManager;
-import toniarts.openkeeper.Main;
-import toniarts.openkeeper.tools.convert.AssetsConverter;
 
 /**
  * Small utility GUI for displaying the asset conversion progress to the user
@@ -50,9 +48,9 @@ public abstract class DKConverter extends javax.swing.JFrame implements IFrameCl
 
     /**
      * Creates new form DKConverter
-     * 
+     *
      * @param dungeonKeeperFolder the Dungeon Keeper II folder
-     * @param assetManager jME asset manager
+     * @param assetManager        jME asset manager
      */
     public DKConverter(String dungeonKeeperFolder, AssetManager assetManager) {
         ToolTipManager.sharedInstance().setInitialDelay(0);
@@ -60,7 +58,7 @@ public abstract class DKConverter extends javax.swing.JFrame implements IFrameCl
 
         this.dungeonKeeperFolder = dungeonKeeperFolder;
         this.assetManager = assetManager;
-        setIconImages(Arrays.asList(Main.getApplicationIcons()));
+        setIconImages(Main.getApplicationIcons());
 
         initConversion();
     }
@@ -112,27 +110,27 @@ public abstract class DKConverter extends javax.swing.JFrame implements IFrameCl
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(totalProgressBar, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(totalProgressLabel)
-                        .addGap(0, 161, Short.MAX_VALUE)))
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                        .addComponent(totalProgressBar, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(totalProgressLabel)
+                                                .addGap(0, 161, Short.MAX_VALUE)))
+                                .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(totalProgressLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(totalProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(totalProgressLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(totalProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -142,7 +140,7 @@ public abstract class DKConverter extends javax.swing.JFrame implements IFrameCl
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) throws InterruptedException, InvocationTargetException {
+    public static void main(String[] args) throws InterruptedException, InvocationTargetException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -155,30 +153,20 @@ public abstract class DKConverter extends javax.swing.JFrame implements IFrameCl
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DKConverter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DKConverter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DKConverter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | UnsupportedLookAndFeelException | IllegalAccessException | InstantiationException ex) {
             java.util.logging.Logger.getLogger(DKConverter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeAndWait(new Runnable() {
+        java.awt.EventQueue.invokeAndWait(() -> new DKConverter(null, null) {
             @Override
-            public void run() {
-                new DKConverter(null, null) {
-                    @Override
-                    protected void continueOk() {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-                }.setVisible(true);
+            protected void continueOk() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
-        });
+        }.setVisible(true));
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JProgressBar totalProgressBar;
@@ -220,9 +208,7 @@ public abstract class DKConverter extends javax.swing.JFrame implements IFrameCl
     private void updateStatus(Integer currentProgress, Integer totalProgress, AssetsConverter.ConvertProcess process) {
         conversionProgresses.get(process).current = currentProgress;
         conversionProgresses.get(process).max = totalProgress;
-        SwingUtilities.invokeLater(() -> {
-            totalProgressBar.setToolTipText(createProgressTooltip());
-        });
+        SwingUtilities.invokeLater(() -> totalProgressBar.setToolTipText(createProgressTooltip()));
     }
 
     private void onComplete(AssetsConverter.ConvertProcess process) {
@@ -247,11 +233,10 @@ public abstract class DKConverter extends javax.swing.JFrame implements IFrameCl
             }
             sb.append("Converting ");
             sb.append(entry.getKey().toString().toLowerCase());
-            if(entry.getValue().done) {
+            if (entry.getValue().done) {
                 sb.append(" <b>(done)</b>");
-            }
-            else {
-                if(entry.getValue().current == null) {
+            } else {
+                if (entry.getValue().current == null) {
                     sb.append(" <i>(waiting)</i>");
                 } else {
                     sb.append(" (");
@@ -268,14 +253,12 @@ public abstract class DKConverter extends javax.swing.JFrame implements IFrameCl
     }
 
     private String createTotalProgressStatusText() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Total progress (");
-        sb.append(currentProcessNumber);
-        sb.append(" / ");
-        sb.append(totalProcesses);
-        sb.append(") (hover mouse for detailed progress):");
 
-        return sb.toString();
+        return "Total progress (" +
+                currentProcessNumber +
+                " / " +
+                totalProcesses +
+                ") (hover mouse for detailed progress):";
     }
 
     /**

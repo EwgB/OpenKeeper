@@ -19,11 +19,12 @@ package toniarts.openkeeper.game.logic;
 import com.simsilica.es.Entity;
 import com.simsilica.es.EntityData;
 import com.simsilica.es.EntitySet;
-import java.util.Map;
 import toniarts.openkeeper.game.component.CreatureComponent;
 import toniarts.openkeeper.game.component.CreatureRecuperating;
 import toniarts.openkeeper.game.component.Health;
 import toniarts.openkeeper.tools.convert.map.Variable;
+
+import java.util.Map;
 
 /**
  * Handles creatures recuperating from wounds. Essentially just increases the

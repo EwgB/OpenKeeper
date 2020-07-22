@@ -16,9 +16,10 @@
  */
 package toniarts.openkeeper.tools.convert;
 
-import java.io.File;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
 import toniarts.openkeeper.utils.PathUtils;
+
+import java.io.File;
 
 /**
  * A simple class to load up a map file

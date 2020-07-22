@@ -19,25 +19,7 @@ package toniarts.openkeeper.game.controller;
 import com.jme3.math.Vector3f;
 import com.simsilica.es.EntityData;
 import com.simsilica.es.EntityId;
-import java.lang.ref.WeakReference;
-import java.util.Map;
-import java.util.WeakHashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import toniarts.openkeeper.game.component.ChickenAi;
-import toniarts.openkeeper.game.component.Decay;
-import toniarts.openkeeper.game.component.Food;
-import toniarts.openkeeper.game.component.Gold;
-import toniarts.openkeeper.game.component.Health;
-import toniarts.openkeeper.game.component.Interaction;
-import toniarts.openkeeper.game.component.Mobile;
-import toniarts.openkeeper.game.component.ObjectComponent;
-import toniarts.openkeeper.game.component.ObjectViewState;
-import toniarts.openkeeper.game.component.Owner;
-import toniarts.openkeeper.game.component.Placeable;
-import toniarts.openkeeper.game.component.Position;
-import toniarts.openkeeper.game.component.Spellbook;
-import toniarts.openkeeper.game.component.Trigger;
+import toniarts.openkeeper.game.component.*;
 import toniarts.openkeeper.game.controller.chicken.ChickenController;
 import toniarts.openkeeper.game.controller.chicken.ChickenState;
 import toniarts.openkeeper.game.controller.chicken.IChickenController;
@@ -45,7 +27,6 @@ import toniarts.openkeeper.game.controller.object.IObjectController;
 import toniarts.openkeeper.game.controller.object.ObjectController;
 import toniarts.openkeeper.game.controller.room.AbstractRoomController;
 import toniarts.openkeeper.game.controller.room.FiveByFiveRotatedController;
-import static toniarts.openkeeper.game.controller.room.FiveByFiveRotatedController.OBJECT_HEART_ID;
 import toniarts.openkeeper.game.controller.room.TempleController;
 import toniarts.openkeeper.game.data.ResearchableEntity;
 import toniarts.openkeeper.game.data.ResearchableType;
@@ -55,6 +36,14 @@ import toniarts.openkeeper.tools.convert.map.Thing;
 import toniarts.openkeeper.tools.convert.map.Variable;
 import toniarts.openkeeper.utils.WorldUtils;
 import toniarts.openkeeper.world.MapLoader;
+
+import java.lang.ref.WeakReference;
+import java.util.Map;
+import java.util.WeakHashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import static toniarts.openkeeper.game.controller.room.FiveByFiveRotatedController.OBJECT_HEART_ID;
 
 /**
  * This is a controller that controls all the game objects in the world TODO:

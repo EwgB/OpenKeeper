@@ -18,15 +18,19 @@
  */
 package toniarts.openkeeper.audio.plugins.decoder.tag.id3v2;
 
-import java.io.*;
-import java.util.*;
-import java.util.zip.*;
 import toniarts.openkeeper.audio.plugins.decoder.MediaQueue;
 import toniarts.openkeeper.audio.plugins.decoder.MpxReader;
 import toniarts.openkeeper.audio.plugins.decoder.tag.Tag;
 import toniarts.openkeeper.audio.plugins.decoder.tag.TagContent;
 import toniarts.openkeeper.audio.plugins.decoder.tag.TagException;
 import toniarts.openkeeper.audio.plugins.decoder.tag.id3v1.ID3v1;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.util.Map;
+import java.util.zip.CRC32;
 
 /**
  * The

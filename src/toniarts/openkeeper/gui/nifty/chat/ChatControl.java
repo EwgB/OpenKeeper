@@ -26,14 +26,11 @@ import de.lessvoid.nifty.input.NiftyInputEvent;
 import de.lessvoid.nifty.input.NiftyStandardInputEvent;
 import de.lessvoid.nifty.screen.KeyInputHandler;
 import de.lessvoid.nifty.screen.Screen;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Queue;
+import toniarts.openkeeper.gui.nifty.chat.event.ChatTextSendEvent;
+
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import toniarts.openkeeper.gui.nifty.chat.event.ChatTextSendEvent;
 
 /**
  * This is the main controller for the chat control.

@@ -17,10 +17,11 @@
 package toniarts.openkeeper.game.controller.room;
 
 import com.simsilica.es.EntityId;
-import java.awt.Point;
 import toniarts.openkeeper.common.RoomInstance;
 import toniarts.openkeeper.game.controller.IObjectsController;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
+
+import java.awt.*;
 
 /**
  * Portal is the only one I think

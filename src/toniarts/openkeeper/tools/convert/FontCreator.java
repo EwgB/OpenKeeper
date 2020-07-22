@@ -17,12 +17,13 @@
 package toniarts.openkeeper.tools.convert;
 
 import com.jme3.math.FastMath;
-import java.awt.Graphics2D;
+import toniarts.openkeeper.tools.convert.bf4.Bf4Entry;
+import toniarts.openkeeper.tools.convert.bf4.Bf4File;
+
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.HashSet;
 import java.util.Set;
-import toniarts.openkeeper.tools.convert.bf4.Bf4Entry;
-import toniarts.openkeeper.tools.convert.bf4.Bf4File;
 
 /**
  * Creates AngelFonts out of DK II fonts. Not 100% to the specs, but enough that

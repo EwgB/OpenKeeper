@@ -19,12 +19,13 @@ package toniarts.openkeeper.view.loader;
 import com.jme3.asset.AssetManager;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import toniarts.openkeeper.game.component.DoorViewState;
 import toniarts.openkeeper.tools.convert.map.Door;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
 import toniarts.openkeeper.utils.AssetUtils;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Loads up doors

@@ -17,11 +17,12 @@
 package toniarts.openkeeper.game.controller.room;
 
 import com.simsilica.es.EntityId;
-import java.awt.Point;
-import java.util.Set;
 import toniarts.openkeeper.common.RoomInstance;
 import toniarts.openkeeper.game.controller.room.storage.IRoomObjectControl;
 import toniarts.openkeeper.tools.convert.map.Room;
+
+import java.awt.*;
+import java.util.Set;
 
 /**
  * Controls rooms and provides services related to rooms

@@ -19,7 +19,8 @@ package toniarts.openkeeper.game.map;
 import com.jme3.export.JmeExporter;
 import com.jme3.export.JmeImporter;
 import com.jme3.export.Savable;
-import java.awt.Point;
+
+import java.awt.*;
 import java.io.IOException;
 import java.util.List;
 

@@ -16,11 +16,12 @@
  */
 package toniarts.openkeeper.tools.convert.textures.loadingscreens;
 
+import toniarts.openkeeper.tools.convert.ConversionUtils;
+
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import toniarts.openkeeper.tools.convert.ConversionUtils;
 
 /**
  * Loading and title screens carry the .444 file extension. They are packed with

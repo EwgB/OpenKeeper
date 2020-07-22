@@ -16,9 +16,6 @@
  */
 package toniarts.openkeeper.game.logic;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 import toniarts.openkeeper.game.controller.IMapController;
 import toniarts.openkeeper.game.controller.IPlayerController;
 import toniarts.openkeeper.game.controller.player.PlayerCreatureControl;
@@ -26,6 +23,10 @@ import toniarts.openkeeper.game.controller.player.PlayerManaControl;
 import toniarts.openkeeper.game.map.MapData;
 import toniarts.openkeeper.game.map.MapTile;
 import toniarts.openkeeper.tools.convert.map.Variable;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Calculates mana for all players. TODO: maybe listener based, that only reacts

@@ -16,11 +16,6 @@
  */
 package toniarts.openkeeper.game.sound;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import toniarts.openkeeper.tools.convert.ConversionUtils;
 import toniarts.openkeeper.tools.convert.sound.BankMapFile;
 import toniarts.openkeeper.tools.convert.sound.SdtFile;
@@ -28,6 +23,12 @@ import toniarts.openkeeper.tools.convert.sound.sfx.SfxEEEntry;
 import toniarts.openkeeper.tools.convert.sound.sfx.SfxGroupEntry;
 import toniarts.openkeeper.tools.convert.sound.sfx.SfxSoundEntry;
 import toniarts.openkeeper.utils.PathUtils;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *

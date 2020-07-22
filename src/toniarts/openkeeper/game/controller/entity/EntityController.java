@@ -19,17 +19,7 @@ package toniarts.openkeeper.game.controller.entity;
 import com.jme3.math.Vector3f;
 import com.simsilica.es.EntityData;
 import com.simsilica.es.EntityId;
-import java.awt.Point;
-import java.util.Objects;
-import java.util.logging.Logger;
-import toniarts.openkeeper.game.component.CreatureSleep;
-import toniarts.openkeeper.game.component.Gold;
-import toniarts.openkeeper.game.component.HauledBy;
-import toniarts.openkeeper.game.component.Health;
-import toniarts.openkeeper.game.component.InHand;
-import toniarts.openkeeper.game.component.Owner;
-import toniarts.openkeeper.game.component.Position;
-import toniarts.openkeeper.game.component.RoomStorage;
+import toniarts.openkeeper.game.component.*;
 import toniarts.openkeeper.game.controller.IMapController;
 import toniarts.openkeeper.game.controller.IObjectsController;
 import toniarts.openkeeper.game.controller.creature.ICreatureController;
@@ -37,6 +27,10 @@ import toniarts.openkeeper.game.controller.room.IRoomController;
 import toniarts.openkeeper.game.controller.room.storage.IRoomObjectControl;
 import toniarts.openkeeper.game.map.MapTile;
 import toniarts.openkeeper.utils.WorldUtils;
+
+import java.awt.*;
+import java.util.Objects;
+import java.util.logging.Logger;
 
 /**
  * A base class for all entity controllers

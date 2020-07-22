@@ -16,6 +16,11 @@
  */
 package toniarts.openkeeper.tools.convert;
 
+import toniarts.openkeeper.tools.convert.bf4.Bf4Entry;
+import toniarts.openkeeper.tools.convert.bf4.Bf4File;
+import toniarts.openkeeper.utils.PathUtils;
+
+import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.FileVisitResult;
@@ -25,11 +30,6 @@ import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
-import javax.imageio.ImageIO;
-
-import toniarts.openkeeper.tools.convert.bf4.Bf4Entry;
-import toniarts.openkeeper.tools.convert.bf4.Bf4File;
-import toniarts.openkeeper.utils.PathUtils;
 
 /**
  * Simple class to extract all the font bitmaps to given location

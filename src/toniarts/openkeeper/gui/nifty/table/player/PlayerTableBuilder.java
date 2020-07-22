@@ -16,7 +16,8 @@
  */
 package toniarts.openkeeper.gui.nifty.table.player;
 
-import toniarts.openkeeper.gui.nifty.table.*;
+import toniarts.openkeeper.gui.nifty.table.TableBuilder;
+import toniarts.openkeeper.gui.nifty.table.TableColumn;
 
 /**
  * Builder for table, but not for any table, table that has specialized to

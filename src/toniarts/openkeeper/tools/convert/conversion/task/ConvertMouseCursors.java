@@ -16,16 +16,18 @@
  */
 package toniarts.openkeeper.tools.convert.conversion.task;
 
-import java.io.File;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import toniarts.openkeeper.tools.convert.AssetsConverter;
-import static toniarts.openkeeper.tools.convert.AssetsConverter.SPRITES_FOLDER;
-import static toniarts.openkeeper.tools.convert.AssetsConverter.getAssetsFolder;
 import toniarts.openkeeper.tools.convert.spr.SprFile;
 import toniarts.openkeeper.tools.convert.wad.WadFile;
 import toniarts.openkeeper.utils.AssetUtils;
 import toniarts.openkeeper.utils.PathUtils;
+
+import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import static toniarts.openkeeper.tools.convert.AssetsConverter.SPRITES_FOLDER;
+import static toniarts.openkeeper.tools.convert.AssetsConverter.getAssetsFolder;
 
 /**
  * Dungeon Keeper II mouse cursors conversion. Extracts all mouse cursors to PNG

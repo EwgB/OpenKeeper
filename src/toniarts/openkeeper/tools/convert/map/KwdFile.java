@@ -16,49 +16,31 @@
  */
 package toniarts.openkeeper.tools.convert.map;
 
-import java.awt.Color;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import toniarts.openkeeper.tools.convert.ConversionUtils;
 import toniarts.openkeeper.tools.convert.IResourceReader;
 import toniarts.openkeeper.tools.convert.ResourceReader;
 import toniarts.openkeeper.tools.convert.map.ArtResource.ArtResourceType;
-import toniarts.openkeeper.tools.convert.map.Creature.AnimationType;
-import toniarts.openkeeper.tools.convert.map.Creature.Attraction;
-import toniarts.openkeeper.tools.convert.map.Creature.JobAlternative;
-import toniarts.openkeeper.tools.convert.map.Creature.OffsetType;
-import toniarts.openkeeper.tools.convert.map.Creature.Spell;
-import toniarts.openkeeper.tools.convert.map.Creature.X1323;
+import toniarts.openkeeper.tools.convert.map.Creature.*;
 import toniarts.openkeeper.tools.convert.map.Door.DoorFlag;
 import toniarts.openkeeper.tools.convert.map.GameLevel.LevFlag;
 import toniarts.openkeeper.tools.convert.map.GameLevel.LevelReward;
 import toniarts.openkeeper.tools.convert.map.GameLevel.TextTable;
-import static toniarts.openkeeper.tools.convert.map.MapDataTypeEnum.MAP;
-import toniarts.openkeeper.tools.convert.map.Thing.ActionPoint;
+import toniarts.openkeeper.tools.convert.map.Thing.*;
 import toniarts.openkeeper.tools.convert.map.Thing.ActionPoint.ActionPointFlag;
-import toniarts.openkeeper.tools.convert.map.Thing.GoodCreature;
-import toniarts.openkeeper.tools.convert.map.Thing.HeroParty;
-import toniarts.openkeeper.tools.convert.map.Thing.KeeperCreature;
-import toniarts.openkeeper.tools.convert.map.Thing.NeutralCreature;
-import toniarts.openkeeper.tools.convert.map.Variable.Availability;
-import toniarts.openkeeper.tools.convert.map.Variable.CreatureFirstPerson;
-import toniarts.openkeeper.tools.convert.map.Variable.CreaturePool;
-import toniarts.openkeeper.tools.convert.map.Variable.CreatureStats;
+import toniarts.openkeeper.tools.convert.map.Variable.*;
 import toniarts.openkeeper.tools.convert.map.Variable.CreatureStats.StatType;
-import toniarts.openkeeper.tools.convert.map.Variable.MiscVariable;
-import toniarts.openkeeper.tools.convert.map.Variable.Sacrifice;
 import toniarts.openkeeper.utils.PathUtils;
+
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import java.lang.Object;
+import java.util.List;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import static toniarts.openkeeper.tools.convert.map.MapDataTypeEnum.MAP;
 
 /**
  * Reads a DK II map file, the KWD is the file name of the main map identifier,
@@ -138,7 +120,7 @@ public final class KwdFile {
      * ones)
      *
      * @param basePath path to DK II main path (or where ever is the "root")
-     * @param file the KWD file to read
+     * @param file     the KWD file to read
      */
     public KwdFile(String basePath, File file) {
         this(basePath, file, true);
@@ -148,9 +130,9 @@ public final class KwdFile {
      * Constructs a new KWD file reader<br>
      *
      * @param basePath path to DK II main path (or where ever is the "root")
-     * @param file the KWD file to read
-     * @param load whether to actually load the map data, or just get the
-     * general info
+     * @param file     the KWD file to read
+     * @param load     whether to actually load the map data, or just get the
+     *                 general info
      */
     public KwdFile(String basePath, File file, boolean load) {
 
@@ -403,7 +385,7 @@ public final class KwdFile {
      * Reads the *Map.kld
      *
      * @param header Kwd header data
-     * @param file the file data, rewind to data position
+     * @param file   the file data, rewind to data position
      * @throws IOException the reading may fail
      */
     private void readMap(KwdHeader header, IResourceReader file) throws IOException {
@@ -429,7 +411,7 @@ public final class KwdFile {
      * Reads the *Players.kld
      *
      * @param header Kwd header data
-     * @param file the file data, rewind to data position
+     * @param file   the file data, rewind to data position
      * @throws IOException the reading may fail
      */
     private void readPlayers(KwdHeader header, IResourceReader file) throws IOException {
@@ -557,7 +539,7 @@ public final class KwdFile {
      * Reads the Terrain.kwd
      *
      * @param header Kwd header data
-     * @param file the file data, rewind to data position
+     * @param file   the file data, rewind to data position
      * @throws IOException the reading may fail
      */
     private void readTerrain(KwdHeader header, IResourceReader file) throws RuntimeException, IOException {
@@ -767,7 +749,7 @@ public final class KwdFile {
      * Reads the Doors.kwd
      *
      * @param header Kwd header data
-     * @param file the file data, rewind to data position
+     * @param file   the file data, rewind to data position
      * @throws IOException the reading may fail
      */
     private void readDoors(KwdHeader header, IResourceReader file) throws IOException {
@@ -832,7 +814,7 @@ public final class KwdFile {
      * Reads the Traps.kwd
      *
      * @param header Kwd header data
-     * @param file the file data, rewind to data position
+     * @param file   the file data, rewind to data position
      * @throws IOException the reading may fail
      */
     private void readTraps(KwdHeader header, IResourceReader file) throws IOException {
@@ -910,7 +892,7 @@ public final class KwdFile {
      * Reads the Rooms.kwd
      *
      * @param header Kwd header data
-     * @param file the file data, rewind to data position
+     * @param file   the file data, rewind to data position
      * @throws IOException the reading may fail
      */
     private void readRooms(KwdHeader header, IResourceReader file) throws RuntimeException, IOException {
@@ -991,7 +973,8 @@ public final class KwdFile {
     /**
      * Reads the *.kwd
      *
-     * @param file the original map KWD file
+     * @param header The file header
+     * @param data   The file data (pointer after header)
      * @throws RuntimeException reading may fail
      */
     private void readMapInfo(KwdHeader header, IResourceReader data) throws IOException {
@@ -1150,7 +1133,7 @@ public final class KwdFile {
      * Reads the Creatures.kwd
      *
      * @param header Kwd header data
-     * @param file the file data, rewind to data position
+     * @param file   the file data, rewind to data position
      * @throws IOException the reading may fail
      */
     private void readCreatures(KwdHeader header, IResourceReader file) throws IOException {
@@ -1405,8 +1388,8 @@ public final class KwdFile {
             creature.setAnimation(AnimationType.DIG, readArtResource(file));
 
             OffsetType[] offsetTypes = new OffsetType[]{OffsetType.FALL_BACK_GET_UP,
-                OffsetType.PRAYING, OffsetType.CORPSE, OffsetType.OFFSET_5,
-                OffsetType.OFFSET_6, OffsetType.OFFSET_7, OffsetType.OFFSET_8};
+                    OffsetType.PRAYING, OffsetType.CORPSE, OffsetType.OFFSET_5,
+                    OffsetType.OFFSET_6, OffsetType.OFFSET_7, OffsetType.OFFSET_8};
             for (OffsetType type : offsetTypes) {
                 creature.setAnimationOffsets(type,
                         file.readIntegerAsFloat(),
@@ -1472,10 +1455,10 @@ public final class KwdFile {
     /**
      * Read job preferences for a creature
      *
-     * @param count amount of job preference records
+     * @param count    amount of job preference records
      * @param creature creature instance, just for creating a job preference
-     * instance
-     * @param file the file to read the data from
+     *                 instance
+     * @param file     the file to read the data from
      * @return job preferences
      * @throws IOException may fail
      */
@@ -1521,7 +1504,7 @@ public final class KwdFile {
      * Reads the Objects.kwd
      *
      * @param header Kwd header data
-     * @param file the file data, rewind to data position
+     * @param file   the file data, rewind to data position
      * @throws IOException the reading may fail
      */
     private void readObjects(KwdHeader header, IResourceReader file) throws IOException {
@@ -1598,7 +1581,7 @@ public final class KwdFile {
      * Reads the CreatureSpells.kwd
      *
      * @param header Kwd header data
-     * @param file the file data, rewind to data position
+     * @param file   the file data, rewind to data position
      * @throws IOException the reading may fail
      */
     private void readCreatureSpells(KwdHeader header, IResourceReader file) throws IOException {
@@ -1653,7 +1636,7 @@ public final class KwdFile {
      * Reads the EffectElements.kwd
      *
      * @param header Kwd header data
-     * @param file the file data, rewind to data position
+     * @param file   the file data, rewind to data position
      * @throws IOException the reading may fail
      */
     private void readEffectElements(KwdHeader header, IResourceReader file) throws IOException {
@@ -1708,7 +1691,7 @@ public final class KwdFile {
      * Reads the Effects.kwd
      *
      * @param header Kwd header data
-     * @param file the file data, rewind to data position
+     * @param file   the file data, rewind to data position
      * @throws IOException the reading may fail
      */
     private void readEffects(KwdHeader header, IResourceReader file) throws IOException {
@@ -1784,7 +1767,7 @@ public final class KwdFile {
      * Reads the KeeperSpells.kwd
      *
      * @param header Kwd header data
-     * @param file the file data, rewind to data position
+     * @param file   the file data, rewind to data position
      * @throws IOException the reading may fail
      */
     private void readKeeperSpells(KwdHeader header, IResourceReader file) throws IOException {
@@ -1847,7 +1830,7 @@ public final class KwdFile {
      * Reads the *Things.kld
      *
      * @param header Kwd header data
-     * @param file the file data, rewind to data position
+     * @param file   the file data, rewind to data position
      * @throws IOException the reading may fail
      */
     private void readThings(KwdHeader header, IResourceReader file) throws IOException {
@@ -2166,7 +2149,7 @@ public final class KwdFile {
      * Reads the Shots.kwd
      *
      * @param header Kwd header data
-     * @param file the file data, rewind to data position
+     * @param file   the file data, rewind to data position
      * @throws IOException the reading may fail
      */
     private void readShots(KwdHeader header, IResourceReader file) throws IOException {
@@ -2233,7 +2216,7 @@ public final class KwdFile {
      * Reads the *Triggers.kld
      *
      * @param header Kwd header data
-     * @param file the file data, rewind to data position
+     * @param file   the file data, rewind to data position
      * @throws IOException the reading may fail
      */
     private void readTriggers(KwdHeader header, IResourceReader file) throws IOException {
@@ -2732,7 +2715,7 @@ public final class KwdFile {
      * Reads the *Variables.kld
      *
      * @param header Kwd header data
-     * @param file the file data, rewind to data position
+     * @param file   the file data, rewind to data position
      * @throws IOException the reading may fail
      */
     private void readVariables(KwdHeader header, IResourceReader file) throws IOException {
@@ -2806,11 +2789,8 @@ public final class KwdFile {
                     creatureStats.setLevel(file.readInteger());
 
                     // Add
-                    Map<StatType, CreatureStats> stats = creatureStatistics.get(creatureStats.getLevel());
-                    if (stats == null) {
-                        stats = new HashMap<>(CreatureStats.StatType.values().length);
-                        creatureStatistics.put(creatureStats.getLevel(), stats);
-                    }
+                    Map<StatType, CreatureStats> stats = creatureStatistics.computeIfAbsent(creatureStats.getLevel(),
+                            k -> new HashMap<>(StatType.values().length));
                     stats.put(creatureStats.getStatId(), creatureStats);
                     break;
 
@@ -2821,18 +2801,15 @@ public final class KwdFile {
                     creatureFirstPerson.setLevel(file.readInteger());
 
                     // Add
-                    Map<StatType, CreatureFirstPerson> firstPersonStats = creatureFirstPersonStatistics.get(creatureFirstPerson.getLevel());
-                    if (firstPersonStats == null) {
-                        firstPersonStats = new HashMap<>(CreatureStats.StatType.values().length);
-                        creatureFirstPersonStatistics.put(creatureFirstPerson.getLevel(), firstPersonStats);
-                    }
+                    Map<StatType, CreatureFirstPerson> firstPersonStats = creatureFirstPersonStatistics.computeIfAbsent(creatureFirstPerson.getLevel(),
+                            k -> new HashMap<>(StatType.values().length));
                     firstPersonStats.put(creatureFirstPerson.getStatId(), creatureFirstPerson);
                     break;
 
                 case Variable.UNKNOWN_17: // FIXME unknown value
                 case Variable.UNKNOWN_66: // FIXME unknown value
-                case Variable.UNKNOWN_0: // FIXME unknownn value
-                case Variable.UNKNOWN_77: // FIXME unknownn value
+                case Variable.UNKNOWN_0: // FIXME unknown value
+                case Variable.UNKNOWN_77: // FIXME unknown value
                     Variable.Unknown unknown = new Variable.Unknown();
                     unknown.setVariableId(id);
                     unknown.setValue(file.readInteger());
@@ -2913,7 +2890,7 @@ public final class KwdFile {
      * Bridges are a bit special, identifies one and returns the terrain that
      * should be under it
      *
-     * @param type tile BridgeTerrainType
+     * @param type    tile BridgeTerrainType
      * @param terrain the terrain tile
      * @return returns null if this is not a bridge, otherwise returns pretty
      * much either water or lava
@@ -2965,7 +2942,7 @@ public final class KwdFile {
     /**
      * Get list of things by certain type
      *
-     * @param <T> the instance type of the things you want
+     * @param <T>        the instance type of the things you want
      * @param thingClass the class of things you want
      * @return things list of things you want
      */
@@ -3047,7 +3024,7 @@ public final class KwdFile {
      * @return list of all rooms
      */
     public List<Room> getRooms() {
-        List<Room> c = new ArrayList(rooms.values());
+        List<Room> c = new ArrayList<>(rooms.values());
         Collections.sort(c);
         return c;
     }
@@ -3058,7 +3035,7 @@ public final class KwdFile {
      * @return list of all keeper spells
      */
     public List<KeeperSpell> getKeeperSpells() {
-        List<KeeperSpell> c = new ArrayList(keeperSpells.values());
+        List<KeeperSpell> c = new ArrayList<>(keeperSpells.values());
         Collections.sort(c);
         return c;
     }
@@ -3069,7 +3046,7 @@ public final class KwdFile {
      * @return list of all doors
      */
     public List<Door> getDoors() {
-        List<Door> c = new ArrayList(doors.values());
+        List<Door> c = new ArrayList<>(doors.values());
         Collections.sort(c);
         return c;
     }
@@ -3080,7 +3057,7 @@ public final class KwdFile {
      * @return list of all shots
      */
     public List<Shot> getShots() {
-        List<Shot> c = new ArrayList(shots.values());
+        List<Shot> c = new ArrayList<>(shots.values());
         Collections.sort(c);
         return c;
     }
@@ -3095,7 +3072,7 @@ public final class KwdFile {
      * @return list of all traps
      */
     public List<Trap> getTraps() {
-        List<Trap> c = new ArrayList(traps.values());
+        List<Trap> c = new ArrayList<>(traps.values());
         Collections.sort(c);
         return c;
     }
@@ -3175,11 +3152,11 @@ public final class KwdFile {
      * Skips the file to the correct position after an item is read<br>
      * <b>Use this with the common types!</b>
      *
+     * @param header the header
+     * @param file   the file
+     * @param offset the file offset before the last item was read
      * @see toniarts.openkeeper.tools.convert.ResourceReader#checkOffset(long,
      * long)
-     * @param header the header
-     * @param file the file
-     * @param offset the file offset before the last item was read
      */
     private void checkOffset(KwdHeader header, IResourceReader file, long offset) throws IOException {
         file.checkOffset(header.getItemSize(), offset);
@@ -3326,7 +3303,7 @@ public final class KwdFile {
         }
 
         /**
-         * Get the individiual item size (warning, does not apply to all!)
+         * Get the individual item size (warning, does not apply to all!)
          *
          * @return
          */

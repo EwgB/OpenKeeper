@@ -16,10 +16,10 @@
  */
 package toniarts.openkeeper.tools.convert;
 
-import java.io.File;
-
 import toniarts.openkeeper.tools.convert.wad.WadFile;
 import toniarts.openkeeper.utils.PathUtils;
+
+import java.io.File;
 
 /**
  * Simple class to extract all the files from given WAD to given location

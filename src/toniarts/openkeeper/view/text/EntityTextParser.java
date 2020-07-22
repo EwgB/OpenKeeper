@@ -18,12 +18,13 @@ package toniarts.openkeeper.view.text;
 
 import com.simsilica.es.Entity;
 import com.simsilica.es.EntityComponent;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 import toniarts.openkeeper.game.component.Gold;
 import toniarts.openkeeper.game.component.Health;
 import toniarts.openkeeper.utils.TextUtils;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * Parses text and fills the replacements from Entity data

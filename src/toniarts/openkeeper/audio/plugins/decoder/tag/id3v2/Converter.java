@@ -18,7 +18,7 @@
  */
 package toniarts.openkeeper.audio.plugins.decoder.tag.id3v2;
 
-import java.io.*;
+import java.io.UnsupportedEncodingException;
 
 /**
  * The

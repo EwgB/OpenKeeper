@@ -35,24 +35,17 @@ import com.jme3.animation.AnimChannel;
 import com.jme3.animation.AnimControl;
 import com.jme3.animation.ClonableTrack;
 import com.jme3.animation.Track;
-import com.jme3.export.InputCapsule;
-import com.jme3.export.JmeExporter;
-import com.jme3.export.JmeImporter;
-import com.jme3.export.OutputCapsule;
-import com.jme3.export.Savable;
+import com.jme3.export.*;
 import com.jme3.math.Vector3f;
-import com.jme3.scene.Geometry;
-import com.jme3.scene.Mesh;
-import com.jme3.scene.Node;
-import com.jme3.scene.Spatial;
-import com.jme3.scene.VertexBuffer;
+import com.jme3.scene.*;
 import com.jme3.scene.VertexBuffer.Type;
 import com.jme3.util.BufferUtils;
 import com.jme3.util.TempVars;
 import com.jme3.util.clone.Cloner;
+
+import javax.annotation.Nullable;
 import java.io.IOException;
 import java.nio.FloatBuffer;
-import javax.annotation.Nullable;
 
 /**
  * A single track of pose animation associated with a certain mesh.
@@ -166,9 +159,9 @@ public final class PoseTrack implements Track, ClonableTrack {
     /**
      * Applies pose for this frame
      *
-     * @param startPose starting pose for the vertices
-     * @param endPose ending pose for the vertices
-     * @param weight weight on which to apply the interpolation
+     * @param startPose    starting pose for the vertices
+     * @param endPose      ending pose for the vertices
+     * @param weight       weight on which to apply the interpolation
      * @param vertexBuffer the vertex buffer
      */
     private void applyPose(@Nullable Pose startPose, Pose endPose, float weight, FloatBuffer vertexBuffer) {
@@ -196,7 +189,7 @@ public final class PoseTrack implements Track, ClonableTrack {
 
     @Override
     public void setTime(float time, float weight, AnimControl control,
-            AnimChannel channel, TempVars vars) {
+                        AnimChannel channel, TempVars vars) {
         Spatial spat = control.getSpatial();
         Geometry geom = findGeom(spat);
         Mesh target = geom.getMesh();

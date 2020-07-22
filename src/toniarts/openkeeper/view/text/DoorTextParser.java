@@ -18,10 +18,11 @@ package toniarts.openkeeper.view.text;
 
 import com.simsilica.es.Entity;
 import com.simsilica.es.EntityComponent;
-import java.util.Collection;
 import toniarts.openkeeper.game.component.DoorComponent;
 import toniarts.openkeeper.tools.convert.map.Door;
 import toniarts.openkeeper.utils.Utils;
+
+import java.util.Collection;
 
 /**
  * Parses text where the entity is based on a Door data object

@@ -16,11 +16,12 @@
  */
 package toniarts.openkeeper.tools.convert.map;
 
-import java.util.EnumSet;
 import toniarts.openkeeper.tools.convert.ConversionUtils;
 import toniarts.openkeeper.tools.convert.IFlagEnum;
 import toniarts.openkeeper.tools.convert.IValueEnum;
 import toniarts.openkeeper.utils.Utils;
+
+import java.util.EnumSet;
 
 /**
  * Actions executed by the actual triggers

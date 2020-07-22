@@ -18,16 +18,17 @@ package toniarts.openkeeper.game.task;
 
 import com.jme3.math.Vector2f;
 import com.simsilica.es.EntityId;
-import java.awt.Point;
+import toniarts.openkeeper.game.controller.IMapController;
+import toniarts.openkeeper.game.controller.creature.ICreatureController;
+import toniarts.openkeeper.game.navigation.INavigationService;
+import toniarts.openkeeper.utils.WorldUtils;
+
+import java.awt.*;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Logger;
-import toniarts.openkeeper.game.controller.IMapController;
-import toniarts.openkeeper.game.controller.creature.ICreatureController;
-import toniarts.openkeeper.game.navigation.INavigationService;
-import toniarts.openkeeper.utils.WorldUtils;
 
 /**
  * Base class for all tasks

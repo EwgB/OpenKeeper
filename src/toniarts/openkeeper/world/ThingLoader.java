@@ -21,16 +21,6 @@ import com.jme3.asset.AssetManager;
 import com.jme3.math.Vector2f;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
-import java.awt.Point;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.annotation.Nullable;
 import toniarts.openkeeper.ai.creature.CreatureState;
 import toniarts.openkeeper.game.data.PlayerSpell;
 import toniarts.openkeeper.game.trigger.creature.CreatureTriggerLogicController;
@@ -54,6 +44,13 @@ import toniarts.openkeeper.world.object.ObjectLoader;
 import toniarts.openkeeper.world.object.SpellBookObjectControl;
 import toniarts.openkeeper.world.trap.TrapControl;
 import toniarts.openkeeper.world.trap.TrapLoader;
+
+import javax.annotation.Nullable;
+import java.awt.*;
+import java.util.List;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Loads things, all things

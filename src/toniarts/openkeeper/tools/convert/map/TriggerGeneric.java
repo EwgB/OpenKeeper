@@ -16,8 +16,9 @@
  */
 package toniarts.openkeeper.tools.convert.map;
 
-import java.util.Map.Entry;
 import toniarts.openkeeper.tools.convert.IValueEnum;
+
+import java.util.Map.Entry;
 
 /**
  * This the actual trigger, all TriggerActions need to be owned (triggered) by

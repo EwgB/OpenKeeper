@@ -12,12 +12,12 @@ import com.jme3.renderer.queue.RenderQueue;
 import com.jme3.scene.BatchNode;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
-import java.awt.Point;
+import toniarts.openkeeper.common.RoomInstance;
 import toniarts.openkeeper.utils.AssetUtils;
 import toniarts.openkeeper.view.map.MapViewController;
-import toniarts.openkeeper.common.RoomInstance;
 import toniarts.openkeeper.view.map.WallSection;
-import static toniarts.openkeeper.view.map.WallSection.WallDirection.WEST;
+
+import java.awt.*;
 
 /**
  * A base class for constructing different kind of rooms. FIXME: Basically

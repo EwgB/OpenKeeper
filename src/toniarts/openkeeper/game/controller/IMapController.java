@@ -6,11 +6,6 @@
 package toniarts.openkeeper.game.controller;
 
 import com.jme3.math.Vector2f;
-import java.awt.Point;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import toniarts.openkeeper.common.RoomInstance;
 import toniarts.openkeeper.game.controller.creature.ICreatureController;
 import toniarts.openkeeper.game.controller.room.AbstractRoomController;
@@ -19,6 +14,12 @@ import toniarts.openkeeper.game.listener.MapListener;
 import toniarts.openkeeper.game.listener.RoomListener;
 import toniarts.openkeeper.game.logic.IGameLogicUpdatable;
 import toniarts.openkeeper.game.map.IMapInformation;
+
+import java.awt.*;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Map related actions available to all players

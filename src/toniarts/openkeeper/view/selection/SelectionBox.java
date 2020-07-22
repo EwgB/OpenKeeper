@@ -7,6 +7,7 @@ import com.jme3.scene.VertexBuffer;
 import com.jme3.scene.VertexBuffer.Type;
 import com.jme3.scene.shape.AbstractBox;
 import com.jme3.util.BufferUtils;
+
 import java.nio.FloatBuffer;
 
 

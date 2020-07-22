@@ -16,22 +16,18 @@
  */
 package toniarts.openkeeper.utils;
 
+import toniarts.openkeeper.Main;
+
+import javax.management.MBeanServer;
+import javax.management.ObjectName;
 import java.lang.management.ManagementFactory;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
-import java.util.Collection;
-import java.util.Enumeration;
-import java.util.List;
-import java.util.Optional;
-import java.util.Random;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.management.MBeanServer;
-import javax.management.ObjectName;
-import toniarts.openkeeper.Main;
 
 /**
  * Some utility methods

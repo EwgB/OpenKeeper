@@ -16,13 +16,13 @@
  */
 package toniarts.openkeeper.game.task.objective;
 
-import java.awt.Point;
-import java.util.ArrayDeque;
-import java.util.Deque;
 import toniarts.openkeeper.game.controller.IMapController;
-import toniarts.openkeeper.game.controller.creature.ICreatureController;
 import toniarts.openkeeper.game.navigation.INavigationService;
 import toniarts.openkeeper.game.task.AbstractTileTask;
+
+import java.awt.*;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * Abstract base class for objective tasks, allows chaining of objectives for

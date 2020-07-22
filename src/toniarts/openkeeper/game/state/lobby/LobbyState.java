@@ -19,10 +19,6 @@ package toniarts.openkeeper.game.state.lobby;
 import com.jme3.app.Application;
 import com.jme3.app.state.AbstractAppState;
 import com.jme3.app.state.AppStateManager;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import static java.util.stream.Collectors.toList;
 import toniarts.openkeeper.Main;
 import toniarts.openkeeper.game.MapSelector;
 import toniarts.openkeeper.game.state.ConnectionState;
@@ -34,6 +30,12 @@ import toniarts.openkeeper.game.state.session.GameSessionServerService;
 import toniarts.openkeeper.game.state.session.LocalGameSession;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
 import toniarts.openkeeper.utils.Utils;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  * A lobby state, abstracts game lobby related actions, acts a lifetime lobby

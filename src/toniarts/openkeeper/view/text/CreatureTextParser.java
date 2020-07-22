@@ -18,16 +18,13 @@ package toniarts.openkeeper.view.text;
 
 import com.simsilica.es.Entity;
 import com.simsilica.es.EntityComponent;
-import java.util.Collection;
-import toniarts.openkeeper.game.component.CreatureAi;
-import toniarts.openkeeper.game.component.CreatureComponent;
-import toniarts.openkeeper.game.component.CreatureEfficiency;
-import toniarts.openkeeper.game.component.CreatureMood;
-import toniarts.openkeeper.game.component.TaskComponent;
+import toniarts.openkeeper.game.component.*;
 import toniarts.openkeeper.game.map.IMapInformation;
 import toniarts.openkeeper.game.map.MapTile;
 import toniarts.openkeeper.tools.convert.map.Creature;
 import toniarts.openkeeper.utils.Utils;
+
+import java.util.Collection;
 
 /**
  * Parses text where the entity is based on a Creature data object

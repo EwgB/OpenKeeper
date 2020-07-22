@@ -16,9 +16,10 @@
  */
 package toniarts.openkeeper.game.controller.player;
 
+import toniarts.openkeeper.tools.convert.map.Creature;
+
 import java.util.HashMap;
 import java.util.Map;
-import toniarts.openkeeper.tools.convert.map.Creature;
 
 /**
  * A class to hold player's miscellaneous statistics

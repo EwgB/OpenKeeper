@@ -16,10 +16,11 @@
  */
 package toniarts.openkeeper.common;
 
-import java.util.List;
 import toniarts.openkeeper.tools.convert.map.Room;
 import toniarts.openkeeper.tools.convert.map.Thing;
 import toniarts.openkeeper.view.map.WallSection;
+
+import java.util.List;
 
 /**
  * Holds a room instance, series of coordinates that together form a room

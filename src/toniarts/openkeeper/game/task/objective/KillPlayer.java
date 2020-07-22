@@ -18,9 +18,6 @@ package toniarts.openkeeper.game.task.objective;
 
 import com.badlogic.gdx.ai.pfa.GraphPath;
 import com.jme3.math.Vector2f;
-import java.awt.Point;
-import java.util.Iterator;
-import java.util.List;
 import toniarts.openkeeper.game.controller.ILevelInfo;
 import toniarts.openkeeper.game.controller.IMapController;
 import toniarts.openkeeper.game.controller.creature.ICreatureController;
@@ -30,6 +27,10 @@ import toniarts.openkeeper.game.task.TaskType;
 import toniarts.openkeeper.tools.convert.map.Terrain;
 import toniarts.openkeeper.tools.convert.map.Thing;
 import toniarts.openkeeper.utils.WorldUtils;
+
+import java.awt.*;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * Kill player objective for those goodly heroes. Can create a complex set of

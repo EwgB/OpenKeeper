@@ -16,10 +16,11 @@
  */
 package toniarts.openkeeper.game.controller.room;
 
-import java.awt.Point;
 import toniarts.openkeeper.common.RoomInstance;
 import toniarts.openkeeper.game.controller.IObjectsController;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
+
+import java.awt.*;
 
 /**
  * Manages combat pit

@@ -23,15 +23,12 @@ import com.simsilica.es.EntityId;
 import com.simsilica.es.EntitySet;
 import com.simsilica.es.filter.AndFilter;
 import com.simsilica.es.filter.FieldFilter;
+import toniarts.openkeeper.game.component.*;
+import toniarts.openkeeper.utils.WorldUtils;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
-import toniarts.openkeeper.game.component.CreatureComponent;
-import toniarts.openkeeper.game.component.DoorComponent;
-import toniarts.openkeeper.game.component.DoorViewState;
-import toniarts.openkeeper.game.component.Owner;
-import toniarts.openkeeper.game.component.Position;
-import toniarts.openkeeper.utils.WorldUtils;
 
 /**
  * Open sesame! Manages door opening and closing, on view level. We don't really

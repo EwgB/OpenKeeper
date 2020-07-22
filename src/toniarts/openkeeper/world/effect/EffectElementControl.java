@@ -22,8 +22,10 @@ import com.jme3.renderer.RenderManager;
 import com.jme3.renderer.ViewPort;
 import com.jme3.scene.Spatial;
 import com.jme3.scene.control.AbstractControl;
-import java.util.logging.Logger;
 import toniarts.openkeeper.tools.convert.map.EffectElement;
+
+import java.util.logging.Logger;
+
 import static toniarts.openkeeper.world.effect.EffectControl.calculateVelocity;
 
 /**

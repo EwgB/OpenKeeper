@@ -19,8 +19,9 @@ package toniarts.openkeeper.tools.convert;
 import com.jme3.asset.AssetInfo;
 import com.jme3.asset.AssetKey;
 import com.jme3.asset.AssetManager;
-import java.io.InputStream;
 import toniarts.openkeeper.tools.convert.kmf.KmfFile;
+
+import java.io.InputStream;
 
 /**
  * Small wrapper class to avoid writing and reading KMF files all over again

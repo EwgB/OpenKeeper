@@ -16,12 +16,13 @@
  */
 package toniarts.openkeeper.game.controller.player;
 
-import java.util.List;
 import toniarts.openkeeper.game.data.Keeper;
 import toniarts.openkeeper.game.data.ResearchableEntity;
 import toniarts.openkeeper.game.data.ResearchableType;
 import toniarts.openkeeper.game.listener.PlayerDoorListener;
 import toniarts.openkeeper.tools.convert.map.Door;
+
+import java.util.List;
 
 /**
  * Holds a list of player doors and functionality related to them

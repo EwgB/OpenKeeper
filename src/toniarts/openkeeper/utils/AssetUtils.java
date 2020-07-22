@@ -16,12 +16,7 @@
  */
 package toniarts.openkeeper.utils;
 
-import com.jme3.asset.AssetInfo;
-import com.jme3.asset.AssetKey;
-import com.jme3.asset.AssetManager;
-import com.jme3.asset.MaterialKey;
-import com.jme3.asset.ModelKey;
-import com.jme3.asset.TextureKey;
+import com.jme3.asset.*;
 import com.jme3.asset.cache.AssetCache;
 import com.jme3.asset.cache.SimpleAssetCache;
 import com.jme3.asset.cache.WeakRefAssetCache;
@@ -36,9 +31,19 @@ import com.jme3.scene.Spatial;
 import com.jme3.texture.Texture;
 import com.jme3.texture.Texture2D;
 import com.jme3.texture.plugins.AWTLoader;
-import java.awt.AlphaComposite;
-import java.awt.Graphics2D;
-import java.awt.Point;
+import toniarts.openkeeper.Main;
+import toniarts.openkeeper.cinematics.CameraSweepData;
+import toniarts.openkeeper.cinematics.CameraSweepDataLoader;
+import toniarts.openkeeper.tools.convert.AssetsConverter;
+import toniarts.openkeeper.tools.convert.ConversionUtils;
+import toniarts.openkeeper.tools.convert.map.ArtResource;
+import toniarts.openkeeper.tools.convert.map.KwdFile;
+import toniarts.openkeeper.tools.convert.map.Room;
+import toniarts.openkeeper.tools.convert.map.Terrain;
+import toniarts.openkeeper.world.MapLoader;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -50,17 +55,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import toniarts.openkeeper.Main;
-import toniarts.openkeeper.cinematics.CameraSweepData;
-import toniarts.openkeeper.cinematics.CameraSweepDataLoader;
-import toniarts.openkeeper.tools.convert.AssetsConverter;
-import toniarts.openkeeper.tools.convert.ConversionUtils;
-import toniarts.openkeeper.tools.convert.map.ArtResource;
-import toniarts.openkeeper.tools.convert.map.KwdFile;
-import toniarts.openkeeper.tools.convert.map.Room;
-import toniarts.openkeeper.tools.convert.map.Terrain;
-import toniarts.openkeeper.world.MapLoader;
 
 /**
  * Collection of asset related common functions

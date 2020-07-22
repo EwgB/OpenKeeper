@@ -16,11 +16,12 @@
  */
 package toniarts.openkeeper.game.trigger;
 
-import java.util.Map;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
 import toniarts.openkeeper.tools.convert.map.Trigger;
 import toniarts.openkeeper.tools.convert.map.TriggerAction;
 import toniarts.openkeeper.tools.convert.map.TriggerGeneric;
+
+import java.util.Map;
 
 /**
  *

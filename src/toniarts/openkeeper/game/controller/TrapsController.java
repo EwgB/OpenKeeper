@@ -19,16 +19,7 @@ package toniarts.openkeeper.game.controller;
 import com.jme3.math.Vector3f;
 import com.simsilica.es.EntityData;
 import com.simsilica.es.EntityId;
-import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import toniarts.openkeeper.game.component.Health;
-import toniarts.openkeeper.game.component.Interaction;
-import toniarts.openkeeper.game.component.Owner;
-import toniarts.openkeeper.game.component.Position;
-import toniarts.openkeeper.game.component.Threat;
-import toniarts.openkeeper.game.component.TrapComponent;
-import toniarts.openkeeper.game.component.TrapViewState;
+import toniarts.openkeeper.game.component.*;
 import toniarts.openkeeper.game.controller.trap.ITrapController;
 import toniarts.openkeeper.game.controller.trap.TrapController;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
@@ -37,6 +28,10 @@ import toniarts.openkeeper.tools.convert.map.Trap;
 import toniarts.openkeeper.tools.convert.map.Variable;
 import toniarts.openkeeper.utils.WorldUtils;
 import toniarts.openkeeper.world.MapLoader;
+
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * This is a controller that controls all the traps in the world TODO:

@@ -28,10 +28,11 @@ import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
 import com.jme3.scene.shape.Quad;
 import com.jme3.texture.Texture;
+import toniarts.openkeeper.Main;
+
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import toniarts.openkeeper.Main;
 
 /**
  * A base for different kind of loading screen states

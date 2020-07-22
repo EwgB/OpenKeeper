@@ -16,9 +16,10 @@
  */
 package toniarts.openkeeper.tools.convert.conversion.task;
 
+import toniarts.openkeeper.tools.convert.AssetsConverter;
+
 import java.util.ArrayList;
 import java.util.List;
-import toniarts.openkeeper.tools.convert.AssetsConverter;
 
 /**
  * Base class for conversion tasks

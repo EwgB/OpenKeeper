@@ -41,10 +41,11 @@ import com.jme3.network.service.HostedServiceManager;
 import com.jme3.network.service.rmi.RmiHostedService;
 import com.jme3.network.service.rmi.RmiRegistry;
 import com.simsilica.event.EventBus;
-import java.util.logging.Level;
 import toniarts.openkeeper.game.network.NetworkConstants;
 import toniarts.openkeeper.game.network.chat.ChatHostedService;
 import toniarts.openkeeper.game.network.lobby.LobbyHostedService;
+
+import java.util.logging.Level;
 
 /**
  * Provides super-basic account services like logging in. This could be expanded

@@ -20,10 +20,11 @@ import com.jme3.network.HostedConnection;
 import com.jme3.network.serializing.Serializer;
 import com.jme3.network.service.AbstractHostedService;
 import com.jme3.network.service.HostedServiceManager;
+import toniarts.openkeeper.game.network.message.StreamedMessage;
+
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.logging.Logger;
-import toniarts.openkeeper.game.network.message.StreamedMessage;
 
 /**
  * Streaming data, meaning that if something is needed to be send over to

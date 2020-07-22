@@ -19,18 +19,18 @@ package toniarts.openkeeper.view.map.construction.room;
 import com.jme3.asset.AssetManager;
 import com.jme3.scene.BatchNode;
 import com.jme3.scene.Node;
-import java.awt.Point;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 import toniarts.openkeeper.common.EntityInstance;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
 import toniarts.openkeeper.tools.convert.map.Terrain;
 import toniarts.openkeeper.utils.AssetUtils;
 import toniarts.openkeeper.view.map.Water;
 import toniarts.openkeeper.view.map.construction.DoubleQuadConstructor;
-import static toniarts.openkeeper.view.map.construction.DoubleQuadConstructor.constructQuad;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Manages temple construction. Mainly adds the water body

@@ -17,26 +17,14 @@
 package toniarts.openkeeper.view.map;
 
 import com.jme3.asset.AssetManager;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import toniarts.openkeeper.common.RoomInstance;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
-import toniarts.openkeeper.view.map.construction.DoubleQuadConstructor;
-import toniarts.openkeeper.view.map.construction.FiveByFiveRotatedConstructor;
-import toniarts.openkeeper.view.map.construction.HeroGateConstructor;
-import toniarts.openkeeper.view.map.construction.HeroGateFrontEndConstructor;
-import toniarts.openkeeper.view.map.construction.HeroGateThreeByOneConstructor;
-import toniarts.openkeeper.view.map.construction.HeroGateTwoByTwoConstructor;
-import toniarts.openkeeper.view.map.construction.NormalConstructor;
-import toniarts.openkeeper.view.map.construction.QuadConstructor;
-import toniarts.openkeeper.view.map.construction.RoomConstructor;
-import toniarts.openkeeper.view.map.construction.ThreeByThreeConstructor;
-import toniarts.openkeeper.view.map.construction.room.CombatPitConstructor;
-import toniarts.openkeeper.view.map.construction.room.PrisonConstructor;
-import toniarts.openkeeper.view.map.construction.room.StoneBridgeConstructor;
-import toniarts.openkeeper.view.map.construction.room.TempleConstructor;
-import toniarts.openkeeper.view.map.construction.room.WorkshopConstructor;
+import toniarts.openkeeper.view.map.construction.*;
+import toniarts.openkeeper.view.map.construction.room.*;
 import toniarts.openkeeper.world.effect.EffectManagerState;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * A factory class you can use to build buildings

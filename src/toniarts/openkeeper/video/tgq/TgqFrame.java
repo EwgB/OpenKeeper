@@ -16,14 +16,15 @@
  */
 package toniarts.openkeeper.video.tgq;
 
+import toniarts.openkeeper.tools.convert.BitReader;
+import toniarts.openkeeper.tools.convert.ConversionUtils;
+
 import java.awt.image.BufferedImage;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.IntBuffer;
 import java.util.logging.Logger;
-import toniarts.openkeeper.tools.convert.BitReader;
-import toniarts.openkeeper.tools.convert.ConversionUtils;
 
 /**
  * Holds a TGQ frame (one texture that is)<br>

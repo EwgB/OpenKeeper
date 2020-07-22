@@ -17,10 +17,11 @@
 package toniarts.openkeeper.game.logic;
 
 import com.jme3.app.Application;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import toniarts.openkeeper.world.ThingLoader;
 import toniarts.openkeeper.world.creature.steering.AbstractCreatureSteeringControl;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Runs the creature movement. Implements runnable, so supports running from a

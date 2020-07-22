@@ -17,8 +17,9 @@
 package toniarts.openkeeper.game.listener;
 
 import com.jme3.network.service.rmi.Asynchronous;
-import java.util.List;
 import toniarts.openkeeper.game.map.MapTile;
+
+import java.util.List;
 
 /**
  *

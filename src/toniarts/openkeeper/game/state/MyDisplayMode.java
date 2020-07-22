@@ -17,7 +17,8 @@
 package toniarts.openkeeper.game.state;
 
 import com.jme3.system.AppSettings;
-import java.awt.DisplayMode;
+
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 

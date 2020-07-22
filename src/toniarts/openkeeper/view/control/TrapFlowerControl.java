@@ -19,10 +19,11 @@ package toniarts.openkeeper.view.control;
 import com.jme3.asset.AssetManager;
 import com.simsilica.es.EntityData;
 import com.simsilica.es.EntityId;
-import java.io.File;
 import toniarts.openkeeper.tools.convert.AssetsConverter;
 import toniarts.openkeeper.tools.convert.ConversionUtils;
 import toniarts.openkeeper.tools.convert.map.Trap;
+
+import java.io.File;
 
 /**
  * Unit flower control for traps

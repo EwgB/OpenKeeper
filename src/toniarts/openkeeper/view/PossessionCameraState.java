@@ -27,14 +27,15 @@ import com.jme3.input.controls.MouseAxisTrigger;
 import com.jme3.math.Vector2f;
 import com.jme3.math.Vector3f;
 import com.jme3.renderer.Camera;
-import java.awt.Point;
-import java.util.logging.Logger;
 import toniarts.openkeeper.Main;
 import toniarts.openkeeper.game.FunnyCameraContol;
 import toniarts.openkeeper.game.data.Settings;
 import toniarts.openkeeper.game.state.AbstractPauseAwareState;
 import toniarts.openkeeper.tools.convert.map.Creature;
 import toniarts.openkeeper.world.creature.CreatureControl;
+
+import java.awt.*;
+import java.util.logging.Logger;
 
 /**
  *

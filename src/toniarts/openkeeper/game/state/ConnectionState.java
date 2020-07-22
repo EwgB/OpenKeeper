@@ -26,10 +26,6 @@ import com.jme3.network.ErrorListener;
 import com.jme3.network.service.ClientService;
 import com.simsilica.ethereal.EtherealClient;
 import com.simsilica.ethereal.TimeSource;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import toniarts.openkeeper.Main;
 import toniarts.openkeeper.game.network.NetworkClient;
 import toniarts.openkeeper.game.network.NetworkServer;
@@ -42,6 +38,11 @@ import toniarts.openkeeper.game.network.session.AccountSessionListener;
 import toniarts.openkeeper.game.state.lobby.LobbyService;
 import toniarts.openkeeper.game.state.session.GameSessionServerService;
 import toniarts.openkeeper.utils.Utils;
+
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * A state that manages the client server connection. Derived from pspeed's

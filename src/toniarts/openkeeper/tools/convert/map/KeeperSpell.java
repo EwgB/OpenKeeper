@@ -16,12 +16,13 @@
  */
 package toniarts.openkeeper.tools.convert.map;
 
-import java.util.EnumSet;
 import toniarts.openkeeper.game.data.IGuiSoundable;
 import toniarts.openkeeper.game.data.IIndexable;
 import toniarts.openkeeper.game.data.ISoundable;
 import toniarts.openkeeper.tools.convert.IFlagEnum;
 import toniarts.openkeeper.tools.convert.IValueEnum;
+
+import java.util.EnumSet;
 
 /**
  * Container class for KeeperSpells.kwd

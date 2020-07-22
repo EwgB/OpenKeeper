@@ -16,13 +16,6 @@
  */
 package toniarts.openkeeper.world.creature;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import toniarts.openkeeper.tools.convert.IValueEnum;
 import toniarts.openkeeper.tools.convert.map.Player;
 import toniarts.openkeeper.tools.convert.map.Terrain;
@@ -32,6 +25,8 @@ import toniarts.openkeeper.world.TileData;
 import toniarts.openkeeper.world.WorldState;
 import toniarts.openkeeper.world.door.DoorControl;
 import toniarts.openkeeper.world.pathfinding.PathFindable;
+
+import java.util.*;
 
 /**
  * Represents a party, a group of creatures. When the Leader is incapacitated, a

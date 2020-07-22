@@ -17,10 +17,12 @@
 package toniarts.openkeeper.world.object;
 
 import com.jme3.scene.control.AbstractControl;
-import java.util.logging.Logger;
 import toniarts.openkeeper.utils.AssetUtils;
-import static toniarts.openkeeper.world.MapLoader.COLOR_FLASH;
 import toniarts.openkeeper.world.control.IInteractiveControl;
+
+import java.util.logging.Logger;
+
+import static toniarts.openkeeper.world.MapLoader.COLOR_FLASH;
 
 /**
  *

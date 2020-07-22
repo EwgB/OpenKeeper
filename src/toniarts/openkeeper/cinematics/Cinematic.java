@@ -32,12 +32,13 @@ import com.jme3.renderer.Camera;
 import com.jme3.scene.CameraNode;
 import com.jme3.scene.Node;
 import com.jme3.scene.control.CameraControl.ControlDirection;
-import java.awt.Point;
-import java.util.logging.Logger;
 import toniarts.openkeeper.Main;
 import toniarts.openkeeper.utils.AssetUtils;
 import toniarts.openkeeper.utils.WorldUtils;
 import toniarts.openkeeper.world.MapLoader;
+
+import java.awt.*;
+import java.util.logging.Logger;
 
 /**
  * Our wrapper on JME cinematic class, produces ready cinematics from camera

@@ -16,10 +16,11 @@
  */
 package toniarts.openkeeper.game.task;
 
-import java.awt.Point;
-import java.util.Objects;
 import toniarts.openkeeper.game.controller.IMapController;
 import toniarts.openkeeper.game.navigation.INavigationService;
+
+import java.awt.*;
+import java.util.Objects;
 
 /**
  * Abstract base class for tasks pointing at terrain tiles

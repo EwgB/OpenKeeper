@@ -16,13 +16,10 @@
  */
 package toniarts.openkeeper.tools.convert.map;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.Map;
 import toniarts.openkeeper.tools.convert.IFlagEnum;
 import toniarts.openkeeper.tools.convert.IValueEnum;
+
+import java.util.*;
 
 /**
  * Placeholder for the container class for the ArtResource

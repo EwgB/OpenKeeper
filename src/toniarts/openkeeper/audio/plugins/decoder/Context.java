@@ -18,7 +18,8 @@
  */
 package toniarts.openkeeper.audio.plugins.decoder;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A class, which consists entirely of static fields and methods, encapsulates a

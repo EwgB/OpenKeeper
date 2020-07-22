@@ -30,12 +30,13 @@ import com.jme3.input.controls.TouchTrigger;
 import com.jme3.math.ColorRGBA;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.shape.Quad;
+import toniarts.openkeeper.Main;
+import toniarts.openkeeper.video.tgq.TgqFrame;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import toniarts.openkeeper.Main;
-import toniarts.openkeeper.video.tgq.TgqFrame;
 
 /**
  * AppState for watching TGQ movies, very simple, just create and attach

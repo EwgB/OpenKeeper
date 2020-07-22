@@ -18,8 +18,8 @@ package toniarts.openkeeper.game.network;
 
 import com.jme3.network.Client;
 import com.jme3.network.Network;
+
 import java.io.IOException;
-import java.net.InetAddress;
 import java.util.LinkedList;
 import java.util.logging.Logger;
 

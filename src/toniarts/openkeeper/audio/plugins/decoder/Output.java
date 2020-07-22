@@ -18,9 +18,10 @@
  */
 package toniarts.openkeeper.audio.plugins.decoder;
 
-import java.io.*;
-import java.lang.reflect.*;
-import static toniarts.openkeeper.audio.plugins.decoder.AudioInformation.B_BIG_ENDIAN;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InterruptedIOException;
+import java.lang.reflect.Array;
 
 /**
  * The

@@ -19,8 +19,9 @@ package toniarts.openkeeper.game.state.session;
 import com.jme3.math.Vector2f;
 import com.jme3.network.service.rmi.Asynchronous;
 import com.simsilica.es.EntityId;
-import java.awt.Point;
 import toniarts.openkeeper.game.state.CheatState;
+
+import java.awt.*;
 
 /**
  * Listener for the service. To listen to clients' requests

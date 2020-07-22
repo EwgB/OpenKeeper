@@ -19,10 +19,11 @@ package toniarts.openkeeper.view.map.construction;
 import com.jme3.asset.AssetManager;
 import com.jme3.scene.BatchNode;
 import com.jme3.scene.Spatial;
-import java.awt.Point;
-import toniarts.openkeeper.utils.AssetUtils;
 import toniarts.openkeeper.common.RoomInstance;
+import toniarts.openkeeper.utils.AssetUtils;
 import toniarts.openkeeper.view.map.WallSection;
+
+import java.awt.*;
 
 /**
  * Loads up a hero gate, front end edition. Main menu. Most of the objects are

@@ -16,10 +16,11 @@
  */
 package toniarts.openkeeper.tools.convert.sound;
 
-import java.io.File;
-import java.io.IOException;
 import toniarts.openkeeper.tools.convert.IResourceReader;
 import toniarts.openkeeper.tools.convert.ResourceReader;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Dungeon Keeper II *Bank.map files. The map files contain sound playback events of some sorts<br>
