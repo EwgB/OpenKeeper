@@ -52,7 +52,7 @@ public class EntitySteeringFactory {
 //                        for (int i = 0; i < agentCount; i++) {
 //                            Steerable<Vector2> currentAgent = creatures.get(i);
 //
-//                            // Skip if this is us, when sharing collission avoidance i.e. this can contain us
+//                            // Skip if this is us, when sharing collision avoidance i.e. this can contain us
 //                            if (!currentAgent.equals(owner)) {
 //                                if (callback.reportNeighbor(currentAgent)) {
 //                                    neighborCount++;

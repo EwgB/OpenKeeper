@@ -38,7 +38,7 @@ public class HeroGateTwoByTwoConstructor extends RoomConstructor {
         BatchNode root = new BatchNode();
         String modelName = roomInstance.getRoom().getCompleteResource().getName();
 
-        // Contruct the tiles
+        // Construct the tiles
         int i = 0;
         Point start = roomInstance.getCoordinates().get(0);
         for (Point p : roomInstance.getCoordinates()) {

@@ -30,7 +30,7 @@ import java.util.Map;
 
 /**
  * Calculates mana for all players. TODO: maybe listener based, that only reacts
- * to changes? TODO: Posession, Players, Entity based?
+ * to changes? TODO: Possession, Players, Entity based?
  *
  * @author Toni Helenius <helenius.toni@gmail.com>
  */
@@ -65,7 +65,7 @@ public class ManaCalculatorLogic implements IGameLogicUpdatable {
         if (tick >= 1) {
             reset();
             calculateGainFromMapTiles();
-            calculateLooseFromCreatures();
+            calculateLossFromCreatures();
             updateManaControls(tpf);
             tick -= 1;
         }
@@ -90,7 +90,7 @@ public class ManaCalculatorLogic implements IGameLogicUpdatable {
         }
     }
 
-    private void calculateLooseFromCreatures() {
+    private void calculateLossFromCreatures() {
         for (Short playerId : manaControls.keySet()) {
             manaLosses.put(playerId, creatureControls.get(playerId).getImpCount() * MANA_LOSE_PER_IMP);
         }

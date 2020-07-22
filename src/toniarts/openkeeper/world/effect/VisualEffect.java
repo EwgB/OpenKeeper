@@ -90,7 +90,7 @@ public class VisualEffect {
         if (location != null) {
             effectNode.setLocalTranslation(location);
         }
-        node.attachChild(effectNode); // We need to attach before emiting, it doesn't work otherwise
+        node.attachChild(effectNode); // We need to attach before emitting, it doesn't work otherwise
 
         // Load the effect
         load();
@@ -435,7 +435,7 @@ public class VisualEffect {
         // If no children at all, remove us
         if (effectElements.isEmpty() && effects.isEmpty() && effectNode.getQuantity() == 0) {
 
-            // If infitine, just restart
+            // If infinite, just restart
             if (infinite) {
                 if (light != null) {
                     effectNode.removeLight(light);

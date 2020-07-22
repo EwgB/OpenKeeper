@@ -470,7 +470,8 @@ public class Effect implements Comparable<Effect>, IEffect {
     }
 
     /**
-     * Allways 0
+     * Always 0
+     *
      * @return
      */
     public int getMisc2() {
@@ -482,7 +483,7 @@ public class Effect implements Comparable<Effect>, IEffect {
     }
 
     /**
-     * Allways 0
+     * Always 0
      * @return
      */
     public int getMisc3() {
@@ -510,7 +511,7 @@ public class Effect implements Comparable<Effect>, IEffect {
     }
 
     /**
-     * Allways 0
+     * Always 0
      * @return
      */
     public int getUnknown3() {

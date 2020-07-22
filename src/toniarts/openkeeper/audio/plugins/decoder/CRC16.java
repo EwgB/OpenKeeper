@@ -47,13 +47,13 @@ final class CRC16 {
 
     // Returns CRC-16 value.
     long getValue() {
-        return (long) crc;
+        return crc;
     }
 
     // Updates CRC-16 with specified byte.
     // Parameter i is the byte to update the checksum with.
     // Parameter j is the used length of the byte.
-    // Returns the calculatet new CRC-word.
+    // Returns the calculated new CRC-word.
     int update(int i, int j) {
         i &= (1 << j) - 1;
         crc ^= i << 16 - j;

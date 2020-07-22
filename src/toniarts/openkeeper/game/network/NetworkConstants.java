@@ -23,7 +23,7 @@ import com.simsilica.mathd.bits.QuatBits;
 import com.simsilica.mathd.bits.Vec3Bits;
 
 /**
- * Constants related to networkign. Derived from Paul Speed's examples.
+ * Constants related to networking. Derived from Paul Speed's examples.
  *
  * @author Toni Helenius <helenius.toni@gmail.com>
  */
@@ -111,7 +111,7 @@ public class NetworkConstants {
      * with the safer choice.</p>
      *
      * <p>
-     * The last two parameters are the Vec3 and Quat bit sizes defined
+     * The last two parameters are the Vec3 and Quad bit sizes defined
      * above.</p>
      */
     public static final ObjectStateProtocol OBJECT_PROTOCOL

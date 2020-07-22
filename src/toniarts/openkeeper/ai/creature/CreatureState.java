@@ -39,7 +39,7 @@ public enum CreatureState implements State<CreatureControl> {
             }
 
             // Idling is the last resort
-            entity.unassingCurrentTask();
+            entity.unassignCurrentTask();
             if (!findStuffToDo(entity)) {
                 entity.navigateToRandomPoint();
             }
@@ -217,7 +217,7 @@ public enum CreatureState implements State<CreatureControl> {
     }, FIGHT {
         @Override
         public void enter(CreatureControl entity) {
-            entity.unassingCurrentTask();
+            entity.unassignCurrentTask();
         }
 
         @Override
@@ -339,7 +339,7 @@ public enum CreatureState implements State<CreatureControl> {
     }, FLEE {
         @Override
         public void enter(CreatureControl entity) {
-            entity.unassingCurrentTask();
+            entity.unassignCurrentTask();
             entity.flee();
         }
 
@@ -364,7 +364,7 @@ public enum CreatureState implements State<CreatureControl> {
         @Override
         public void enter(CreatureControl entity) {
             entity.stop();
-            entity.unassingCurrentTask();
+            entity.unassignCurrentTask();
         }
 
         @Override

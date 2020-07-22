@@ -259,7 +259,7 @@ public final class ID3v2 extends Tag {
 
     /**
      * Returns the value to which the specified key is mapped in this hashtable.
-     * The values are either control flags or informations stored in the tag.
+     * The values are either control flags or information stored in the tag.
      *
      * @param key the hashtable key
      * @return the value to which the key is mapped in this hashtable; null if
@@ -451,7 +451,7 @@ public final class ID3v2 extends Tag {
      * hashkey of a specific information it is possible to obtain the
      * information value.
      *
-     * @return a String representation all informations
+     * @return a String representation all information
      */
     @Override
     public String toString() {
@@ -535,7 +535,7 @@ public final class ID3v2 extends Tag {
 
     /**
      * Sets the data size until first audio frame and a flag indicating if
-     * skippedDataLength was setted by the tag in case of an error.
+     * skippedDataLength was set by the tag in case of an error.
      *
      * @param skippedDataLength the skipped data length
      */
@@ -599,7 +599,7 @@ public final class ID3v2 extends Tag {
 
         byte[] synchronizedData;
 
-        if (header.isUnsynchronizated()) {
+        if (header.isUnsynchronized()) {
             synchronizedData = synchronize(unsynchronizedData);
         } else {
             synchronizedData = unsynchronizedData;
@@ -645,7 +645,7 @@ public final class ID3v2 extends Tag {
                 }
                 stream.read(frame.getContent(), diff, frame.getContent().length - diff);
 
-                if (header.isUnsynchronizated()) {
+                if (header.isUnsynchronized()) {
                     frame.setContent(synchronize(frame.getContent()));
                 }
             }
@@ -677,7 +677,7 @@ public final class ID3v2 extends Tag {
                     diff -= frame.getHeaderLength();
                     stream.read(frame.getContent(), diff, frame.getContent().length - diff);
 
-                    if (header.isUnsynchronizated()) {
+                    if (header.isUnsynchronized()) {
                         frame.setContent(synchronize(frame.getContent()));
                     }
                 }

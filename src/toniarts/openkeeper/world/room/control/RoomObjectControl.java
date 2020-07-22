@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.*;
 
 /**
- * Room object controller. FIXME: Cache the coorninates and listen to changes in
+ * Room object controller. FIXME: Cache the coordinates and listen to changes in
  * rooms
  *
  * @param <T> the held object type

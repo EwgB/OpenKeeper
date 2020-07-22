@@ -31,7 +31,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Contructs dungeon hearts (deals with the animation)
+ * Constructs dungeon hearts (deals with the animation)
  *
  * @author Toni Helenius <helenius.toni@gmail.com>
  */

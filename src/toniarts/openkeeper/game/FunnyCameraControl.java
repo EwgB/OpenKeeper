@@ -32,10 +32,9 @@ import com.jme3.util.clone.JmeCloneable;
 import java.io.IOException;
 
 /**
- *
  * @author ArchDemon
  */
-public class FunnyCameraContol  implements Control, JmeCloneable {
+public class FunnyCameraControl implements Control, JmeCloneable {
     protected Spatial target = null;
 
     protected float distance = 10;
@@ -54,7 +53,7 @@ public class FunnyCameraContol  implements Control, JmeCloneable {
      * @param cam the application camera
      * @param target the spatial to follow
      */
-    public FunnyCameraContol(Camera cam, final Spatial target) {
+    public FunnyCameraControl(Camera cam, final Spatial target) {
         this(cam);
         target.addControl(this);
     }
@@ -65,7 +64,7 @@ public class FunnyCameraContol  implements Control, JmeCloneable {
      * doing spatial.addControl(chaseCamera);
      * @param cam the application camera
      */
-    public FunnyCameraContol(Camera cam) {
+    public FunnyCameraControl(Camera cam) {
         this.cam = cam;
         initialUpVec = cam.getUp().clone();
     }
@@ -122,13 +121,13 @@ public class FunnyCameraContol  implements Control, JmeCloneable {
      */
     @Override
     public Control cloneForSpatial(Spatial spatial) {
-        FunnyCameraContol cc = new FunnyCameraContol(cam, spatial);
+        FunnyCameraControl cc = new FunnyCameraControl(cam, spatial);
         return cc;
     }
 
     @Override
     public Object jmeClone() {
-        FunnyCameraContol cc = new FunnyCameraContol(cam);
+        FunnyCameraControl cc = new FunnyCameraControl(cam);
         cc.target = target;
         return cc;
     }

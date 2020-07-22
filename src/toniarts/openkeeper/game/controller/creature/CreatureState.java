@@ -20,7 +20,7 @@ import com.badlogic.gdx.ai.fsm.State;
 import com.badlogic.gdx.ai.msg.Telegram;
 
 /**
- * State machine for creature AI. TODO: needs to be hierarchial so that this
+ * State machine for creature AI. TODO: needs to be hierarchical so that this
  * class doesn't grow to be millions of lines
  *
  * @author Toni Helenius <helenius.toni@gmail.com>
@@ -38,7 +38,7 @@ public enum CreatureState implements State<ICreatureController> {
             }
 
             // Idling is the last resort
-            entity.unassingCurrentTask();
+            entity.unassignCurrentTask();
             if (!findStuffToDo(entity)) {
                 entity.navigateToRandomPoint();
             }
@@ -221,7 +221,7 @@ public enum CreatureState implements State<ICreatureController> {
 
         @Override
         public void exit(ICreatureController entity) {
-            entity.unassingCurrentTask();
+            entity.unassignCurrentTask();
         }
 
         @Override
@@ -233,7 +233,7 @@ public enum CreatureState implements State<ICreatureController> {
 
         @Override
         public void enter(ICreatureController entity) {
-            entity.unassingCurrentTask();
+            entity.unassignCurrentTask();
         }
 
         @Override
@@ -361,7 +361,7 @@ public enum CreatureState implements State<ICreatureController> {
 
         @Override
         public void enter(ICreatureController entity) {
-            entity.unassingCurrentTask();
+            entity.unassignCurrentTask();
             entity.flee();
         }
 
@@ -386,7 +386,7 @@ public enum CreatureState implements State<ICreatureController> {
         @Override
         public void enter(ICreatureController entity) {
             entity.stopCreature();
-            entity.unassingCurrentTask();
+            entity.unassignCurrentTask();
         }
 
         @Override

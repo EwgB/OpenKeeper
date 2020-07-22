@@ -229,7 +229,7 @@ public class EngineTexturesFile implements Iterable<String> {
         } catch (IOException e) {
 
             //Fug
-            throw new RuntimeException("Faile to read the engine texture file!", e);
+            throw new RuntimeException("Failed to read the engine texture file!", e);
         }
 
         return result;

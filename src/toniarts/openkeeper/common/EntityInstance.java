@@ -99,7 +99,7 @@ public class EntityInstance<T> {
      * The matrix is build in room constraints, so you need to add the first
      * coordinate to the matrix coordinate to get the real world coordinate
      *
-     * @return coordinates as matrix, true value signifies presense of the room
+     * @return coordinates as matrix, true value signifies presence of the room
      * instance in the coordinate
      * @see #getCoordinates()
      * @see #getMatrixStartPoint()

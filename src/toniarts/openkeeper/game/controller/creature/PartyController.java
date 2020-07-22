@@ -148,13 +148,7 @@ public class PartyController implements IPartyController {
     private void checkPartyLeader() {
         if (leader != null && leader.isIncapacitated()) {
             List<ICreatureController> leaderCandidates = new ArrayList<>(getActualMembers());
-            Iterator<ICreatureController> iter = leaderCandidates.iterator();
-            while (iter.hasNext()) {
-                ICreatureController c = iter.next();
-                if (c.isIncapacitated()) {
-                    iter.remove();
-                }
-            }
+            leaderCandidates.removeIf(ICreatureController::isIncapacitated);
 
             // See if any left
             if (!leaderCandidates.isEmpty()) {

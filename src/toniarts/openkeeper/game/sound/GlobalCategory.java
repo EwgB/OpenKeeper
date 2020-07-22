@@ -62,8 +62,8 @@ public class GlobalCategory {
     private static final Logger LOGGER = Logger.getLogger(GlobalCategory.class.getName());
 
     /**
-     * @see toniarts.openkeeper.game.sound.GlobalCategory.* constants
-     * @return list of avaliable global categories
+     * @return list of available global categories
+     * @see toniarts.openkeeper.game.sound.GlobalCategory constants
      */
     public static List<String> getCategories() {
         List<String> categories = new ArrayList<>();

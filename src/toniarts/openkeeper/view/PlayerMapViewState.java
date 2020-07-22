@@ -263,10 +263,10 @@ public abstract class PlayerMapViewState extends AbstractAppState implements Map
 //    }
 //
 //    /**
-//     * Set some tiles selected/undelected
+//     * Set some tiles selected/undetected
 //     *
 //     * @param selectionArea the selection area
-//     * @param select select or unselect
+//     * @param select select or deselect
 //     * @param playerId the player who selected the tile
 //     */
 //    public void selectTiles(SelectionArea selectionArea, boolean select, short playerId) {
@@ -575,7 +575,7 @@ public abstract class PlayerMapViewState extends AbstractAppState implements Map
 //        if (instancePlots.size() * room.getCost() > gameState.getPlayer(player.getPlayerId()).getGoldControl().getGold()) {
 //            return;
 //        }
-//        substractGoldFromPlayer(cost, player.getPlayerId());
+//        subtractGoldFromPlayer(cost, player.getPlayerId());
 //
 //        // Build
 //        for (Point p : instancePlots) {
@@ -612,7 +612,7 @@ public abstract class PlayerMapViewState extends AbstractAppState implements Map
 //                // Merge to the first found room instance
 //                if (firstInstance == null) {
 //                    firstInstance = instance;
-//                    substractGoldCapacityFromPlayer(firstInstance); // Important to update the gold here
+//                    subtractGoldCapacityFromPlayer(firstInstance); // Important to update the gold here
 //                    firstInstance.addCoordinates(instancePlots);
 //                    for (Point p : instancePlots) {
 //                        mapLoader.getRoomCoordinates().put(p, firstInstance);
@@ -915,7 +915,7 @@ public abstract class PlayerMapViewState extends AbstractAppState implements Map
 //                    damage = (int) getLevelVariable(Variable.MiscVariable.MiscType.DIG_ENEMY_WALL_HEALTH);
 //                }
 //            } else if (tile.getGold() > 0) {
-//                // This is how I believe the gold mining works, it is not health damage we do, it is substracting gold
+//                // This is how I believe the gold mining works, it is not health damage we do, it is subtracting gold
 //                // The mined tiles leave no loot, the loot is left by the imps if there is no place to store the gold
 //                if (terrain.getFlags().contains(Terrain.TerrainFlag.IMPENETRABLE)) {
 //                    damage = (int) getLevelVariable(Variable.MiscVariable.MiscType.GOLD_MINED_FROM_GEMS);
@@ -951,7 +951,7 @@ public abstract class PlayerMapViewState extends AbstractAppState implements Map
 //        // See the results
 //        if (tileDestroyed) {
 //
-//            // TODO: effect, drop loot & checks, claimed walls should also get destroyed if all adjacent tiles are not in cotrol anymore
+//            // TODO: effect, drop loot & checks, claimed walls should also get destroyed if all adjacent tiles are not in control anymore
 //            // The tile is dead
 //            if (terrain.getDestroyedEffectId() != 0) {
 //                effectManager.load(worldNode,
@@ -1158,7 +1158,7 @@ public abstract class PlayerMapViewState extends AbstractAppState implements Map
 //                            WorldUtils.pointToVector3f(point).addLocal(0, MapLoader.FLOOR_HEIGHT, 0),
 //                            tile.getTerrain().getMaxHealthEffectId(), false);
 //
-//                    // FIXME ROOM_CLAIM_ID is realy claim effect?
+//                    // FIXME ROOM_CLAIM_ID is really claim effect?
 //                    effectManager.load(worldNode,
 //                            WorldUtils.pointToVector3f(p2).addLocal(0, MapLoader.FLOOR_HEIGHT, 0),
 //                            room.getRoom().getEffects().get(EffectManagerState.ROOM_CLAIM_ID), false);
@@ -1244,7 +1244,7 @@ public abstract class PlayerMapViewState extends AbstractAppState implements Map
 //        mapLoader.updateRoom(instance);
 //    }
 //
-//    private void substractGoldCapacityFromPlayer(RoomInstance instance) {
+//    private void subtractGoldCapacityFromPlayer(RoomInstance instance) {
 //        GenericRoom room = mapLoader.getRoomActuals().get(instance);
 //        if (room.canStoreGold()) {
 //            Keeper keeper = gameState.getPlayer(instance.getOwnerId());
@@ -1349,7 +1349,7 @@ public abstract class PlayerMapViewState extends AbstractAppState implements Map
 //
 //        // In the original game:
 //        // Floor: If the drop point is quite accurately on top of another pile of gold -> fuse the gold together. Otherwise create another pile, even to the same tile.
-//        // Room: Add to the room, but any excess gold IS added to the floor tile of the room as loose gold. This loose gold is then automatically transfered to the room when there is room with a small delay.
+//        // Room: Add to the room, but any excess gold IS added to the floor tile of the room as loose gold. This loose gold is then automatically transferred to the room when there is room with a small delay.
 //        // Merge to another loose gold
 //        if (control != null && control instanceof GoldObjectControl && ((GoldObjectControl) control).getState() == ObjectControl.ObjectState.NORMAL) {
 //
@@ -1369,13 +1369,13 @@ public abstract class PlayerMapViewState extends AbstractAppState implements Map
 //    }
 //
 //    /**
-//     * Substract gold from player
+//     * Subtract gold from player
 //     *
-//     * @param amount the amount to try to substract
+//     * @param amount the amount to try to subtract
 //     * @param playerId the player id
-//     * @return amount of money that could not be substracted from the player
+//     * @return amount of money that could not be subtracted from the player
 //     */
-//    public int substractGoldFromPlayer(int amount, short playerId) {
+//    public int subtractGoldFromPlayer(int amount, short playerId) {
 //
 //        // See if the player has any gold even
 //        Keeper keeper = gameState.getPlayer(playerId);

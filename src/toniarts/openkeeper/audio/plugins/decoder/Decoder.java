@@ -232,7 +232,7 @@ import java.io.InterruptedIOException;
  * (audio), Mp3 (audio), Mpeg1 (video), Mpeg2 (video), and Mpeg4 (video) in one
  * "Mpeg" plug-in. Also codecs should be reused to work in different plug-ins.
  *
- * @author	Michael Scheerer
+ * @author Michael Scheerer
  */
 public abstract class Decoder extends AudioInformation implements AudioHashkeys, Hashkeys, Events {
 
@@ -252,7 +252,7 @@ public abstract class Decoder extends AudioInformation implements AudioHashkeys,
     /**
      * Marks the integer id for the active seeking failed value, which is
      * returned from the
-     * <code>seek</code> method. An active seeking operation failes in case of a
+     * <code>seek</code> method. An active seeking operation fails in case of a
      * corrupted media stream.
      */
     public final static int ACTIVE_SEEKING_FAILED = -2;
@@ -268,12 +268,10 @@ public abstract class Decoder extends AudioInformation implements AudioHashkeys,
      * Constructs an instance of
      * <code>Decoder</code> with a
      * <code>MediaInformation</code> object containing all necessary
-     * informations about the media source.
+     * information about the media source.
      *
-     * @param control the <code>MediaControl</code> object containing all
-     * requests related to the audio decoding
-     * @param info the <code>MediaInformation</code> object containing all
-     * necessary informations about the media source
+     * @param info   the <code>MediaInformation</code> object containing all
+     *               necessary information about the media source
      * @param stream the input stream
      */
     protected Decoder(Frame info, InputStream stream) {
@@ -294,11 +292,11 @@ public abstract class Decoder extends AudioInformation implements AudioHashkeys,
      *
      * @param eventId an event id number as an integer value send by an
      *                overwritten
-     * method
+     *                method
      * @return an event id number as an integer value
-     * @exception IOException if an I/O error occurs
-     * @exception InterruptedIOException if the decoding process is interrupted
-     * caused by malformed media data
+     * @throws IOException            if an I/O error occurs
+     * @throws InterruptedIOException if the decoding process is interrupted
+     *                                caused by malformed media data
      */
     public int decodeFrame(int eventId) throws IOException {
 //        if (eventId != EOM_EVENT && eventId != SKIP_EVENT && stream != null) {
@@ -319,17 +317,16 @@ public abstract class Decoder extends AudioInformation implements AudioHashkeys,
      * big-endian, pcm audio data. This framework may be further developed to
      * support additional pcm output formats.
      *
-     *
      * @param b the buffer into which the data is read
      * @param i the start offset of the data
      * @param j the maximum number of bytes read
      * @return the total number of bytes read into, or -1 is there is no more
      * data because the end of the stream has been reached
-     * @exception IOException if an input or output error occurs
-     * @exception InterruptedIOException if the decoding process is interrupted
-     * caused by malformed media data
+     * @throws IOException            if an input or output error occurs
+     * @throws InterruptedIOException if the decoding process is interrupted
+     *                                caused by malformed media data
      */
-    public abstract int read(byte b[], int i, int j) throws IOException;
+    public abstract int read(byte[] b, int i, int j) throws IOException;
 
     /**
      * Reads up to a specified maximum number of bytes of data from the decoded
@@ -345,11 +342,11 @@ public abstract class Decoder extends AudioInformation implements AudioHashkeys,
      * @param b the buffer into which the data is read
      * @return the total number of bytes read into the buffer, or -1 if there is
      * no more data because the end of the stream has been reached
-     * @exception IOException if an input or output error occurs
-     * @exception InterruptedIOException if the decoding process is interrupted
-     * caused by malformed media data
+     * @throws IOException            if an input or output error occurs
+     * @throws InterruptedIOException if the decoding process is interrupted
+     *                                caused by malformed media data
      */
-    public abstract int read(byte b[]) throws IOException;
+    public abstract int read(byte[] b) throws IOException;
 
     /**
      * Updates audio analyze data or analyze mode dependent keywords, if an
@@ -368,15 +365,15 @@ public abstract class Decoder extends AudioInformation implements AudioHashkeys,
      * the actual playtime or seek position of the media. Normally the playtime
      * position calculation is different from the one of the seek position.
      *
-     * @param seeking seeking flag to distinguish the different calculation of
-     * the playtime and seek position
+     * @param seeking  seeking flag to distinguish the different calculation of
+     *                 the playtime and seek position
      * @param position the current byte position
      * @return the corrected byte position
      */
     public abstract long correctedBytePosition(long position, boolean seeking);
 
     /**
-     * Performs a seek operation and in consequents of this possible buffer
+     * Performs a seek operation and in consequence of this possible buffer
      * flush operations. There are two models of seeking media data:<br>
      * Passive and active seeking.
      * <p>
@@ -396,10 +393,10 @@ public abstract class Decoder extends AudioInformation implements AudioHashkeys,
      * during a seek operation.
      *
      * @param position the position to seek as a value between 0 and the media
-     * size in bytes
+     *                 size in bytes
      * @return the corrected incoming byte position parameter
      * <code>position</code> or an integer id if the seek operation is done
-     * @exception IOException if an IO error occurs
+     * @throws IOException if an IO error occurs
      * @see #ACTIVE_SEEKING_READY
      * @see #ACTIVE_SEEKING_FAILED
      * @see #ACTIVE_SEEKING_ABORTED
@@ -416,7 +413,7 @@ public abstract class Decoder extends AudioInformation implements AudioHashkeys,
     /**
      * Sets the decoder plugin to a given playtime in microseconds. Note that
      * this method activates a decoding and repainting of the video image
-     * assigned to the seek position at the choosen playtime in case of video
+     * assigned to the seek position at the chosen playtime in case of video
      * playback.
      *
      * @param playtime the given playtime in microseconds
@@ -433,12 +430,12 @@ public abstract class Decoder extends AudioInformation implements AudioHashkeys,
      * </ul>
      * or
      * <ul>
-     * <li>The source is setted but is not playing back</li>
+     * <li>The source is set but is not playing back</li>
      * <li>This framework is running in streaming mode</li>
      * </ul>
-     *
+     * <p>
      * If no value is fetched, the method returns a long array containing always
-     * <code>NO_VALUE</code>. In addition the source stream will be resetted to
+     * <code>NO_VALUE</code>. In addition the source stream will be reset to
      * the old read position.
      *
      * @return a long array with the current playtime on index 0 and the current
@@ -455,7 +452,7 @@ public abstract class Decoder extends AudioInformation implements AudioHashkeys,
      * <code>NO_VALUE</code>.
      *
      * @param playtime the playtime, which correspondents to the returned byte
-     * position
+     *                 position
      * @return the byte position or <code>NO_VALUE</code>
      * @see #NO_VALUE
      */

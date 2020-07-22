@@ -68,13 +68,13 @@ public class Workshop extends Normal {
     }
 
     @Override
-    protected void contructPillars(Node node) {
+    protected void constructPillars(Node node) {
 
         // We have very different logic than the normal
         // Go through all the points and see if they are fit for pillar placement
         for (Point p : roomInstance.getCoordinates()) {
 
-            // See that we have 2 "free" neigbouring tiles
+            // See that we have 2 "free" neighbouring tiles
             EnumSet<WallSection.WallDirection> freeDirections = EnumSet.noneOf(WallSection.WallDirection.class);
             if (!hasSameTile(map, p.x - start.x, p.y - start.y - 1)) { // North
                 freeDirections.add(WallSection.WallDirection.NORTH);

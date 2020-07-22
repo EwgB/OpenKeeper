@@ -50,7 +50,7 @@ public class Settings {
 
     public enum SecretLevelStatus {
 
-        NOT_DISCOVED, DISCOVERED, IN_PROGRESS
+        NOT_DISCOVERED, DISCOVERED, IN_PROGRESS
     }
 
     /**
@@ -62,7 +62,7 @@ public class Settings {
         LEVEL_NUMBER(Integer.class, 0, SettingCategory.CAMPAIGN),
         LEVEL_ATTEMPTS(Integer.class, 0, SettingCategory.CAMPAIGN),
         LEVEL_STATUS(LevelStatus.class, LevelStatus.NOT_COMPLETED, SettingCategory.CAMPAIGN),
-        SECRET_LEVEL_STATUS(LevelStatus.class, SecretLevelStatus.NOT_DISCOVED, SettingCategory.CAMPAIGN),
+        SECRET_LEVEL_STATUS(LevelStatus.class, SecretLevelStatus.NOT_DISCOVERED, SettingCategory.CAMPAIGN),
         MPD_LEVEL_STATUS(LevelStatus.class, LevelStatus.NOT_COMPLETED, SettingCategory.CAMPAIGN),
         // Graphic
         ANISOTROPY(Integer.class, 0, SettingCategory.GRAPHICS),
@@ -273,7 +273,7 @@ public class Settings {
         }
         this.settings.setFrameRate(Math.max(MAX_FPS, settings.getFrequency()));
 
-        // Assing some app level settings
+        // Assign some app level settings
         settings.setTitle(TITLE);
         settings.setIcons(getApplicationIcons().toArray(BufferedImage[]::new));
     }

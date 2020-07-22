@@ -56,7 +56,7 @@ public class AudioInformation extends MediaInformation implements AudioHashkeys 
     public final static String I_DEVICE_CHANNEL_NUMBER = "Integer deviceChannelNumber";
     /**
      * The sample size in bits value key dependent of the media source. The
-     * value is presetted to 16.
+     * value is preset to 16.
      */
     public final static String I_SAMPLE_SIZE = "Integer sampleSize";
     /**
@@ -90,17 +90,17 @@ public class AudioInformation extends MediaInformation implements AudioHashkeys 
     public final static String I_CHANNEL_NUMBER = "Integer channelNumber";
     /**
      * The big-endian key of the current, internally used, uncompressed pcm
-     * audio data endian flag. The big-endian flag is presetted to true.
+     * audio data endian flag. The big-endian flag is preset to true.
      */
     public final static String B_BIG_ENDIAN = "Boolean bigEndian";
     /**
      * The signed key of the current, internally used, uncompressed pcm audio
-     * data signed flag. The signed flag is presetted to true.
+     * data signed flag. The signed flag is preset to true.
      */
     public final static String B_SIGNED = "Boolean signed";
     /**
-     * The vbr value key of the current audio content. This value indicates, if
-     * the audio content is variable bitrated.
+     * The vbr value key of the current audio content. This value indicates whether
+     * the audio content has a variable bitrate.
      */
     public final static String B_VBR_AUDIO = "Boolean vbrAudio";
 

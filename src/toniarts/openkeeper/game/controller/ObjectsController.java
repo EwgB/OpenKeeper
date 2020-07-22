@@ -231,7 +231,7 @@ public class ObjectsController implements IObjectsController {
     public IObjectController createController(EntityId entityId) {
         ObjectComponent objectComponent = entityData.getComponent(entityId, ObjectComponent.class);
         if (objectComponent == null) {
-            throw new RuntimeException("Entity " + entityId + " doesn't represent a object!");
+            throw new RuntimeException("Entity " + entityId + " doesn't represent an object!");
         }
         return new ObjectController(entityId, entityData, kwdFile.getObject(objectComponent.objectId), this, gameController.getGameWorldController().getMapController());
     }

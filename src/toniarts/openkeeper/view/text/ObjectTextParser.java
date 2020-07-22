@@ -20,7 +20,7 @@ import com.simsilica.es.Entity;
 import toniarts.openkeeper.tools.convert.map.GameObject;
 
 /**
- * Parses text where the entity is based on a Object data object
+ * Parses text where the entity is based on an Object data object
  *
  * @author Toni Helenius <helenius.toni@gmail.com>
  */

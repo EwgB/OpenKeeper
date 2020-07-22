@@ -17,7 +17,7 @@
 package toniarts.openkeeper.game.controller.room;
 
 /**
- * Signifies that a room generates yummy yammy chickens :P
+ * Signifies that a room generates yummy yummy chickens :P
  *
  * @author Toni Helenius <helenius.toni@gmail.com>
  */

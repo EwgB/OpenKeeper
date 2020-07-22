@@ -131,7 +131,7 @@ public abstract class RoomGoldControl extends RoomObjectControl<GoldObjectContro
     public void removeItem(GoldObjectControl object) {
         super.removeItem(object);
 
-        // Substract the gold from the player
+        // Subtract the gold from the player
 //        parent.getWorldState().getGameState().getPlayer(parent.getRoomInstance().getOwnerId()).getGoldControl().subGold(object.getGold());
         storedGold -= object.getGold();
         if (object.getGold() == 0) {
@@ -154,7 +154,7 @@ public abstract class RoomGoldControl extends RoomObjectControl<GoldObjectContro
                 amount -= goldToRemove;
                 goldObjectControl.setGold(goldObjectControl.getGold() - goldToRemove);
 
-                // Substract the gold from the player
+                // Subtract the gold from the player
 //                parent.getWorldState().getGameState().getPlayer(parent.getRoomInstance().getOwnerId()).getGoldControl().subGold(goldToRemove);
                 storedGold -= goldToRemove;
 

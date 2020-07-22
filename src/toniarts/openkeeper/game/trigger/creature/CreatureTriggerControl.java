@@ -125,7 +125,7 @@ public class CreatureTriggerControl extends AbstractThingTriggerControl<ICreatur
                 return false;
             case CREATURE_PICKS_UP_PORTAL_GEM:
                 if (instanceControl != null) {
-                    return instanceControl.isPortalGemInPosession();
+                    return instanceControl.isPortalGemInPossession();
                 }
                 return false;
             case CREATURE_SACKED:

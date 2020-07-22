@@ -510,7 +510,7 @@ public class MainMenuState extends AbstractAppState {
         //Loop them through
         for (DisplayMode dm : modes) {
 
-            //They may already exist, then just add the possible resfresh rate
+            //They may already exist, then just add the possible refresh rate
             MyDisplayMode mdm = new MyDisplayMode(dm);
             if (displayModes.contains(mdm)) {
                 mdm = displayModes.get(displayModes.indexOf(mdm));
@@ -547,7 +547,7 @@ public class MainMenuState extends AbstractAppState {
 
             // Generate
             try {
-                AssetsConverter.genererateMapThumbnail(map, AssetsConverter.getAssetsFolder() + AssetsConverter.MAP_THUMBNAILS_FOLDER + File.separator);
+                AssetsConverter.generateMapThumbnail(map, AssetsConverter.getAssetsFolder() + AssetsConverter.MAP_THUMBNAILS_FOLDER + File.separator);
             } catch (Exception e) {
                 LOGGER.log(java.util.logging.Level.WARNING, "Failed to generate map file out of {0}!", map);
                 asset = "Textures/Unique_NoTextureName.png";

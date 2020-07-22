@@ -138,13 +138,13 @@ public class CreatureRayCastCollisionDetector implements RaycastCollisionDetecto
 //            CollisionResults results = new CollisionResults();
 //            ((Node) world.getWorld().getChild(MAP_NODE)).getChild(TERRAIN_NODE).collideWith(ray, results);
 //            if (results.size() > 0) {
-//                CollisionResult collission = results.getClosestCollision();
-//                if (collission.getDistance() > ray.getLimit()) {
+//                CollisionResult collision = results.getClosestCollision();
+//                if (collision.getDistance() > ray.getLimit()) {
 //                    return false;
 //                }
 //                if (outputCollision != null) {
-//                    outputCollision.normal = new Vector2(collission.getContactNormal().x, collission.getContactNormal().z);
-//                    outputCollision.point = new Vector2(collission.getContactPoint().x, collission.getContactPoint().z);
+//                    outputCollision.normal = new Vector2(collision.getContactNormal().x, collision.getContactNormal().z);
+//                    outputCollision.point = new Vector2(collision.getContactPoint().x, collision.getContactPoint().z);
 //                }
 //            }
 //            return (results.size() != 0);

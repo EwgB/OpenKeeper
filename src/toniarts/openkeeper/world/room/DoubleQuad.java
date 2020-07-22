@@ -48,7 +48,7 @@ public class DoubleQuad extends GenericRoom {
         BatchNode root = new BatchNode();
         String modelName = roomInstance.getRoom().getCompleteResource().getName();
         //Point start = roomInstance.getCoordinates().get(0);
-        // Contruct the tiles
+        // Construct the tiles
         for (Point p : roomInstance.getCoordinates()) {
             // Figure out which peace by seeing the neighbours
             boolean N = roomInstance.hasCoordinate(new Point(p.x, p.y - 1));
@@ -99,7 +99,7 @@ public class DoubleQuad extends GenericRoom {
                 Vector3f movement;
                 // Determine the piece
                 if (i == 0 && k == 0) { // North west corner
-                    if (N && NE && NW && E && SE && S && SW && W && NW) {
+                    if (N && NE && NW && E && SE && S && SW && W) {
                         piece = 13;
                     } else if (N && E && S && W && NW && !SE) {
                         piece = 12;
@@ -116,16 +116,16 @@ public class DoubleQuad extends GenericRoom {
                     } else if (N && !W) {
                         piece = 0;
                         yAngle = FastMath.HALF_PI;
-                    } else if (N && W && (!S || !SW)) {
+                    } else if (N && (!S || !SW)) {
                         piece = 10;
                         yAngle = FastMath.PI;
-                    } else if (N && W && (!E || !NE)) {
+                    } else if (N && (!E || !NE)) {
                         piece = 10;
                         yAngle = -FastMath.HALF_PI;
                     }
                     movement = new Vector3f(-MapLoader.TILE_WIDTH / 4, 0, -MapLoader.TILE_WIDTH / 4);
                 } else if (i == 1 && k == 0) { // North east corner
-                    if (N && NE && NW && E && SE && S && SW && W && NW) {
+                    if (N && NE && NW && E && SE && S && SW && W) {
                         piece = 13;
                     } else if (N && NE && E && S && W && !SW) {
                         piece = 12;
@@ -139,16 +139,16 @@ public class DoubleQuad extends GenericRoom {
                     } else if (N && !E) {
                         piece = 0;
                         yAngle = -FastMath.HALF_PI;
-                    } else if (N && E && (!S || !SE)) {
+                    } else if (N && (!S || !SE)) {
                         piece = 10;
                         yAngle = FastMath.PI;
-                    } else if (N && E && (!W || !NW)) {
+                    } else if (N && (!W || !NW)) {
                         piece = 10;
                         yAngle = FastMath.HALF_PI;
                     }
                     movement = new Vector3f(MapLoader.TILE_WIDTH / 4, 0, -MapLoader.TILE_WIDTH / 4);
-                } else if (i == 0 && k == 1) { // South west corner
-                    if (N && NE && NW && E && SE && S && SW && W && NW) {
+                } else if (i == 0) { // South west corner
+                    if (N && NE && NW && E && SE && S && SW && W) {
                         piece = 13;
                     } else if (N && E && S && SW && W && !NE) {
                         piece = 12;
@@ -161,21 +161,21 @@ public class DoubleQuad extends GenericRoom {
                         yAngle = FastMath.PI;
                     } else if (!N && !E && SW) {
                         piece = 11;
-                    } else if (!N && !W && S) {
+                    } else if (!N && !W) {
                         piece = 0;
                         yAngle = FastMath.HALF_PI;
                     } else if (W && !S) {
                         piece = 0;
                         yAngle = FastMath.PI;
-                    } else if (S && W && (!E || !SE)) {
+                    } else if (W && (!E || !SE)) {
                         piece = 10;
                         yAngle = -FastMath.HALF_PI;
-                    } else if (S && W && (!N || !NW)) {
+                    } else if (W && (!N || !NW)) {
                         piece = 10;
                     }
                     movement = new Vector3f(-MapLoader.TILE_WIDTH / 4, 0, MapLoader.TILE_WIDTH / 4);
                 } else { // South east corner  if (i == 1 && k == 1)
-                    if (N && NE && NW && E && SE && S && SW && W && NW) {
+                    if (N && NE && NW && E && SE && S && SW && W) {
                         piece = 13;
                     } else if (N && E && SE && S && W && !NW) {
                         piece = 12;
@@ -189,16 +189,16 @@ public class DoubleQuad extends GenericRoom {
                     } else if (!N && !W && SE) {
                         piece = 11;
                         yAngle = FastMath.HALF_PI;
-                    } else if (!N && !E && S) {
+                    } else if (!N && !E) {
                         piece = 0;
                         yAngle = -FastMath.HALF_PI;
                     } else if (E && !S) {
                         piece = 0;
                         yAngle = FastMath.PI;
-                    } else if (E && S && (!W || !SW)) {
+                    } else if (E && (!W || !SW)) {
                         piece = 10;
                         yAngle = FastMath.HALF_PI;
-                    } else if (E && S && (!N || !NE)) {
+                    } else if (E && (!N || !NE)) {
                         piece = 10;
                     }
                     movement = new Vector3f(MapLoader.TILE_WIDTH / 4, 0, MapLoader.TILE_WIDTH / 4);

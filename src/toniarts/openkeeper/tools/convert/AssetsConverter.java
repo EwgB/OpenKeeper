@@ -92,7 +92,7 @@ public abstract class AssetsConverter implements IConversionTaskUpdate {
     }
     private final String dungeonKeeperFolder;
     private final AssetManager assetManager;
-    private static final boolean OVERWRITE_DATA = true; // Not exhausting your SDD :) or our custom graphics
+    private static final boolean OVERWRITE_DATA = true; // Not exhausting your SSD :) or our custom graphics
     private static final String ASSETS_FOLDER = "assets" + File.separator + "Converted";
     private static final String ABSOLUTE_ASSETS_FOLDER = getCurrentFolder() + ASSETS_FOLDER + File.separator;
 
@@ -173,7 +173,7 @@ public abstract class AssetsConverter implements IConversionTaskUpdate {
     public boolean convertAssets() {
         long start = System.currentTimeMillis();
         String currentFolder = getCurrentFolder();
-        LOGGER.log(Level.INFO, "Starting asset convertion from DK II folder: {0}", dungeonKeeperFolder);
+        LOGGER.log(Level.INFO, "Starting asset conversion from DK II folder: {0}", dungeonKeeperFolder);
         LOGGER.log(Level.INFO, "Current folder set to: {0}", currentFolder);
 
         // Create an assets folder
@@ -268,12 +268,12 @@ public abstract class AssetsConverter implements IConversionTaskUpdate {
     /**
      * Generates a map thumbnail out of the given map file
      *
-     * @param kwd map file
+     * @param kwd         map file
      * @param destination the folder to save to
      * @throws IOException may fail
      */
-    public static void genererateMapThumbnail(KwdFile kwd, String destination) throws IOException {
-        ConvertMapThumbnails.genererateMapThumbnail(kwd, destination);
+    public static void generateMapThumbnail(KwdFile kwd, String destination) throws IOException {
+        ConvertMapThumbnails.generateMapThumbnail(kwd, destination);
     }
 
 }

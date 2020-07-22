@@ -290,7 +290,7 @@ public class AnimationLoader {
             child.setCullHint(Spatial.CullHint.Always);
 
             // Also stop any animations
-            AnimControl animControl = (AnimControl) child.getControl(AnimControl.class);
+            AnimControl animControl = child.getControl(AnimControl.class);
             if (animControl != null) {
                 animControl.setEnabled(false);
             }

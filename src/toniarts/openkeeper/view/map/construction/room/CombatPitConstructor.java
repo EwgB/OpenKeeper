@@ -45,7 +45,7 @@ public class CombatPitConstructor extends DoubleQuadConstructor {
         BatchNode root = new BatchNode();
         String modelName = roomInstance.getRoom().getCompleteResource().getName();
 
-        // Contruct the tiles
+        // Construct the tiles
         boolean door = false;
         for (int y = 0; y < map[0].length; y++) {
             for (int x = 0; x < map.length; x++) {

@@ -353,34 +353,34 @@ public abstract class MapViewController implements ILoader<KwdFile> {
         Terrain terrain = getTerrain(tile);
         String modelName = terrain.getSideResource().getName();
         Point p = tile.getLocation();
-        MapTile neigbourTile;
+        MapTile neighbourTile;
         switch (direction) {
             case NORTH:
-                neigbourTile = getMapData().getTile(p.x, p.y - 1);
+                neighbourTile = getMapData().getTile(p.x, p.y - 1);
                 break;
             case SOUTH:
-                neigbourTile = getMapData().getTile(p.x, p.y + 1);
+                neighbourTile = getMapData().getTile(p.x, p.y + 1);
                 break;
             case EAST:
-                neigbourTile = getMapData().getTile(p.x + 1, p.y);
+                neighbourTile = getMapData().getTile(p.x + 1, p.y);
                 break;
             default: // WEST
-                neigbourTile = getMapData().getTile(p.x - 1, p.y);
+                neighbourTile = getMapData().getTile(p.x - 1, p.y);
                 break;
         }
         // Check for out of bounds
-        if (neigbourTile == null) {
+        if (neighbourTile == null) {
             return loadModel(modelName);
         }
 
-        if (getTerrain(neigbourTile).getFlags().contains(Terrain.TerrainFlag.SOLID)) {
+        if (getTerrain(neighbourTile).getFlags().contains(Terrain.TerrainFlag.SOLID)) {
             return null;
         }
 
         if (!(terrain.getFlags().contains(Terrain.TerrainFlag.ALLOW_ROOM_WALLS))) {
             return loadModel(modelName);
-        } else if (hasRoomWalls(neigbourTile)) {
-            return getRoomWall(neigbourTile, direction);
+        } else if (hasRoomWalls(neighbourTile)) {
+            return getRoomWall(neighbourTile, direction);
         }
 
         return loadModel(modelName);
@@ -814,10 +814,10 @@ public abstract class MapViewController implements ILoader<KwdFile> {
     }
 
     /**
-     * Sets material lighting accorting to the terrain setting
+     * Sets material lighting according to the terrain setting
      *
      * @param material the material to adjust
-     * @param terrain the terrain data
+     * @param terrain  the terrain data
      */
     public static void setTerrainMaterialLighting(Material material, Terrain terrain) {
 

@@ -443,7 +443,7 @@ public class Variable {
             BOULDER_FEAR_AMOUNT(161), // value=701
             BOULDER_FEAR_RANGE(162), // value=4
             DRUNK_CHANCE_PERCENTAGE_PER_DRINK(163), // value=5
-            INCREASED_WORK_RATE_PECENTAGE_FROM_SLAPPING(164), // value=50
+            INCREASED_WORK_RATE_PERCENTAGE_FROM_SLAPPING(164), // value=50
             INCREASED_WORK_RATE_DURATION_FROM_SLAPPING_SECONDS(165), // value=60
             DUNGEON_HEART_MAX_MANA_INCREASE(166), // value=32000
             DUNGEON_HEART_MANA_GENERATION_INCREASE_PER_SECOND(167), // value=30
@@ -774,7 +774,7 @@ public class Variable {
         public String toString() {
             return "Sacrifice{" + "type_1=" + type1 + ", id_1=" + id1 + ", type_2=" + type2 + ", id_2=" + id2
                     + ", type_3=" + type3 + ", id_3=" + id3 + ", rewardType=" + rewardType
-                    + ", speeachId=" + speechId + ", rewardValue=" + rewardValue + '}';
+                    + ", speechId=" + speechId + ", rewardValue=" + rewardValue + '}';
         }
     }
 }

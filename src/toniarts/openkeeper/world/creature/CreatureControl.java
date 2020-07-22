@@ -107,7 +107,7 @@ public abstract class CreatureControl extends AbstractCreatureSteeringControl im
     protected float speed;
     protected float runSpeed;
     protected float tortureTimeToConvert;
-    protected int posessionManaCost;
+    protected int possessionManaCost;
     protected int ownLandHealthIncrease;
     protected float distanceCanHear;
     protected float meleeRecharge;
@@ -607,7 +607,7 @@ public abstract class CreatureControl extends AbstractCreatureSteeringControl im
 
     public void die() {
         stop();
-        dropPosession();
+        dropPossession();
 
         // Notify
         onDie(CreatureControl.this);
@@ -615,8 +615,8 @@ public abstract class CreatureControl extends AbstractCreatureSteeringControl im
 
     private void removeCreature() {
 
-        // Unassing any tasks
-        unassingCurrentTask();
+        // Unassign any tasks
+        unassignCurrentTask();
 
         // Remove lair
         if (creatureLair != null) {
@@ -709,7 +709,7 @@ public abstract class CreatureControl extends AbstractCreatureSteeringControl im
         speed = attributes.getSpeed() * ((stats != null ? stats.get(Variable.CreatureStats.StatType.SPEED_TILES_PER_SECOND).getValue() : 100) / 100);
         runSpeed = attributes.getRunSpeed() * ((stats != null ? stats.get(Variable.CreatureStats.StatType.RUN_SPEED_TILES_PER_SECOND).getValue() : 100) / 100);
         tortureTimeToConvert = attributes.getTortureTimeToConvert() * ((stats != null ? stats.get(Variable.CreatureStats.StatType.TORTURE_TIME_TO_CONVERT_SECONDS).getValue() : 100) / 100);
-        posessionManaCost = attributes.getPossessionManaCost() * ((stats != null ? stats.get(Variable.CreatureStats.StatType.POSSESSION_MANA_COST_PER_SECOND).getValue() : 100) / 100);
+        possessionManaCost = attributes.getPossessionManaCost() * ((stats != null ? stats.get(Variable.CreatureStats.StatType.POSSESSION_MANA_COST_PER_SECOND).getValue() : 100) / 100);
         ownLandHealthIncrease = attributes.getOwnLandHealthIncrease() * ((stats != null ? stats.get(Variable.CreatureStats.StatType.OWN_LAND_HEALTH_INCREASE_PER_SECOND).getValue() : 100) / 100);
         distanceCanHear = attributes.getDistanceCanHear() * ((stats != null ? stats.get(Variable.CreatureStats.StatType.DISTANCE_CAN_HEAR_TILES).getValue() : 100) / 100);
         // TODO initialGoldHeld = attributes.getInitialGoldHeld() * ((stats != null ? stats.get(Variable.CreatureStats.StatType.INITIAL_GOLD_HELD).getValue() : 100) / 100);
@@ -757,13 +757,13 @@ public abstract class CreatureControl extends AbstractCreatureSteeringControl im
     public void setAssignedTask(Task task) {
 
         // Unassign previous task
-        unassingCurrentTask();
+        unassignCurrentTask();
 
         assignedTask = task;
         workNavigationRequired = true;
     }
 
-    public void unassingCurrentTask() {
+    public void unassignCurrentTask() {
 //        if (assignedTask != null) {
 //            assignedTask.unassign(this);
 //        }
@@ -888,7 +888,7 @@ public abstract class CreatureControl extends AbstractCreatureSteeringControl im
      *
      * @param gold the amount of gold to remove
      */
-    public void substractGold(int gold) {
+    public void subtractGold(int gold) {
         this.gold -= gold;
     }
 
@@ -903,7 +903,7 @@ public abstract class CreatureControl extends AbstractCreatureSteeringControl im
 //            return (worldState.getTaskManager().assignTask(this, false));
         }
 
-        // See that is there a prefered job for us
+        // See that is there a preferred job for us
         // FIXME: moods
         List<Creature.JobPreference> jobs = new ArrayList<>();
         if (creature.getHappyJobs() != null) {
@@ -1154,7 +1154,7 @@ public abstract class CreatureControl extends AbstractCreatureSteeringControl im
 
         // Stop everything
         stateMachine.changeState(CreatureState.PICKED_UP);
-        unassingCurrentTask();
+        unassignCurrentTask();
         steeringBehavior = null;
         setEnabled(false);
 
@@ -1532,7 +1532,7 @@ public abstract class CreatureControl extends AbstractCreatureSteeringControl im
      * Apply damage
      *
      * @param damage amount of damage
-     * @return true if we dieded
+     * @return true if we died
      */
     private boolean applyDamage(int damage) {
         health -= Math.min(damage, health);
@@ -1544,7 +1544,7 @@ public abstract class CreatureControl extends AbstractCreatureSteeringControl im
             }
 
             // Die :(
-            // If we are the objective to kill, we'll die immidiately
+            // If we are the objective to kill, we'll die immediately
             if (stateMachine.isInState(CreatureState.TORTURED)
                     || stateMachine.isInState(CreatureState.IMPRISONED)) {
                 stateMachine.changeState(CreatureState.DEAD);
@@ -1635,18 +1635,18 @@ public abstract class CreatureControl extends AbstractCreatureSteeringControl im
     }
 
     /**
-     * Has the crature got the portal gem
+     * Has the creature got the portal gem
      *
-     * @return true if posesses the portal gem
+     * @return true if possesses the portal gem
      */
     public boolean isPortalGem() {
         return hasPortalGem;
     }
 
     /**
-     * Drops the creature posession
+     * Drops the creature possession
      */
-    private void dropPosession() {
+    private void dropPossession() {
         dropGold();
         dropPortalGem();
     }

@@ -39,7 +39,7 @@ public class Keeper implements Comparable<Keeper>, IIndexable, Savable {
     private int goldMined;
     private int mana;
     private int manaGain;
-    private int manaLoose;
+    private int manaLoss;
     private int maxMana;
     private Point dungeonHeartLocation;
     private List<ResearchableEntity> availableRooms = new ArrayList<>();
@@ -97,12 +97,12 @@ public class Keeper implements Comparable<Keeper>, IIndexable, Savable {
         return manaGain;
     }
 
-    public void setManaLoose(int manaLoose) {
-        this.manaLoose = manaLoose;
+    public void setManaLoss(int manaLoss) {
+        this.manaLoss = manaLoss;
     }
 
-    public int getManaLoose() {
-        return manaLoose;
+    public int getManaLoss() {
+        return manaLoss;
     }
 
     public void setPlayer(Player player) {
@@ -151,7 +151,7 @@ public class Keeper implements Comparable<Keeper>, IIndexable, Savable {
 
     /**
      * Is the player an ally of us. If not, it is not necessarily the enemy. But
-     * we do not share vision, battless etc. with non-allies
+     * we do not share vision, battles etc. with non-allies
      *
      * @param playerId the other player
      * @return is the player an ally of ours
@@ -251,7 +251,7 @@ public class Keeper implements Comparable<Keeper>, IIndexable, Savable {
         out.write(goldMined, "goldMined", 0);
         out.write(mana, "mana", 0);
         out.write(manaGain, "manaGain", 0);
-        out.write(manaLoose, "manaLoose", 0);
+        out.write(manaLoss, "manaLoss", 0);
         out.write(maxMana, "maxMana", 0);
         out.write(dungeonHeartLocation != null ? dungeonHeartLocation.x : 0, "dungeonHeartLocationX", 0);
         out.write(dungeonHeartLocation != null ? dungeonHeartLocation.y : 0, "dungeonHeartLocationY", 0);
@@ -275,7 +275,7 @@ public class Keeper implements Comparable<Keeper>, IIndexable, Savable {
         goldMined = in.readInt("goldMined", goldMined);
         mana = in.readInt("mana", mana);
         manaGain = in.readInt("manaGain", manaGain);
-        manaLoose = in.readInt("manaLoose", manaLoose);
+        manaLoss = in.readInt("manaLoss", manaLoss);
         maxMana = in.readInt("maxMana", maxMana);
         int x = in.readInt("dungeonHeartLocationX", 0);
         int y = in.readInt("dungeonHeartLocationY", 0);

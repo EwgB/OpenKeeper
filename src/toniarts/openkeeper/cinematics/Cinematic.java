@@ -232,7 +232,7 @@ public class Cinematic extends com.jme3.cinematic.Cinematic {
         // Set the rotation
         cam.setRotation(entry.getRotation());
 
-        // FIXME: Near should be the very minimun needed, how to use the original near info
+        // FIXME: Near should be the very minimum needed, how to use the original near info
         // Set the near & FOV
         //cam.setFrustumNear(entry.getNear() / 4096f);
         cam.setFrustumPerspective(entry.getFov(), (float) cam.getWidth() / cam.getHeight(), 0.1f, 100f);

@@ -45,11 +45,11 @@ public interface IPlayerActions {
     public void sell(Vector2f start, Vector2f end, short playerId);
 
     /**
-     * Set some tiles selected/undelected
+     * Set some tiles selected/undetected
      *
-     * @param start start coordinates
-     * @param end end coordinates
-     * @param select select or unselect
+     * @param start    start coordinates
+     * @param end      end coordinates
+     * @param select   select or deselect
      * @param playerId the player who selected the tile
      */
     public void selectTiles(Vector2f start, Vector2f end, boolean select, short playerId);

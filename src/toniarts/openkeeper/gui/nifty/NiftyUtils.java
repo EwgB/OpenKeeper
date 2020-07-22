@@ -39,11 +39,11 @@ public class NiftyUtils {
     }
 
     /**
-     * After changing label text, you need to resize its contstraints
+     * After changing label text, you need to resize its constraints
      *
      * @param label the label
      */
-    public static void resetContraints(Label label) {
+    public static void resetConstraints(Label label) {
         TextRenderer renderer = label.getElement().getRenderer(TextRenderer.class);
         label.setHeight(new SizeValue(renderer.getTextHeight() + "px"));
         label.setWidth(new SizeValue(renderer.getTextWidth() + "px"));

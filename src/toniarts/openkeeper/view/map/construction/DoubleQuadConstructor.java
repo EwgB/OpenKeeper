@@ -43,7 +43,7 @@ public class DoubleQuadConstructor extends RoomConstructor {
         BatchNode root = new BatchNode();
         String modelName = roomInstance.getRoom().getCompleteResource().getName();
 
-        // Contruct the tiles
+        // Construct the tiles
         for (int y = 0; y < map[0].length; y++) {
             for (int x = 0; x < map.length; x++) {
 

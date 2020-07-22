@@ -29,11 +29,11 @@ import java.util.Set;
 public interface IMapController extends IMapInformation, IGameLogicUpdatable {
 
     /**
-     * Set some tiles selected/undelected
+     * Set some tiles selected/undetected
      *
-     * @param start start coordinates
-     * @param end end coordinates
-     * @param select select or unselect
+     * @param start    start coordinates
+     * @param end      end coordinates
+     * @param select   select or deselect
      * @param playerId the player who selected the tile
      */
     void selectTiles(Vector2f start, Vector2f end, boolean select, short playerId);
@@ -99,7 +99,7 @@ public interface IMapController extends IMapInformation, IGameLogicUpdatable {
      * interface or design controllers so that they share data
      *
      * @param roomInstance the room instance
-     * @return room controller associaced to the given instance
+     * @return room controller associated with the given instance
      */
     public IRoomController getRoomController(RoomInstance roomInstance);
 

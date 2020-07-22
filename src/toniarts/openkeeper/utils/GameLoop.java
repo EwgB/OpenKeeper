@@ -77,9 +77,9 @@ public class GameLoop {
     /**
      * Sets the period of time in milliseconds that the update loop will wait
      * between time interval checks. This defaults to 0 because on Windows the
-     * default 60 FPS update rate will cause frame drops for a idle sleep time
-     * of 1 or more. However, 0 causes the loop to consume a noticable amount of
-     * CPU. For lower framerates, 1 is recommended and will be set automically
+     * default 60 FPS update rate will cause frame drops for an idle sleep time
+     * of 1 or more. However, 0 causes the loop to consume a noticeable amount of
+     * CPU. For lower framerates, 1 is recommended and will be set automatically
      * based on the current frame rate interval if null is specified.
      *
      * @param millis

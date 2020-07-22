@@ -81,7 +81,7 @@ public class ConversionTaskManager {
         // Get root nodes to start the processing
         List<TaskNode> rootNodes = graph.getRootNodes();
 
-        // Prioritize tasks so that have higher amount of dependendant (initial) tasks get the priority
+        // Prioritize tasks so that have higher amount of dependant (initial) tasks get the priority
         sortNodesChildCountDesc(rootNodes);
             synchronized (graph) {
                 for (TaskNode node : rootNodes) {

@@ -48,7 +48,7 @@ public final class Spline {
     /**
      * Resets the
      * <code>Spline</code> class and frees all system resources including the
-     * setted number arrays, which are bounded to this object.
+     * set number arrays, which are bounded to this object.
      */
     public void close() {
         x = null;

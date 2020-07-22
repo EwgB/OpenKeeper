@@ -59,18 +59,18 @@ public final class Pose implements Savable, Cloneable {
     }
 
     /**
-     * Get the vertice offsets
+     * Get the vertex offsets
      *
-     * @return the vertice offsets
+     * @return the vertex offsets
      */
     public Vector3f[] getOffsets() {
         return offsets;
     }
 
     /**
-     * Get the vertice indices
+     * Get the vertex indices
      *
-     * @return the vertice indices
+     * @return the vertex indices
      */
     public int[] getIndices() {
         return indices;

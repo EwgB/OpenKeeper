@@ -124,7 +124,7 @@ public class TriggerGeneric extends Trigger {
         LEVEL_PLAYED(67), // Attribute, This level's...
         PLAYER_ROOM_FURNITURE(68), // Player
         AP_TAG_ALL_OF(69), // Action point
-        AP_POSESSED_CREATURE_ENTERS(70), // Action point
+        AP_POSSESSED_CREATURE_ENTERS(70), // Action point
         PLAYER_SLAPS(71), // Player
         GUI_TRANSITION_ENDS(72), // GUI
         PLAYER_CREATURES_GROUPED(73), // Player
@@ -142,9 +142,9 @@ public class TriggerGeneric extends Trigger {
 
         @Override
         public String toString() {
-            String[] splitted = name().split("_");
+            String[] split = name().split("_");
             String result = "";
-            for (String s : splitted) {
+            for (String s : split) {
                 result = result.concat(" ").concat(s.substring(0, 1).toUpperCase()).concat(s.substring(1).toLowerCase());
             }
             return result.trim();

@@ -93,7 +93,7 @@ public class ConvertPaths extends ConversionTask {
                     List<CameraSweepDataEntry> entries = new ArrayList<>(kcsFile.getKcsEntries().size());
                     for (KcsEntry kcsEntry : kcsFile.getKcsEntries()) {
 
-                        // Convert the rotation matrix to quatenion
+                        // Convert the rotation matrix to quaternion
                         Matrix3f mat = new Matrix3f();
                         Vector3f direction = ConversionUtils.convertVector(kcsEntry.getDirection());
                         Vector3f left = ConversionUtils.convertVector(kcsEntry.getLeft());

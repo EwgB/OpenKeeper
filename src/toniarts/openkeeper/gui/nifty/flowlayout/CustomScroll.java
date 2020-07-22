@@ -34,7 +34,7 @@ import java.util.List;
 
 /**
  * Creates a scrollable area with multiple rows. Has its own scroll controls and
- * streches the contents to fill maximum area. Spans to multiple rows before
+ * stretches the contents to fill maximum area. Spans to multiple rows before
  * resorting to scrolling. Works only horizontally.<br>
  * Differs a bit from the original DK 2 component, the scrolling should be more
  * intuitive

@@ -56,13 +56,13 @@ public class GameConsole {
     };
 
     /**
-     * These commands don't have parameter
+     * These commands don't have parameters
      */
     private enum SimpleCommands {
         CLEAR,
         EXIT,
         HELP,
-        LOOSE_LEVEL,
+        LOSE_LEVEL,
         LEVEL_MAX,
         SPAWN_IMP,
         UNLOCK_ROOMS,
@@ -133,7 +133,7 @@ public class GameConsole {
                 case HELP:
                     showHelpMessage();
                     break;
-                case LOOSE_LEVEL:
+                case LOSE_LEVEL:
                     stateManager.getState(GameState.class).setEnd(false);
                     break;
                 case SPAWN_IMP:

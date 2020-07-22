@@ -34,7 +34,7 @@ import java.io.InputStream;
 final class Header {
 
     private final static int MAXIMUM_TAGSIZE = 256000000;
-    private boolean unsynchronizated;
+    private boolean unsynchronized;
     private boolean extendedHeader;
     private boolean experimental;
     private boolean footer;
@@ -67,7 +67,7 @@ final class Header {
                     throw new TagException("Wrong ID3v2 version");
                 }
                 i = read(stream) & 0xFF;
-                unsynchronizated = (i >>> 7 & 0x1) == 1;
+                unsynchronized = (i >>> 7 & 0x1) == 1;
                 if (version >= 3) {
                     extendedHeader = (i >>> 6 & 0x1) == 1;
                     experimental = (i >>> 5 & 0x1) == 1;
@@ -124,7 +124,7 @@ final class Header {
                 }
             } else {
                 tag.setSkippedDataLength(skippedDataLength);
-                throw new TagException("Maleformed ID3v2 header");
+                throw new TagException("Malformed ID3v2 header");
             }
         } else {
             throw new TagException("No ID3v2 header");
@@ -135,8 +135,8 @@ final class Header {
         }
     }
 
-    boolean isUnsynchronizated() {
-        return unsynchronizated;
+    boolean isUnsynchronized() {
+        return unsynchronized;
     }
 
     int getTagSize() {

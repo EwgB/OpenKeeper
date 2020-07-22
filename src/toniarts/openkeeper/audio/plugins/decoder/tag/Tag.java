@@ -26,8 +26,8 @@ import java.util.Map;
 /**
  * The
  * <code>Tag</code> class provides methods to obtain the content of media tag
- * informations, which describe possible extra informations of a media source.
- * So it's possible to obtain, add and change tag informations with get and put
+ * information, which describe possible extra information of a media source.
+ * So it's possible to obtain, add and change tag information with get and put
  * methods. Predefined base hashkeys are defined in this class, but content
  * related hashkeys must be defined inside derived classes. Note that all
  * derived classes of this class are not used within this library itself.

@@ -134,7 +134,7 @@ public class MapTile implements Savable {
 //            if (!terrain.getFlags().contains(Terrain.TerrainFlag.TAGGABLE)) {
 //                setSelected(false, (short) 0);
 //            }
-//            // FIXME realy need?
+//            // FIXME really need?
 //            setFlashed(false);
 //        }
 //    }

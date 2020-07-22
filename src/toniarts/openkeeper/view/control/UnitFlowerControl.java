@@ -100,7 +100,7 @@ public abstract class UnitFlowerControl<T> extends BillboardControl implements I
 
     /**
      * Override this to give out the components needed to watch for. By default
-     * a mutable list is returned so you can just ourright add your stuff here.
+     * a mutable list is returned so you can just outright add your stuff here.
      * No need to worry about duplicates.
      *
      * @return list of components needed from the entity

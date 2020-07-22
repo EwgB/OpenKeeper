@@ -43,7 +43,7 @@ public interface ICreatureController extends IGameLogicUpdatable, INavigable, IE
      */
     public void checkSurroundings();
 
-    public void unassingCurrentTask();
+    public void unassignCurrentTask();
 
     public void navigateToRandomPoint();
 
@@ -121,7 +121,7 @@ public interface ICreatureController extends IGameLogicUpdatable, INavigable, IE
 
     public int getMaxGold();
 
-    public void substractGold(int amount);
+    public void subtractGold(int amount);
 
     public Point getLairLocation();
 
@@ -187,7 +187,7 @@ public interface ICreatureController extends IGameLogicUpdatable, INavigable, IE
 
     public boolean isSlapped();
 
-    public boolean isPortalGemInPosession();
+    public boolean isPortalGemInPossession();
 
     /**
      * When a creature is hauled to prison, call this to properly seal the enemy

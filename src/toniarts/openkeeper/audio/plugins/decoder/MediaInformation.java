@@ -25,7 +25,7 @@ import java.util.Map;
  * The
  * <code>MediaInformation</code> class acts as an information container to
  * describe any possible media format. So it's possible to obtain, add and
- * change tag informations with get and put methods with predefined hashkeys.
+ * change tag information with get and put methods with predefined hashkeys.
  * Common base hashkeys are defined in this class, but audio, video, codec and
  * tag related hashkeys must be defined inside derived classes. The interface
  * <code>Hashkeys</code> contain predefined keys, which are used by both, the
@@ -33,10 +33,10 @@ import java.util.Map;
  * <code>MediaControl</code> class.
  * <p>
  *
- * Note that the stored informations are only available after the
+ * Note that the stored information are only available after the
  * decoder/demultiplexer initialization. That means inside a
  * decoder/demultiplexer constructor it's impossible to obtain bitrate or
- * playtime informations unless they are directly created by the decoder
+ * playtime information unless they are directly created by the decoder
  * plug-in.
  * <p>
  *
@@ -55,7 +55,7 @@ import java.util.Map;
 public class MediaInformation extends HashMap<String, Object> implements Hashkeys, Information {
 
     /**
-     * The media type key. A media type string should contain a senseful word to
+     * The media type key. A media type string should contain a meaningful word to
      * distinguish various kinds of media types. Predefined examples: "Audio" or
      * "Video".
      */
@@ -121,7 +121,7 @@ public class MediaInformation extends HashMap<String, Object> implements Hashkey
      * The tag key of the current media source.
      */
     public final static String TAG = "org.ljmf.Information tag";
-    // The <code>MediaControl</code> object encapsulats all decoding and
+    // The <code>MediaControl</code> object encapsulates all decoding and
     // playback presettings.
 //    private static MediaControl preConfiguration = new MediaControl(null, null);
 

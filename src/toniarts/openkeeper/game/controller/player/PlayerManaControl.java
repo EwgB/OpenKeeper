@@ -42,19 +42,19 @@ public class PlayerManaControl {
     }
 
     /**
-     * Updates gain and loose and adds/removes mana accordingly to the player
+     * Updates gain and loss and adds/removes mana accordingly to the player
      *
      * @param gain mana gain
-     * @param loose mana loose
+     * @param loss mana loss
      */
-    public void updateMana(int gain, int loose) {
+    public void updateMana(int gain, int loss) {
 
         keeper.setManaGain(gain);
-        keeper.setManaLoose(loose);
+        keeper.setManaLoss(loss);
 
-        addMana(keeper.getManaGain() - keeper.getManaLoose());
+        addMana(keeper.getManaGain() - keeper.getManaLoss());
 
-        updateListerners();
+        updateListeners();
     }
 
     public void addMana(int value) {
@@ -62,9 +62,9 @@ public class PlayerManaControl {
         keeper.setMana(Math.min(value, keeper.getMaxMana()));
     }
 
-    private void updateListerners() {
+    private void updateListeners() {
         for (PlayerManaListener listener : listeners.getArray()) {
-            listener.onManaChange(keeper.getId(), keeper.getMana(), keeper.getManaLoose(), keeper.getManaGain());
+            listener.onManaChange(keeper.getId(), keeper.getMana(), keeper.getManaLoss(), keeper.getManaGain());
         }
     }
 

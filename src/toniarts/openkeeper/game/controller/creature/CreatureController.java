@@ -183,7 +183,7 @@ public class CreatureController extends EntityController implements ICreatureCon
     }
 
     /**
-     * Checks if the given entity posseses a threat to anyone at all
+     * Checks if the given entity possesses a threat to anyone at all
      *
      * @param entity the entity to check
      * @return is the entity a threat to anyone
@@ -222,7 +222,7 @@ public class CreatureController extends EntityController implements ICreatureCon
     }
 
     @Override
-    public void unassingCurrentTask() {
+    public void unassignCurrentTask() {
         Task assignedTask = getAssignedTask();
         if (assignedTask != null) {
             assignedTask.unassign(this);
@@ -317,7 +317,7 @@ public class CreatureController extends EntityController implements ICreatureCon
             return false;
         }
 
-        // See that is there a prefered job for us
+        // See that is there a preferred job for us
         // FIXME: moods
         List<Creature.JobPreference> jobs = new ArrayList<>();
         if (creature.getHappyJobs() != null) {
@@ -541,14 +541,14 @@ public class CreatureController extends EntityController implements ICreatureCon
             entityData.setComponent(entityId, new CreatureMeleeAttack(creatureMeleeAttack, gameTimer.getGameTime()));
             stateMachine.changeState(CreatureState.MELEE_ATTACK);
 
-            // TODO: now, instant action, substract the health
+            // TODO: now, instant action, subtract the health
             Health enemyHealth = entityData.getComponent(attackTarget, Health.class);
             entityData.setComponent(attackTarget, new Health(enemyHealth.ownLandHealthIncrease, enemyHealth.health - creatureMeleeAttack.damage, enemyHealth.maxHealth, enemyHealth.unconscious));
         }
     }
 
     private boolean isAttackRecharged(Attack attack) {
-        return attack.attactStartTime == null || attack.attactStartTime + attack.rechargeTime <= gameTimer.getGameTime();
+        return attack.attackStartTime == null || attack.attackStartTime + attack.rechargeTime <= gameTimer.getGameTime();
     }
 
     @Override
@@ -836,7 +836,7 @@ public class CreatureController extends EntityController implements ICreatureCon
     }
 
     @Override
-    public void substractGold(int amount) {
+    public void subtractGold(int amount) {
         Gold gold = entityData.getComponent(entityId, Gold.class);
         entityData.setComponent(entityId, new Gold(gold.gold - amount, gold.maxGold));
     }
@@ -875,7 +875,7 @@ public class CreatureController extends EntityController implements ICreatureCon
     public void setAssignedTask(Task task) {
 
         // Unassign previous task
-        unassingCurrentTask();
+        unassignCurrentTask();
 
         taskDuration = 0.0f;
         //workNavigationRequired = true;
@@ -966,10 +966,11 @@ public class CreatureController extends EntityController implements ICreatureCon
     }
 
     @Override
-    public boolean isPortalGemInPosession() {
+    public boolean isPortalGemInPossession() {
         PortalGem portalGem = entityData.getComponent(entityId, PortalGem.class);
         return portalGem != null;
     }
+
     @Override
     public void attachPortalGem() {
         entityData.setComponent(entityId, new PortalGem());

@@ -44,11 +44,11 @@ public interface ICreaturesController extends IEntityWrapper<ICreatureController
      * Spawn a creature
      *
      * @param creatureId the creature ID to generate
-     * @param playerId the owner
-     * @param level the creature level
-     * @param position the position to spawn to, may be {@code null}
-     * @param entrance whether this an enrance for the creature (coming out of a
-     * portal)
+     * @param playerId   the owner
+     * @param level      the creature level
+     * @param position   the position to spawn to, may be {@code null}
+     * @param entrance   whether this an entrance for the creature (coming out of a
+     *                   portal)
      * @return the actual spawned creature
      */
     EntityId spawnCreature(short creatureId, short playerId, int level, Vector2f position, boolean entrance);
@@ -109,7 +109,7 @@ public interface ICreaturesController extends IEntityWrapper<ICreatureController
     /**
      * Level all player creatures to certain level
      *
-     * @param playerId whose craetures to level up
+     * @param playerId whose creatures to level up
      * @param level the level to set to the creatures
      */
     void levelUpCreatures(short playerId, int level);

@@ -80,9 +80,9 @@ abstract class Output extends Initializer {
      * <code>Output</code> class acts also as a
      * <code>Control</code> object containing presettings.
      *
-     * @param info the <code>Frame</code> object containing the neccesary
-     * informations about the source
-     * @param in the input stream
+     * @param info the <code>Frame</code> object containing the necessary
+     *             information about the source
+     * @param in   the input stream
      */
     Output(Frame info, InputStream in) {
         super(info, in);
@@ -197,7 +197,7 @@ abstract class Output extends Initializer {
      * the key nor the value can be
      * <code>null</code>. The value can be obtained by calling the get method
      * with a key that is equal to the original key. The specific value is then
-     * used to set decoder or audio device related properties. This methos acts
+     * used to set decoder or audio device related properties. This method acts
      * as the main control (mcc = management configuration control) of these
      * audio plugin.
      *
@@ -247,7 +247,7 @@ abstract class Output extends Initializer {
      * representation of audio samples. This framework may be further developed
      * to support additional pcm output formats. The method includes a patch to
      * avoid scratch noises during looping or seeking. So the mp3 design bug
-     * (often called byteresevoire technique) can't be heared any more. These
+     * (often called byteresevoire technique) can't be heard any more. These
      * noises can't be produced if playing mp1/mp2.
      *
      * @param b the buffer into which the data is read

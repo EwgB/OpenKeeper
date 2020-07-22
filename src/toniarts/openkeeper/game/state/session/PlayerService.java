@@ -104,7 +104,7 @@ public interface PlayerService {
     public void zoomViewToPoint(Vector3f point, short playerId);
 
     /**
-     * Zoom camera to a entity
+     * Zoom camera to an entity
      *
      * @param entityId the entity to zoom to
      * @param playerId the player ID whose camera should be moved

@@ -361,9 +361,9 @@ public class GameHostedService extends AbstractHostedConnectionService implement
     }
 
     @Override
-    public void onManaChange(short keeperId, int mana, int manaLoose, int manaGain) {
+    public void onManaChange(short keeperId, int mana, int manaLoss, int manaGain) {
         for (GameSessionImpl gameSession : players.values()) {
-            gameSession.onManaChange(keeperId, mana, manaLoose, manaGain);
+            gameSession.onManaChange(keeperId, mana, manaLoss, manaGain);
         }
     }
 
@@ -615,8 +615,8 @@ public class GameHostedService extends AbstractHostedConnectionService implement
         }
 
         @Override
-        public void onManaChange(short keeperId, int mana, int manaLoose, int manaGain) {
-            getCallback().onManaChange(keeperId, mana, manaLoose, manaGain);
+        public void onManaChange(short keeperId, int mana, int manaLoss, int manaGain) {
+            getCallback().onManaChange(keeperId, mana, manaLoss, manaGain);
         }
 
         @Override

@@ -345,10 +345,10 @@ public class ConversionUtils {
     }
 
     /**
-     * Parses a value to a enum of a wanted enum class
+     * Parses a value to an enum of a wanted enum class
      *
-     * @param <E> The enumeration class
-     * @param value the id value
+     * @param <E>         The enumeration class
+     * @param value       the id value
      * @param enumeration the enumeration class
      * @return Enum value, returns null if no enum is found with given value
      */
@@ -461,7 +461,7 @@ public class ConversionUtils {
          * path separator at the end
          * @param defaultPath the default path we know that exists, we'll return
          * it if no cached path found
-         * @return the cached known path, quaranteed to be exactly the default
+         * @return the cached known path, guaranteed to be exactly the default
          * path or deeper
          */
         public String getCertainPath(String fileName, String defaultPath) {

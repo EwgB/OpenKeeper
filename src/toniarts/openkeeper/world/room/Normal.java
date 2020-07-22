@@ -52,7 +52,7 @@ public class Normal extends GenericRoom {
         // Pillars
         if (hasPillars()) {
             BatchNode pillarsNode = new BatchNode("Pillars");
-            contructPillars(pillarsNode);
+            constructPillars(pillarsNode);
             if (!pillarsNode.getChildren().isEmpty()) {
                 pillarsNode.setShadowMode(RenderQueue.ShadowMode.CastAndReceive);
                 pillarsNode.batch();
@@ -121,14 +121,14 @@ public class Normal extends GenericRoom {
      *
      * @param node the pillar node
      */
-    protected void contructPillars(Node node) {
+    protected void constructPillars(Node node) {
 
         // NOTE: I don't understand how the pillars are referenced, they are neither in Terrain nor Room, but they are listed in the Objects. Even Lair has pillars, but I've never seem the in-game
         // Pillars go into all at least 3x3 corners, there can be more than 4 pillars per room
         // Go through all the points and see if they are fit for pillar placement
         for (Point p : roomInstance.getCoordinates()) {
 
-            // See that we have 2 "free" neigbouring tiles
+            // See that we have 2 "free" neighbouring tiles
             EnumSet<WallDirection> freeDirections = EnumSet.noneOf(WallDirection.class);
             if (!hasSameTile(map, p.x - start.x, p.y - start.y - 1)) { // North
                 freeDirections.add(WallDirection.NORTH);
@@ -169,7 +169,7 @@ public class Normal extends GenericRoom {
                 // Add
                 if (found) {
 
-                    // Contruct a pillar
+                    // Construct a pillar
                     Spatial part = AssetUtils.loadModel(assetManager, getPillarResource());
                     // Face "in" diagonally
                     if (freeDirections.contains(WallDirection.NORTH)

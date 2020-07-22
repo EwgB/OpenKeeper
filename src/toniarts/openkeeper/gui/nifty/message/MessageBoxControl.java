@@ -105,7 +105,7 @@ public class MessageBoxControl extends AbstractController {
     }
 
     /**
-     * Shows a removeable system message
+     * Shows a removable system message
      *
      * @param systemMessage The control of the system message
      * @param text

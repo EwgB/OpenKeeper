@@ -46,11 +46,10 @@ public class QuadConstructor extends RoomConstructor {
     }
 
     /**
-     *
      * @param assetManager
      * @param modelName
-     * @param base base index of piece (need to construct water bed)
-     * @param angle base totation yAngle of piece (need to construct water bed)
+     * @param base         base index of piece (need to construct water bed)
+     * @param angle        base rotation yAngle of piece (need to construct water bed)
      * @param N
      * @param NE
      * @param E
@@ -159,7 +158,7 @@ public class QuadConstructor extends RoomConstructor {
         BatchNode root = new BatchNode();
         String modelName = roomInstance.getRoom().getCompleteResource().getName();
         //Point start = roomInstance.getCoordinates().get(0);
-        // Contruct the tiles
+        // Construct the tiles
         for (Point p : roomInstance.getCoordinates()) {
             // Figure out which peace by seeing the neighbours
             boolean N = roomInstance.hasCoordinate(new Point(p.x, p.y - 1));

@@ -25,7 +25,7 @@ import java.io.UnsupportedEncodingException;
  * <code>FrameContent</code> class contains the information related to a ID3(v2)
  * tag frame and contains all possible data converting handlings (UNICODE-, UTF8
  * or ISO8859_1-bytes to characters). The encoded data source containing all
- * informations of a frame may be partitioned into several binary and text
+ * information of a frame may be partitioned into several binary and text
  * decoded data segments. The text decoded data segments are 00000000 (or
  * 0000000000000000 for Unicode) bitpattern terminated.
  *
@@ -36,7 +36,7 @@ final class FrameContent {
     private byte[] encodedData;
     private final int size;
     private int readPos;
-    private boolean unincoding;
+    private boolean unencoding;
     private int coding;
     private Converter con = new Converter();
 
@@ -45,22 +45,22 @@ final class FrameContent {
         size = b.length;
 
         if (checkCharEncodingType) {
-            unincoding = encodedData[0] >= 1;
+            unencoding = encodedData[0] >= 1;
             coding = encodedData[0];
             readPos++;
         }
     }
 
     String read() {
-        return read(unincoding);
+        return read(unencoding);
     }
 
-    String read(boolean unincoding) {
+    String read(boolean unencoding) {
         String ret;
 
         int i = readPos;
 
-        if (unincoding && coding != Converter.UTF8) {
+        if (unencoding && coding != Converter.UTF8) {
             for (; i < size - 1 && (encodedData[i] != 0 || encodedData[i + 1] != 0); i++) {
             }
             if (i == size - 1 && encodedData[i] != 0) {
@@ -71,11 +71,11 @@ final class FrameContent {
             }
         }
         try {
-            ret = con.convert(encodedData, readPos, i - readPos, unincoding, coding);
+            ret = con.convert(encodedData, readPos, i - readPos, unencoding, coding);
         } catch (UnsupportedEncodingException e) {
             ret = "";
         }
-        readPos = i + (unincoding && coding != Converter.UTF8 ? 2 : 1);
+        readPos = i + (unencoding && coding != Converter.UTF8 ? 2 : 1);
         return ret;
     }
 

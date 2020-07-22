@@ -42,14 +42,14 @@ public class CreatureMeleeAttack extends Attack {
         super(attack.rechargeTime, attack.range);
         this.attackType = attack.attackType;
         this.damage = attack.damage;
-        this.attactStartTime = attackStartTime;
+        this.attackStartTime = attackStartTime;
     }
 
     public CreatureMeleeAttack(CreatureMeleeAttack creatureMeleeAttack) {
         super(creatureMeleeAttack.rechargeTime, creatureMeleeAttack.range);
         this.attackType = creatureMeleeAttack.attackType;
         this.damage = creatureMeleeAttack.damage;
-        this.attactStartTime = creatureMeleeAttack.attactStartTime;
+        this.attackStartTime = creatureMeleeAttack.attackStartTime;
     }
 
     public final Creature.AttackType getAttackType() {

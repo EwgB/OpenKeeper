@@ -31,7 +31,7 @@ public abstract class Sprite<T extends Vertex> {
      * Triangle count for each LOD level
      */
     private List<Integer> triangleCounts;
-    private int verticeCount;
+    private int vertexCount;
     private float mmFactor;
     //DATA
     private int materialIndex;
@@ -49,12 +49,12 @@ public abstract class Sprite<T extends Vertex> {
         this.triangleCounts = triangleCounts;
     }
 
-    protected int getVerticeCount() {
-        return verticeCount;
+    protected int getVertexCount() {
+        return vertexCount;
     }
 
-    protected void setVerticeCount(int verticeCount) {
-        this.verticeCount = verticeCount;
+    protected void setVertexCount(int vertexCount) {
+        this.vertexCount = vertexCount;
     }
 
     public float getMmFactor() {

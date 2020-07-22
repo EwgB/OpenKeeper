@@ -54,7 +54,7 @@ public class PlayerResearchControl {
      *
      * @return is there anything to research
      */
-    public boolean isAnythingToReaseach() {
+    public boolean isAnythingToResearch() {
         return keeper.getCurrentResearch() != null;
     }
 

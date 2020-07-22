@@ -31,7 +31,7 @@ import toniarts.openkeeper.world.control.UnitFlowerControl;
 import java.util.logging.Logger;
 
 /**
- * Loads traps. FIXME: bluebrint setting under the editor doesn't seem to stick,
+ * Loads traps. FIXME: blueprint setting under the editor doesn't seem to stick,
  * so I don't know where it is set
  *
  * @author Toni Helenius <helenius.toni@gmail.com>

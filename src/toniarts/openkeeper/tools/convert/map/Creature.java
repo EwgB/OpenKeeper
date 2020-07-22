@@ -71,8 +71,8 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         TORTURED_CHAIR_SKELETON,
         SPECIAL_1,
         SPECIAL_2,
-        DRUNKED_WALK,
-        DRUNKED_IDLE,
+        DRUNK_WALK,
+        DRUNK_IDLE,
         //        FIGHT_VICTORY,
         //        FIGHT_IDLE,
         DRAGGED,
@@ -291,9 +291,9 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
 
         @Override
         public String toString() {
-            String[] splitted = name().split("_");
+            String[] split = name().split("_");
             String result = "";
-            for (String s : splitted) {
+            for (String s : split) {
                 result = result.concat(" ").concat(s.substring(0, 1).toUpperCase()).concat(s.substring(1).toLowerCase());
             }
             return result.trim();
@@ -410,7 +410,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         PRAY(7),
         PICK_LOCKS(8),
         FEAR_ATTACK(9),
-        GHOST_POSESSION(10);
+        GHOST_POSSESSION(10);
 
         private SpecialAbility(int id) {
             this.id = id;
@@ -420,6 +420,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         public int getValue() {
             return id;
         }
+
         private final int id;
     }
 
@@ -477,7 +478,7 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
     private int angerStringIdLonely;
     private int angerStringIdHatred;
     private int angerStringIdTorture;
-    private String translationSoundGategory; // d17
+    private String translationSoundCategory; // d17
     private short cloneCreatureId;
     private GammaEffect firstPersonGammaEffect; // d3b
     private short firstPersonWalkCycleScale; // Movement
@@ -708,11 +709,11 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
     }
 
     /**
-     * @deprecated use getAnimation(AnimationType.DRUNKED_IDLE)
      * @return
+     * @deprecated use getAnimation(AnimationType.DRUNK_IDLE)
      */
     public ArtResource getDrunkIdle() {
-        return animation.get(AnimationType.DRUNKED_IDLE);
+        return animation.get(AnimationType.DRUNK_IDLE);
     }
 
     /**
@@ -899,12 +900,12 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         this.angerStringIdTorture = angerStringIdTorture;
     }
 
-    public String getTranslationSoundGategory() {
-        return translationSoundGategory;
+    public String getTranslationSoundCategory() {
+        return translationSoundCategory;
     }
 
-    protected void setTranslationSoundGategory(String translationSoundGategory) {
-        this.translationSoundGategory = translationSoundGategory;
+    protected void setTranslationSoundCategory(String translationSoundCategory) {
+        this.translationSoundCategory = translationSoundCategory;
     }
 
     public short getCloneCreatureId() {
@@ -1344,8 +1345,8 @@ public class Creature implements Comparable<Creature>, ISoundable, IIndexable {
         return soundCategory;
     }
 
-    protected void setSoundCategory(String soundGategory) {
-        this.soundCategory = soundGategory;
+    protected void setSoundCategory(String soundCategory) {
+        this.soundCategory = soundCategory;
     }
 
     public Material getMaterial() {

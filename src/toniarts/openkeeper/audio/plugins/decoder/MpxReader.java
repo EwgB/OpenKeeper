@@ -47,11 +47,11 @@ public class MpxReader extends Frame {
     private Tag tag; // Doesn't need a close or clear call
     private int skippedDataLength;
     private int verificationDepth;
-    private boolean tagSettedSkippedDataLength;
+    private boolean tagSetSkippedDataLength;
     private boolean decoderInitialized;
     private int j;
     private Spline spline;
-    private boolean noLenghtData;
+    private boolean noLengthData;
     /**
      * Indicates the version of this MPEG audio format.
      */
@@ -61,7 +61,7 @@ public class MpxReader extends Frame {
      */
     protected byte[] b;
     /**
-     * Standart counter and bit register
+     * Standard counter and bit register
      */
     protected int i;
     /**
@@ -79,7 +79,7 @@ public class MpxReader extends Frame {
 
     /**
      * Returns an
-     * <code>MediaInformation</code> object containing informations about the
+     * <code>MediaInformation</code> object containing information about the
      * detected media format or throws an
      * <code>UnsupportedMediaException</code>, if the current decoder don't
      * support this media format. The implementation of this method must be able
@@ -124,7 +124,7 @@ public class MpxReader extends Frame {
             Context.setVerificationDepth(50000);
             handleId3V2(stream);
         } catch (Exception e) {
-            if (!tagSettedSkippedDataLength) {
+            if (!tagSetSkippedDataLength) {
                 try {
                     stream.reset();
                 } catch (Exception e1) {
@@ -144,7 +144,7 @@ public class MpxReader extends Frame {
 
     /**
      * Sets the data size until the first audio frame and a flag indicating if
-     * skippedDataLength was setted from the tag in case of an error.
+     * skippedDataLength was set from the tag in case of an error.
      *
      * @param skippedDataLength the skipped data length
      */
@@ -152,16 +152,16 @@ public class MpxReader extends Frame {
         if (skippedDataLength > 0) {
             this.skippedDataLength += skippedDataLength;
             Context.setVerificationDepth(skippedDataLength + verificationDepth);
-            this.tagSettedSkippedDataLength = true;
+            this.tagSetSkippedDataLength = true;
         }
     }
 
     /**
-     * Parses informations about the detected audioformat.
+     * Parses information about the detected audioformat.
      *
      * @param stream the input stream
-     * @exception UnsupportedMediaException if this media format can't be
-     * handled
+     * @throws UnsupportedMediaException if this media format can't be
+     *                                   handled
      */
     protected final void readAudioInformation(InputStream stream) throws UnsupportedMediaException {
         i = 0;
@@ -369,13 +369,13 @@ public class MpxReader extends Frame {
      * </ul>
      * or
      * <ul>
-     * <li>The source is setted but is not playing back</li>
+     * <li>The source is set but is not playing back</li>
      * <li>This framework is running in streaming mode</li>
      * </ul>
      *
      * If no value is fetched, the method returns a long array containing always
      * <code>org.ljmf.audio.codec.decoder.Decoder.NO_VALUE</code>. In addition
-     * the source stream will be resetted to the old read position.
+     * the source stream will be reset to the old read position.
      *
      * @return a long array with the current playtime on index 0 and the current
      * playtime since the last video key frame on index 1 in microseconds * * *
@@ -430,12 +430,12 @@ public class MpxReader extends Frame {
             vbr = false;
             xing = false;
             info = false;
-            noLenghtData = false;
+            noLengthData = false;
         }
         if (freeMode) {
             put(I_BITRATE, getBitrate());
         }
-        if (noLenghtData) { // can only be triggered in case of xing header
+        if (noLengthData) { // can only be triggered in case of xing header
             netByteLength = correctedBytePosition(((Long) get(AudioInformation.L_GROSS_BYTE_LENGTH)), false);
             put(I_BITRATE, (int) (netByteLength * 8 / timePerFrame / (double) (framesMinusOne + 1)));
             put(L_BYTE_LENGTH, netByteLength);
@@ -604,7 +604,7 @@ public class MpxReader extends Frame {
         if ((i & 0x0002) != 0) {
             netByteLength = (long) getInt();
         } else {
-            noLenghtData = true;
+            noLengthData = true;
         }
         if ((i & 0x0004) != 0) {
             toc = new double[100];
@@ -646,7 +646,7 @@ public class MpxReader extends Frame {
             delayEnd %= samplesPerFrame;
             incrementSkippedDataLength(20);
         }
-        if (!noLenghtData && !info) { // info == cbr, main header info is more relyable
+        if (!noLengthData && !info) { // info == cbr, main header info is more reliable
             bitRate = (int) (netByteLength * 8 / timePerFrame / (double) (framesMinusOne + 1));
             put(I_BITRATE, bitRate);
         }
@@ -716,7 +716,7 @@ public class MpxReader extends Frame {
 
     /**
      * Instances a
-     * <code>Decoder</code> object based on informations about the detected
+     * <code>Decoder</code> object based on information about the detected
      * media format or
      * <code>null</code>, if the decoder can't be instanced. The first argument
      * is the media source input stream and the second argument is a boolean
@@ -725,7 +725,7 @@ public class MpxReader extends Frame {
      *
      * @param stream the input stream
      * @param eomDeterminable true if the end of media is determinable
-     * @return the <code>Decoder</code> object based on informations about the
+     * @return the <code>Decoder</code> object based on information about the
      * detected media format or <code>null</code>
      */
     public Decoder getDecoder(InputStream inputstream, boolean eomDeterminable) throws UnsupportedMediaException {

@@ -512,8 +512,8 @@ public class PlayerState extends AbstractAppState implements PlayerListener {
     }
 
     @Override
-    public void onManaChange(short keeperId, int mana, int manaLoose, int manaGain) {
-        screen.setMana(mana, manaLoose, manaGain);
+    public void onManaChange(short keeperId, int mana, int manaLoss, int manaGain) {
+        screen.setMana(mana, manaLoss, manaGain);
     }
 
     @Override

@@ -23,10 +23,10 @@ import toniarts.openkeeper.audio.plugins.decoder.tag.Tag;
 /**
  * The
  * <code>Frame</code> class acts as an information container to describe the
- * content of an MPEG audio framet Note that MPEG4 audio format specific
- * informations are excluded, because it needs an codec-system of its own. The
- * informations stored inside an instanced object of this class are only
- * senseful for an MPEG1, MPEG2 or MPEG2.5 audio format.
+ * content of an MPEG audio frame. Note that MPEG4 audio format specific
+ * information are excluded, because it needs an codec-system of its own. The
+ * information stored inside an instanced object of this class are only
+ * meaningful for an MPEG1, MPEG2 or MPEG2.5 audio format.
  *
  * @author Michael Scheerer
  */

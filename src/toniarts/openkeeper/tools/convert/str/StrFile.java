@@ -142,7 +142,7 @@ public class StrFile {
      * Decodes one entry in STR file
      *
      * @param data the entry bytes
-     * @return returns null if error occured, otherwise the decoded string
+     * @return returns null if error occurred, otherwise the decoded string
      */
     private String decodeEntry(final byte[] data) {
         ByteBuffer byteBuffer = ByteBuffer.wrap(data);

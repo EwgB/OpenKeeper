@@ -20,7 +20,7 @@ package toniarts.openkeeper.audio.plugins.decoder.tag;
 
 /**
  * This
- * <code>Exception</code> should be thrown if tag informations can't be
+ * <code>Exception</code> should be thrown if tag information can't be
  * extracted
  *
  * @author Michael Scheerer

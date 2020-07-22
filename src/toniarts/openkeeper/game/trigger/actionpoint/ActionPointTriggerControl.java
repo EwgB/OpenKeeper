@@ -69,8 +69,8 @@ public class ActionPointTriggerControl extends TriggerControl {
                 switch (type) {
                     case 0:
                     case 3: // Creature
-                        for (int x = (int) ap.getStart().x; x <= (int) ap.getEnd().x; x++) {
-                            for (int y = (int) ap.getStart().y; y <= (int) ap.getEnd().y; y++) {
+                        for (int x = ap.getStart().x; x <= ap.getEnd().x; x++) {
+                            for (int y = ap.getStart().y; y <= ap.getEnd().y; y++) {
                                 for (ICreatureController creature : entityPositionLookup.getEntityTypesInLocation(x, y, ICreatureController.class)) {
                                     if ((playerId == 0 || creature.getOwnerId() == playerId) && (targetId == 0 || creature.getCreature().getCreatureId() == targetId)) {
                                         target++;
@@ -87,7 +87,7 @@ public class ActionPointTriggerControl extends TriggerControl {
                 }
                 return false;
 
-            case AP_POSESSED_CREATURE_ENTERS:
+            case AP_POSSESSED_CREATURE_ENTERS:
                 playerId = trigger.getUserData("playerId", short.class);
                 targetId = trigger.getUserData("targetId", short.class);
                 value = trigger.getUserData("value", int.class);
@@ -99,7 +99,7 @@ public class ActionPointTriggerControl extends TriggerControl {
                     case 6: // Object. Chicken
                         break;
                     default:
-                        LOGGER.warning("AP_POSESSED_CREATURE_ENTERS unknown targetType");
+                        LOGGER.warning("AP_POSSESSED_CREATURE_ENTERS unknown targetType");
                         break;
                 }
                 return false;
@@ -109,8 +109,8 @@ public class ActionPointTriggerControl extends TriggerControl {
                 value = trigger.getUserData("value", int.class);
 
                 MapData map = mapController.getMapData();
-                for (int x = (int) ap.getStart().x; x <= (int) ap.getEnd().x; x++) {
-                    for (int y = (int) ap.getStart().y; y <= (int) ap.getEnd().y; y++) {
+                for (int x = ap.getStart().x; x <= ap.getEnd().x; x++) {
+                    for (int y = ap.getStart().y; y <= ap.getEnd().y; y++) {
                         if (playerId == map.getTile(x, y).getOwnerId()) {
                             target++;
                         }
@@ -120,10 +120,10 @@ public class ActionPointTriggerControl extends TriggerControl {
 
             case AP_CLAIM_ALL_OF:
                 playerId = trigger.getUserData("playerId", short.class);
-                // value = trigger.getUserData("value", int.class); // Unusefull ?
+                // value = trigger.getUserData("value", int.class); // Not useful?
                 map = mapController.getMapData();
-                for (int x = (int) ap.getStart().x; x <= (int) ap.getEnd().x; x++) {
-                    for (int y = (int) ap.getStart().y; y <= (int) ap.getEnd().y; y++) {
+                for (int x = ap.getStart().x; x <= ap.getEnd().x; x++) {
+                    for (int y = ap.getStart().y; y <= ap.getEnd().y; y++) {
                         if (playerId != map.getTile(x, y).getOwnerId()) {
                             return false;
                         }
@@ -137,8 +137,8 @@ public class ActionPointTriggerControl extends TriggerControl {
                 value = trigger.getUserData("value", int.class);
 
                 map = mapController.getMapData();
-                for (int x = (int) ap.getStart().x; x <= (int) ap.getEnd().x; x++) {
-                    for (int y = (int) ap.getStart().y; y <= (int) ap.getEnd().y; y++) {
+                for (int x = ap.getStart().x; x <= ap.getEnd().x; x++) {
+                    for (int y = ap.getStart().y; y <= ap.getEnd().y; y++) {
                         MapTile tile = map.getTile(x, y);
 
                         if (playerId != 0 && playerId != tile.getOwnerId() || targetId != tile.getTerrainId()) {
@@ -155,8 +155,8 @@ public class ActionPointTriggerControl extends TriggerControl {
                 value = trigger.getUserData("value", int.class);
 
                 map = mapController.getMapData();
-                for (int x = (int) ap.getStart().x; x <= (int) ap.getEnd().x; x++) {
-                    for (int y = (int) ap.getStart().y; y <= (int) ap.getEnd().y; y++) {
+                for (int x = ap.getStart().x; x <= ap.getEnd().x; x++) {
+                    for (int y = ap.getStart().y; y <= ap.getEnd().y; y++) {
                         // TODO check who tagged tile
                         if (map.getTile(x, y).isSelected(playerId)) {
                             target++;
@@ -167,10 +167,10 @@ public class ActionPointTriggerControl extends TriggerControl {
 
             case AP_TAG_ALL_OF:
                 playerId = trigger.getUserData("playerId", short.class);
-                // value = trigger.getUserData("value", int.class); // Unusefull ?
+                // value = trigger.getUserData("value", int.class); // Not useful?
                 map = mapController.getMapData();
-                for (int x = (int) ap.getStart().x; x <= (int) ap.getEnd().x; x++) {
-                    for (int y = (int) ap.getStart().y; y <= (int) ap.getEnd().y; y++) {
+                for (int x = ap.getStart().x; x <= ap.getEnd().x; x++) {
+                    for (int y = ap.getStart().y; y <= ap.getEnd().y; y++) {
                         // TODO check who tagged tile
                         if (!map.getTile(x, y).isSelected(playerId)) {
                             return false;

@@ -27,7 +27,7 @@ import java.util.Map;
  * interface which contains a set of information values, such as volume, gain or
  * pan, that describes the media source passing through the various codecs. The
  * kind of information values are codec specific. <br> A value may be another
- * <code>Information</code> object containing tag informations. With the
+ * <code>Information</code> object containing tag information. With the
  * <code>toString</code> method it is possible to get an overview of all loaded
  * hashkeys together with their values. The hashkey is always a
  * <code>String</code> and describes the type and name of the value object. The
@@ -46,7 +46,7 @@ import java.util.Map;
  * label arrays.
  *
  * <p>
- * An example for accessing tag related informations: <p>
+ * An example for accessing tag related information: <p>
  *
  * <code>
  * Information tag;<br>
@@ -56,11 +56,11 @@ import java.util.Map;
  * </code>
  *
  * <p>
- * In this example the output device would then print out: "Madonna - Dont Tell
+ * In this example the output device would then print out: "Madonna - Don't Tell
  * Me".
  *
  * <p>
- * These tag related informations may also be of type
+ * These tag related information may also be of type
  * <code>Information</code>, so that
  * <code>Information</code> objects can build a tree structure.
  * <p>
@@ -90,7 +90,7 @@ public interface Information {
      * <code>null</code> if the key is not mapped to any value in this hashtable
      *
      * @param key a key in a hashtable
-     * @return a information value
+     * @return an information value
      */
     public Object get(Object key);
 
@@ -109,7 +109,7 @@ public interface Information {
      * hashkey of a specific information it is possible to obtain the
      * information value.
      *
-     * @return a String representation all informations
+     * @return a String representation all information
      */
     @Override
     public String toString();

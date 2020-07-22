@@ -63,8 +63,8 @@ public class CreatureSpawnSystem implements IGameLogicUpdatable {
     private final KwdFile kwdFile;
 
     public CreatureSpawnSystem(ICreaturesController creaturesController, Collection<IPlayerController> playerControllers,
-            Map<Variable.MiscVariable.MiscType, Variable.MiscVariable> gameSettings, ILevelInfo levelInfo,
-            IMapController mapController) {
+                               Map<Variable.MiscVariable.MiscType, Variable.MiscVariable> gameSettings, ILevelInfo levelInfo,
+                               IMapController mapController) {
         this.creaturesController = creaturesController;
 
         // We need the game state just for the variables
@@ -132,14 +132,8 @@ public class CreatureSpawnSystem implements IGameLogicUpdatable {
             // Evaluate what creature can we spawn
             Map<Integer, CreaturePool> pool = kwdFile.getCreaturePool(player.getKeeper().getId());
             List<Creature> possibleCreatures = new ArrayList<>(player.getCreatureControl().getTypesAvailable());
-            Iterator<Creature> iter = possibleCreatures.iterator();
-            while (iter.hasNext()) {
-                Creature creature = iter.next();
-                if (!isCreatureAvailableFromPool(creature, player, pool)
-                        || !isCreatureRequirementsSatisfied(creature, player)) {
-                    iter.remove();
-                }
-            }
+            possibleCreatures.removeIf(creature ->
+                    !isCreatureAvailableFromPool(creature, player, pool) || !isCreatureRequirementsSatisfied(creature, player));
 
             // Spawn random?
             // TODO: also get notified about the evicted and newly introduced creatures
@@ -255,7 +249,7 @@ public class CreatureSpawnSystem implements IGameLogicUpdatable {
 
         private void removeRoom(IRoomController room) {
             if (room instanceof ICreatureEntrance) {
-                entrances.remove((ICreatureEntrance) room);
+                entrances.remove(room);
             }
         }
 

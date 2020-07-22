@@ -107,7 +107,7 @@ public class SdtFile {
             }
         } catch (Exception e) {
             // Fug
-            throw new RuntimeException("Faile to read the WAD file!", e);
+            throw new RuntimeException("Failed to read the WAD file!", e);
         }
     }
 

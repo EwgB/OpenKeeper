@@ -27,7 +27,7 @@ import java.util.Map;
 
 /**
  * Handles creatures torturing. Essentially just decreases the health as we go.
- * When enough... persuation has been received... join the player army
+ * When enough... persuasion has been received... join the player army
  *
  * @author Toni Helenius <helenius.toni@gmail.com>
  */
@@ -55,7 +55,7 @@ public class CreatureTorturingSystem implements IGameLogicUpdatable {
         for (Entity entity : torturedEntities) {
             Health health = entity.get(Health.class);
 
-            // TODO: Join the persuating player army!!
+            // TODO: Join the persuading player army!!
 
             // Health
             CreatureTortured tortured = entity.get(CreatureTortured.class);

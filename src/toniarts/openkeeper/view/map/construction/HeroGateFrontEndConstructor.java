@@ -43,7 +43,7 @@ public class HeroGateFrontEndConstructor extends RoomConstructor {
         BatchNode root = new BatchNode();
         // The front end hero gate
 
-        // Contruct the tiles
+        // Construct the tiles
         int i = 1;
         Point start = roomInstance.getCoordinates().get(0);
         for (Point p : roomInstance.getCoordinates()) {

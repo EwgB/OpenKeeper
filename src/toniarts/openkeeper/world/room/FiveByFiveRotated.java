@@ -203,7 +203,7 @@ public class FiveByFiveRotated extends GenericRoom implements ICreatureEntrance 
                     tile.rotate(0, FastMath.TWO_PI / 3, 0);
                     root.attachChild(tile);
 
-                    // The alfa & omega! The heart, TODO: use object loader once it is in decent condition, this after all is a real object
+                    // The alpha & omega! The heart, TODO: use object loader once it is in decent condition, this after all is a real object
                     if (centreDecay == -1) {
                         tile = objectLoader.load(assetManager, 0, 0, OBJECT_HEART_ID, getRoomInstance().getOwnerId());
                         tile.move(0, -MapLoader.FLOOR_HEIGHT, 0);

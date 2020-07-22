@@ -96,7 +96,7 @@ public class WadFile {
                         break;
                     }
                     default: {
-                        wadInfo.setType(WadFileEntry.WadFileEntryType.UNKOWN);
+                        wadInfo.setType(WadFileEntry.WadFileEntryType.UNKNOWN);
                     }
                 }
                 wadInfo.setSize(rawWad.readUnsignedInteger());
@@ -369,7 +369,7 @@ public class WadFile {
                 if (ConversionUtils.toUnsignedByte(Integer.valueOf(counter).byteValue()) > 0x70) {
                     finished = true;
 
-                    // Crepare to copy the last bytes
+                    // Prepare to copy the last bytes
                     counter = ConversionUtils.toUnsignedByte(flag) & 3;
                 }
                 while (counter-- != 0) { // Copy literally

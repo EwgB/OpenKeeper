@@ -179,12 +179,12 @@ public abstract class GenericRoom {
     protected abstract BatchNode constructFloor();
 
     /**
-     * Rooms typically don't contruct walls themselves, instead they are asked
+     * Rooms typically don't construct walls themselves, instead they are asked
      * for the wall spatials by the map loader in normal map drawing situation
      *
+     * @return constructed wall
      * @see #getWallSpatial(java.awt.Point,
      * toniarts.openkeeper.world.room.WallSection.WallDirection)
-     * @return contructed wall
      */
     protected BatchNode constructWall() {
         return null;

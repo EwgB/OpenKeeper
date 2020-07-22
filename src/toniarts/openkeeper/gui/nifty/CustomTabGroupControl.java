@@ -67,7 +67,7 @@ public class CustomTabGroupControl extends AbstractController implements TabGrou
         private final CustomTabGroupControl parentControl;
 
         /**
-         * Create a instance of this event subscriber and set the tab group
+         * Create an instance of this event subscriber and set the tab group
          * control that will be effected by this subscriber.
          *
          * @param parent the tab group control that is the parent of this class
@@ -87,7 +87,7 @@ public class CustomTabGroupControl extends AbstractController implements TabGrou
 
     /**
      * This end notification is supposed to used in case a check of the
-     * visibility values of the tab control is required once a operation is
+     * visibility values of the tab control is required once an operation is
      * done.
      */
     private static final class CheckVisibilityEndNotify implements EndNotify {
@@ -142,10 +142,10 @@ public class CustomTabGroupControl extends AbstractController implements TabGrou
         private final Tab tabToAdd;
 
         /**
-         * Create a instance of this notification handler.
+         * Create an instance of this notification handler.
          *
          * @param control the tab group control where the tab is added to
-         * @param tab the tab that is added
+         * @param tab     the tab that is added
          */
         private TabAddMoveEndNotify(final CustomTabGroupControl control, final Tab tab) {
             parentControl = control;
@@ -385,7 +385,7 @@ public class CustomTabGroupControl extends AbstractController implements TabGrou
      * Get the button element at a specified index.
      * <p/>
      * This function ignores the template-button as needed. This is required
-     * because Nifty does not provide a blocking way to remove a element from
+     * because Nifty does not provide a blocking way to remove an element from
      * the GUI.
      *
      * @param index the index of the button
@@ -544,7 +544,7 @@ public class CustomTabGroupControl extends AbstractController implements TabGrou
             if (id != null) {
                 Tab tab = getTabAtIndex(index);
                 if (tab == null) {
-                    log.severe("Tab with valid index returned null. This looks like a internal error.");
+                    log.severe("Tab with valid index returned null. This looks like an internal error.");
                 } else {
                     nifty.publishEvent(id, new TabSelectedEvent(this, tab, index));
                 }

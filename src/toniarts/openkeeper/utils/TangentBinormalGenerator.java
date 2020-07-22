@@ -53,7 +53,6 @@ import java.util.logging.Logger;
 import static com.jme3.util.BufferUtils.*;
 
 /**
- *
  * @author Lex (Aleksey Nikiforov)
  */
 public class TangentBinormalGenerator {
@@ -82,7 +81,8 @@ public class TangentBinormalGenerator {
         }
     }
 
-    /** Collects all the triangle data for one vertex.
+    /**
+     * Collects all the triangle data for one vertex.
      */
     private static class VertexData {
 
@@ -92,7 +92,8 @@ public class TangentBinormalGenerator {
         }
     }
 
-    /** Keeps track of tangent, binormal, and normal for one triangle.
+    /**
+     * Keeps track of tangent, binormal, and normal for one triangle.
      */
     public static class TriangleData {
 
@@ -244,7 +245,7 @@ public class TangentBinormalGenerator {
     }
 
     private static List<VertexData> processTriangles(Mesh mesh,
-            int[] index, Vector3f[] v, Vector2f[] t, boolean splitMirrored) {
+                                                     int[] index, Vector3f[] v, Vector2f[] t, boolean splitMirrored) {
         IndexBuffer indexBuffer = mesh.getIndexBuffer();
         FloatBuffer vertexBuffer = (FloatBuffer) mesh.getBuffer(Type.Position).getData();
         if (mesh.getBuffer(Type.TexCoord) == null) {
@@ -277,7 +278,7 @@ public class TangentBinormalGenerator {
     }
 
     //Don't remove splitmirorred boolean,It's not used right now, but i intend to
-    //make this method also split vertice with rotated tangent space and I'll
+    //make this method also split vertices with rotated tangent space and I'll
     //add another splitRotated boolean
     private static List<VertexData> splitVertices(Mesh mesh, List<VertexData> vertexData, boolean splitMirorred) {
         int nbVertices = mesh.getBuffer(Type.Position).getNumElements();
@@ -292,8 +293,7 @@ public class TangentBinormalGenerator {
 
             ArrayList<TriangleData> trianglesUp = new ArrayList<TriangleData>();
             ArrayList<TriangleData> trianglesDown = new ArrayList<TriangleData>();
-            for (int j = 0; j < triangles.size(); j++) {
-                TriangleData triangleData = triangles.get(j);
+            for (TriangleData triangleData : triangles) {
                 if (parity(givenNormal, triangleData.normal) > 0) {
                     trianglesUp.add(triangleData);
                 } else {
@@ -346,7 +346,7 @@ public class TangentBinormalGenerator {
                 }
 
                 Buffer buffer = vb.getData();
-                //IndexBuffer has special treatement, only swapping the vertex indices is needed
+                //IndexBuffer has special treatment, only swapping the vertex indices is needed
                 if (type == Type.Index) {
                     boolean isShortBuffer = vb.getFormat() == VertexBuffer.Format.UnsignedShort;
                     for (VertexData vertex : newVertices) {
@@ -454,7 +454,7 @@ public class TangentBinormalGenerator {
     }
 
     private static List<VertexData> processTriangleStrip(Mesh mesh,
-            int[] index, Vector3f[] v, Vector2f[] t) {
+                                                         int[] index, Vector3f[] v, Vector2f[] t) {
         IndexBuffer indexBuffer = mesh.getIndexBuffer();
         FloatBuffer vertexBuffer = (FloatBuffer) mesh.getBuffer(Type.Position).getData();
         FloatBuffer textureBuffer = (FloatBuffer) mesh.getBuffer(Type.TexCoord).getData();
@@ -502,7 +502,7 @@ public class TangentBinormalGenerator {
     }
 
     private static List<VertexData> processTriangleFan(Mesh mesh,
-            int[] index, Vector3f[] v, Vector2f[] t) {
+                                                       int[] index, Vector3f[] v, Vector2f[] t) {
         IndexBuffer indexBuffer = mesh.getIndexBuffer();
         FloatBuffer vertexBuffer = (FloatBuffer) mesh.getBuffer(Type.Position).getData();
         FloatBuffer textureBuffer = (FloatBuffer) mesh.getBuffer(Type.TexCoord).getData();
@@ -548,7 +548,7 @@ public class TangentBinormalGenerator {
     }
 
     public static TriangleData processTriangle(int[] index,
-            Vector3f[] v, Vector2f[] t) {
+                                               Vector3f[] v, Vector2f[] t) {
         TempVars tmp = TempVars.get();
         try {
             Vector3f edge1 = tmp.vect1;
@@ -567,10 +567,10 @@ public class TangentBinormalGenerator {
             boolean normalize = false;
             if (Math.abs(det) < ZERO_TOLERANCE) {
                 log.log(Level.WARNING, "Colinear uv coordinates for triangle "
-                        + "[{0}, {1}, {2}]; tex0 = [{3}, {4}], "
-                        + "tex1 = [{5}, {6}], tex2 = [{7}, {8}]",
+                                + "[{0}, {1}, {2}]; tex0 = [{3}, {4}], "
+                                + "tex1 = [{5}, {6}], tex2 = [{7}, {8}]",
                         new Object[]{index[0], index[1], index[2],
-                            t[0].x, t[0].y, t[1].x, t[1].y, t[2].x, t[2].y});
+                                t[0].x, t[0].y, t[1].x, t[1].y, t[2].x, t[2].y});
                 det = 1;
                 normalize = true;
             }
@@ -586,7 +586,7 @@ public class TangentBinormalGenerator {
             if (Math.abs(Math.abs(tangent.dot(binormal)) - 1)
                     < ZERO_TOLERANCE) {
                 log.log(Level.WARNING, "Vertices are on the same line "
-                        + "for triangle [{0}, {1}, {2}].",
+                                + "for triangle [{0}, {1}, {2}].",
                         new Object[]{index[0], index[1], index[2]});
             }
 
@@ -658,11 +658,10 @@ public class TangentBinormalGenerator {
 
             boolean found = false;
             //Nehon 07/07/2013
-            //Removed this part, joining splitted vertice to compute tangent space makes no sense to me
-            //separate vertice should have separate tangent space
+            //Removed this part, joining split vertices to compute tangent space makes no sense to me
+            //separate vertices should have separate tangent space
             if (!splitMirrored) {
-                for (int j = 0; j < vertexMap.size(); j++) {
-                    VertexInfo vertexInfo = vertexMap.get(j);
+                for (VertexInfo vertexInfo : vertexMap) {
                     if (approxEqual(vertexInfo.position, position)
                             && approxEqual(vertexInfo.normal, normal)
                             && approxEqual(vertexInfo.texCoord, texCoord)) {
@@ -683,7 +682,7 @@ public class TangentBinormalGenerator {
     }
 
     private static void processTriangleData(Mesh mesh, List<VertexData> vertices,
-            boolean approxTangent, boolean splitMirrored) {
+                                            boolean approxTangent, boolean splitMirrored) {
         ArrayList<VertexInfo> vertexMap = linkVertices(mesh, splitMirrored);
 
         FloatBuffer tangents = BufferUtils.createFloatBuffer(vertices.size() * 4);
@@ -701,10 +700,10 @@ public class TangentBinormalGenerator {
         Vector3f tangentUnit = new Vector3f();
         Vector3f binormalUnit = new Vector3f();
 
-        for (int k = 0; k < vertexMap.size(); k++) {
+        for (VertexInfo info : vertexMap) {
             float wCoord = -1;
 
-            VertexInfo vertexInfo = vertexMap.get(k);
+            VertexInfo vertexInfo = info;
 
             givenNormal.set(vertexInfo.normal);
             givenNormal.normalizeLocal();
@@ -724,15 +723,13 @@ public class TangentBinormalGenerator {
             for (int i : vertexInfo.indices) {
                 triangles = vertices.get(i).triangles;
 
-                for (int j = 0; j < triangles.size(); j++) {
-                    TriangleData triangleData = triangles.get(j);
-
+                for (TriangleData triangleData : triangles) {
                     tangentUnit.set(triangleData.tangent);
                     tangentUnit.normalizeLocal();
                     if (tangent.dot(tangentUnit) < toleranceDot) {
                         log.log(Level.WARNING,
                                 "Angle between tangents exceeds tolerance "
-                                + "for vertex {0}.", i);
+                                        + "for vertex {0}.", i);
                         break;
                     }
 
@@ -742,7 +739,7 @@ public class TangentBinormalGenerator {
                         if (binormal.dot(binormalUnit) < toleranceDot) {
                             log.log(Level.WARNING,
                                     "Angle between binormals exceeds tolerance "
-                                    + "for vertex {0}.", i);
+                                            + "for vertex {0}.", i);
                             break;
                         }
                     }
@@ -761,8 +758,7 @@ public class TangentBinormalGenerator {
                     cols[i] = ColorRGBA.White;
                 }
 
-                for (int j = 0; j < triangles.size(); j++) {
-                    TriangleData triangleData = triangles.get(j);
+                for (TriangleData triangleData : triangles) {
                     tangent.addLocal(triangleData.tangent);
                     binormal.addLocal(triangleData.binormal);
 

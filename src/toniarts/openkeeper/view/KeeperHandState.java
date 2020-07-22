@@ -59,12 +59,11 @@ import static toniarts.openkeeper.tools.convert.AssetsConverter.TEXTURES_FOLDER;
  */
 public abstract class KeeperHandState extends AbstractAppState {
 
-    private static final List<String> SLAP_SOUNDS = Arrays.asList(new String[]{
-        "/Global/GuiHD/Slap_1.mp2",
-        "/Global/GuiHD/slap_2.mp2",
-        "/Global/GuiHD/Slap_3.mp2",
-        "/Global/GuiHD/Slap_4.mp2"
-    });
+    private static final List<String> SLAP_SOUNDS = Arrays.asList(
+            "/Global/GuiHD/Slap_1.mp2",
+            "/Global/GuiHD/slap_2.mp2",
+            "/Global/GuiHD/Slap_3.mp2",
+            "/Global/GuiHD/Slap_4.mp2");
     private static final String MORE_CREATURES = "GUI/Creatures/more_creatures";
 
     //FIXME: 8 in original but two lines by 4
@@ -210,7 +209,7 @@ public abstract class KeeperHandState extends AbstractAppState {
     private void updateHand() {
 
         // While it is fairly certain that we always have an intact situation on the client...
-        // wise not to bet on it, as really the amount of data is so insignifigant that any optimization doesn't give much
+        // wise not to bet on it, as really the amount of data is so insignificant that any optimization doesn't give much
         queueNode.detachAllChildren();
         cursor.detachAllChildren();
         currentItem = null;

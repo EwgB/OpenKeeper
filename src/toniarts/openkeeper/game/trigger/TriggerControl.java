@@ -95,7 +95,7 @@ public class TriggerControl extends Control {
 
                 //System.out.println(String.format("%s: %d %s", this.getClass().getSimpleName(), trigger.getId(), trigger.getType()));
                 doAction((TriggerActionData) value);
-                if (!trigger.isRepeateable()) {
+                if (!trigger.isRepeatable()) {
                     trigger.detachChild(value);
                     i--;
                 }

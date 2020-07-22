@@ -47,7 +47,7 @@ public class HeroGateThreeByOne extends GenericRoom {
         BatchNode root = new BatchNode();
         String modelName = roomInstance.getRoom().getCompleteResource().getName();
         //Point center = roomInstance.getCenter();
-        // Contruct the tiles
+        // Construct the tiles
         int j = 0;
         for (Point p : roomInstance.getCoordinates()) {
             int piece = (roomInstance.getDirection() == Direction.WEST || roomInstance.getDirection() == Direction.SOUTH) ? j + 3 : 5 - j;

@@ -48,7 +48,7 @@ public class WorkshopController extends NormalRoomController {
         List<EntityId> pillars = new ArrayList<>();
         for (Point p : roomInstance.getCoordinates()) {
 
-            // See that we have 2 "free" neigbouring tiles
+            // See that we have 2 "free" neighbouring tiles
             Set<WallSection.WallDirection> freeDirections = EnumSet.noneOf(WallSection.WallDirection.class);
             if (!hasSameTile(map, p.x - start.x, p.y - start.y - 1)) { // North
                 freeDirections.add(WallSection.WallDirection.NORTH);

@@ -135,7 +135,7 @@ public class Shot implements Comparable<Shot>, ISoundable {
         MODIFY_EXPERIENCE_LEVEL(7),
         MODIFY_HUNGER(8),
         LIGHTNING(9),
-        INVUNERABLE(10),
+        INVULNERABLE(10),
         FREEZE(11),
         ALARM(12),
         TURNCOAT(13),

@@ -286,7 +286,7 @@ public class KmfFile {
                 triangleCounts.add(rawKmf.readUnsignedInteger());
             }
             sprite.setTriangleCounts(triangleCounts);
-            sprite.setVerticeCount(rawKmf.readUnsignedInteger());
+            sprite.setVertexCount(rawKmf.readUnsignedInteger());
             sprite.setMmFactor(rawKmf.readFloat());
             sprites.add(sprite);
         }
@@ -316,8 +316,8 @@ public class KmfFile {
             sprite.setTriangles(trianglesPerLod);
 
             //Mesh vertices
-            List<MeshVertex> vertices = new ArrayList<>(sprite.getVerticeCount());
-            for (int j = 0; j < sprite.getVerticeCount(); j++) {
+            List<MeshVertex> vertices = new ArrayList<>(sprite.getVertexCount());
+            for (int j = 0; j < sprite.getVertexCount(); j++) {
                 MeshVertex meshVertex = new MeshVertex();
                 meshVertex.setGeomIndex(rawKmf.readUnsignedShort());
                 meshVertex.setUv(new Uv(rawKmf.readUnsignedShort(),
@@ -424,7 +424,7 @@ public class KmfFile {
 
             float x = (((coordinates >> 20) & 0x3ff) - 0x200) / 511.0f;
             float y = (((coordinates >> 10) & 0x3ff) - 0x200) / 511.0f;
-            float z = (((coordinates >> 0) & 0x3ff) - 0x200) / 511.0f;
+            float z = (((coordinates) & 0x3ff) - 0x200) / 511.0f;
 
             Vector3f v = new Vector3f(x, y, z);
             v.scale(a.getScale()); // Scale
@@ -503,7 +503,7 @@ public class KmfFile {
                 triangleCounts.add(rawKmf.readUnsignedInteger());
             }
             sprite.setTriangleCounts(triangleCounts);
-            sprite.setVerticeCount(rawKmf.readUnsignedInteger());
+            sprite.setVertexCount(rawKmf.readUnsignedInteger());
             sprite.setMmFactor(rawKmf.readFloat());
             sprites.add(sprite);
         }
@@ -539,8 +539,8 @@ public class KmfFile {
             //KMSH/ANIM/SPRS/SPRS/VERT
             checkHeader(rawKmf, KMF_ANIM_SPRITES_VERT_HEADER);
             rawKmf.skipBytes(4);
-            List<AnimVertex> vertices = new ArrayList<>(sprite.getVerticeCount());
-            for (int j = 0; j < sprite.getVerticeCount(); j++) {
+            List<AnimVertex> vertices = new ArrayList<>(sprite.getVertexCount());
+            for (int j = 0; j < sprite.getVertexCount(); j++) {
                 AnimVertex animVertex = new AnimVertex();
                 animVertex.setUv(new Uv(rawKmf.readUnsignedShort(), rawKmf.readUnsignedShort()));
                 animVertex.setNormal(rawKmf.readFloat(), rawKmf.readFloat(), rawKmf.readFloat());

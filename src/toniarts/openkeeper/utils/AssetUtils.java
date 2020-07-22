@@ -422,7 +422,7 @@ public class AssetUtils {
                                 models.add(loadModel(assetManager, artResource.getName()));
                             } else if (artResource.getType() == ArtResource.ArtResourceType.TERRAIN_MESH && obj instanceof Terrain) {
 
-                                // With terrains, we need to see the contruction type
+                                // With terrains, we need to see the construction type
                                 Terrain terrain = (Terrain) obj;
                                 if (method.getName().startsWith("getTaggedTopResource") || method.getName().startsWith("getSideResource")) {
                                     models.add(loadModel(assetManager, artResource.getName()));
@@ -442,7 +442,7 @@ public class AssetUtils {
                                 }
                             } else if (artResource.getType() == ArtResource.ArtResourceType.TERRAIN_MESH && obj instanceof Room) {
 
-                                // With terrains, we need to see the contruction type
+                                // With terrains, we need to see the construction type
                                 Room room = (Room) obj;
                                 int count = 0;
                                 int start = 0;
@@ -488,7 +488,7 @@ public class AssetUtils {
             }
         }
 
-        // Enque the warming up, we need GL context
+        // Enqueue the warming up, we need GL context
         if (!models.isEmpty()) {
             LOGGER.log(Level.INFO, "Prewarming {0} objects!", models.size());
             app.enqueue(() -> {
@@ -504,11 +504,11 @@ public class AssetUtils {
 
     /**
      * Sets model highlight with selected color. Technically sets the material's
-     * ambient color to one of your choosings
+     * ambient color to one of your choosing
      *
-     * @param spatial the spatial which to highlight
+     * @param spatial        the spatial which to highlight
      * @param highlightColor the highlight color
-     * @param enabled turn the effect on/off
+     * @param enabled        turn the effect on/off
      */
     public static void setModelHighlight(Spatial spatial, ColorRGBA highlightColor, boolean enabled) {
         spatial.depthFirstTraversal(new SceneGraphVisitor() {

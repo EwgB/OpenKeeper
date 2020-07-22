@@ -38,7 +38,7 @@ abstract class BitStream extends BitrateVariation {
     private final static int MAX_FRAMESIZE = 1732;
     private final static int AUDIO_SYNC_PATTERN = 0xFFE00000; // MPEG 2.5 compliant
     final static int BITMASK[] = {
-        0x00, 0x01, 0x03, 0x07, 0x0F, 0x1F, 0x3F, 0x7F, 0xFF,};
+            0x00, 0x01, 0x03, 0x07, 0x0F, 0x1F, 0x3F, 0x7F, 0xFF,};
     int bound;
     private byte[] buf;
     private byte[] b;
@@ -55,9 +55,9 @@ abstract class BitStream extends BitrateVariation {
      * <code>BitStream</code> class acts also as a
      * <code>MediaControl</code> object containing presettings.
      *
-     * @param info the <code>Frame</code> object containing the neccesary
-     * informations about the source
-     * @param in the input stream
+     * @param info the <code>Frame</code> object containing the necessary
+     *             information about the source
+     * @param in   the input stream
      */
     BitStream(Frame info, InputStream in) {
         super(info, in);
@@ -79,7 +79,7 @@ abstract class BitStream extends BitrateVariation {
 
     @Override
     final int skipFrame() throws IOException {
-        Frame info = (Frame) information;
+        Frame info = information;
         int i;
 
         do {
@@ -103,7 +103,7 @@ abstract class BitStream extends BitrateVariation {
 
     @Override
     final int readFrame() throws IOException {
-        Frame info = (Frame) information;
+        Frame info = information;
         int i;
 
         do {
@@ -134,13 +134,13 @@ abstract class BitStream extends BitrateVariation {
 
         if (info.isProtected()) {
             info.setChecksum((short) get(16));
-            ((CRC16) info.getCrc()).update(i, 16);
+            info.getCrc().update(i, 16);
         }
         return Events.VALIDATION_EVENT;
     }
 
     private int nextHeader() throws IOException {
-        Frame info = (Frame) information;
+        Frame info = information;
 
         int j = source.read(b, 0, 4);
 
@@ -150,7 +150,7 @@ abstract class BitStream extends BitrateVariation {
 
         int i = b[0] << 24 | b[1] << 16 & 0xFF0000 | b[2] << 8 & 0xFF00 | b[3] & 0xFF;
 
-        if ((i & AUDIO_SYNC_PATTERN) == AUDIO_SYNC_PATTERN && (i >>> 10 & 0x3) == ((Frame) info).orgSampleFrequency && (i >>> 17 & 0x3) == ((Frame) info).orgLayer && (i >>> 19 & 0x3) == ((Frame) info).orgVersion) {
+        if ((i & AUDIO_SYNC_PATTERN) == AUDIO_SYNC_PATTERN && (i >>> 10 & 0x3) == info.orgSampleFrequency && (i >>> 17 & 0x3) == info.orgLayer && (i >>> 19 & 0x3) == info.orgVersion) {
             header = true;
             return i;
         }
@@ -159,7 +159,7 @@ abstract class BitStream extends BitrateVariation {
                 do {
                     i <<= 8;
                 } while (((i |= readByte() & 0xFF) & AUDIO_SYNC_PATTERN) != AUDIO_SYNC_PATTERN);
-            } while ((i >>> 10 & 0x3) != ((Frame) info).orgSampleFrequency || (i >>> 17 & 0x3) != ((Frame) info).orgLayer || (i >>> 19 & 0x3) != ((Frame) info).orgVersion);
+            } while ((i >>> 10 & 0x3) != info.orgSampleFrequency || (i >>> 17 & 0x3) != info.orgLayer || (i >>> 19 & 0x3) != info.orgVersion);
         } catch (IOException e) {
             if (e instanceof InterruptedIOException) {
                 return -1;

@@ -39,7 +39,8 @@ public interface ICreatureEntrance {
     public Point getEntranceCoordinate();
 
     /**
-     * Get creautures attracted on this entrance
+     * Get creatures attracted on this entrance
+     *
      * @return
      */
     public List<CreatureControl> getAttractedCreatures();

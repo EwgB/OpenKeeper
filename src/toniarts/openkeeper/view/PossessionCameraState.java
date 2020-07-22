@@ -28,7 +28,7 @@ import com.jme3.math.Vector2f;
 import com.jme3.math.Vector3f;
 import com.jme3.renderer.Camera;
 import toniarts.openkeeper.Main;
-import toniarts.openkeeper.game.FunnyCameraContol;
+import toniarts.openkeeper.game.FunnyCameraControl;
 import toniarts.openkeeper.game.data.Settings;
 import toniarts.openkeeper.game.state.AbstractPauseAwareState;
 import toniarts.openkeeper.tools.convert.map.Creature;
@@ -116,7 +116,7 @@ public class PossessionCameraState extends AbstractPauseAwareState implements Ac
             camera = new PossessionCamera(app.getCamera(), creature.getAttributes().getSpeed(), creature.getFirstPersonOscillateScale());
             loadCameraStartLocation();
 
-            FunnyCameraContol fcc = new FunnyCameraContol(app.getCamera(), target.getSpatial());
+            FunnyCameraControl fcc = new FunnyCameraControl(app.getCamera(), target.getSpatial());
             fcc.setLookAtOffset(new Vector3f(0, creature.getAttributes().getEyeHeight(), 0));
             fcc.setHeight(creature.getAttributes().getHeight());
             fcc.setDistance(1.5f);
@@ -125,7 +125,7 @@ public class PossessionCameraState extends AbstractPauseAwareState implements Ac
             registerInput();
         } else {
             unregisterInput();
-            target.getSpatial().removeControl(FunnyCameraContol.class);
+            target.getSpatial().removeControl(FunnyCameraControl.class);
             target = null;
         }
     }

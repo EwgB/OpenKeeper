@@ -74,7 +74,7 @@ public class TriggerGenericData extends TriggerData {
         }
     }
 
-    public boolean isRepeateable() {
+    public boolean isRepeatable() {
         return (repeatTimes > 0);
     }
 

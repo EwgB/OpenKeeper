@@ -25,7 +25,7 @@ import com.simsilica.es.EntityComponent;
  */
 public abstract class Attack implements EntityComponent {
 
-    public Double attactStartTime;
+    public Double attackStartTime;
     public float rechargeTime;
     public float range;
 

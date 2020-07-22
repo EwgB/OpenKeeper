@@ -384,55 +384,41 @@ public abstract class Dk2TextureDecoder {
                     }
                     out_index = dc_control_table_7af0e0[magic_index + 1];
                     decompress2_chunk[out_index] = ((short) control_word) * magic_output_table[out_index];
-                    continue;
                 }
             } else if (index >= 0x800) {
                 index >>= 9;
                 control_word = dc_control_table_7af0e0[72 + index];
                 areWeDone = true;
-                continue;
             } else if (index >= 0x400) {
                 index >>= 7;
                 control_word = dc_control_table_7af0e0[128 + index];
                 areWeDone = true;
-                continue;
             } else if (index >= 0x200) {
                 index >>= 5;
                 control_word = dc_control_table_7af0e0[128 + index];
                 areWeDone = true;
-                continue;
             } else if (index >= 0x100) {
                 index >>= 4;
                 control_word = dc_control_table_7af0e0[144 + index];
                 areWeDone = true;
-                continue;
             } else if (index >= 0x80) {
                 index >>= 3;
                 control_word = dc_control_table_7af0e0[160 + index];
                 areWeDone = true;
-                continue;
             } else if (index >= 0x40) {
                 index >>= 2;
                 control_word = dc_control_table_7af0e0[176 + index];
                 areWeDone = true;
-                continue;
             } else if (index >= 0x20) {
                 index >>= 1;
                 control_word = dc_control_table_7af0e0[192 + index];
                 areWeDone = true;
-                continue;
             }
         }
     }
 
     protected int clamp(int n, int min, int max) {
-        if (n < min) {
-            return min;
-        }
-        if (n > max) {
-            return max;
-        }
-        return n;
+        return Math.max(Math.min(n, max), min);
     }
 
     protected abstract void decompress_block(ByteBuffer out, int stride, boolean alphaFlag);

@@ -32,7 +32,7 @@ import java.util.logging.Logger;
 /**
  * The waste disposal class, removes entities after reasonable amount of time
  * has passed (i.e. death animations or corpse decays have passed). Also handles
- * passing other posessions related to the entity, maybe some other universal
+ * passing other possessions related to the entity, maybe some other universal
  * remove listener would be better in the long run...
  *
  * @author Toni Helenius <helenius.toni@gmail.com>
@@ -82,7 +82,7 @@ public class DeathSystem implements IGameLogicUpdatable {
         for (Entity entity : entities) {
             int index = Collections.binarySearch(entityIds, entity.getId());
             entityIds.add(~index, entity.getId());
-            entityPositionLookup.getEntityController(entity.getId()).removePosession();
+            entityPositionLookup.getEntityController(entity.getId()).removePossession();
         }
     }
 

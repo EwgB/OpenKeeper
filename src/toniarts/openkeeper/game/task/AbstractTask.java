@@ -37,7 +37,7 @@ import java.util.logging.Logger;
  */
 public abstract class AbstractTask implements Task {
 
-    private static final AtomicLong ID_GENENERATOR = new AtomicLong();
+    private static final AtomicLong ID_GENERATOR = new AtomicLong();
 
     private final long id;
     private final Date taskCreated;
@@ -50,7 +50,7 @@ public abstract class AbstractTask implements Task {
         this.taskCreated = new Date();
         this.navigationService = navigationService;
         this.mapController = mapController;
-        this.id = ID_GENENERATOR.getAndIncrement();
+        this.id = ID_GENERATOR.getAndIncrement();
     }
 
     @Override

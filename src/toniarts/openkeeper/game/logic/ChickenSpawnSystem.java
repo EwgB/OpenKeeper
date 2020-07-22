@@ -38,7 +38,7 @@ import java.util.*;
 import java.util.Map.Entry;
 
 /**
- * Handles spawing chickens in hatcheries and coops
+ * Handles spawning chickens in hatcheries and coops
  *
  * @author Toni Helenius <helenius.toni@gmail.com>
  */
@@ -276,7 +276,7 @@ public class ChickenSpawnSystem implements IGameLogicUpdatable {
 
         private void removeRoom(IRoomController room) {
             if (room instanceof IChickenGenerator) {
-                entrances.remove((IChickenGenerator) room);
+                entrances.remove(room);
             }
         }
 

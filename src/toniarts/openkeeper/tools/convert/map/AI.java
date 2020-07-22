@@ -21,7 +21,6 @@ import toniarts.openkeeper.tools.convert.IValueEnum;
 import java.util.List;
 
 /**
- *
  * @author ArchDemon
  */
 public class AI {
@@ -83,6 +82,7 @@ public class AI {
         public int getValue() {
             return id;
         }
+
         private final int id;
     }
 
@@ -100,6 +100,7 @@ public class AI {
         public int getValue() {
             return id;
         }
+
         private final int id;
     }
 
@@ -117,6 +118,7 @@ public class AI {
         public int getValue() {
             return id;
         }
+
         private final int id;
     }
 
@@ -134,6 +136,7 @@ public class AI {
         public int getValue() {
             return id;
         }
+
         private final int id;
     }
 
@@ -152,6 +155,7 @@ public class AI {
         public int getValue() {
             return id;
         }
+
         private final int id;
     }
 
@@ -171,6 +175,7 @@ public class AI {
         public int getValue() {
             return id;
         }
+
         private final int id;
     }
 
@@ -187,6 +192,7 @@ public class AI {
         public int getValue() {
             return id;
         }
+
         private final int id;
     }
 
@@ -204,6 +210,7 @@ public class AI {
         public int getValue() {
             return id;
         }
+
         private final int id;
     }
 
@@ -221,6 +228,7 @@ public class AI {
         public int getValue() {
             return id;
         }
+
         private final int id;
     }
 
@@ -238,6 +246,7 @@ public class AI {
         public int getValue() {
             return id;
         }
+
         private final int id;
     }
 
@@ -256,6 +265,7 @@ public class AI {
         public int getValue() {
             return id;
         }
+
         private final int id;
     }
 
@@ -331,7 +341,7 @@ public class AI {
     private int buildAreaStartY; // Short, 0 based coordinate
     private int buildAreaEndX; // Short, 0 based coordinate
     private int buildAreaEndY; // Short, 0 based coordinate
-    private MoveToResearchPolicy likelyhoodToMovingCreaturesToLibraryForResearching; // Misc, byte
+    private MoveToResearchPolicy likelihoodToMovingCreaturesToLibraryForResearching; // Misc, byte
     private short chanceOfExploringToFindSpecials; // Misc, byte, percentage
     private short chanceOfFindingSpecialsWhenExploring; // Misc, byte, percentage
     private ImprisonedCreatureFatePolicy fateOfImprisonedCreatures; // Misc, byte
@@ -904,12 +914,12 @@ public class AI {
         this.buildAreaEndY = buildAreaEndY;
     }
 
-    public MoveToResearchPolicy getLikelyhoodToMovingCreaturesToLibraryForResearching() {
-        return likelyhoodToMovingCreaturesToLibraryForResearching;
+    public MoveToResearchPolicy getLikelihoodToMovingCreaturesToLibraryForResearching() {
+        return likelihoodToMovingCreaturesToLibraryForResearching;
     }
 
-    protected void setLikelyhoodToMovingCreaturesToLibraryForResearching(MoveToResearchPolicy likelyhoodToMovingCreaturesToLibraryForResearching) {
-        this.likelyhoodToMovingCreaturesToLibraryForResearching = likelyhoodToMovingCreaturesToLibraryForResearching;
+    protected void setLikelihoodToMovingCreaturesToLibraryForResearching(MoveToResearchPolicy likelihoodToMovingCreaturesToLibraryForResearching) {
+        this.likelihoodToMovingCreaturesToLibraryForResearching = likelihoodToMovingCreaturesToLibraryForResearching;
     }
 
     public short getChanceOfExploringToFindSpecials() {

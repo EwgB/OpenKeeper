@@ -63,14 +63,12 @@ public class HeroGateFrontEnd extends GenericRoom {
     /**
      * Load an object asset
      *
-     * @param model the model string
-     * @param assetManager the asset manager instance
-     * @param start starting point
-     * @param p the current point
-     * @param randomizeAnimation randomize object animation (speed and start
-     * time)
-     * @return reseted and ready to go model (also animated if there is a such
-     * option)
+     * @param model              the model string
+     * @param assetManager       the asset manager instance
+     * @param start              starting point
+     * @param p                  the current point
+     * @param randomizeAnimation randomize object animation (speed and start time)
+     * @return reset and ready to go model (also animated if there is such an option)
      */
     private Spatial loadObject(String model, AssetManager assetManager, Point start, Point p, boolean randomizeAnimation) {
         Node object = (Node) AssetUtils.loadModel(assetManager, model, false, true);
@@ -84,9 +82,9 @@ public class HeroGateFrontEnd extends GenericRoom {
     }
 
     private Spatial loadObject(short objectId, AssetManager assetManager, Point start,
-            Point p, boolean randomizeAnimation) {
+                               Point p, boolean randomizeAnimation) {
 
-        Spatial object =  objectLoader.load(assetManager, 0, 0, objectId, roomInstance.getOwnerId());
+        Spatial object = objectLoader.load(assetManager, 0, 0, objectId, roomInstance.getOwnerId());
         moveSpatial(object, start, p);
         animate(object, randomizeAnimation);
 
@@ -118,10 +116,10 @@ public class HeroGateFrontEnd extends GenericRoom {
     /**
      * Adds two candles to the tile, one to each side
      *
-     * @param n node to attach to
+     * @param n            node to attach to
      * @param assetManager the asset manager instance
-     * @param start starting point for the room
-     * @param p this tile coordinate
+     * @param start        starting point for the room
+     * @param p            this tile coordinate
      */
     private void addCandles(Node n, AssetManager assetManager, Point start, Point p) {
 
@@ -135,18 +133,18 @@ public class HeroGateFrontEnd extends GenericRoom {
     /**
      * Creates and attach the level node, creates a control for it
      *
-     * @param map node to attach to
-     * @param type level type
-     * @param level level number
-     * @param variation variation, like level "a" etc.
-     * @param assetManager the asset manager instance
-     * @param start starting point for the room
-     * @param p this tile coordinate
+     * @param map                node to attach to
+     * @param type               level type
+     * @param level              level number
+     * @param variation          variation, like level "a" etc.
+     * @param assetManager       the asset manager instance
+     * @param start              starting point for the room
+     * @param p                  this tile coordinate
      * @param randomizeAnimation randomize object animation (speed and start
-     * time)
+     *                           time)
      */
     private void attachAndCreateLevel(Node map, LevelType type, int levelnumber, String variation,
-            AssetManager assetManager, Point start, Point p, boolean randomizeAnimation) {
+                                      AssetManager assetManager, Point start, Point p, boolean randomizeAnimation) {
 
         String objName = "3dmap_level";
         if (type.equals(LevelType.Secret)) {
@@ -165,7 +163,7 @@ public class HeroGateFrontEnd extends GenericRoom {
         BatchNode root = new BatchNode();
         // The front end hero gate
 
-        // Contruct the tiles
+        // Construct the tiles
         int i = 1;
         Point start = roomInstance.getCoordinates().get(0);
         for (Point p : roomInstance.getCoordinates()) {

@@ -41,7 +41,7 @@ public class CreatureAttack {
     private final CreatureControl creature;
 
     /**
-     * Contructs a creature melee base attack
+     * Constructs a creature melee base attack
      *
      * @param creature the creature
      */
@@ -58,11 +58,11 @@ public class CreatureAttack {
     }
 
     /**
-     * Contructs a creature melee base attack
+     * Constructs a creature melee base attack
      *
      * @param creature the creature
-     * @param spell the creature spell
-     * @param kwdFile the data file
+     * @param spell    the creature spell
+     * @param kwdFile  the data file
      */
     public CreatureAttack(CreatureControl creature, Creature.Spell spell, KwdFile kwdFile) {
         this.creature = creature;

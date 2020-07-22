@@ -96,7 +96,7 @@ public class KeeperSpell implements Comparable<KeeperSpell>, ISoundable, IIndexa
         ALL_CREATURES(3),
         LAND(4),
         ALL(5),
-        POSESSION(6);
+        POSSESSION(6);
 
         private TargetRule(int id) {
             this.id = id;
@@ -106,6 +106,7 @@ public class KeeperSpell implements Comparable<KeeperSpell>, ISoundable, IIndexa
         public int getValue() {
             return id;
         }
+
         private final int id;
     }
 //    struct KeeperSpellBlock {
@@ -347,8 +348,8 @@ public class KeeperSpell implements Comparable<KeeperSpell>, ISoundable, IIndexa
         return soundCategory;
     }
 
-    protected void setSoundCategory(String soundGategory) {
-        this.soundCategory = soundGategory;
+    protected void setSoundCategory(String soundCategory) {
+        this.soundCategory = soundCategory;
     }
 
     public int getBonusRTime() {
@@ -404,8 +405,8 @@ public class KeeperSpell implements Comparable<KeeperSpell>, ISoundable, IIndexa
         return soundCategoryGui;
     }
 
-    protected void setSoundCategoryGui(String soundGategoryGui) {
-        this.soundCategoryGui = soundGategoryGui;
+    protected void setSoundCategoryGui(String soundCategoryGui) {
+        this.soundCategoryGui = soundCategoryGui;
     }
 
     public HandAnimId getHandAnimId() {

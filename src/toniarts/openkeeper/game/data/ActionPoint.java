@@ -26,7 +26,7 @@ import java.util.EnumSet;
 import java.util.List;
 
 /**
- * Represents an action point, areas of intrests in a map
+ * Represents an action point, areas of interest in a map
  *
  * @author ArchDemon
  */
@@ -42,14 +42,14 @@ public class ActionPoint extends Container implements ITriggerable {
     private final Vector2f center;
     private final List<Point> points;
 
-    public ActionPoint(Thing.ActionPoint acionPoint) {
-        id = acionPoint.getId();
-        start = new Point(acionPoint.getStartX(), acionPoint.getStartY());
-        end = new Point(acionPoint.getEndX(), acionPoint.getEndY());
-        waitDelay = acionPoint.getWaitDelay();
-        nextWaypointId = acionPoint.getNextWaypointId();
-        flags = acionPoint.getFlags();
-        triggerId = acionPoint.getTriggerId();
+    public ActionPoint(Thing.ActionPoint actionPoint) {
+        id = actionPoint.getId();
+        start = new Point(actionPoint.getStartX(), actionPoint.getStartY());
+        end = new Point(actionPoint.getEndX(), actionPoint.getEndY());
+        waitDelay = actionPoint.getWaitDelay();
+        nextWaypointId = actionPoint.getNextWaypointId();
+        flags = actionPoint.getFlags();
+        triggerId = actionPoint.getTriggerId();
 
         points = new ArrayList<>((end.x - start.x + 1) * (end.y - start.y + 1));
         for (int x = start.x; x <= end.x; x++) {

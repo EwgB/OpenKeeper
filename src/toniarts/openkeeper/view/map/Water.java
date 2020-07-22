@@ -194,23 +194,23 @@ public class Water {
     }
 
     /**
-     * Adds a vertice to vertice list or returns the index of an existing
+     * Adds a vertex to vertex list or returns the index of an existing
      * verctice in the same coordinates. No duplicate vertices
      *
-     * @param verticeHash the vertice hash (vertice -> index)
-     * @param vertice vertice to add/find
-     * @param vertices all the vertices
-     * @param textureCoord the texture coordinate at the given vertice
+     * @param verticeHash        the vertex hash (vertex -> index)
+     * @param vertex             vertex to add/find
+     * @param vertices           all the vertices
+     * @param textureCoord       the texture coordinate at the given vertex
      * @param textureCoordinates the texture coordinates list
-     * @param normals the normals
-     * @param shareVertices no duplicate vertices, if no texture coordinates are
-     * needed
-     * @return index of the given vertice
+     * @param normals            the normals
+     * @param shareVertices      no duplicate vertices, if no texture coordinates are
+     *                           needed
+     * @return index of the given vertex
      */
-    private static int addVertice(final Map<Vector3f, Integer> verticeHash, final Vector3f vertice, final List<Vector3f> vertices, final Vector2f textureCoord, final List<Vector2f> textureCoordinates, final List<Vector3f> normals, final boolean shareVertices) {
-        if (!shareVertices || (shareVertices && !verticeHash.containsKey(vertice))) {
-            vertices.add(vertice);
-            verticeHash.put(vertice, vertices.size() - 1);
+    private static int addVertice(final Map<Vector3f, Integer> verticeHash, final Vector3f vertex, final List<Vector3f> vertices, final Vector2f textureCoord, final List<Vector2f> textureCoordinates, final List<Vector3f> normals, final boolean shareVertices) {
+        if (!shareVertices || (shareVertices && !verticeHash.containsKey(vertex))) {
+            vertices.add(vertex);
+            verticeHash.put(vertex, vertices.size() - 1);
 
             // Add the texture coordinate as well
             textureCoordinates.add(textureCoord);
@@ -220,7 +220,7 @@ public class Water {
 
             return vertices.size() - 1;
         }
-        return verticeHash.get(vertice);
+        return verticeHash.get(vertex);
     }
 
     private static int[] toIntArray(final List<Integer> list) {

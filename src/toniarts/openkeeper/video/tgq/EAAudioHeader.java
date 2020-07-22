@@ -50,7 +50,7 @@ public class EAAudioHeader {
         PCM_24_I_BE("PCM Signed 24-bit Interleaved (BE)"),
         MICRO_TALK_5_1("MicroTalk 5:1"),
         EA_LAYER_3("EALayer3"),
-        UNKNOWN("Uknown");
+        UNKNOWN("Unknown");
 
         private Compression(String description) {
             this.description = description;
@@ -60,6 +60,7 @@ public class EAAudioHeader {
         public String toString() {
             return description;
         }
+
         private final String description;
     }
     private Platform platform;

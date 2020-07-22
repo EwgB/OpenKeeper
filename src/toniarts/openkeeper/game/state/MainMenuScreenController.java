@@ -692,7 +692,7 @@ public class MainMenuScreenController implements IMainMenuScreenController {
         Label label = screen.findNiftyControl(id, Label.class);
         label.setText(caption.isEmpty() ? "" : "- ".concat(caption));
 
-        // Measure the text height so that the element can be arranged to the the screen without overlapping the othe sub objectives
+        // Measure the text height so that the element can be arranged to the the screen without overlapping the other sub objectives
         TextRenderer renderer = label.getElement().getRenderer(TextRenderer.class);
         label.setHeight(new SizeValue(renderer.getTextHeight() + "px"));
 
@@ -801,14 +801,14 @@ public class MainMenuScreenController implements IMainMenuScreenController {
         // The map title
         Label label = screen.findNiftyControl("mapNameTitle", Label.class);
         label.setText(map == null ? "No maps found from " + PathUtils.DKII_MAPS_FOLDER : map.getGameLevel().getName());
-        NiftyUtils.resetContraints(label);
+        NiftyUtils.resetConstraints(label);
 
         if (map != null) {
 
             // Player count
             label = screen.findNiftyControl("playerCount", Label.class);
             label.setText(": " + map.getGameLevel().getPlayerCount());
-            NiftyUtils.resetContraints(label);
+            NiftyUtils.resetConstraints(label);
 
             // Map image
             Element mapImage = screen.findElementById("mapImage");

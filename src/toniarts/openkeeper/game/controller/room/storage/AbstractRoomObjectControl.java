@@ -31,6 +31,7 @@ import toniarts.openkeeper.tools.convert.map.KwdFile;
 import java.awt.*;
 import java.util.List;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Room object controller. FIXME: Cache the coordinates and listen to changes in
@@ -48,7 +49,7 @@ public abstract class AbstractRoomObjectControl<V> implements IRoomObjectControl
     protected final Map<Point, Collection<EntityId>> objectsByCoordinate = new HashMap<>();
 
     public AbstractRoomObjectControl(KwdFile kwdFile, IRoomController parent, IObjectsController objectsController,
-            IGameTimer gameTimer) {
+                                     IGameTimer gameTimer) {
         this.kwdFile = kwdFile;
         this.parent = parent;
         this.objectsController = objectsController;
@@ -125,15 +126,11 @@ public abstract class AbstractRoomObjectControl<V> implements IRoomObjectControl
      * @return list of all coordinates
      */
     protected Collection<Point> getCoordinates() {
-        List<Point> coordinates = new ArrayList<>(parent.getRoomInstance().getCoordinates());
-        Iterator<Point> iter = coordinates.iterator();
-        while (iter.hasNext()) {
-            Point p = iter.next();
-            if (!parent.isTileAccessible(null, p)) {
-                iter.remove();
-            }
-        }
-        return coordinates;
+        return parent.getRoomInstance()
+                .getCoordinates()
+                .stream()
+                .filter(p -> parent.isTileAccessible(null, p))
+                .collect(Collectors.toList());
     }
 
     /**
@@ -143,16 +140,12 @@ public abstract class AbstractRoomObjectControl<V> implements IRoomObjectControl
      */
     @Override
     public Collection<Point> getAvailableCoordinates() {
-        List<Point> coordinates = new ArrayList<>(getCoordinates());
-        Iterator<Point> iter = coordinates.iterator();
-        while (iter.hasNext()) {
-            Point p = iter.next();
-            Collection<EntityId> items = getItems(p);
-            if (items != null && items.size() == getObjectsPerTile()) {
-                iter.remove();
-            }
-        }
-        return coordinates;
+        return getCoordinates().stream()
+                .filter(p -> {
+                    Collection<EntityId> items = getItems(p);
+                    return items == null || items.size() != getObjectsPerTile();
+                })
+                .collect(Collectors.toList());
     }
 
     protected void setRoomStorageToItem(EntityId entityId, boolean changeOwner) {

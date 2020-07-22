@@ -122,7 +122,7 @@ public class HealthSystem implements IGameLogicUpdatable {
                     }
                 } else {
 
-                    // At someones elses land, reset counter
+                    // At someones else's land, reset counter
                     timeOnOwnLandByEntityId.replace(entityId, null);
                 }
             }

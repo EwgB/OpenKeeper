@@ -587,7 +587,7 @@ public final class MapController extends Container implements Savable, IMapContr
                 }
             } else if (tile.getGold() > 0) {
 
-                // This is how I believe the gold mining works, it is not health damage we do, it is substracting gold
+                // This is how I believe the gold mining works, it is not health damage we do, it is subtracting gold
                 // The mined tiles leave no loot, the loot is left by the imps if there is no place to store the gold
                 if (terrain.getFlags().contains(Terrain.TerrainFlag.IMPENETRABLE)) {
                     damage = (int) getLevelVariable(Variable.MiscVariable.MiscType.GOLD_MINED_FROM_GEMS);
@@ -623,7 +623,7 @@ public final class MapController extends Container implements Savable, IMapContr
         // See the results
         if (tileDestroyed) {
 
-            // TODO: effect, drop loot & checks, claimed walls should also get destroyed if all adjacent tiles are not in cotrol anymore
+            // TODO: effect, drop loot & checks, claimed walls should also get destroyed if all adjacent tiles are not in control anymore
             // The tile is dead
 //            if (terrain.getDestroyedEffectId() != 0) {
 //                effectManager.load(worldNode,
@@ -747,7 +747,7 @@ public final class MapController extends Container implements Savable, IMapContr
 //                            WorldUtils.pointToVector3f(point).addLocal(0, MapLoader.FLOOR_HEIGHT, 0),
 //                            tile.getTerrain().getMaxHealthEffectId(), false);
 //
-//                    // FIXME ROOM_CLAIM_ID is realy claim effect?
+//                    // FIXME ROOM_CLAIM_ID is really claim effect?
 //                    effectManager.load(worldNode,
 //                            WorldUtils.pointToVector3f(p2).addLocal(0, MapLoader.FLOOR_HEIGHT, 0),
 //                            room.getRoom().getEffects().get(EffectManagerState.ROOM_CLAIM_ID), false);

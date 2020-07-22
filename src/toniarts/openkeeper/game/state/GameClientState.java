@@ -191,7 +191,7 @@ public class GameClientState extends AbstractPauseAwareState {
 
     private IPlayerLoadingProgress createLoadingState(Main app) {
 
-        // Create the appropriate loaging screen
+        // Create the appropriate loading screen
         IPlayerLoadingProgress loader;
         if (isMultiplayer()) {
             loader = new MultiplayerLoadingState(app, "Multiplayer") {
@@ -392,16 +392,16 @@ public class GameClientState extends AbstractPauseAwareState {
         }
 
         @Override
-        public void onManaChange(short keeperId, int mana, int manaLoose, int manaGain) {
+        public void onManaChange(short keeperId, int mana, int manaLoss, int manaGain) {
             Keeper keeper = getPlayer(keeperId);
             keeper.setMana(mana);
             keeper.setManaGain(manaGain);
-            keeper.setManaLoose(manaLoose);
+            keeper.setManaLoss(manaLoss);
 
             // FIXME: See in what thread we are
             if (playerState != null && playerState.getPlayerId() == keeperId) {
                 app.enqueue(() -> {
-                    playerState.onManaChange(keeperId, mana, manaLoose, manaGain);
+                    playerState.onManaChange(keeperId, mana, manaLoss, manaGain);
                 });
             }
         }

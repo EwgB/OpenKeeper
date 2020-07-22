@@ -140,7 +140,7 @@ public abstract class RoomGoldControl extends AbstractRoomObjectControl<Integer>
     public void removeItem(EntityId object) {
         super.removeItem(object);
 
-        // Substract the gold from the player
+        // Subtract the gold from the player
         //parent.getWorldState().getGameState().getPlayer(parent.getRoomInstance().getOwnerId()).getGoldControl().subGold(object.getGold());
         Gold goldPile = objectsController.getEntityData().getComponent(object, Gold.class);
         storedGold -= goldPile.gold;
@@ -165,7 +165,7 @@ public abstract class RoomGoldControl extends AbstractRoomObjectControl<Integer>
                 amount -= goldToRemove;
                 goldPile.gold = goldPile.gold - goldToRemove;
 
-                // Substract the gold from the player
+                // Subtract the gold from the player
                 //parent.getWorldState().getGameState().getPlayer(parent.getRoomInstance().getOwnerId()).getGoldControl().subGold(goldToRemove);
                 storedGold -= goldToRemove;
 

@@ -41,7 +41,7 @@ public class HeroGate extends GenericRoom {
     @Override
     protected BatchNode constructFloor() {
         BatchNode root = new BatchNode();
-        // Contruct the tiles
+        // Construct the tiles
         Point start = roomInstance.getCoordinates().get(0);
         String modelName = roomInstance.getRoom().getCompleteResource().getName();
         for (Point p : roomInstance.getCoordinates()) {

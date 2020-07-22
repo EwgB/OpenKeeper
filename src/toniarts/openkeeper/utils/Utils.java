@@ -223,9 +223,9 @@ public class Utils {
      * @return good loking enum name
      */
     public static <E extends Enum> String prettyPrintEnum(E enumMember) {
-        String[] splitted = enumMember.name().split("_");
+        String[] split = enumMember.name().split("_");
         String result = "";
-        for (String s : splitted) {
+        for (String s : split) {
             result = result.concat(" ").concat(s.substring(0, 1).toUpperCase()).concat(s.substring(1).toLowerCase());
         }
         return result.trim();

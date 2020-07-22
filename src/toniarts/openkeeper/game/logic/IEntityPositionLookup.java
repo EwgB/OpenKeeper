@@ -71,7 +71,7 @@ public interface IEntityPositionLookup {
     <T extends IEntityController> List<T> getEntityTypesInLocation(MapTile mapTile, Class<T> clazz);
 
     /**
-     * Get a entity controller for the entity. Tries to find a correct one with
+     * Get an entity controller for the entity. Tries to find a correct one with
      * correct behavior. TODO: better some EntityFactory thingie
      *
      * @param entityId the entity ID to wrap
@@ -80,12 +80,12 @@ public interface IEntityPositionLookup {
     IEntityController getEntityController(EntityId entityId);
 
     /**
-     * Get a entity controller for the entity. Tests that the entity supports
+     * Get an entity controller for the entity. Tests that the entity supports
      * the controller required (i.e. creature is a creature)
      *
-     * @param <T> the controller class type
+     * @param <T>      the controller class type
      * @param entityId the entity ID to wrap
-     * @param clazz the controller class
+     * @param clazz    the controller class
      * @return entity controller
      */
     <T extends IEntityController> T getEntityController(EntityId entityId, Class<T> clazz);
@@ -125,7 +125,7 @@ public interface IEntityPositionLookup {
      * Gets all the entities around given entity that you see or hear at this
      * given moment
      *
-     * @param entityId you, the entitty
+     * @param entityId you, the entity
      * @return set of entities you see or hear
      */
     Set<EntityId> getSensedEntities(EntityId entityId);

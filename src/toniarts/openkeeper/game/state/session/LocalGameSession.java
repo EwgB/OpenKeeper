@@ -402,9 +402,9 @@ public class LocalGameSession implements GameSessionServerService, GameSessionCl
     }
 
     @Override
-    public void onManaChange(short keeperId, int mana, int manaLoose, int manaGain) {
+    public void onManaChange(short keeperId, int mana, int manaLoss, int manaGain) {
         for (GameSessionListener listener : listeners.getArray()) {
-            listener.onManaChange(keeperId, mana, manaLoose, manaGain);
+            listener.onManaChange(keeperId, mana, manaLoss, manaGain);
         }
     }
 

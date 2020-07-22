@@ -48,9 +48,9 @@ abstract class BitrateVariation extends Output {
      * <code>Frame</code> object managing all necessary objects needed for the
      * global decoder system.
      *
-     * @param info the <code>Frame</code> object containing the neccesary
-     * informations about the source
-     * @param in the input stream
+     * @param info the <code>Frame</code> object containing the necessary
+     *             information about the source
+     * @param in   the input stream
      */
     BitrateVariation(Frame info, InputStream in) {
         super(info, in);
@@ -85,14 +85,14 @@ abstract class BitrateVariation extends Output {
      * the key nor the value can be
      * <code>null</code>. The value can be obtained by calling the get method
      * with a key that is equal to the original key. The specific value is then
-     * used to set decoder or audio device related properties. This methos acts
+     * used to set decoder or audio device related properties. This method acts
      * as the main control (mcc = management configuration control) of these
      * audio plugin.
      *
-     * @param key the hashtable key
+     * @param key   the hashtable key
      * @param value the value
      * @return the previous value of the specified key in this hashtable, * *      * or <code>null</code> if it did not have one
-     * @exception NullPointerException if the key or value is <code>null</code>
+     * @throws NullPointerException if the key or value is <code>null</code>
      */
     @Override
     public final Object put(String key, Object value) throws NullPointerException {
@@ -123,11 +123,11 @@ abstract class BitrateVariation extends Output {
      * <code>super</code> call to ensure an analyzer view update.
      *
      * @param an event id number as an integer value send from an overwritten
-     * method
+     *           method
      * @return an event id number as an integer value
-     * @exception IOException if an I/O error occurs
-     * @exception InterruptedIOException if the decoding process is interrupted
-     * caused by malformed media data
+     * @throws IOException            if an I/O error occurs
+     * @throws InterruptedIOException if the decoding process is interrupted
+     *                                caused by malformed media data
      */
     @Override
     public final int decodeFrame(int eventId) throws IOException {
@@ -139,7 +139,7 @@ abstract class BitrateVariation extends Output {
         }
 
         // 1.
-        // If single frames with free format ocures, skip these frames.
+        // If single frames with free format occurs, skip these frames.
         // 2.
         // Free format is not allowed in single frames. This would be equal to VBR.
         // Some test files are switching the channel numbers!
@@ -167,8 +167,8 @@ abstract class BitrateVariation extends Output {
      * the actual playtime or seek position of the media. Normally the playtime
      * position calculation is different from the one of the seek position.
      *
-     * @param seeking seeking flag to distinguish the different calculation of
-     * the playtime and seek position
+     * @param seeking  seeking flag to distinguish the different calculation of
+     *                 the playtime and seek position
      * @param position the current byte position
      * @return the corrected byte position
      */
@@ -178,7 +178,7 @@ abstract class BitrateVariation extends Output {
             if (seeking) {
                 return ((MpxReader) information).correctedBytePosition(position, true);
             }
-            return (long) Math.round(frameCount * byteLength / (double) framesMinusOne);
+            return Math.round(frameCount * byteLength / (double) framesMinusOne);
         }
 
         position = ((MpxReader) information).correctedBytePosition(position, seeking);
@@ -190,7 +190,7 @@ abstract class BitrateVariation extends Output {
     }
 
     /**
-     * Performs a seek operation and in consequents of this possible buffer
+     * Performs a seek operation and in consequence of this possible buffer
      * flush operations. There are two models of seeking media data:<br>
      * Passive and active seeking.
      * <p>
@@ -216,7 +216,7 @@ abstract class BitrateVariation extends Output {
      * <p>
      * Note that only layer 3 isn't audio frame cuttable, because here audio
      * data belonging to one audio time slice is related to many audio frames.
-     * (byte resevoire technique). So a soft cutting technique is imlemented
+     * (byte reservoir technique). So a soft cutting technique is implemented
      * here: Before starting after seeking or looping, 8 audio frames are
      * decoded silently. It prevents the production of scratch noises, which are
      * caused of an incorrectly decoding process needing the audio data of the
@@ -227,24 +227,24 @@ abstract class BitrateVariation extends Output {
      * audio codec layer 2+ from Andre Buschmann seems to be the better solution
      * as layer 3 (for many further reasons).
      *
-     * @param position the position to seek as a value between 0 and the media
-     * size in bytes
+     * @param n the position to seek as a value between 0 and the media
+     *          size in bytes
      * @return the corrected incoming byte position parameter
      * <code>position</code> or an integer id if the seek operation is done
-     * @exception IOException if an IO error occurs
+     * @throws IOException if an IO error occurs
      * @see #ACTIVE_SEEKING_READY
      * @see #ACTIVE_SEEKING_FAILED
      * @see #ACTIVE_SEEKING_ABORTED
      */
     @Override
     public final long seek(long n) throws IOException {
-        if (!((Frame) information).audio) {
+        if (!information.audio) {
             return n;
         }
         flush = n == 0 ? FLUSH_RANGE_FOR_START : FLUSH_RANGE;
         reset();
 
-        if (framesMinusOne > 0 && !((Frame) information).video) {
+        if (framesMinusOne > 0 && !information.video) {
 
             int oldFrameCount = frameCount;
 
@@ -258,7 +258,7 @@ abstract class BitrateVariation extends Output {
                 return positionOfFrame[frameCount];
             }
 
-            for (int j = oldFrameCount; j < frameCount && !completeCached;) {
+            for (int j = oldFrameCount; j < frameCount && !completeCached; ) {
 
                 int answer = skipFrame();
 
@@ -293,7 +293,7 @@ abstract class BitrateVariation extends Output {
     }
 
     private long correctPositionWithToc(long position) {
-        long playtime = (long) Math.round(position * 8000000D / (double) bitRate);
+        long playtime = Math.round(position * 8000000D / (double) bitRate);
 
         return fetchBytePosition(playtime);
     }
@@ -305,7 +305,7 @@ abstract class BitrateVariation extends Output {
      */
     @Override
     public final void setPlaytimeLength(long playtimeLength) {
-        if (playtimeLength <= 0 || !((Frame) information).audio || ((Frame) information).video) {
+        if (playtimeLength <= 0 || !information.audio || information.video) {
             return;
         }
 
@@ -317,14 +317,14 @@ abstract class BitrateVariation extends Output {
     /**
      * Sets the decoder plugin to a given playtime in microseconds. Note that
      * this method activates a decoding and repainting of the video image
-     * assigned to the seek position at the choosen playtime in case of video
+     * assigned to the seek position at the chosen playtime in case of video
      * playback.
      *
      * @param playtime the given playtime in microseconds
      */
     @Override
     public final void setCurrentPlaytime(long playtime) {
-        if (!((Frame) information).audio) {
+        if (!information.audio) {
             return;
         }
 
@@ -333,7 +333,7 @@ abstract class BitrateVariation extends Output {
         reset();
 
         if (framesMinusOne > 0) {
-            frameCount = (int) Math.round(framesMinusOne * playtime / (double) ((Frame) information).microseconds);
+            frameCount = (int) Math.round(framesMinusOne * playtime / (double) information.microseconds);
 
             if (frameCount > framesMinusOne) {
                 frameCount = framesMinusOne;
@@ -351,12 +351,12 @@ abstract class BitrateVariation extends Output {
      * </ul>
      * or
      * <ul>
-     * <li>The source is setted but is not playing back</li>
+     * <li>The source is set but is not playing back</li>
      * <li>This framework is running in streaming mode</li>
      * </ul>
-     *
+     * <p>
      * If no value is fetched, the method returns a long array containing always
-     * <code>NO_VALUE</code>. In addition the source stream will be resetted to
+     * <code>NO_VALUE</code>. In addition the source stream will be reset to
      * the old read position.
      *
      * @return a long array with the current playtime on index 0 and the current
@@ -382,7 +382,7 @@ abstract class BitrateVariation extends Output {
      * <code>NO_VALUE</code>.
      *
      * @param playtime the playtime, which correspondents to the returned byte
-     * position
+     *                 position
      * @return the byte position
      * @see org.ljmf.media.MediaInformation#B_BYTE_POSITION_FETCHABLE
      * @see #NO_VALUE

@@ -93,7 +93,7 @@ public interface IMainMenuScreenController extends ScreenController {
 
     //// see CreditsControl.xml ////
     /**
-     * TODO name of fuction set to a variable Called by the gui to restart the
+     * TODO name of function set to a variable Called by the gui to restart the
      * autoscroll effect
      */
     public void restartCredits();

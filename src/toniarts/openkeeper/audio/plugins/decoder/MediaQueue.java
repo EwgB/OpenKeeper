@@ -78,7 +78,7 @@ public final class MediaQueue {
     }
 
     /**
-     * Searches for the first occurence of the given argument, testing for
+     * Searches for the first occurrence of the given argument, testing for
      * equality using the
      * <code>equals</code> method.
      *
@@ -92,7 +92,7 @@ public final class MediaQueue {
     }
 
     /**
-     * Searches for the first occurence of the given argument, beginning the
+     * Searches for the first occurrence of the given argument, beginning the
      * search at
      * <code>index</code>, and testing for equality using the
      * <code>equals</code> method.

@@ -80,7 +80,7 @@ public class FiveByFiveRotatedController extends AbstractRoomController implemen
     @Override
     protected void constructObjects() {
 
-        // We contruct the Dungeon Heart here
+        // We construct the Dungeon Heart here
         // Because of physics and whatnot, the object are on server, so what about the creation animation?
         // The creation animation should be on the client perhaps... We don't care about it...
         Point center = roomInstance.getCenter();

@@ -39,7 +39,7 @@ public class FrontEndLevelControl extends AbstractControl {
     private volatile boolean active = false;
     private volatile boolean moved = true;
     private Vector3f baseLocation;
-    private float baseProgess;
+    private float baseProgress;
     private Long lastTime;
     private static final Vector3f MOVE_VECTOR = new Vector3f(0, 0.025f, 0);
     private static final int ACTIVATE_ANIMATION_LENGTH = 250;
@@ -80,9 +80,9 @@ public class FrontEndLevelControl extends AbstractControl {
                 }
             } else {
                 lastTime = System.currentTimeMillis();
-                baseProgess = baseLocation.distance(spatial.getLocalTranslation()) / baseLocation.distance(baseLocation.add(MOVE_VECTOR));
+                baseProgress = baseLocation.distance(spatial.getLocalTranslation()) / baseLocation.distance(baseLocation.add(MOVE_VECTOR));
                 if (!active) {
-                    baseProgess = 1f - baseProgess;
+                    baseProgress = 1f - baseProgress;
                 }
             }
         }
@@ -116,10 +116,10 @@ public class FrontEndLevelControl extends AbstractControl {
     }
 
     private void playAnimation(int animationLength, Vector3f base, Vector3f target, long elapsedTime) {
-        float progess = (float) elapsedTime / animationLength + baseProgess;
+        float progress = (float) elapsedTime / animationLength + baseProgress;
 
         // See if we should end already
-        if (elapsedTime > animationLength || progess > 1.0f) {
+        if (elapsedTime > animationLength || progress > 1.0f) {
 
             // The end
             moved = true;
@@ -130,7 +130,7 @@ public class FrontEndLevelControl extends AbstractControl {
         } else {
 
             // Interpolate the position
-            getSpatial().setLocalTranslation(new Vector3f().interpolateLocal(base, target, progess));
+            getSpatial().setLocalTranslation(new Vector3f().interpolateLocal(base, target, progress));
         }
     }
 }

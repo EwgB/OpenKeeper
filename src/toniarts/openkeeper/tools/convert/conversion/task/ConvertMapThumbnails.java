@@ -96,7 +96,7 @@ public class ConvertMapThumbnails extends ConversionTask {
             int total = maps.size();
             for (KwdFile kwd : maps) {
                 updateStatus(i, total);
-                genererateMapThumbnail(kwd, destination);
+                generateMapThumbnail(kwd, destination);
                 i++;
             }
         } catch (Exception ex) {
@@ -108,11 +108,11 @@ public class ConvertMapThumbnails extends ConversionTask {
     /**
      * Generates a map thumbnail out of the given map file
      *
-     * @param kwd map file
+     * @param kwd         map file
      * @param destination the folder to save to
      * @throws IOException may fail
      */
-    public static void genererateMapThumbnail(KwdFile kwd, String destination) throws IOException {
+    public static void generateMapThumbnail(KwdFile kwd, String destination) throws IOException {
 
         // Create the thumbnail & save it
         // TODO maybe image size in Settings ???

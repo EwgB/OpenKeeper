@@ -215,7 +215,7 @@ public class MapThumbnailGenerator {
                 } else {
 
                     // Wat
-                    LOGGER.log(Level.WARNING, "Unkown tile on {0} at tile {1}, {2}!", new Object[]{kwd, x, y});
+                    LOGGER.log(Level.WARNING, "Unknown tile on {0} at tile {1}, {2}!", new Object[]{kwd, x, y});
                 }
 
                 // Write the value

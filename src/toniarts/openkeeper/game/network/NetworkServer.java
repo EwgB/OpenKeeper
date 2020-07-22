@@ -179,7 +179,7 @@ public class NetworkServer {
                 new GameHostedService()
         );
 
-        // Add the SimEtheral host that will serve object sync updates to
+        // Add the SimEthereal host that will serve object sync updates to
         // the clients.
         EtherealHost ethereal = new EtherealHost(NetworkConstants.OBJECT_PROTOCOL,
                 NetworkConstants.ZONE_GRID,

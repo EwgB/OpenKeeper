@@ -68,7 +68,7 @@ public interface IRoomController {
     public int getWallFurnitureCount();
 
     /**
-     * Get the floot furniture IDs
+     * Get the floor furniture IDs
      *
      * @return floor furniture
      */

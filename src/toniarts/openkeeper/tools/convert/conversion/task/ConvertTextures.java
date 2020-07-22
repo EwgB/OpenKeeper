@@ -129,7 +129,7 @@ public class ConvertTextures extends ConversionTask {
     }
 
     private void extractEngineTextureContainer(AtomicInteger progress, int total, EngineTexturesFile etFile, String destination) throws NumberFormatException {
-        Pattern pattern = Pattern.compile("(?<name>\\w+)MM(?<mipmaplevel>\\d{1})");
+        Pattern pattern = Pattern.compile("(?<name>\\w+)MM(?<mipmaplevel>\\d)");
         for (String textureFile : etFile) {
 
             // All are PNG files, and MipMap levels are present, we need only the

@@ -20,7 +20,7 @@ import com.simsilica.es.EntityComponent;
 import toniarts.openkeeper.tools.convert.map.Thing;
 
 /**
- * A entity with a mission
+ * an entity with a mission
  *
  * @author Toni Helenius <helenius.toni@gmail.com>
  */

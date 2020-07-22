@@ -155,13 +155,7 @@ public class Party implements PathFindable {
     protected void partyMemberIncapacitated(CreatureControl creature) {
         if (isPartyLeader(creature)) {
             List<CreatureControl> leaderCandidates = new ArrayList<>(getActualMembers());
-            Iterator<CreatureControl> iter = leaderCandidates.iterator();
-            while (iter.hasNext()) {
-                CreatureControl c = iter.next();
-                if (c.isIncapacitated() || c.equals(creature)) {
-                    iter.remove();
-                }
-            }
+            leaderCandidates.removeIf(c -> c.isIncapacitated() || c.equals(creature));
 
             // See if any left
             if (!leaderCandidates.isEmpty()) {

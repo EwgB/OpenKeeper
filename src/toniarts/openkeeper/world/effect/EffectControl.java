@@ -51,10 +51,10 @@ public abstract class EffectControl extends AbstractControl {
 
     public EffectControl(Effect effect) {
         this.effect = effect;
-        initiazize();
+        initialize();
     }
 
-    private void initiazize() {
+    private void initialize() {
         hp = hpCurrent = FastMath.nextRandomInt(effect.getMaxHp(), effect.getMaxHp());
 
         velocity = calculateVelocity(effect);

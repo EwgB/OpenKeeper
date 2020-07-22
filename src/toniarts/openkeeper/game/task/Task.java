@@ -38,9 +38,9 @@ public interface Task {
     long getId();
 
     /**
-     * Assing an entity to the task
+     * Assign an entity to the task
      *
-     * @param creature entity to be assigned
+     * @param creature      entity to be assigned
      * @param setToCreature set the task to creature right away, typically yes
      */
     void assign(ICreatureController creature, boolean setToCreature);
@@ -136,7 +136,7 @@ public interface Task {
     boolean isValid(ICreatureController creature);
 
     /**
-     * Unassing a creature from the job. A place for doing some cleanup
+     * Unassign a creature from the job. A place for doing some cleanup
      *
      * @param creature
      */

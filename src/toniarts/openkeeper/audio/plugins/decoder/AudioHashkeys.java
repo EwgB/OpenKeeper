@@ -40,7 +40,7 @@ public interface AudioHashkeys {
     public final static String TIME = "Time";
     /**
      * The audio data analyze mode flag key of the current media source. The
-     * flag forces to enable a spezific analyze mode to examine media data.
+     * flag forces to enable a specific analyze mode to examine media data.
      * Examples are spectrum to amplitude and time to amplitude audio data
      * analyze.
      */
@@ -90,8 +90,8 @@ public interface AudioHashkeys {
      * <p>
      * <code>public final static int STEREO[][] = { 1, 0, 0, 1 };</code>
      * <p>
-     * Following matrix shows a inverted stereo configuration (swapping the left
-     * channel with the rigth one) with the audio device running 2 reserved
+     * Following matrix shows an inverted stereo configuration (swapping the left
+     * channel with the right one) with the audio device running 2 reserved
      * audio channels and a media content supporting stereo:
      * <p>
      * <code>public final static int INVERTED[][] = { 0, 1, 1, 0 };</code>
@@ -102,11 +102,11 @@ public interface AudioHashkeys {
      * <p>
      * <code>public final static int LEFT_CHANNEL[][] = { 1, 0 };</code>
      * <p>
-     * Following matrix shows a rigth channel configuration with the audio
+     * Following matrix shows a rihht channel configuration with the audio
      * device running 1 reserved audio channels and a media content supporting
      * dual (language) channel content:
      * <p>
-     * <code>public final static int RIGTH_CHANNEL[][] = { 0, 1 };</code>
+     * <code>public final static int RIGHT_CHANNEL[][] = { 0, 1 };</code>
      * <p>
      * Following matrix shows a downmix configuration with the audio device
      * running 1 reserved audio channels and a media content supporting stereo:

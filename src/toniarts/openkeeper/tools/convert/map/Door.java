@@ -336,8 +336,8 @@ public class Door implements Comparable<Door>, ISoundable, IIndexable {
         return soundCategory;
     }
 
-    protected void setSoundCategory(String soundGategory) {
-        this.soundCategory = soundGategory;
+    protected void setSoundCategory(String soundCategory) {
+        this.soundCategory = soundCategory;
     }
 
     @Override

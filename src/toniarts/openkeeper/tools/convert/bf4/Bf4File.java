@@ -161,7 +161,7 @@ public class Bf4File implements Iterable<Bf4Entry> {
         // Create the image
         WritableRaster raster = Raster.createWritableRaster(sampleModel, null);
         BufferedImage bi = new BufferedImage(COLOR_MODEL, raster, false, null);
-        byte[] data = (byte[]) ((DataBufferByte) raster.getDataBuffer()).getData();
+        byte[] data = ((DataBufferByte) raster.getDataBuffer()).getData();
 
         // Compressions, the compressions might be applied in sequence, so just apply the decompressions one by one
         byte[] decodedBytes = new byte[Math.max(entry.getDataSize(), data.length)];
@@ -197,8 +197,8 @@ public class Bf4File implements Iterable<Bf4Entry> {
     /**
      * Decodes a one bit image to a 4-bit image, well, converts
      *
-     * @param data data buffer, contains the compressed data, and target for the
-     * decompressed data
+     * @param data  data buffer, contains the compressed data, and target for the
+     *              decompressed data
      * @param entry the font entry
      * @throws IOException
      */
@@ -224,7 +224,7 @@ public class Bf4File implements Iterable<Bf4Entry> {
      * Decodes RLE 4-bit
      *
      * @param data data buffer, contains the compressed data, and target for the
-     * decompressed data
+     *             decompressed data
      */
     private void decodeRLE4(byte[] data) throws IOException {
         int count;

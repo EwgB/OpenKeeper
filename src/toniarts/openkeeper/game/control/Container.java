@@ -75,9 +75,8 @@ public class Container implements IContainer {
      * Removes the given control from this Container's controls.
      *
      * @param control The control to remove
-     * @return True if the control was successfuly removed. False if the control
+     * @return True if the control was successfully removed. False if the control
      * is not assigned to this Container.
-     *
      * @see Container#addControl(IControl)
      */
     @Override
@@ -135,7 +134,7 @@ public class Container implements IContainer {
     }
 
     /**
-     * <code>updateLogicalState</code> calls the <code>updateContol()</code>
+     * <code>updateLogicalState</code> calls the <code>updateControl()</code>
      * method for all controls attached to this Container.
      *
      * @param tpf Time per frame.

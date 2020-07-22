@@ -184,7 +184,7 @@ public class SelectionBox extends AbstractBox
         float[] vertexArray = BufferUtils.getFloatArray((FloatBuffer) buffer.getData());
         //System.out.println(selectionArea.start + " : " + selectionArea.end);
 
-        //Update vertexArray postitions
+        //Update vertexArray positions
 
         ////////////////////////
         // Corners: (check Box reference.png for corners)

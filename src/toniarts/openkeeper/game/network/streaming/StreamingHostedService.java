@@ -29,7 +29,7 @@ import java.util.logging.Logger;
 /**
  * Streaming data, meaning that if something is needed to be send over to
  * clients that doesn't fit to a single message, this is your service. We simply
- * keep sending messages until everything is transfered. The payload needs to be
+ * keep sending messages until everything is transferred. The payload needs to be
  * serializable though...
  *
  * @author Toni Helenius <helenius.toni@gmail.com>
@@ -51,9 +51,9 @@ public class StreamingHostedService extends AbstractHostedService {
      * many packages as is needed
      *
      * @param messageType the type of messages, so that the receiver can
-     * recognice and listen to it
-     * @param data the serializable data
-     * @param sendTo a specific client to send to, null will broadcast
+     *                    recognize and listen to it
+     * @param data        the serializable data
+     * @param sendTo      a specific client to send to, null will broadcast
      * @throws IOException the serialization may fail
      */
     public void sendData(int messageType, Object data, HostedConnection sendTo) throws IOException {

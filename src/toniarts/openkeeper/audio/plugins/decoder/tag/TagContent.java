@@ -168,7 +168,7 @@ public class TagContent extends HashMap<String, Object> implements Information {
 
     /**
      * Gets the description of the tag as a text representation. This could be
-     * for example the describtion of a coverart. represented by an
+     * for example the description of a coverart. represented by an
      * "org.ljmf.Information picture"
      * <code>Object</code>.
      *

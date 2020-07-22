@@ -39,7 +39,7 @@ public class CreatureComponent implements EntityComponent {
     public float speed;
     public float runSpeed;
     public float tortureTimeToConvert;
-    public int posessionManaCost;
+    public int possessionManaCost;
     public float stunDuration;
     public boolean worker;
     public short creatureId;
@@ -63,7 +63,7 @@ public class CreatureComponent implements EntityComponent {
         this.speed = creatureComponent.speed;
         this.runSpeed = creatureComponent.runSpeed;
         this.tortureTimeToConvert = creatureComponent.tortureTimeToConvert;
-        this.posessionManaCost = creatureComponent.posessionManaCost;
+        this.possessionManaCost = creatureComponent.possessionManaCost;
         this.stunDuration = creatureComponent.stunDuration;
         this.worker = creatureComponent.worker;
         this.creatureId = creatureComponent.creatureId;

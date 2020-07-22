@@ -302,7 +302,7 @@ public class TaskManager implements ITaskManager, IGameLogicUpdatable {
                 private void scanBridgeSurroundings(IRoomController room) {
                     if (room.getRoom().getFlags().contains(Room.RoomFlag.PLACEABLE_ON_LAVA) || room.getRoom().getFlags().contains(Room.RoomFlag.PLACEABLE_ON_WATER)) {
 
-                        // Just gather the adjacent tiles to the brigde
+                        // Just gather the adjacent tiles to the bridge
                         Set<Point> roomPoints = new HashSet<>(room.getRoomInstance().getCoordinates());
                         Set<Point> adjacentPoints = new HashSet<>();
                         for (Point p : roomPoints) {
@@ -354,7 +354,7 @@ public class TaskManager implements ITaskManager, IGameLogicUpdatable {
                     return;
                 }
 
-                // Just gather the adjacent tiles to the brigde
+                // Just gather the adjacent tiles to the bridge
                 Set<MapTile> roomPoints = new HashSet<>(tiles);
                 Set<MapTile> adjacentPoints = new HashSet<>();
                 for (MapTile tile : roomPoints) {
@@ -752,7 +752,7 @@ public class TaskManager implements ITaskManager, IGameLogicUpdatable {
     private MapTile getEntityPosition(Entity entity) {
         MapTile mapTile = entityPositionLookup.getEntityLocation(entity.getId());
 
-        // If the entity is new, it might not be in the registry, rather unfortunatety problem...
+        // If the entity is new, it might not be in the registry, rather unfortunate problem...
         if (mapTile == null) {
             mapTile = mapController.getMapData().getTile(WorldUtils.vectorToPoint(EntityController.getPosition(entityData, entity.getId())));
         }

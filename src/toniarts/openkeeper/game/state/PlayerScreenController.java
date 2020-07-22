@@ -81,7 +81,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
  * @author ArchDemon
  */
 public class PlayerScreenController implements IPlayerScreenController {
@@ -288,7 +287,7 @@ public class PlayerScreenController implements IPlayerScreenController {
         }
 
         // Fix layout
-        NiftyUtils.resetContraints(optionsMenuTitle);
+        NiftyUtils.resetConstraints(optionsMenuTitle);
         optionsMenu.layoutElements();
     }
 
@@ -381,7 +380,7 @@ public class PlayerScreenController implements IPlayerScreenController {
                 break;
             }
             case SCREEN_POSSESSION_ID:
-                // what we need? abitities and spells, also melee
+                // what we need? abilities and spells, also melee
                 //final Creature creature = gameState.getLevelData().getCreature((short)13);
                 final Creature creature = state.getPossessionCreature();
 
@@ -435,7 +434,7 @@ public class PlayerScreenController implements IPlayerScreenController {
 
                     int index = 1;
                     for (Creature.Spell s : creature.getSpells()) {
-                        // TODO: check creature level availiablity
+                        // TODO: check creature level availability
                         if (s.getCreatureSpellId() == 0) {
                             continue;
                         }
@@ -517,7 +516,7 @@ public class PlayerScreenController implements IPlayerScreenController {
     /**
      * Sets a level based text as cinematic text (subtitles)
      *
-     * @param textId the text id from the dict
+     * @param textId       the text id from the dict
      * @param introduction is introduction
      * @param pathId
      */
@@ -573,7 +572,7 @@ public class PlayerScreenController implements IPlayerScreenController {
         try {
             BufferedImage img = ImageIO.read(assetManager.locateAsset(new AssetKey("Textures/GUI/Windows/Panel-BG.png")).openStream());
 
-            // Scale the backgroung image to the panel height, keeping the aspect ratio
+            // Scale the background image to the panel height, keeping the aspect ratio
             Element panel = nifty.getCurrentScreen().findElementById("bottomBackgroundPanel");
             BufferedImage newImage = new BufferedImage(panel.getHeight() * img.getWidth() / img.getHeight(), panel.getHeight(), img.getType());
             Graphics2D g = newImage.createGraphics();
@@ -606,7 +605,7 @@ public class PlayerScreenController implements IPlayerScreenController {
 //        }
         hud.findNiftyControl("mana", Label.class).setText(Integer.toString(state.getPlayer().getMana()));
         hud.findNiftyControl("manaGet", Label.class).setText(Integer.toString(state.getPlayer().getManaGain()));
-        hud.findNiftyControl("manaLose", Label.class).setText(Integer.toString(state.getPlayer().getManaLoose()));
+        hud.findNiftyControl("manaLose", Label.class).setText(Integer.toString(state.getPlayer().getManaLoss()));
 
         if (state.getGoldControl() != null) {
             // state.getGoldControl().addListener(hud.findNiftyControl("gold", Label.class));
@@ -726,11 +725,11 @@ public class PlayerScreenController implements IPlayerScreenController {
         hud.findNiftyControl("gold", Label.class).setText(Integer.toString(gold));
     }
 
-    public void setMana(int mana, int manaLoose, int manaGain) {
+    public void setMana(int mana, int manaLoss, int manaGain) {
         Screen hud = nifty.getScreen(SCREEN_HUD_ID);
         hud.findNiftyControl("mana", Label.class).setText(Integer.toString(mana));
         hud.findNiftyControl("manaGet", Label.class).setText(Integer.toString(manaGain));
-        hud.findNiftyControl("manaLose", Label.class).setText(Integer.toString(manaLoose));
+        hud.findNiftyControl("manaLose", Label.class).setText(Integer.toString(manaLoss));
     }
 
     public void populateManufactureTab() {
@@ -752,7 +751,7 @@ public class PlayerScreenController implements IPlayerScreenController {
      * Not to be used for keeper spells
      *
      * @param researchableEntity the entity the element is for
-     * @param element the Nifty element created for the entity
+     * @param element            the Nifty element created for the entity
      */
     private void setResearchEffect(final ResearchableEntity researchableEntity, final Element element) {
         if (!researchableEntity.isDiscovered()) {
@@ -1094,14 +1093,14 @@ public class PlayerScreenController implements IPlayerScreenController {
                 "trap", "gui\\traps\\w-tba", null, null, false, false);
     }
 
-    public ControlBuilder createIcon(final int id, final String type, final ArtResource guiIcon, final int generalDescriptionId, final String hint, final boolean allowSelect, final boolean hilightGold) {
-        return createIcon(id, type, guiIcon.getName(), generalDescriptionId, hint, allowSelect, hilightGold);
+    public ControlBuilder createIcon(final int id, final String type, final ArtResource guiIcon, final int generalDescriptionId, final String hint, final boolean allowSelect, final boolean highlightGold) {
+        return createIcon(id, type, guiIcon.getName(), generalDescriptionId, hint, allowSelect, highlightGold);
     }
 
-    public ControlBuilder createIcon(final int id, final String type, final String guiIcon, final Integer generalDescriptionId, final String hint, final boolean allowSelect, final boolean hilightGold) {
+    public ControlBuilder createIcon(final int id, final String type, final String guiIcon, final Integer generalDescriptionId, final String hint, final boolean allowSelect, final boolean highlightGold) {
         ControlBuilder cb = new GuiIconBuilder(type + "_" + id,
                 ConversionUtils.getCanonicalAssetKey(AssetsConverter.TEXTURES_FOLDER + File.separator + guiIcon + ".png"),
-                ConversionUtils.getCanonicalAssetKey(AssetsConverter.TEXTURES_FOLDER + File.separator + (hilightGold ? "GUI/Icons/Hilight-2.png" : "GUI/Icons/hilight.png")),
+                ConversionUtils.getCanonicalAssetKey(AssetsConverter.TEXTURES_FOLDER + File.separator + (highlightGold ? "GUI/Icons/Hilight-2.png" : "GUI/Icons/hilight.png")),
                 ConversionUtils.getCanonicalAssetKey(AssetsConverter.TEXTURES_FOLDER + File.separator + "GUI/Icons/selected-" + type + ".png"),
                 hint != null ? hint : "",
                 generalDescriptionId != null ? "${menu." + generalDescriptionId + "}" : "",
@@ -1114,7 +1113,7 @@ public class PlayerScreenController implements IPlayerScreenController {
 
     @Override
     public void playSound(String category, String id) {
-        SoundHandle soundHandler = NiftyUtils.getSoundHandler(nifty, category, Integer.valueOf(id));
+        SoundHandle soundHandler = NiftyUtils.getSoundHandler(nifty, category, Integer.parseInt(id));
         if (soundHandler != null) {
             soundHandler.play();
         }
@@ -1195,8 +1194,8 @@ public class PlayerScreenController implements IPlayerScreenController {
 
         private void processAddedPlayerCreatureEntities(Set<Entity> entities) {
             for (Entity entity : entities) {
-                creatureEntities.put(entity.getId(), entityData.watchEntity(entity.getId(), new Class[]{CreatureAi.class, CreatureComponent.class,
-                    AttackTarget.class, TaskComponent.class, Position.class, CreatureImprisoned.class, CreatureImprisoned.class}));
+                creatureEntities.put(entity.getId(), entityData.watchEntity(entity.getId(), CreatureAi.class, CreatureComponent.class,
+                        AttackTarget.class, TaskComponent.class, Position.class, CreatureImprisoned.class, CreatureImprisoned.class));
             }
         }
 
@@ -1408,7 +1407,7 @@ public class PlayerScreenController implements IPlayerScreenController {
              * current selection
              *
              * @param creatureId the type of creature
-             * @param state the state filter
+             * @param state      the state filter
              * @return the next creature of the type
              */
             private Entity getNextCreature(short creatureId, CreatureUIState state) {

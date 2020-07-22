@@ -58,7 +58,7 @@ import static toniarts.openkeeper.tools.convert.map.MapDataTypeEnum.MAP;
  */
 public final class KwdFile {
 
-    // These are needed in various places, I don't know how to else regognize these
+    // These are needed in various places, I don't know how to else recognize these
     private final static short ROOM_PORTAL_ID = 3;
     private final static short TRIGGER_GENERIC = 213;
     private final static short TRIGGER_ACTION = 214;
@@ -514,7 +514,7 @@ public final class KwdFile {
             ai.setBuildAreaStartY(file.readUnsignedShort());
             ai.setBuildAreaEndX(file.readUnsignedShort());
             ai.setBuildAreaEndY(file.readUnsignedShort());
-            ai.setLikelyhoodToMovingCreaturesToLibraryForResearching(file.readByteAsEnum(AI.MoveToResearchPolicy.class));
+            ai.setLikelihoodToMovingCreaturesToLibraryForResearching(file.readByteAsEnum(AI.MoveToResearchPolicy.class));
             ai.setChanceOfExploringToFindSpecials(file.readUnsignedByte());
             ai.setChanceOfFindingSpecialsWhenExploring(file.readUnsignedByte());
             ai.setFateOfImprisonedCreatures(file.readByteAsEnum(AI.ImprisonedCreatureFatePolicy.class));
@@ -1186,7 +1186,7 @@ public final class KwdFile {
             creature.setAnimation(AnimationType.IDLE_2, readArtResource(file));
             creature.setAnimation(AnimationType.SPECIAL_1, readArtResource(file));
             creature.setAnimation(AnimationType.SPECIAL_2, readArtResource(file));
-            creature.setAnimation(AnimationType.DRUNKED_WALK, readArtResource(file));
+            creature.setAnimation(AnimationType.DRUNK_WALK, readArtResource(file));
             creature.setAnimation(AnimationType.ROAR, readArtResource(file)); // FIXME
             creature.setAnimation(AnimationType.NULL_4, readArtResource(file));
 
@@ -1212,7 +1212,7 @@ public final class KwdFile {
             creature.setAngerStringIdHatred(file.readUnsignedShort());
             creature.setAngerStringIdTorture(file.readUnsignedShort());
 
-            creature.setTranslationSoundGategory(file.readString(32).trim());
+            creature.setTranslationSoundCategory(file.readString(32).trim());
             creature.getAttributes().setShuffleSpeed(file.readIntegerAsFloat());
             creature.setCloneCreatureId(file.readUnsignedByte());
             creature.setFirstPersonGammaEffect(file.readByteAsEnum(Creature.GammaEffect.class));
@@ -1373,7 +1373,7 @@ public final class KwdFile {
             creature.setFirstPersonFilterResource(readArtResource(file));
             creature.setUnkfcb(file.readUnsignedShort());
             creature.setUnk4(file.readIntegerAsFloat());
-            creature.setAnimation(AnimationType.DRUNKED_IDLE, readArtResource(file));
+            creature.setAnimation(AnimationType.DRUNK_IDLE, readArtResource(file));
             creature.setSpecial1Swipe(file.readByteAsEnum(Creature.Swipe.class));
             creature.setSpecial2Swipe(file.readByteAsEnum(Creature.Swipe.class));
             creature.setFirstPersonMeleeResource(readArtResource(file));
@@ -2250,7 +2250,7 @@ public final class KwdFile {
                     file.seek(start);
                     switch (((TriggerGeneric) trigger).getType()) {
                         case AP_CONGREGATE_IN:
-                        case AP_POSESSED_CREATURE_ENTERS:
+                        case AP_POSSESSED_CREATURE_ENTERS:
                             ((TriggerGeneric) trigger).setTargetValueComparison(file.readByteAsEnum(TriggerGeneric.ComparisonType.class));
                             trigger.setUserData("playerId", file.readUnsignedByte());
                             trigger.setUserData("targetId", file.readUnsignedByte()); // creatureId, objectId

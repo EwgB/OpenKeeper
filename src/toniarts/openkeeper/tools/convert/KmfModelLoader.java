@@ -220,7 +220,7 @@ public class KmfModelLoader implements AssetLoader {
             int i = 0;
             for (MeshVertex meshVertex : meshSprite.getVertices()) {
 
-                //Vertice
+                //Vertices
                 javax.vecmath.Vector3f v = sourceMesh.getGeometries().get(meshVertex.getGeomIndex());
                 vertices[i] = new Vector3f(v.x, -v.z, v.y);
 
@@ -285,11 +285,11 @@ public class KmfModelLoader implements AssetLoader {
         for (AnimSprite animSprite : anim.getSprites()) {
 
             // Animation
-            // Poses for each key frame (aproximate that every 1/3 is a key frame, pessimistic)
+            // Poses for each key frame (approximate that every 1/3 is a key frame, pessimistic)
             // Note that a key frame may not have all the vertices
             Map<Integer, Map<KmfModelLoader.FrameInfo, Pose>> poses = new HashMap<>(anim.getFrames() / 3);
 
-            // Pose indices and indice offsets for each pose
+            // Pose indices and index offsets for each pose
             Map<Integer, Map<KmfModelLoader.FrameInfo, List<Integer>>> frameIndices = new HashMap<>(anim.getFrames() / 3);
             Map<Integer, Map<KmfModelLoader.FrameInfo, List<Vector3f>>> frameOffsets = new HashMap<>(anim.getFrames() / 3);
 
@@ -316,7 +316,7 @@ public class KmfModelLoader implements AssetLoader {
                 //Go through every frame
                 for (int frame = 0; frame < anim.getFrames(); frame++) {
 
-                    //Vertice
+                    //Vertex
                     int geomBase = anim.getItab()[frame >> 7][animVertex.getItabIndex()];
                     short geomOffset = anim.getOffsets()[animVertex.getItabIndex()][frame];
                     int geomIndex = geomBase + geomOffset;

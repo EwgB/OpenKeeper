@@ -21,7 +21,7 @@ import toniarts.openkeeper.game.data.Keeper;
 import toniarts.openkeeper.game.listener.PlayerListener;
 
 /**
- * Simple player related posession and action controller
+ * Simple player related possession and action controller
  *
  * @author Toni Helenius <helenius.toni@gmail.com>
  */

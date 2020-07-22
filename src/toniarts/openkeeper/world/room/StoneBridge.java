@@ -46,7 +46,7 @@ public class StoneBridge extends Quad {
         BatchNode root = new BatchNode();
         String modelName = roomInstance.getRoom().getCompleteResource().getName();
         //Point start = roomInstance.getCoordinates().get(0);
-        // Contruct the tiles Wooden Bridge
+        // Construct the tiles Wooden Bridge
         for (Point p : roomInstance.getCoordinates()) {
             // Figure out which peace by seeing the neighbours
             boolean N = roomInstance.hasCoordinate(new Point(p.x, p.y - 1));

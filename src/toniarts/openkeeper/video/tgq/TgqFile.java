@@ -180,7 +180,7 @@ public abstract class TgqFile implements AutoCloseable {
                 break;
             }
             default: {
-                LOGGER.log(Level.WARNING, "Unkown tag {0}!", tag);
+                LOGGER.log(Level.WARNING, "Unknown tag {0}!", tag);
                 break;
             }
         }
@@ -209,7 +209,7 @@ public abstract class TgqFile implements AutoCloseable {
     protected abstract void addVideoFrame(final TgqFrame frame);
 
     /**
-     * A audio frame has been decoded
+     * an audio frame has been decoded
      *
      * @param frame the decoded frame
      */

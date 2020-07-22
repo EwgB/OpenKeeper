@@ -96,9 +96,9 @@ public abstract class LocalServerSearch {
         Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
         while (interfaces.hasMoreElements()) {
           NetworkInterface ni = (NetworkInterface) interfaces.nextElement();
-          Enumeration addresses = ni.getInetAddresses();
+            Enumeration<InetAddress> addresses = ni.getInetAddresses();
           while (addresses.hasMoreElements()) {
-            InetAddress address = (InetAddress)addresses.nextElement();
+              InetAddress address = addresses.nextElement();
             if (address instanceof Inet6Address || address.isLoopbackAddress()) {
                 continue;
             }

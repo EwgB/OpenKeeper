@@ -246,8 +246,7 @@ public class ThingLoader {
      *
      * @param cr       creature data
      * @param position the position to spawn to, may be {@code null}
-     * @param app      if the app is set, the creature is attached in the next
-     *                 render
+     * @param app      if the app is set, the creature is attached in the next render
      *                 loop, may be {@code null}. <strong>You need this parameter if calling
      *                 from outside the render loop!</strong>
      * @return the actual spawned creature
@@ -264,11 +263,9 @@ public class ThingLoader {
      * @param playerId   the owner
      * @param level      the creature level
      * @param position   the position to spawn to, may be {@code null}
-     * @param entrance   whether this an enrance for the creature (coming out of
-     *                   a
-     *                   portal)
-     * @param app        if the app is set, the creature is attached in the next
-     *                   render
+     * @param entrance   whether this an entrance for the creature (coming out of
+     *                   a portal)
+     * @param app        if the app is set, the creature is attached in the next render
      *                   loop, may be {@code null}. <strong>You need this parameter if calling
      *                   from outside the render loop!</strong>
      * @return the actual spawned creature
@@ -371,7 +368,7 @@ public class ThingLoader {
      * @param p        the point to add
      * @param objectId the object id
      * @param playerId the player id, the owner
-     * @return the object contol
+     * @return the object control
      */
     public ObjectControl addObject(Point p, short objectId, short playerId) {
         Spatial object = objectLoader.load(assetManager, p, 0, 0, 0, objectId, playerId, 0);
@@ -386,7 +383,7 @@ public class ThingLoader {
      * @param p        the point to add
      * @param spell    the spell
      * @param playerId the player id, the owner
-     * @return the object contol
+     * @return the object control
      */
     public SpellBookObjectControl addRoomSpellBook(Point p, PlayerSpell spell, short playerId) {
         // FIXME: The object ID
@@ -436,7 +433,7 @@ public class ThingLoader {
 
     /**
      * If you want to get notified about the object changes
-     *
+     * <p>
      * listener to
      *
      * @param listener the listener

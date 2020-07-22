@@ -724,7 +724,7 @@ public abstract class Thing {
             DESTROY_WALLS(12),
             STEAL_GOLD(13),
             STEAL_SPELLS(14),
-            STEAL_MAFUFACTURE_CRATES(17),
+            STEAL_MANUFACTURE_CRATES(17),
             KILL_CREATURES(18),
             KILL_PLAYER(19),
             WAIT(22),

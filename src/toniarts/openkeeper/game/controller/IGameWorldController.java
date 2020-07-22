@@ -58,7 +58,7 @@ public interface IGameWorldController {
     //        return players.values();
     //    }
     /**
-     * If you want to get notified about player actiosns
+     * If you want to get notified about player actions
      *
      * @param listener the listener
      */
@@ -72,13 +72,13 @@ public interface IGameWorldController {
     void removeListener(PlayerActionListener listener);
 
     /**
-     * Substract gold from player
+     * Subtract gold from player
      *
-     * @param amount the amount to try to substract
+     * @param amount   the amount to try to subtract
      * @param playerId the player id
-     * @return amount of money that could not be substracted from the player
+     * @return amount of money that could not be subtracted from the player
      */
-    int substractGold(int amount, short playerId);
+    int subtractGold(int amount, short playerId);
 
     /**
      * Get a map controller
@@ -134,7 +134,7 @@ public interface IGameWorldController {
     public void drop(EntityId entity, Point tile, Vector2f coordinates, EntityId dropOnEntity, short playerId);
 
     /**
-     * Get gold, substract the amount of gold and places it to the keeper's hand
+     * Get gold, subtract the amount of gold and places it to the keeper's hand
      *
      * @param amount amount of gold to get
      * @param playerId the player who is getting the gold

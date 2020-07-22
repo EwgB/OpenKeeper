@@ -26,6 +26,6 @@ import com.jme3.network.service.rmi.Asynchronous;
 public interface PlayerManaListener {
 
     @Asynchronous
-    public void onManaChange(short keeperId, int mana, int manaLoose, int manaGain);
+    public void onManaChange(short keeperId, int mana, int manaLoss, int manaGain);
 
 }

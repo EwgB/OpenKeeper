@@ -26,7 +26,7 @@ package toniarts.openkeeper.audio.plugins.decoder;
  * <p>
  * Note that IDCT and DCT algorithms are completely equal with exception of a
  * division through a norming factor. The IDCT is programmed as a DCT algorithm.
- * A description of such a DCT algorythm can be found in:
+ * A description of such a DCT algorithm can be found in:
  *
  * <ul>
  * <li>A New Algorithm to Compute the Discrete Cosine Transform, Byeong Gi Lee,

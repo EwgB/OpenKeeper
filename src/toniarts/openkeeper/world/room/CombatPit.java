@@ -48,7 +48,7 @@ public class CombatPit extends DoubleQuad {
         BatchNode root = new BatchNode();
         String modelName = roomInstance.getRoom().getCompleteResource().getName();
         //Point start = roomInstance.getCoordinates().get(0);
-        // Contruct the tiles
+        // Construct the tiles
         door = null;
         for (Point p : roomInstance.getCoordinates()) {
             // Figure out which peace by seeing the neighbours

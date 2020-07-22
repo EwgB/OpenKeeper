@@ -123,23 +123,23 @@ public class MapIndexedGraph implements IndexedGraph<MapTile> {
     /**
      * Can the entity travel from A to B?
      *
-     * @param navigable the navigable entity
-     * @param from the tile we are traversing from, always the adjacent tile
-     * which we know already being accessible
-     * @param to the tile we are travelling to
-     * @param mapController the map controller
+     * @param navigable            the navigable entity
+     * @param from                 the tile we are traversing from, always the adjacent tile
+     *                             which we know already being accessible
+     * @param to                   the tile we are travelling to
+     * @param mapController        the map controller
      * @param entityPositionLookup entity position lookup
+     * @return {@code null} if the to tile is not accessible
      * @see #DEFAULT_COST
      * @see #WATER_COST
-     * @return {@code null} if the to tile is not accessible
      */
     protected static Float getCost(final INavigable navigable, final MapTile from, final MapTile to, final IMapController mapController,
-            IEntityPositionLookup entityPositionLookup) {
+                                   IEntityPositionLookup entityPositionLookup) {
         return getCost(navigable, from, to, mapController, entityPositionLookup, true);
     }
 
     private static Float getCost(final INavigable navigable, final MapTile from, final MapTile to, final IMapController mapController,
-            IEntityPositionLookup entityPositionLookup, boolean checkDiagonal) {
+                                 IEntityPositionLookup entityPositionLookup, boolean checkDiagonal) {
         Terrain terrain = mapController.getTerrain(to);
         if (!terrain.getFlags().contains(Terrain.TerrainFlag.SOLID)) {
 
@@ -159,8 +159,10 @@ public class MapIndexedGraph implements IndexedGraph<MapTile> {
                 [1,2][ l ]
                  */
                 boolean hasConnection = false;
-                MapTile hiCorner = mapController.getMapData().getTile(from.getLocation().y < to.getLocation().y ? to.getLocation().x : from.getLocation().x, from.getLocation().y < to.getLocation().y ? from.getLocation().y : to.getLocation().y);
-                MapTile loCorner = mapController.getMapData().getTile(from.getLocation().y > to.getLocation().y ? to.getLocation().x : from.getLocation().x, from.getLocation().y > to.getLocation().y ? from.getLocation().y : to.getLocation().y);
+                MapTile hiCorner = mapController.getMapData().getTile(from.getLocation().y < to.getLocation().y ? to.getLocation().x : from.getLocation().x,
+                        Math.min(from.getLocation().y, to.getLocation().y));
+                MapTile loCorner = mapController.getMapData().getTile(from.getLocation().y > to.getLocation().y ? to.getLocation().x : from.getLocation().x,
+                        Math.max(from.getLocation().y, to.getLocation().y));
                 if (hiCorner != null && getCost(navigable, from, hiCorner, mapController, entityPositionLookup, false) != null) {
                     hasConnection = true;
                 } else if (loCorner != null && getCost(navigable, from, loCorner, mapController, entityPositionLookup, false) != null) {

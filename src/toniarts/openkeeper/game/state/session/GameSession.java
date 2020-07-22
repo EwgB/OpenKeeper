@@ -78,11 +78,11 @@ public interface GameSession {
     public void sell(Vector2f start, Vector2f end);
 
     /**
-     * Set some tiles selected/undelected
+     * Set some tiles selected/undetected
      *
-     * @param start start coordinates
-     * @param end end coordinates
-     * @param select select or unselect
+     * @param start  start coordinates
+     * @param end    end coordinates
+     * @param select select or deselect
      */
     @Asynchronous
     public void selectTiles(Vector2f start, Vector2f end, boolean select);
