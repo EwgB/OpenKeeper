@@ -89,7 +89,7 @@ public class LoadingScreenTextureDecoder extends Dk2TextureDecoder {
                 for (i = 0; i < 8; i++) {
                     int value;
                     /* some weird jumps that don't seem necessary */
-                    int r = inp.get(inp.position() + i + 0);
+                    int r = inp.get(inp.position() + i);
                     int g = inp.get(inp.position() + i + 18);
                     int b = inp.get(inp.position() + i + 9);
 

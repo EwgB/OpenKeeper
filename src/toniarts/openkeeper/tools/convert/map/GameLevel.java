@@ -16,6 +16,7 @@
  */
 package toniarts.openkeeper.tools.convert.map;
 
+import org.jetbrains.annotations.NotNull;
 import toniarts.openkeeper.Main;
 import toniarts.openkeeper.game.data.ISoundable;
 import toniarts.openkeeper.game.data.ITriggerable;
@@ -632,10 +633,11 @@ public class GameLevel implements ISoundable, ITriggerable {
         // return empty resource bundle otherwise
         return new ResourceBundle() {
             @Override
-            protected java.lang.Object handleGetObject(String string) {
+            protected java.lang.Object handleGetObject(@NotNull String string) {
                 return "";
             }
 
+            @NotNull
             @Override
             public Enumeration<String> getKeys() {
                 return Collections.emptyEnumeration();

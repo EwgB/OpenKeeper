@@ -78,9 +78,8 @@ public class TextParserService implements TextParser {
 
     @Override
     public Collection<Class<? extends EntityComponent>> getWatchedComponents() {
-        List<Class<? extends EntityComponent>> components = new ArrayList<>();
 
-        components.addAll(creatureTextParser.getWatchedComponents());
+        List<Class<? extends EntityComponent>> components = new ArrayList<>(creatureTextParser.getWatchedComponents());
 
         return components;
     }

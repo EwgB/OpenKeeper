@@ -16,6 +16,7 @@
  */
 package toniarts.openkeeper.tools.convert.bf4;
 
+import org.jetbrains.annotations.NotNull;
 import toniarts.openkeeper.tools.convert.IResourceReader;
 import toniarts.openkeeper.tools.convert.ResourceReader;
 import toniarts.openkeeper.tools.convert.bf4.Bf4Entry.FontEntryFlag;
@@ -266,6 +267,7 @@ public class Bf4File implements Iterable<Bf4Entry> {
         return avgWidth;
     }
 
+    @NotNull
     @Override
     public Iterator<Bf4Entry> iterator() {
         return entries.iterator();

@@ -143,7 +143,7 @@ public class NetworkClient implements ChatSession {
             long gt = getGameTime();
             //System.out.println( "game time:" + gt );
             long ping = Math.round((gt - msg.getSentTime()) / 1000000.0);
-            System.out.println(String.format("PING: %s ms"));
+            System.out.println(String.format("PING: %s ms", ping));
         }
         long time = msg.getTime();
         long now = System.nanoTime();
@@ -151,7 +151,7 @@ public class NetworkClient implements ChatSession {
         //System.out.println( "predicted offset:" + predictedOffset );
         if (Math.abs(predictedOffset - serverTimeOffset) > 15000000) {
             //System.out.println( "Adjusting time offset." );
-            // If it's more than 15 ms then we will adjust
+            // If it's more than 15 ms, then we will adjust
             serverTimeOffset = predictedOffset;
         }
     }

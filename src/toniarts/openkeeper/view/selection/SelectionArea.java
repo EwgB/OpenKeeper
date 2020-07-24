@@ -1,6 +1,7 @@
 package toniarts.openkeeper.view.selection;
 
 import com.jme3.math.Vector2f;
+import org.jetbrains.annotations.NotNull;
 import toniarts.openkeeper.utils.WorldUtils;
 
 import java.awt.*;
@@ -122,6 +123,7 @@ public class SelectionArea implements Iterable<List<Point>> {
         return (Math.abs(end.y - start.y) + 1) / scale;
     }
 
+    @NotNull
     @Override
     public Iterator<List<Point>> iterator() {
         return new SelectionArea.AreaIterator();

@@ -1866,7 +1866,7 @@ public final class KwdFile {
                     ((Thing.Object) thing).setObjectId(file.readUnsignedByte());
                     ((Thing.Object) thing).setPlayerId(file.readUnsignedByte());
 
-                    addThing((Thing.Object) thing);
+                    addThing(thing);
                     break;
                 }
                 case THING_TRAP: {
@@ -1881,7 +1881,7 @@ public final class KwdFile {
                     ((Thing.Trap) thing).setPlayerId(file.readUnsignedByte());
                     ((Thing.Trap) thing).setUnknown2(file.readUnsignedByte());
 
-                    addThing((Thing.Trap) thing);
+                    addThing(thing);
                     break;
                 }
                 case THING_DOOR: {
@@ -1901,7 +1901,7 @@ public final class KwdFile {
                     }
                     ((Thing.Door) thing).setUnknown2(unknown2);
 
-                    addThing((Thing.Door) thing);
+                    addThing(thing);
                     break;
                 }
                 case THING_ACTION_POINT: {
@@ -1920,7 +1920,7 @@ public final class KwdFile {
 
                     ((ActionPoint) thing).setName(file.readString(32).trim());
 
-                    addThing((Thing.ActionPoint) thing);
+                    addThing(thing);
                     break;
                 }
                 case THING_NEUTRAL_CREATURE: {
@@ -1938,7 +1938,7 @@ public final class KwdFile {
                     ((NeutralCreature) thing).setCreatureId(file.readUnsignedByte());
                     ((NeutralCreature) thing).setUnknown1(file.readUnsignedByte());
 
-                    addThing((Thing.NeutralCreature) thing);
+                    addThing(thing);
                     break;
                 }
                 case THING_GOOD_CREATURE: {
@@ -1964,7 +1964,7 @@ public final class KwdFile {
                     ((GoodCreature) thing).setUnknown1(unknown1);
                     ((GoodCreature) thing).setFlags2(file.readByteAsFlag(Thing.Creature.CreatureFlag2.class));
 
-                    addThing((Thing.GoodCreature) thing);
+                    addThing(thing);
                     break;
                 }
                 case THING_KEEPER_CREATURE: {
@@ -1983,7 +1983,7 @@ public final class KwdFile {
                     ((KeeperCreature) thing).setCreatureId(file.readUnsignedByte());
                     ((KeeperCreature) thing).setPlayerId(file.readUnsignedByte());
 
-                    addThing((Thing.KeeperCreature) thing);
+                    addThing(thing);
                     break;
                 }
                 case THING_HERO_PARTY: {
@@ -2025,7 +2025,7 @@ public final class KwdFile {
                     }
                     ((HeroParty) thing).setHeroPartyMembers(heroPartyMembers);
 
-                    addThing((Thing.HeroParty) thing);
+                    addThing(thing);
                     break;
                 }
                 case THING_DEAD_BODY: {
@@ -2039,7 +2039,7 @@ public final class KwdFile {
                     ((Thing.DeadBody) thing).setCreatureId(file.readUnsignedByte());
                     ((Thing.DeadBody) thing).setPlayerId(file.readUnsignedByte());
 
-                    addThing((Thing.DeadBody) thing);
+                    addThing(thing);
                     break;
                 }
                 case THING_EFFECT_GENERATOR: {
@@ -2068,7 +2068,7 @@ public final class KwdFile {
                     }
                     ((Thing.EffectGenerator) thing).setPad(pad);
 
-                    addThing((Thing.EffectGenerator) thing);
+                    addThing(thing);
                     break;
                 }
                 case THING_ROOM: {
@@ -2085,7 +2085,7 @@ public final class KwdFile {
                     ((Thing.Room) thing).setRoomType(file.readByteAsEnum(Thing.Room.RoomType.class));
                     ((Thing.Room) thing).setPlayerId(file.readUnsignedByte());
 
-                    addThing((Thing.Room) thing);
+                    addThing(thing);
                     break;
                 }
                 case THING_CAMERA: {

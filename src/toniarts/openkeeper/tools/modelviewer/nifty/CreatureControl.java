@@ -22,6 +22,7 @@ import de.lessvoid.nifty.controls.Parameters;
 import de.lessvoid.nifty.elements.Element;
 import de.lessvoid.nifty.input.NiftyInputEvent;
 import de.lessvoid.nifty.screen.Screen;
+import org.jetbrains.annotations.NotNull;
 
 /**
  *
@@ -30,12 +31,12 @@ import de.lessvoid.nifty.screen.Screen;
 public class CreatureControl implements Controller {
 
     @Override
-    public void bind(Nifty nifty, Screen screen, Element element, Parameters parameter) {
+    public void bind(@NotNull Nifty nifty, @NotNull Screen screen, @NotNull Element element, @NotNull Parameters parameter) {
 
     }
 
     @Override
-    public void init(Parameters parameter) {
+    public void init(@NotNull Parameters parameter) {
 
     }
 
@@ -50,7 +51,7 @@ public class CreatureControl implements Controller {
     }
 
     @Override
-    public boolean inputEvent(NiftyInputEvent inputEvent) {
+    public boolean inputEvent(@NotNull NiftyInputEvent inputEvent) {
         return true;
     }
 

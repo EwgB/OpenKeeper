@@ -26,6 +26,7 @@ import de.lessvoid.nifty.input.NiftyInputEvent;
 import de.lessvoid.nifty.input.NiftyStandardInputEvent;
 import de.lessvoid.nifty.screen.KeyInputHandler;
 import de.lessvoid.nifty.screen.Screen;
+import org.jetbrains.annotations.NotNull;
 import toniarts.openkeeper.gui.nifty.chat.event.ChatTextSendEvent;
 
 import java.util.*;
@@ -55,10 +56,10 @@ public class ChatControl extends AbstractController implements KeyInputHandler, 
 
     @Override
     public final void bind(
-            final Nifty niftyParam,
-            final Screen screenParam,
-            final Element newElement,
-            final Parameters properties) {
+            @NotNull final Nifty niftyParam,
+            @NotNull final Screen screenParam,
+            @NotNull final Element newElement,
+            @NotNull final Parameters properties) {
         super.bind(newElement);
         LOGGER.fine("binding chat control");
         nifty = niftyParam;
@@ -136,7 +137,7 @@ public class ChatControl extends AbstractController implements KeyInputHandler, 
     }
 
     @Override
-    public boolean keyEvent(final NiftyInputEvent inputEvent) {
+    public boolean keyEvent(@NotNull final NiftyInputEvent inputEvent) {
         if (inputEvent == NiftyStandardInputEvent.SubmitText) {
             sendText();
             return true;
@@ -145,7 +146,7 @@ public class ChatControl extends AbstractController implements KeyInputHandler, 
     }
 
     @Override
-    public boolean inputEvent(final NiftyInputEvent inputEvent) {
+    public boolean inputEvent(@NotNull final NiftyInputEvent inputEvent) {
         return keyEvent(inputEvent);
     }
 

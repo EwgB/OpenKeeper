@@ -166,7 +166,7 @@ public class ThingLoader {
         try {
             for (Thing.HeroParty obj : kwdFile.getThings(Thing.HeroParty.class)) {
 
-                Thing.HeroParty partyThing = (Thing.HeroParty) obj;
+                Thing.HeroParty partyThing = obj;
                 Party party = new Party(partyThing);
                 if (partyThing.getTriggerId() != 0) {
 //                        partyTriggerState.addParty(partyThing.getTriggerId(), party);

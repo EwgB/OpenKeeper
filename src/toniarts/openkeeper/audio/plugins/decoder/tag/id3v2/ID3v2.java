@@ -557,7 +557,7 @@ public final class ID3v2 extends Tag {
         StringBuilder sb = new StringBuilder();
 
         for (char value : c) {
-            int ci = (int) value;
+            int ci = value;
             boolean isNumber = ci >= 48 && ci <= 57; // number must be >= 48 and <= 57
 
             if (!isNumber && started) {

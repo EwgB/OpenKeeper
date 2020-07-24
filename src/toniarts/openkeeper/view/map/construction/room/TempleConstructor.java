@@ -82,7 +82,7 @@ public class TempleConstructor extends DoubleQuadConstructor {
                 boolean northWestInside = isTileInside(map, x - 1, y - 1);
 
                 // Flood fill the water pools, there can be several in a temple
-                boolean inside = N && NE && NW && E && SE && S && SW && W && NW;
+                boolean inside = N && NE && E && SE && S && SW && W && NW;
                 if (inside && !waterTiles.contains(new Point(x, y))) {
                     EntityInstance<Terrain> entityInstance = new EntityInstance<>(kwdFile.getMap().getWater());
                     findInsideBatch(new Point(x, y), entityInstance, waterTiles);
@@ -124,7 +124,7 @@ public class TempleConstructor extends DoubleQuadConstructor {
             boolean SW = hasSameTile(map, p.x - 1, p.y + 1);
             boolean W = hasSameTile(map, p.x - 1, p.y);
             boolean NW = hasSameTile(map, p.x - 1, p.y - 1);
-            boolean inside = N && NE && NW && E && SE && S && SW && W && NW;
+            boolean inside = N && NE && E && SE && S && SW && W && NW;
             if (inside) {
 
                 // Add the coordinate

@@ -79,7 +79,7 @@ public class EngineTextureDecoder extends Dk2TextureDecoder {
         for (j = 0; j < 8; j++) {
             for (i = 0; i < 8; i++) {
                 int value;
-                r = inp.get(inp.position() + i + 0);
+                r = inp.get(inp.position() + i);
                 g = inp.get(inp.position() + i + 18);
                 b = inp.get(inp.position() + i + 9);
                 a = inp.get(inp.position() + i + 27);

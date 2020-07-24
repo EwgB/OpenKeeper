@@ -51,7 +51,7 @@ public class MpegToWav {
         header.order(ByteOrder.LITTLE_ENDIAN);
 
         if (args.length < 2) {
-            System.out.printf("Usage: <input.mp2> [<output.wav>]\n");
+            System.out.print("Usage: <input.mp2> [<output.wav>]\n");
             return;
         }
 
@@ -91,7 +91,7 @@ public class MpegToWav {
                 header.putInt(4, outBytes + 36);
                 fout.write(header.array());
 
-                System.out.printf("Done.\n");
+                System.out.print("Done.\n");
             } catch (Exception e) {
                 System.out.printf("Could not open output file %s!\n%s\n", args[1], e);
             }

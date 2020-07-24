@@ -91,7 +91,7 @@ public class Cursor extends JmeCursor {
                 delays.put(DELAY);
             }
 
-            this.setImagesDelay((IntBuffer) delays.rewind());
+            this.setImagesDelay(delays.rewind());
         }
 
         this.setNumImages(frames);

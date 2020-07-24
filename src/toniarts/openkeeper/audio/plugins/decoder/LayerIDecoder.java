@@ -67,7 +67,7 @@ class LayerIDecoder extends BitStream {
 
     LayerIDecoder(Frame info, InputStream in) {
         super(info, in);
-        crc = (CRC16) info.crc;
+        crc = info.crc;
         numSubbands = info.numberOfSubbands;
 
         if (info.layer < 3) {

@@ -28,6 +28,7 @@ import de.lessvoid.nifty.input.NiftyInputEvent;
 import de.lessvoid.nifty.loaderv2.types.ElementType;
 import de.lessvoid.nifty.screen.Screen;
 import org.bushe.swing.event.EventTopicSubscriber;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.logging.Level;
@@ -227,7 +228,7 @@ public class CustomTabGroupControl extends AbstractController implements TabGrou
     }
 
     @Override
-    public void addTab(final TabBuilder tabBuilder) {
+    public void addTab(@NotNull final TabBuilder tabBuilder) {
         if (nifty == null || screen == null || contentPanel == null) {
             throw new IllegalStateException("Element is not bound yet. Can't add tabs.");
         }
@@ -240,7 +241,7 @@ public class CustomTabGroupControl extends AbstractController implements TabGrou
     }
 
     @Override
-    public void bind(Nifty nifty, Screen screen, Element elmnt, Parameters prmtrs) {
+    public void bind(@NotNull Nifty nifty, @NotNull Screen screen, @NotNull Element elmnt, @NotNull Parameters prmtrs) {
         bind(elmnt);
 
         this.nifty = nifty;
@@ -281,7 +282,7 @@ public class CustomTabGroupControl extends AbstractController implements TabGrou
     }
 
     @Override
-    public void init(Parameters prmtrs) {
+    public void init(@NotNull Parameters prmtrs) {
         super.init(prmtrs);
 
         if (contentPanel != null) {
@@ -355,7 +356,7 @@ public class CustomTabGroupControl extends AbstractController implements TabGrou
     }
 
     @Override
-    public int indexOf(final Tab tab) {
+    public int indexOf(@NotNull final Tab tab) {
         if (contentPanel == null) {
             return -1;
         }
@@ -473,12 +474,12 @@ public class CustomTabGroupControl extends AbstractController implements TabGrou
     }
 
     @Override
-    public boolean inputEvent(final NiftyInputEvent inputEvent) {
+    public boolean inputEvent(@NotNull final NiftyInputEvent inputEvent) {
         return true;
     }
 
     @Override
-    public boolean isTabInGroup(final Tab tab) {
+    public boolean isTabInGroup(@NotNull final Tab tab) {
         return indexOf(tab) > -1;
     }
 
@@ -498,11 +499,11 @@ public class CustomTabGroupControl extends AbstractController implements TabGrou
     }
 
     @Override
-    public void removeTab(final Tab tab) {
+    public void removeTab(@NotNull final Tab tab) {
     }
 
     @Override
-    public void removeTab(final Element tab) {
+    public void removeTab(@NotNull final Element tab) {
     }
 
     @Override
@@ -510,15 +511,15 @@ public class CustomTabGroupControl extends AbstractController implements TabGrou
     }
 
     @Override
-    public void removeTab(final Tab tab, final EndNotify notify) {
+    public void removeTab(@NotNull final Tab tab, final EndNotify notify) {
     }
 
     @Override
-    public void removeTab(final Element tab, final EndNotify notify) {
+    public void removeTab(@NotNull final Element tab, final EndNotify notify) {
     }
 
     @Override
-    public void setSelectedTab(final Tab tab) {
+    public void setSelectedTab(@NotNull final Tab tab) {
         final int index = indexOf(tab);
         if (index == -1) {
             throw new IllegalArgumentException("The tab to remove is not part of this tab group.");
@@ -548,11 +549,11 @@ public class CustomTabGroupControl extends AbstractController implements TabGrou
     }
 
     @Override
-    public void setTabCaption(final int index, final String caption) {
+    public void setTabCaption(final int index, @NotNull final String caption) {
     }
 
     @Override
-    public void setTabCaption(final Tab tab, final String caption) {
+    public void setTabCaption(@NotNull final Tab tab, @NotNull final String caption) {
     }
 
     /**

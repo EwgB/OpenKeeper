@@ -23,6 +23,7 @@ import com.jme3.audio.AudioData;
 import com.jme3.audio.AudioKey;
 import com.jme3.audio.AudioStream;
 import com.jme3.util.BufferUtils;
+import org.jetbrains.annotations.NotNull;
 import toniarts.openkeeper.audio.plugins.decoder.*;
 
 import java.io.ByteArrayOutputStream;
@@ -75,7 +76,7 @@ public class MP2Loader implements AssetLoader {
          * @throws IOException if an input or output error occurs
          */
         @Override
-        public int read(byte[] b, int i, int j) throws IOException {
+        public int read(@NotNull byte[] b, int i, int j) throws IOException {
             if (decoder == null) {
                 return -1;
             }
@@ -93,7 +94,7 @@ public class MP2Loader implements AssetLoader {
          * @throws IOException if an input or output error occurs
          */
         @Override
-        public int read(byte[] b) throws IOException {
+        public int read(@NotNull byte[] b) throws IOException {
             return read(b, 0, b.length);
         }
 

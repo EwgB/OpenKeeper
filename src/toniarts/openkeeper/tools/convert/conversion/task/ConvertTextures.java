@@ -16,6 +16,7 @@
  */
 package toniarts.openkeeper.tools.convert.conversion.task;
 
+import org.jetbrains.annotations.NotNull;
 import toniarts.openkeeper.tools.convert.AssetsConverter;
 import toniarts.openkeeper.tools.convert.ConversionUtils;
 import toniarts.openkeeper.tools.convert.textures.enginetextures.EngineTexturesFile;
@@ -57,7 +58,7 @@ public class ConvertTextures extends ConversionTask {
             private final AtomicInteger threadIndex = new AtomicInteger(0);
 
             @Override
-            public Thread newThread(Runnable r) {
+            public Thread newThread(@NotNull Runnable r) {
                 return new Thread(r, "TexturesConverter_" + threadIndex.incrementAndGet());
             }
 

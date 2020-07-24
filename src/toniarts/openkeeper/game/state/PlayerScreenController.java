@@ -18,7 +18,6 @@ package toniarts.openkeeper.game.state;
 
 import com.jme3.asset.AssetKey;
 import com.jme3.asset.AssetManager;
-import com.jme3.asset.DesktopAssetManager;
 import com.jme3.asset.TextureKey;
 import com.jme3.math.Vector3f;
 import com.jme3.texture.Texture;
@@ -50,6 +49,7 @@ import de.lessvoid.nifty.spi.sound.SoundHandle;
 import de.lessvoid.nifty.tools.Color;
 import de.lessvoid.nifty.tools.SizeValue;
 import de.lessvoid.nifty.tools.SizeValueType;
+import org.jetbrains.annotations.NotNull;
 import toniarts.openkeeper.Main;
 import toniarts.openkeeper.game.component.*;
 import toniarts.openkeeper.game.controller.creature.CreatureState;
@@ -352,7 +352,7 @@ public class PlayerScreenController implements IPlayerScreenController {
     }
 
     @Override
-    public void bind(Nifty nifty, Screen screen) {
+    public void bind(@NotNull Nifty nifty, @NotNull Screen screen) {
         this.nifty = nifty;
         this.screen = screen;
 
@@ -583,7 +583,7 @@ public class PlayerScreenController implements IPlayerScreenController {
             // Convert the new image to a texture, and add a dummy cached entry to the asset manager
             AWTLoader loader = new AWTLoader();
             Texture tex = new Texture2D(loader.load(newImage, false));
-            ((DesktopAssetManager) assetManager).addToCache(new TextureKey("HUDBackground", false), tex);
+            assetManager.addToCache(new TextureKey("HUDBackground", false), tex);
 
             // Add the scaled one
             NiftyImage niftyImage = nifty.createImage("HUDBackground", true);

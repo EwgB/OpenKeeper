@@ -136,7 +136,7 @@ public class CreatureTriggerControl extends AbstractThingTriggerControl<ICreatur
 
         TriggerGeneric.ComparisonType comparisonType = trigger.getComparison();
         if (comparisonType != null && comparisonType != TriggerGeneric.ComparisonType.NONE) {
-            result = compare(target, comparisonType, (int) trigger.getUserData("value"));
+            result = compare(target, comparisonType, trigger.getUserData("value"));
         }
 
         return result;

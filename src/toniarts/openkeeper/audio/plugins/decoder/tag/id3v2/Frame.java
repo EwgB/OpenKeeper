@@ -76,7 +76,7 @@ final class Frame {
                 stream.skip(6);
                 return;
             }
-            if (!verifyKeyString((int) b[0], (int) b[1], (int) b[2], (int) b[3])) {
+            if (!verifyKeyString(b[0], b[1], b[2], b[3])) {
                 if (!tag.containsValue(new String(b))) {
                     if (!sync(stream, b, version)) {
                         shortKey = "DUMMY";
@@ -84,13 +84,12 @@ final class Frame {
                     }
                 }
             }
-            StringBuilder buf = new StringBuilder();
 
-            buf.append((char) (b[0] & 0xFF));
-            buf.append((char) (b[1] & 0xFF));
-            buf.append((char) (b[2] & 0xFF));
-            buf.append((char) (b[3] & 0xFF));
-            shortKey = buf.toString();
+            String buf = String.valueOf((char) (b[0] & 0xFF)) +
+                    (char) (b[1] & 0xFF) +
+                    (char) (b[2] & 0xFF) +
+                    (char) (b[3] & 0xFF);
+            shortKey = buf;
 
             stream.read(b, 0, 4);
 
@@ -162,7 +161,7 @@ final class Frame {
                 stream.skip(3);
                 return;
             }
-            if (!verifyKeyString((int) b[0], (int) b[1], (int) b[2])) {
+            if (!verifyKeyString(b[0], b[1], b[2])) {
                 if (!tag.containsValue(new String(b, 0, 2))) {
                     if (!sync(stream, b, version)) {
                         shortKey = "DUMMY";
@@ -170,12 +169,11 @@ final class Frame {
                     }
                 }
             }
-            StringBuilder buf = new StringBuilder();
 
-            buf.append((char) (b[0] & 0xFF));
-            buf.append((char) (b[1] & 0xFF));
-            buf.append((char) (b[2] & 0xFF));
-            shortKey = buf.toString();
+            String buf = String.valueOf((char) (b[0] & 0xFF)) +
+                    (char) (b[1] & 0xFF) +
+                    (char) (b[2] & 0xFF);
+            shortKey = buf;
             stream.read(b, 0, 3);
 
             frameLength = b[0] << 16 & 0xFF0000 | b[1] << 8 & 0xFF00 | b[2] & 0xFF;
@@ -322,14 +320,14 @@ final class Frame {
             }
             if (version >= 3) {
                 stream.read(b, 1, 3);
-                if (verifyChar((int) b[1], true) && verifyChar((int) b[2], true) && verifyCharWithNumber((int) b[3], true)) {
+                if (verifyChar(b[1], true) && verifyChar(b[2], true) && verifyCharWithNumber(b[3], true)) {
                     if (tag.containsValue(new String(b))) {
                         stop = true;
                     }
                 }
             } else {
                 stream.read(b, 1, 2);
-                if (verifyChar((int) b[1], true) && verifyCharWithNumber((int) b[2], true)) {
+                if (verifyChar(b[1], true) && verifyCharWithNumber(b[2], true)) {
                     if (tag.containsValue(new String(b, 0, 2))) {
                         stop = true;
                     }

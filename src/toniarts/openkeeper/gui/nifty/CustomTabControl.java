@@ -25,6 +25,7 @@ import de.lessvoid.nifty.controls.tabs.TabGroupMember;
 import de.lessvoid.nifty.elements.Element;
 import de.lessvoid.nifty.input.NiftyInputEvent;
 import de.lessvoid.nifty.screen.Screen;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.logging.Logger;
 
@@ -52,7 +53,7 @@ public class CustomTabControl extends AbstractController implements Tab, TabGrou
     private String sound;
 
     @Override
-    public void bind(Nifty nifty, Screen screen, Element elmnt, Parameters prmtrs) {
+    public void bind(@NotNull Nifty nifty, @NotNull Screen screen, @NotNull Element elmnt, @NotNull Parameters prmtrs) {
         bind(elmnt);
 
         if (elmnt.getId() == null) {
@@ -86,7 +87,7 @@ public class CustomTabControl extends AbstractController implements Tab, TabGrou
     }
 
     @Override
-    public void setCaption(final String caption) {
+    public void setCaption(@NotNull final String caption) {
     }
 
     public void setImage(final String imageUrl) {
@@ -106,6 +107,7 @@ public class CustomTabControl extends AbstractController implements Tab, TabGrou
         return parentGroup != null;
     }
 
+    @NotNull
     @Override
     public String getCaption() {
         return "";
@@ -133,7 +135,7 @@ public class CustomTabControl extends AbstractController implements Tab, TabGrou
     }
 
     @Override
-    public boolean inputEvent(final NiftyInputEvent inputEvent) {
+    public boolean inputEvent(@NotNull final NiftyInputEvent inputEvent) {
         return true;
     }
 

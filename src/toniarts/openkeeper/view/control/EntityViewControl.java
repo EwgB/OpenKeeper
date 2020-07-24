@@ -82,14 +82,13 @@ public abstract class EntityViewControl<T, S> extends AbstractControl implements
     }
 
     private Class<EntityComponent>[] compileWatchedComponents() {
-        Set<Class<? extends EntityComponent>> components = new HashSet<>();
-        components.addAll(WATCHED_COMPONENTS);
+        Set<Class<? extends EntityComponent>> components = new HashSet<>(WATCHED_COMPONENTS);
         if (textParser != null) {
             components.addAll(textParser.getWatchedComponents());
         }
         components.addAll(getWatchedComponents());
 
-        return components.toArray(new Class[components.size()]);
+        return components.toArray(new Class[0]);
     }
 
     /**

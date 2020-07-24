@@ -164,7 +164,13 @@ public class LobbyState extends AbstractAppState {
         }
 
         // The client
-        GameClientState gameClientState = new GameClientState(kwdFile, players.stream().filter(c -> c.getId() == lobbyClientService.getPlayerId()).findFirst().get().getKeeper().getId(), players, gameClientService, app);
+        short playerId = players.stream()
+                .filter(c -> c.getId() == lobbyClientService.getPlayerId())
+                .findFirst()
+                .get()
+                .getKeeper()
+                .getId();
+        GameClientState gameClientState = new GameClientState(kwdFile, playerId, players, gameClientService, app);
         stateManager.attach(gameClientState);
 
         // The game server

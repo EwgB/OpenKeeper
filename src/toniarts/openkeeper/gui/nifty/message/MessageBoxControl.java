@@ -24,6 +24,7 @@ import de.lessvoid.nifty.controls.Parameters;
 import de.lessvoid.nifty.elements.Element;
 import de.lessvoid.nifty.input.NiftyInputEvent;
 import de.lessvoid.nifty.screen.Screen;
+import org.jetbrains.annotations.NotNull;
 
 import static toniarts.openkeeper.game.state.IPlayerScreenController.SCREEN_HUD_ID;
 
@@ -46,7 +47,7 @@ public class MessageBoxControl extends AbstractController {
     }
 
     @Override
-    public void bind(Nifty nifty, Screen screen, Element element, Parameters parameter) {
+    public void bind(Nifty nifty, @NotNull Screen screen, Element element, @NotNull Parameters parameter) {
         this.nifty = nifty;
         this.hud = nifty.getScreen(SCREEN_HUD_ID);
         this.element = element;
@@ -58,7 +59,7 @@ public class MessageBoxControl extends AbstractController {
     }
 
     @Override
-    public boolean inputEvent(NiftyInputEvent inputEvent) {
+    public boolean inputEvent(@NotNull NiftyInputEvent inputEvent) {
         return false;
     }
 

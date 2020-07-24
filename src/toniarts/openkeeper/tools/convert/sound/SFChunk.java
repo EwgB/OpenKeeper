@@ -502,7 +502,7 @@ public class SFChunk {
         }
     }
 
-    protected class genAmountType {
+    protected static class genAmountType {
 
         protected rangesType ranges;
         protected short shAmount;
@@ -572,7 +572,7 @@ public class SFChunk {
         }
     }
 
-    protected class sfModList { // <pmod-rec>
+    protected static class sfModList { // <pmod-rec>
 
         protected SFModulator sfModSrcOper;
         protected SFGenerator sfModDestOper;
@@ -612,7 +612,7 @@ public class SFChunk {
         }
     }
 
-    protected class sfInstModList { // <imod-rec>
+    protected static class sfInstModList { // <imod-rec>
 
         protected SFModulator sfModSrcOper;
         protected SFGenerator sfModDestOper;

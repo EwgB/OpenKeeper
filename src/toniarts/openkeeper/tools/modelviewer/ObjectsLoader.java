@@ -47,8 +47,7 @@ public class ObjectsLoader implements ILoader<GameObject> {
 
         }
 
-        List<ArtResource> resources = new ArrayList<>();
-        resources.addAll(object.getAdditionalResources());
+        List<ArtResource> resources = new ArrayList<>(object.getAdditionalResources());
         //resources.add(object.getGuiIconResource());
         //resources.add(object.getInHandIconResource());
         resources.add(object.getInHandMeshResource());

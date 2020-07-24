@@ -157,7 +157,7 @@ public abstract class Dk2TextureDecoder {
 
         if ((in.get(in.position() + 1) | in.get(in.position() + 2) | in.get(in.position() + 3) | in.get(in.position() + 4) | in.get(in.position() + 6) | in.get(in.position() + 7)) == 0) {
             a = in.get();
-            out.put(out.position() + 0, a);
+            out.put(out.position(), a);
             out.put(out.position() + 9, a);
             out.put(out.position() + 18, a);
             out.put(out.position() + 27, a);
@@ -200,7 +200,7 @@ public abstract class Dk2TextureDecoder {
         sc = c & 0xFFFFFFFFL;
         sd = d & 0xFFFFFFFFL;
         si = i & 0xFFFFFFFFL;
-        c = in.get(in.position() + 0);
+        c = in.get(in.position());
         d = in.get(in.position() + 4);
         s = b + a;
         a -= b;
@@ -217,7 +217,7 @@ public abstract class Dk2TextureDecoder {
         out.put(out.position() + 45, (int) ((c - d) - sc));
         out.put(out.position() + 27, (b - (s + d)) + ra);
         out.put(out.position() + 36, (b - (s + d)) - ra);
-        out.put(out.position() + 0, (int) ((s + d) + b + si));
+        out.put(out.position(), (int) ((s + d) + b + si));
         out.put(out.position() + 9, (int) (sd + d + c));
         out.put(out.position() + 54, (int) (d + c - sd));
         out.put(out.position() + 63, (int) ((s + d) + b - si));
@@ -264,7 +264,7 @@ public abstract class Dk2TextureDecoder {
         sc = c & 0xFFFFFFFFL;
         sd = d & 0xFFFFFFFFL;
         si = i & 0xFFFFFFFFL;
-        c = in.get(in.position() + 0);
+        c = in.get(in.position());
         d = in.get(in.position() + 4);
         s = b + a;
         a -= b;
@@ -298,7 +298,7 @@ public abstract class Dk2TextureDecoder {
         a -= s;
         c = d + p;
         d -= p;
-        out.put(out.position() + 0, c);
+        out.put(out.position(), c);
         out.put(out.position() + 1, b);
         out.put(out.position() + 6, a);
         out.put(out.position() + 7, d);

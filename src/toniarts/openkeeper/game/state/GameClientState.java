@@ -100,7 +100,7 @@ public class GameClientState extends AbstractPauseAwareState {
         this.kwdFile = level;
         this.gameClientService = gameClientService;
         this.playerId = playerId;
-        this.app = (Main) app;
+        this.app = app;
 
         // Set multiplayer
         int humanPlayers = 0;

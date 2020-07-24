@@ -197,8 +197,8 @@ public class GameLoop {
                 }
                 try {
 
-                    // More then 0 here and we underflow constantly.
-                    // 0 and we gobble up noticable CPU.  Slower update
+                    // More than 0 here and we underflow constantly.
+                    // 0 and we gobble up noticeable CPU.  Slower update
                     // rates could probably get away with the longer sleep
                     // but 60 FPS can't keep up on Windows.  So we'll let
                     // the sleep time be externally defined for cases

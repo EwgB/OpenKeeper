@@ -173,15 +173,15 @@ public class TriggerAction extends Trigger {
 
         switch(actionType) {
             case CREATE_CREATURE:
-                result += " " + kwdFile.getCreature((Short) getUserData("creatureId"))
+                result += " " + kwdFile.getCreature(getUserData("creatureId"))
                         + " [" + getUserData("level") + "] [" + ((Short) getUserData("posX") + 1) + ","
-                        + ((Short) getUserData("posY") + 1) + "] [" + kwdFile.getPlayer((Short) getUserData("playerId")) + "]";
+                        + ((Short) getUserData("posY") + 1) + "] [" + kwdFile.getPlayer(getUserData("playerId")) + "]";
                 break;
             case CREATE_HERO_PARTY:
                 result += " " + ((Short) getUserData("partyId") + 1) + " at AP " + getUserData("actionPointId");
                 break;
             case FLAG:
-                EnumSet<FlagTargetValueActionType> flagType = ConversionUtils.parseFlagValue((Short) getUserData("flag"), FlagTargetValueActionType.class);
+                EnumSet<FlagTargetValueActionType> flagType = ConversionUtils.parseFlagValue(getUserData("flag"), FlagTargetValueActionType.class);
                 String operation = null;
                 for (FlagTargetValueActionType t : flagType) {
                     operation = t.toString(); // Not very elegant
@@ -209,8 +209,8 @@ public class TriggerAction extends Trigger {
                 result += " [ " + ((Short) getUserData("available") == 0 ? "Closed" : "Open") + " ]";
                 break;
             case SET_OBJECTIVE:
-                result += " [ " + ConversionUtils.parseEnum((Short) getUserData("type"), Creature.JobType.class)
-                        + " [ " + kwdFile.getPlayer((Short) getUserData("playerId")).getName() + " ]]";
+                result += " [ " + ConversionUtils.parseEnum(getUserData("type"), Creature.JobType.class)
+                        + " [ " + kwdFile.getPlayer(getUserData("playerId")).getName() + " ]]";
                 break;
             case CREATE_PORTAL_GEM:
                 result += " [ " + ((Integer) getUserData("posX") + 1) + ", " + ((Integer) getUserData("posY") + 1) + " ]";
@@ -231,24 +231,24 @@ public class TriggerAction extends Trigger {
                 result += ": " + getUserData("value") + " Seconds";
                 break;
             case MAKE:
-                MakeType type = ConversionUtils.parseEnum((Short) getUserData("type"), MakeType.class);
+                MakeType type = ConversionUtils.parseEnum(getUserData("type"), MakeType.class);
                 result += " " + type;
                 switch (type) {
                     case DOOR:
-                        result += " [" + kwdFile.getDoorById((Short) getUserData("targetId")).getName() + "]";
+                        result += " [" + kwdFile.getDoorById(getUserData("targetId")).getName() + "]";
                         break;
                     case ROOM:
-                        result += " [" + kwdFile.getRoomById((Short) getUserData("targetId")).getName() + "]";
+                        result += " [" + kwdFile.getRoomById(getUserData("targetId")).getName() + "]";
                         break;
                     case TRAP:
-                        result += " [" + kwdFile.getTrapById((Short) getUserData("targetId")).getName() + "]";
+                        result += " [" + kwdFile.getTrapById(getUserData("targetId")).getName() + "]";
                         break;
                     default:
-                        result += " [" + kwdFile.getKeeperSpellById((Short) getUserData("targetId")).getName() + "]";
+                        result += " [" + kwdFile.getKeeperSpellById(getUserData("targetId")).getName() + "]";
                         break;
                 }
                 result += " " + ((Short) getUserData("available") == 0 ? "Unavailable" : "Available")
-                        + " To " + kwdFile.getPlayer((Short) getUserData("playerId")).getName();
+                        + " To " + kwdFile.getPlayer(getUserData("playerId")).getName();
                 break;
         }
 

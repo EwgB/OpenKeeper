@@ -17,6 +17,7 @@
 package toniarts.openkeeper.game.map;
 
 import com.jme3.export.*;
+import org.jetbrains.annotations.NotNull;
 import toniarts.openkeeper.tools.convert.map.KwdFile;
 import toniarts.openkeeper.tools.convert.map.Tile;
 
@@ -123,6 +124,7 @@ public class MapData implements Savable, Iterable<MapTile> {
         height = tiles[0].length;
     }
 
+    @NotNull
     @Override
     public Iterator<MapTile> iterator() {
         return new MapData.MapIterator();

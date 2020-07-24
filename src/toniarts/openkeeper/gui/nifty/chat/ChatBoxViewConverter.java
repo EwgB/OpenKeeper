@@ -20,6 +20,7 @@ import de.lessvoid.nifty.controls.ListBox.ListBoxViewConverter;
 import de.lessvoid.nifty.elements.Element;
 import de.lessvoid.nifty.elements.render.TextRenderer;
 import de.lessvoid.nifty.tools.Color;
+import org.jetbrains.annotations.NotNull;
 import toniarts.openkeeper.utils.MapThumbnailGenerator;
 
 import java.util.logging.Logger;
@@ -42,7 +43,7 @@ public class ChatBoxViewConverter implements ListBoxViewConverter<ChatEntry> {
     }
 
     @Override
-    public final void display(final Element listBoxItem, final ChatEntry item) {
+    public final void display(final Element listBoxItem, @NotNull final ChatEntry item) {
         final Element text = listBoxItem.findElementById(CHAT_LINE_TEXT);
         if (text == null) {
             log.severe("Failed to locate text part of chat line! Can't display entry.");
@@ -64,7 +65,7 @@ public class ChatBoxViewConverter implements ListBoxViewConverter<ChatEntry> {
     }
 
     @Override
-    public final int getWidth(final Element listBoxItem, final ChatEntry item) {
+    public final int getWidth(final Element listBoxItem, @NotNull final ChatEntry item) {
         final Element text = listBoxItem.findElementById(CHAT_LINE_TEXT);
         if (text == null) {
             log.severe("Failed to locate text part of chat line! Can't display entry.");

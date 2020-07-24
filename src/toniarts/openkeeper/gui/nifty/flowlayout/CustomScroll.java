@@ -28,6 +28,7 @@ import de.lessvoid.nifty.input.NiftyInputEvent;
 import de.lessvoid.nifty.screen.Screen;
 import de.lessvoid.nifty.tools.SizeValue;
 import de.lessvoid.nifty.tools.SizeValueType;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +63,7 @@ public class CustomScroll extends AbstractController {
     private boolean visible = true;
 
     @Override
-    public void bind(Nifty nifty, Screen screen, Element element, Parameters parameter) {
+    public void bind(@NotNull Nifty nifty, @NotNull Screen screen, @NotNull Element element, @NotNull Parameters parameter) {
         this.nifty = nifty;
         this.screen = screen;
         this.parameters = parameter;
@@ -83,7 +84,7 @@ public class CustomScroll extends AbstractController {
     }
 
     @Override
-    public void init(Parameters parameter) {
+    public void init(@NotNull Parameters parameter) {
     }
 
     @Override
@@ -95,7 +96,7 @@ public class CustomScroll extends AbstractController {
     }
 
     @Override
-    public boolean inputEvent(NiftyInputEvent inputEvent) {
+    public boolean inputEvent(@NotNull NiftyInputEvent inputEvent) {
         return false;
     }
 

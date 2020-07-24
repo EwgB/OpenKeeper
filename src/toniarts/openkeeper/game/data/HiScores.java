@@ -86,13 +86,12 @@ public class HiScores implements Savable {
 
         @Override
         public String toString() {
-            StringBuilder b = new StringBuilder();
-            b.append(score);
-            b.append(" - ");
-            b.append(level);
-            b.append(" - ");
-            b.append(name);
-            return b.toString();
+            String b = score +
+                    " - " +
+                    level +
+                    " - " +
+                    name;
+            return b;
         }
     }
     private List<HiScoresEntry> entries = new ArrayList<>(NUMBER_OF_ENTRIES);

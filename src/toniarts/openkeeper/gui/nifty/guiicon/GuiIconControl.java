@@ -23,6 +23,7 @@ import de.lessvoid.nifty.controls.Parameters;
 import de.lessvoid.nifty.elements.Element;
 import de.lessvoid.nifty.input.NiftyInputEvent;
 import de.lessvoid.nifty.screen.Screen;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * A clickable GUI icon with on hover effect and active states
@@ -37,7 +38,7 @@ public class GuiIconControl extends AbstractController {
     private Element element;
 
     @Override
-    public void bind(Nifty nifty, Screen screen, Element elmnt, Parameters prmtrs) {
+    public void bind(@NotNull Nifty nifty, @NotNull Screen screen, @NotNull Element elmnt, @NotNull Parameters prmtrs) {
         this.nifty = nifty;
         this.screen = screen;
         this.parameters = prmtrs;
@@ -61,12 +62,12 @@ public class GuiIconControl extends AbstractController {
     }
 
     @Override
-    public boolean inputEvent(NiftyInputEvent inputEvent) {
+    public boolean inputEvent(@NotNull NiftyInputEvent inputEvent) {
         return false;
     }
 
     @Override
-    public void init(Parameters prmtrs) {
+    public void init(@NotNull Parameters prmtrs) {
 
     }
 

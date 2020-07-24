@@ -502,7 +502,7 @@ public class MpxReader extends Frame {
     private AudioInformation handleVbr(InputStream stream) throws IOException {
         stream.skip(6); // version id, delay ans quality indicator
         stream.read(b, 0, 4);
-        netByteLength = (long) getInt();
+        netByteLength = getInt();
 
         stream.read(b, 0, 4);
         framesMinusOne = getInt() - 1;
@@ -602,7 +602,7 @@ public class MpxReader extends Frame {
         incrementSkippedDataLength(12);
 
         if ((i & 0x0002) != 0) {
-            netByteLength = (long) getInt();
+            netByteLength = getInt();
         } else {
             noLengthData = true;
         }
@@ -655,7 +655,7 @@ public class MpxReader extends Frame {
             toc = null;
             return this;
         }
-        microseconds = (long) Math.round(timePerFrame * (double) (framesMinusOne + 1) * 1000000D);
+        microseconds = Math.round(timePerFrame * (double) (framesMinusOne + 1) * 1000000D);
         put(L_MICROSECONDS, microseconds);
 
         if (toc != null) {

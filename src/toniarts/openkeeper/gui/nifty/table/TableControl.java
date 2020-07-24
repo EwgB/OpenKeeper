@@ -26,6 +26,7 @@ import de.lessvoid.nifty.elements.Element;
 import de.lessvoid.nifty.input.mapping.MenuInputMapping;
 import de.lessvoid.nifty.screen.Screen;
 import de.lessvoid.nifty.tools.Color;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +48,7 @@ public class TableControl<T extends TableRow> extends ListBoxControl<T> {
     private Element childRootElement;
 
     @Override
-    public void bind(Nifty nifty, Screen screen, Element elmnt, Parameters prmtrs) {
+    public void bind(@NotNull Nifty nifty, @NotNull Screen screen, @NotNull Element elmnt, Parameters prmtrs) {
 
         // The cols/rows
         int cols = prmtrs.getAsInteger("colCount");

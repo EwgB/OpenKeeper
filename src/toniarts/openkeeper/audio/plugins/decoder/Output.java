@@ -87,15 +87,15 @@ abstract class Output extends Initializer {
     Output(Frame info, InputStream in) {
         super(info, in);
 
-        this.info = (Frame) info;
+        this.info = info;
 
         Object a = get(S_AUDIO_DATA_ANALYZE_MODE);
 
-        if (((String) a).equals(FREQUENCY)) {
+        if (a.equals(FREQUENCY)) {
             info.put(AudioInformation.S_AUDIO_DATA_ANALYZE_MODE, FREQUENCY);
             frequencyMode = true;
         }
-        if (((String) a).equals(TIME)) {
+        if (a.equals(TIME)) {
             info.put(AudioInformation.S_AUDIO_DATA_ANALYZE_MODE, TIME);
             frequencyMode = false;
         }
@@ -103,10 +103,10 @@ abstract class Output extends Initializer {
         Object o = get(FA_CHANNEL_MAPPING);
         int length = 0;
 
-        if (((Frame) info).layer == 1) {
+        if (info.layer == 1) {
             obuffersize = OBUFFERSIZE / 3;
             layer1 = true;
-        } else if (((Frame) info).layer == 3 && ((Frame) info).version != 1) {
+        } else if (info.layer == 3 && info.version != 1) {
             obuffersize = OBUFFERSIZE >> 1;
         } else {
             obuffersize = OBUFFERSIZE;
@@ -134,7 +134,7 @@ abstract class Output extends Initializer {
         pointer = new int[outputChannels];
         resetBufferPointer();
 
-        occupiedNumSubbands = ((Frame) info).numberOfSubbands;
+        occupiedNumSubbands = info.numberOfSubbands;
 
         bigEndian = (Boolean) get(B_BIG_ENDIAN);
 
@@ -143,7 +143,7 @@ abstract class Output extends Initializer {
     }
 
     private void setNumberOfOccupiedSubbands() {
-        Frame i = (Frame) information;
+        Frame i = information;
 
         int frequency = (Integer) i.get(AudioInformation.I_SAMPLE_RATE);
 
@@ -167,7 +167,7 @@ abstract class Output extends Initializer {
     }
 
     private void setChannels(Object value) {
-        Frame i = (Frame) information;
+        Frame i = information;
 
         channels = i.channels;
 
@@ -210,11 +210,11 @@ abstract class Output extends Initializer {
     @Override
     public Object put(String key, Object value) throws NullPointerException {
         if (key.equals(S_AUDIO_DATA_ANALYZE_MODE)) {
-            if (((String) value).equals(FREQUENCY)) {
+            if (value.equals(FREQUENCY)) {
                 information.put(AudioInformation.S_AUDIO_DATA_ANALYZE_MODE, FREQUENCY);
                 frequencyMode = true;
             }
-            if (((String) value).equals(TIME)) {
+            if (value.equals(TIME)) {
                 information.put(AudioInformation.S_AUDIO_DATA_ANALYZE_MODE, TIME);
                 frequencyMode = false;
             }

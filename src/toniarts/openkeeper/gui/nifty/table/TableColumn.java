@@ -60,14 +60,13 @@ public class TableColumn {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(header);
-        sb.append(";");
-        sb.append(width);
-        sb.append(";");
-        sb.append(type.getName());
-        sb.append(";");
-        sb.append(color.getColorString());
-        return sb.toString();
+        String sb = header +
+                ";" +
+                width +
+                ";" +
+                type.getName() +
+                ";" +
+                color.getColorString();
+        return sb;
     }
 }

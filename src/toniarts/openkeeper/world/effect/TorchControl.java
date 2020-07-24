@@ -78,7 +78,7 @@ public class TorchControl extends BillboardControl {
     }
 
     private Spatial createFlame() {
-        Spatial result = ((DesktopAssetManager) assetManager).getFromCache(ASSET_KEY);
+        Spatial result = assetManager.getFromCache(ASSET_KEY);
 
         if (result == null) {
             try {
@@ -94,7 +94,7 @@ public class TorchControl extends BillboardControl {
                 log.log(Level.WARNING, "Can't create torch flame", e);
             }
 
-            ((DesktopAssetManager) assetManager).addToCache(ASSET_KEY, result);
+            assetManager.addToCache(ASSET_KEY, result);
         }
 
         if (result != null) {

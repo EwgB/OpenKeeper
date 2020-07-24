@@ -23,6 +23,7 @@ import de.lessvoid.nifty.elements.Element;
 import de.lessvoid.nifty.elements.render.ImageRenderer;
 import de.lessvoid.nifty.input.NiftyInputEvent;
 import de.lessvoid.nifty.screen.Screen;
+import org.jetbrains.annotations.NotNull;
 
 /**
  *
@@ -59,7 +60,7 @@ public class WorkerAmountControl extends AbstractCreatureCardControl {
     private State state = State.TOTAL;
 
     @Override
-    public void bind(Nifty nifty, Screen screen, Element element, Parameters parameter) {
+    public void bind(@NotNull Nifty nifty, @NotNull Screen screen, @NotNull Element element, Parameters parameter) {
         this.nifty = nifty;
         this.screen = screen;
         this.element = element;
@@ -86,7 +87,7 @@ public class WorkerAmountControl extends AbstractCreatureCardControl {
     }
 
     @Override
-    public boolean inputEvent(NiftyInputEvent inputEvent) {
+    public boolean inputEvent(@NotNull NiftyInputEvent inputEvent) {
         return false;
     }
 

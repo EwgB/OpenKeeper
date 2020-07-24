@@ -121,7 +121,7 @@ public class MapThumbnailGenerator {
                 bandOffsets);
         WritableRaster raster = Raster.createWritableRaster(sampleModel, null);
         BufferedImage bi = new BufferedImage(cm, raster, false, null);
-        byte[] data = (byte[]) ((DataBufferByte) raster.getDataBuffer()).getData();
+        byte[] data = ((DataBufferByte) raster.getDataBuffer()).getData();
 
         // Draw the map itself
         drawMap(kwd, data, drawWidth / kwd.getMap().getWidth(), drawHeight / kwd.getMap().getHeight());

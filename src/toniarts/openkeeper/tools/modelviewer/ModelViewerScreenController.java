@@ -29,6 +29,7 @@ import de.lessvoid.nifty.elements.Element;
 import de.lessvoid.nifty.screen.Screen;
 import de.lessvoid.nifty.screen.ScreenController;
 import de.lessvoid.nifty.spi.render.RenderFont;
+import org.jetbrains.annotations.NotNull;
 import toniarts.openkeeper.Main;
 import toniarts.openkeeper.game.sound.SoundFile;
 import toniarts.openkeeper.tools.convert.AssetsConverter;
@@ -74,7 +75,7 @@ public class ModelViewerScreenController implements ScreenController {
     }
 
     @Override
-    public void bind(Nifty nifty, Screen screen) {
+    public void bind(@NotNull Nifty nifty, @NotNull Screen screen) {
         this.screen = screen;
         // Fill types
         app.fillTypes();

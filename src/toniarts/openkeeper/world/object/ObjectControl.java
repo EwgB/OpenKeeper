@@ -228,7 +228,7 @@ public class ObjectControl extends HighlightControl implements IInteractiveContr
 
     @Override
     public void drop(TileData tile, Vector2f coordinates, IInteractiveControl control) {
-        if (control != null && control instanceof CreatureControl && control.getOwnerId() == getOwnerId()) {
+        if (control instanceof CreatureControl && control.getOwnerId() == getOwnerId()) {
             if (((CreatureControl) control).giveObject(this)) {
                 return;
             }

@@ -55,8 +55,8 @@ public class PartyTriggerControl extends TriggerControl {
                 return partyController.isCreated();
 
             case PARTY_MEMBERS_KILLED:
-                short unknown = (short) trigger.getUserData("unknown");
-                value = (int) trigger.getUserData("value");
+                short unknown = trigger.getUserData("unknown");
+                value = trigger.getUserData("value");
                 if (partyController.isCreated()) {
                     for (ICreatureController creature : partyController.getActualMembers()) {
                         if (creature.isDead()) {
@@ -68,12 +68,12 @@ public class PartyTriggerControl extends TriggerControl {
                 return false;
 
             case PARTY_MEMBERS_CAPTURED:
-                value = (int) trigger.getUserData("value");
+                value = trigger.getUserData("value");
                 break;
 
             case PARTY_MEMBERS_INCAPACITATED:
-                unknown = (short) trigger.getUserData("unknown");
-                value = (int) trigger.getUserData("value");
+                unknown = trigger.getUserData("unknown");
+                value = trigger.getUserData("value");
                 if (partyController.isCreated()) {
                     for (ICreatureController creature : partyController.getActualMembers()) {
                         if (creature.isIncapacitated()) {

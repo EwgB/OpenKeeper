@@ -22,6 +22,7 @@ import de.lessvoid.nifty.elements.render.ImageRenderer;
 import de.lessvoid.nifty.elements.render.TextRenderer;
 import de.lessvoid.nifty.render.NiftyImage;
 import de.lessvoid.nifty.tools.SizeValue;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Converts table row to Nifty listbox item
@@ -32,7 +33,7 @@ import de.lessvoid.nifty.tools.SizeValue;
 public class TableRowViewConverter<T extends TableRow> implements ListBox.ListBoxViewConverter<T> {
 
     @Override
-    public void display(final Element listBoxItem, final T item) {
+    public void display(@NotNull final Element listBoxItem, final T item) {
         int i = 0;
         for (Object obj : item.getData()) {
 
@@ -48,7 +49,7 @@ public class TableRowViewConverter<T extends TableRow> implements ListBox.ListBo
     }
 
     @Override
-    public int getWidth(final Element listBoxItem, final T item) {
+    public int getWidth(@NotNull final Element listBoxItem, final T item) {
         int width = 0;
         int i = 0;
 

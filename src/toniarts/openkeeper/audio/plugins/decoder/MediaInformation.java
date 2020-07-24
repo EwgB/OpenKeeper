@@ -136,10 +136,10 @@ public class MediaInformation extends HashMap<String, Object> implements Hashkey
         super.put(B_SYSTEM, false);
         super.put(B_FAST_SEEKING, false);
         super.put(I_BITRATE, -1);
-        super.put(L_GROSS_BYTE_LENGTH, -1l);
-        super.put(L_BYTE_LENGTH, -1l);
-        super.put(L_MICROSECONDS, -1l);
-        super.put(L_MICROSECONDS_DETECTION_BYTE_OFFSET, -1l);
+        super.put(L_GROSS_BYTE_LENGTH, -1L);
+        super.put(L_BYTE_LENGTH, -1L);
+        super.put(L_MICROSECONDS, -1L);
+        super.put(L_MICROSECONDS_DETECTION_BYTE_OFFSET, -1L);
         super.put(S_MEDIA_TYPE, "");
         super.put(S_MEDIA_FORMAT, "");
         super.put(S_MEDIA_FILE_FORMAT, "");

@@ -208,19 +208,19 @@ public class TriggerGeneric extends Trigger {
 
     @Override
     public String toString() {
-        String result = "When " + target;
+        StringBuilder result = new StringBuilder("When " + target);
         switch (target) {
             case FLAG:
             case TIMER:
-                result += " " + ((Short) getUserData("targetId") + 1);
+                result.append(" ").append((Short) getUserData("targetId") + 1);
                 break;
         }
 
         if (targetValueComparison != null) {
-            result += " " + targetValueComparison;
+            result.append(" ").append(targetValueComparison);
         }
 
-        result += " " + getUserData("value");
+        result.append(" ").append(getUserData("value"));
 
         if (data != null) {
             for (Entry<String, Number> entry : data.entrySet()) {
@@ -229,19 +229,19 @@ public class TriggerGeneric extends Trigger {
 
                 switch (key) {
                     case "playerId":
-                        result += " [ " + (((Short) value == 0) ? "Any" : (kwdFile.getPlayer((short) ((Short) value)).getName())) + " ]";
+                        result.append(" [ ").append(((Short) value == 0) ? "Any" : (kwdFile.getPlayer((Short) value).getName())).append(" ]");
                         break;
 
                     case "creatureId":
-                        result += " [ " + (((Short) value == 0) ? "Any" : (kwdFile.getCreature((short) ((Short) value)).getName())) + " ]";
+                        result.append(" [ ").append(((Short) value == 0) ? "Any" : (kwdFile.getCreature((Short) value).getName())).append(" ]");
                         break;
 
                     case "roomId":
-                        result += " [ " + (((Short) value == 0) ? "Any" : (kwdFile.getRoomById((short) ((Short) value)).getName())) + " ]";
+                        result.append(" [ ").append(((Short) value == 0) ? "Any" : (kwdFile.getRoomById((Short) value).getName())).append(" ]");
                         break;
 
                     case "terrainId":
-                        result += " [ " + (((Short) value == 0) ? "Any" : (kwdFile.getTerrain((short) ((Short) value)).getName())) + " ]";
+                        result.append(" [ ").append(((Short) value == 0) ? "Any" : (kwdFile.getTerrain((Short) value).getName())).append(" ]");
                         //if (targetFlagId > 0 && terrain != null && terrain.getFlags().contains(Terrain.TerrainFlag.OWNABLE)) {
                         //    result += " [ " + kwdFile.getPlayer(targetFlagId) + " ]";
                         //}
@@ -250,6 +250,6 @@ public class TriggerGeneric extends Trigger {
             }
         }
 
-        return result;
+        return result.toString();
     }
 }

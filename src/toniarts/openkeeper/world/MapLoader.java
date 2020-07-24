@@ -488,7 +488,7 @@ public abstract class MapLoader implements ILoader<KwdFile> {
             spatial.rotate(0, angleY, 0);
             spatial.setLocalTranslation(WorldUtils.pointToVector3f(tile.getLocation()).addLocal(position));
 
-            ((Node) getTileNode(tile.getLocation(), (Node) pageNode.getChild(WALL_INDEX))).attachChild(spatial);
+            getTileNode(tile.getLocation(), (Node) pageNode.getChild(WALL_INDEX)).attachChild(spatial);
         }
     }
 
@@ -610,7 +610,7 @@ public abstract class MapLoader implements ILoader<KwdFile> {
             mapData.getTile(p.x, p.y).setFlashed(enabled);
         }
 
-        updateTiles(points.toArray(new Point[points.size()]));
+        updateTiles(points.toArray(new Point[0]));
     }
 
     /**
@@ -987,7 +987,7 @@ public abstract class MapLoader implements ILoader<KwdFile> {
             addIfValidCoordinate(point.x + 1, point.y + 1, tileCoords); // SE
         }
 
-        return tileCoords.toArray(new Point[tileCoords.size()]);
+        return tileCoords.toArray(new Point[0]);
     }
 
     private void addIfValidCoordinate(final int x, final int y, List<Point> tileCoords) {
@@ -1009,7 +1009,7 @@ public abstract class MapLoader implements ILoader<KwdFile> {
     }
 
     protected void updateRoomWalls(List<RoomInstance> rooms) {
-        updateRoomWalls(rooms.toArray(new RoomInstance[rooms.size()]));
+        updateRoomWalls(rooms.toArray(new RoomInstance[0]));
     }
 
     /**

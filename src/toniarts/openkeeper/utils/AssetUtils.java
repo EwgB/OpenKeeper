@@ -80,11 +80,11 @@ public class AssetUtils {
      * cache.
      *
      * @param assetManager the asset manager to use
-     * @param modelName the model name, the model name is checked and fixed
-     * @param useCache use cache or not
-     * @param useWeakCache use weak cache, if not then permanently cache the
-     * models. Use weak cache to load some models that are not often needed
-     * (water bed etc.)
+     * @param modelName    the model name, the model name is checked and fixed
+     * @param useCache     use cache or not
+     * @param useWeakCache use weak cache, if not, then permanently cache the
+     *                     models. Use weak cache to load some models that are not often needed
+     *                     (water bed etc.)
      * @return a cloned instance from the cache
      */
     public static Spatial loadModel(final AssetManager assetManager, String modelName,
@@ -153,7 +153,7 @@ public class AssetUtils {
 
         Object asset = assetManager.loadAsset(assetKey);
 
-        if (asset == null || !(asset instanceof CameraSweepData)) {
+        if (!(asset instanceof CameraSweepData)) {
             String msg = "Failed to load the camera sweep file " + resourceName + "!";
             LOGGER.severe(msg);
             throw new RuntimeException(msg);

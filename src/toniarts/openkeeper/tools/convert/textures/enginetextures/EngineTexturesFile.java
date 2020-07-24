@@ -16,6 +16,7 @@
  */
 package toniarts.openkeeper.tools.convert.textures.enginetextures;
 
+import org.jetbrains.annotations.NotNull;
 import toniarts.openkeeper.tools.convert.ConversionUtils;
 import toniarts.openkeeper.tools.convert.IResourceReader;
 import toniarts.openkeeper.tools.convert.ResourceReader;
@@ -299,6 +300,7 @@ public class EngineTexturesFile implements Iterable<String> {
         return img;
     }
 
+    @NotNull
     @Override
     public Iterator<String> iterator() {
         return engineTextureEntries.keySet().iterator();

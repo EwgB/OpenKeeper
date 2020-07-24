@@ -544,7 +544,7 @@ public class TaskManager implements ITaskManager, IGameLogicUpdatable {
         Map<Integer, IRoomController> distancesToRooms = new TreeMap<>();
         for (IRoomController room : rooms) {
             if (!room.isFullCapacity()) {
-                distancesToRooms.put(getShortestDistance(currentPosition, room.getRoomInstance().getCoordinates().toArray(new Point[room.getRoomInstance().getCoordinates().size()])), room
+                distancesToRooms.put(getShortestDistance(currentPosition, room.getRoomInstance().getCoordinates().toArray(new Point[0])), room
                 );
             }
         }
@@ -742,7 +742,7 @@ public class TaskManager implements ITaskManager, IGameLogicUpdatable {
         Task task = tasksByIds.get(taskId);
 
         // For nested task, return the actual task
-        if (task != null && task instanceof AbstractObjectiveTask) {
+        if (task instanceof AbstractObjectiveTask) {
             return ((AbstractObjectiveTask) task).getCurrentTask();
         }
 

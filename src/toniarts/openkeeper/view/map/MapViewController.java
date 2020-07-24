@@ -523,7 +523,7 @@ public abstract class MapViewController implements ILoader<KwdFile> {
             spatial.rotate(0, angleY, 0);
             spatial.setLocalTranslation(WorldUtils.pointToVector3f(tile.getLocation()).addLocal(position));
 
-            ((Node) getTileNode(tile.getLocation(), (Node) pageNode.getChild(WALL_INDEX))).attachChild(spatial);
+            getTileNode(tile.getLocation(), (Node) pageNode.getChild(WALL_INDEX)).attachChild(spatial);
         }
     }
 
@@ -645,7 +645,7 @@ public abstract class MapViewController implements ILoader<KwdFile> {
             getMapData().getTile(p.x, p.y).setFlashed(enabled, playerId);
         }
 
-        updateTiles(points.toArray(new Point[points.size()]));
+        updateTiles(points.toArray(new Point[0]));
     }
 
     /**
@@ -1021,7 +1021,7 @@ public abstract class MapViewController implements ILoader<KwdFile> {
     }
 
     protected void updateRoomWalls(List<RoomInstance> rooms) {
-        updateRoomWalls(rooms.toArray(new RoomInstance[rooms.size()]));
+        updateRoomWalls(rooms.toArray(new RoomInstance[0]));
     }
 
     /**

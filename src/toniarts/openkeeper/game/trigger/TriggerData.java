@@ -108,7 +108,7 @@ public abstract class TriggerData {
         if (data == null) {
             userData.remove(key);
         } else if (data instanceof Number) {
-            userData.put(key, (Number) data);
+            userData.put(key, data);
         } else {
             LOGGER.log(Level.SEVERE, "Unexpected class {0}!", data);
             throw new RuntimeException("Unexpected class");

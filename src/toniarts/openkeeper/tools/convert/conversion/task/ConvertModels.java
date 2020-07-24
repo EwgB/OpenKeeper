@@ -20,6 +20,7 @@ import com.jme3.asset.AssetKey;
 import com.jme3.asset.AssetManager;
 import com.jme3.export.binary.BinaryExporter;
 import com.jme3.scene.Node;
+import org.jetbrains.annotations.NotNull;
 import toniarts.openkeeper.tools.convert.AssetsConverter;
 import toniarts.openkeeper.tools.convert.KmfAssetInfo;
 import toniarts.openkeeper.tools.convert.KmfModelLoader;
@@ -64,7 +65,7 @@ public class ConvertModels extends ConversionTask {
             private final AtomicInteger threadIndex = new AtomicInteger(0);
 
             @Override
-            public Thread newThread(Runnable r) {
+            public Thread newThread(@NotNull Runnable r) {
                 return new Thread(r, "ModelExporter_" + threadIndex.incrementAndGet());
             }
 

@@ -36,6 +36,7 @@ import de.lessvoid.nifty.render.NiftyImage;
 import de.lessvoid.nifty.screen.Screen;
 import de.lessvoid.nifty.tools.Color;
 import de.lessvoid.nifty.tools.SizeValue;
+import org.jetbrains.annotations.NotNull;
 import toniarts.openkeeper.Main;
 import toniarts.openkeeper.game.MapSelector;
 import toniarts.openkeeper.game.data.*;
@@ -329,7 +330,7 @@ public class MainMenuScreenController implements IMainMenuScreenController {
     }
 
     @Override
-    public void bind(Nifty nifty, Screen screen) {
+    public void bind(@NotNull Nifty nifty, @NotNull Screen screen) {
         this.nifty = nifty;
         this.screen = screen;
     }
@@ -775,7 +776,6 @@ public class MainMenuScreenController implements IMainMenuScreenController {
         ListBox<TableRow> listBox = screen.findNiftyControl("keyboardSetup", ListBox.class);
         int i = 0;
         int selected = 0;
-        KeyNames kNames = new KeyNames();
         listBox.clear();
         List<Settings.Setting> settings = Settings.Setting.getSettings(Settings.SettingCategory.CONTROLS);
 

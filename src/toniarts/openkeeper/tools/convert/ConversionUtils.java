@@ -203,7 +203,7 @@ public class ConversionUtils {
      * @return returns stripped down file name
      */
     public static String stripFileName(String fileName) {
-        return fileName.replaceAll("[[^a-zA-Z0-9][\\.]]", "_");
+        return fileName.replaceAll("[^a-zA-Z0-9][.]", "_");
     }
 
     /**

@@ -16,6 +16,7 @@
  */
 package toniarts.openkeeper.tools.convert.conversion;
 
+import org.jetbrains.annotations.NotNull;
 import toniarts.openkeeper.tools.convert.AssetsConverter;
 import toniarts.openkeeper.tools.convert.conversion.graph.BreadthFirstTraverser;
 import toniarts.openkeeper.tools.convert.conversion.graph.Graph;
@@ -54,7 +55,7 @@ public class ConversionTaskManager {
             private final AtomicInteger threadIndex = new AtomicInteger(0);
 
             @Override
-            public Thread newThread(Runnable r) {
+            public Thread newThread(@NotNull Runnable r) {
                 return new Thread(r, "AssetConversionTask_" + threadIndex.incrementAndGet());
             }
 

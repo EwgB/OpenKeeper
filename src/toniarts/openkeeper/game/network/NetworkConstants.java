@@ -104,7 +104,7 @@ public class NetworkConstants {
      * IDs. These IDs are not sent with every message so it's important that the
      * value properly encompass all potential IDs. For example, using a long ID
      * from an ES you would need 64 bits. If game sessions are short lived and
-     * your object IDs are only ever 'int' then 32 bits is the proper value.
+     * your object IDs are only ever 'int', then 32 bits is the proper value.
      * This should usually be 64 bits and I'm keeping it as such... even though
      * this example could get away with 32 bits. Since these values are not sent
      * with every message and people might cut/paste these settings, I'm going

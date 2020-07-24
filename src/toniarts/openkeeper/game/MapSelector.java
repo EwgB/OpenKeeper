@@ -165,7 +165,7 @@ public class MapSelector {
     /**
      * Compares the maps by their name
      */
-    private class MapComparator implements Comparator<GameMapContainer> {
+    private static class MapComparator implements Comparator<GameMapContainer> {
 
         @Override
         public int compare(GameMapContainer o1, GameMapContainer o2) {

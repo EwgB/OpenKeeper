@@ -26,11 +26,12 @@ public class BitReader {
         deficit = 0;
     }
 
-    private BitReader(BitReader other) {
-        bb = other.bb.duplicate();
-        bb.order(other.bb.order());
-        curInt = other.curInt;
-        deficit = other.deficit;
+    public BitReader fork() {
+        BitReader fork = new BitReader(this.bb.duplicate());
+        fork.initPos = 0;
+        fork.curInt = this.curInt;
+        fork.deficit = this.deficit;
+        return fork;
     }
 
     public final int readInt() {
@@ -91,7 +92,7 @@ public class BitReader {
 
     public int readNBit(int n) {
         if (n > 32) {
-            throw new IllegalArgumentException("Can not read more then 32 bit");
+            throw new IllegalArgumentException("Can not read more than 32 bit");
         }
 
         int nn = n;
@@ -202,7 +203,7 @@ public class BitReader {
 
     public int checkNBit(int n) {
         if (n > 24) {
-            throw new IllegalArgumentException("Can not check more then 24 bit");
+            throw new IllegalArgumentException("Can not check more than 24 bit");
         }
 
         while (deficit + n > 32) {
@@ -231,10 +232,6 @@ public class BitReader {
 
     public boolean lastByte() {
         return bb.remaining() + 4 - (deficit >> 3) <= 1;
-    }
-
-    public BitReader fork() {
-        return new BitReader(this);
     }
 
     public void terminate() {

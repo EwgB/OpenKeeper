@@ -107,7 +107,7 @@ public class DoubleQuadConstructor extends RoomConstructor {
         boolean W = hasSameTile(map, x - 1, y);
         boolean NW = hasSameTile(map, x - 1, y - 1);
 
-        return N && NE && NW && E && SE && S && SW && W && NW;
+        return N && NE && E && SE && S && SW && W && NW;
     }
 
     public static Node constructQuad(AssetManager assetManager, String modelName, boolean N, boolean NE, boolean E, boolean SE, boolean S, boolean SW, boolean W, boolean NW,
@@ -123,7 +123,7 @@ public class DoubleQuadConstructor extends RoomConstructor {
                 int piece = 0;
                 float yAngle = 0;
                 Vector3f movement;
-                boolean inside = N && NE && NW && E && SE && S && SW && W && NW;
+                boolean inside = N && NE && E && SE && S && SW && W && NW;
 
                 // Determine the piece
                 if (i == 0 && k == 0) { // North west corner

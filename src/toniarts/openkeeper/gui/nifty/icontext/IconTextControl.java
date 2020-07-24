@@ -24,6 +24,7 @@ import de.lessvoid.nifty.effects.EffectEventId;
 import de.lessvoid.nifty.elements.Element;
 import de.lessvoid.nifty.input.NiftyInputEvent;
 import de.lessvoid.nifty.screen.Screen;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * A small class combining an image and a text, with on hover effect
@@ -40,7 +41,7 @@ public class IconTextControl implements Controller {
     private Element text;
 
     @Override
-    public void bind(Nifty nifty, Screen screen, Element elmnt, Parameters prmtrs) {
+    public void bind(@NotNull Nifty nifty, @NotNull Screen screen, @NotNull Element elmnt, @NotNull Parameters prmtrs) {
         this.nifty = nifty;
         this.screen = screen;
         this.parameters = prmtrs;
@@ -64,7 +65,7 @@ public class IconTextControl implements Controller {
     }
 
     @Override
-    public boolean inputEvent(NiftyInputEvent inputEvent) {
+    public boolean inputEvent(@NotNull NiftyInputEvent inputEvent) {
         return false;
     }
 
@@ -79,7 +80,7 @@ public class IconTextControl implements Controller {
     }
 
     @Override
-    public void init(Parameters prmtrs) {
+    public void init(@NotNull Parameters prmtrs) {
 
     }
 

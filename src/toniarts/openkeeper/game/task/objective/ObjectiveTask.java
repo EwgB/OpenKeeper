@@ -66,12 +66,9 @@ public interface ObjectiveTask extends Task {
      * @return the current task
      */
     default Task getCurrentTask() {
-        Task nextTask = getTaskQueue().peekFirst();
+        ObjectiveTask nextTask = getTaskQueue().peekFirst();
         if (nextTask != null) {
-            if (nextTask instanceof ObjectiveTask) {
-                ObjectiveTask nextObjectiveTask = (ObjectiveTask) nextTask;
-                nextObjectiveTask.getCurrentTask();
-            }
+            nextTask.getCurrentTask();
             return nextTask;
         }
         return this;

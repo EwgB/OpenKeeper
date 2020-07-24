@@ -96,8 +96,8 @@ public class PlayerController implements IPlayerController {
             trapControl.addListener(listener);
         }
         if (researchControl != null) {
-            researchControl.addListener((PlayerResearchableEntityListener) listener);
-            researchControl.addListener((PlayerSpellListener) listener);
+            researchControl.addListener(listener);
+            researchControl.addListener(listener);
         }
     }
 
@@ -120,8 +120,8 @@ public class PlayerController implements IPlayerController {
             trapControl.removeListener(listener);
         }
         if (researchControl != null) {
-            researchControl.removeListener((PlayerResearchableEntityListener) listener);
-            researchControl.removeListener((PlayerSpellListener) listener);
+            researchControl.removeListener(listener);
+            researchControl.removeListener(listener);
         }
     }
 

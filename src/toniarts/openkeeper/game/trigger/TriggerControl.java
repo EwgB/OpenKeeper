@@ -124,7 +124,7 @@ public class TriggerControl extends Control {
         TriggerGeneric.TargetType targetType = trigger.getType();
         switch (targetType) {
             case FLAG:
-                short targetId = (Short) trigger.getUserData("targetId");
+                short targetId = trigger.getUserData("targetId");
                 if (targetId == LEVEL_SCORE_FLAG_ID) {
 
                     // A special value, level score
@@ -133,14 +133,14 @@ public class TriggerControl extends Control {
                     target = levelInfo.getFlag(targetId);
                 }
                 if ((Short) trigger.getUserData("flag") == 1) {
-                    value = (Integer) trigger.getUserData("value");
+                    value = trigger.getUserData("value");
                 } else {
-                    value = levelInfo.getFlag((Short) trigger.getUserData("flagId"));
+                    value = levelInfo.getFlag(trigger.getUserData("flagId"));
                 }
                 break;
 
             case TIMER:
-                targetId = (short) trigger.getUserData("targetId");
+                targetId = trigger.getUserData("targetId");
                 if (targetId == TIME_LIMIT_TIMER_ID) {
                     target = (levelInfo.getTimeLimit() != null ? levelInfo.getTimeLimit().intValue() : 0);
                 } else {
@@ -148,15 +148,15 @@ public class TriggerControl extends Control {
                 }
 
                 if ((Short) trigger.getUserData("flag") == 1) {
-                    value = (Integer) trigger.getUserData("value");
+                    value = trigger.getUserData("value");
                 } else {
-                    value = (int) Math.floor(levelInfo.getTimer((Short) trigger.getUserData("timerId")).getTime());
+                    value = (int) Math.floor(levelInfo.getTimer(trigger.getUserData("timerId")).getTime());
                 }
                 break;
 
             case LEVEL_TIME:
                 target = (int) Math.floor(gameTimer.getGameTime());
-                value = (Integer) trigger.getUserData("value");
+                value = trigger.getUserData("value");
                 break;
             case LEVEL_CREATURES:
             case LEVEL_PLAYED:

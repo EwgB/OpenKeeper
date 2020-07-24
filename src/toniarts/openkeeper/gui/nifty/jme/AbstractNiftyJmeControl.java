@@ -24,6 +24,7 @@ import de.lessvoid.nifty.controls.Parameters;
 import de.lessvoid.nifty.elements.Element;
 import de.lessvoid.nifty.input.NiftyInputEvent;
 import de.lessvoid.nifty.screen.Screen;
+import org.jetbrains.annotations.NotNull;
 import toniarts.openkeeper.Main;
 
 /**
@@ -43,7 +44,7 @@ public abstract class AbstractNiftyJmeControl extends AbstractController {
     private Screen screen;
 
     @Override
-    public void bind(Nifty nifty, Screen screen, Element element, Parameters parameter) {
+    public void bind(@NotNull Nifty nifty, @NotNull Screen screen, @NotNull Element element, @NotNull Parameters parameter) {
         super.bind(element);
         this.nifty = nifty;
         this.screen = screen;
@@ -59,7 +60,7 @@ public abstract class AbstractNiftyJmeControl extends AbstractController {
     }
 
     @Override
-    public boolean inputEvent(NiftyInputEvent inputEvent) {
+    public boolean inputEvent(@NotNull NiftyInputEvent inputEvent) {
         return false;
     }
 
@@ -73,7 +74,7 @@ public abstract class AbstractNiftyJmeControl extends AbstractController {
     }
 
     @Override
-    public void init(Parameters parameter) {
+    public void init(@NotNull Parameters parameter) {
 
     }
 

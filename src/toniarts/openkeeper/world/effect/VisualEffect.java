@@ -132,7 +132,7 @@ public class VisualEffect {
 
             } else if (resource.getType() == ArtResourceType.ANIMATING_MESH) {
 
-                AnimControl animControl = (AnimControl) model.getControl(AnimControl.class);
+                AnimControl animControl = model.getControl(AnimControl.class);
                 if (animControl != null) {
 //                    AnimChannel channel = animControl.getChannel(0);
 //                    channel.setAnim(ANIM_NAME);
@@ -340,7 +340,7 @@ public class VisualEffect {
 
                 } else if (resource.getType() == ArtResourceType.ANIMATING_MESH) {
 
-                    AnimControl animControl = (AnimControl) model.getControl(AnimControl.class);
+                    AnimControl animControl = model.getControl(AnimControl.class);
                     if (animControl != null) {
 //                        AnimChannel channel = animControl.getChannel(0);
 //                        channel.setAnim(ANIM_NAME);

@@ -58,7 +58,6 @@ import toniarts.openkeeper.world.effect.EffectManagerState;
 import toniarts.openkeeper.world.object.ObjectLoader;
 
 import java.io.File;
-import java.io.FilenameFilter;
 import java.nio.file.Path;
 import java.util.*;
 import java.util.logging.Level;
@@ -323,7 +322,7 @@ public class ModelViewer extends SimpleApplication {
     private void toggleShowNormals() {
         Spatial spat = rootNode.getChild(ModelViewer.NODE_NAME);
 
-        if (spat != null && spat instanceof Node) {
+        if (spat instanceof Node) {
 
             // See if it already has the normal meshes generated
             Node normals = (Node) ((Node) spat).getChild(ModelViewer.NODE_NAME_NORMALS);
@@ -377,7 +376,7 @@ public class ModelViewer extends SimpleApplication {
             }
             case MAPS: {
                 // Load the selected map
-                String file = (String) selection + ".kwd";
+                String file = selection + ".kwd";
                 KwdFile kwd = new KwdFile(dkIIFolder, new File(dkIIFolder + PathUtils.DKII_MAPS_FOLDER + file));
                 Node spat = (Node) new MapLoader(this.getAssetManager(), kwd,
                         new EffectManagerState(kwd, this.getAssetManager()), null,
@@ -521,8 +520,8 @@ public class ModelViewer extends SimpleApplication {
         toggleShowNormals();
 
         // Animate!
-        spat.depthFirstTraversal((SceneGraphVisitor) spatial -> {
-            AnimControl animControl = (AnimControl) spatial.getControl(AnimControl.class);
+        spat.depthFirstTraversal(spatial -> {
+            AnimControl animControl = spatial.getControl(AnimControl.class);
             if (animControl != null) {
                 AnimChannel channel = animControl.createChannel();
                 channel.setAnim("anim");

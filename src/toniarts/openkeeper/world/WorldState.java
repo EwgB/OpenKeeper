@@ -1429,7 +1429,7 @@ public abstract class WorldState extends AbstractAppState {
         // Floor: If the drop point is quite accurately on top of another pile of gold -> fuse the gold together. Otherwise create another pile, even to the same tile.
         // Room: Add to the room, but any excess gold IS added to the floor tile of the room as loose gold. This loose gold is then automatically transferred to the room when there is room with a small delay.
         // Merge to another loose gold
-        if (control != null && control instanceof GoldObjectControl && ((GoldObjectControl) control).getState() == ObjectControl.ObjectState.NORMAL) {
+        if (control instanceof GoldObjectControl && ((GoldObjectControl) control).getState() == ObjectControl.ObjectState.NORMAL) {
 
             // Merge
             GoldObjectControl goc = (GoldObjectControl) control;

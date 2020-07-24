@@ -56,10 +56,7 @@ public class TgqFrame implements Comparable<TgqFrame> {
     private final static short[] scanTablePermutated = new short[64];
 
     static {
-        for (int i = 0; i < 64; i++) {
-            short j = scanTable[i];
-            scanTablePermutated[i] = j;
-        }
+        System.arraycopy(scanTable, 0, scanTablePermutated, 0, 64);
     }
     private final static int[] baseTable = {
         4096, 2953, 3135, 3483, 4096, 5213, 7568, 14846,
@@ -345,9 +342,9 @@ public class TgqFrame implements Comparable<TgqFrame> {
 
         int yPosition = luma.position();
         eaIdctPut(luma, linesize[YCBCR_PLANE_LUMA], block[0]);
-        eaIdctPut((ByteBuffer) luma.position(yPosition + 8), linesize[YCBCR_PLANE_LUMA], block[1]);
-        eaIdctPut((ByteBuffer) luma.position(yPosition + 8 * linesize[YCBCR_PLANE_LUMA]), linesize[YCBCR_PLANE_LUMA], block[2]);
-        eaIdctPut((ByteBuffer) luma.position(yPosition + 8 * linesize[YCBCR_PLANE_LUMA] + 8), linesize[YCBCR_PLANE_LUMA], block[3]);
+        eaIdctPut(luma.position(yPosition + 8), linesize[YCBCR_PLANE_LUMA], block[1]);
+        eaIdctPut(luma.position(yPosition + 8 * linesize[YCBCR_PLANE_LUMA]), linesize[YCBCR_PLANE_LUMA], block[2]);
+        eaIdctPut(luma.position(yPosition + 8 * linesize[YCBCR_PLANE_LUMA] + 8), linesize[YCBCR_PLANE_LUMA], block[3]);
         eaIdctPut(cb, linesize[YCBCR_PLANE_CB], block[4]);
         eaIdctPut(cr, linesize[YCBCR_PLANE_CR], block[5]);
     }
@@ -356,24 +353,24 @@ public class TgqFrame implements Comparable<TgqFrame> {
         int[] temp = new int[64];
         block[0] += 4;
         for (int i = 0; i < 8; i++) {
-            eaIdctCol((IntBuffer) IntBuffer.wrap(temp).position(i), (IntBuffer) IntBuffer.wrap(block).position(i));
+            eaIdctCol(IntBuffer.wrap(temp).position(i), IntBuffer.wrap(block).position(i));
         }
         int dPosition = dest.position();
         for (int i = 0; i < 8; i++) {
-            idctTransform((ByteBuffer) dest.position(dPosition + i * linesize), 0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6, 7, true, (IntBuffer) IntBuffer.wrap(temp).position(8 * i));
+            idctTransform(dest.position(dPosition + i * linesize), 0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6, 7, true, IntBuffer.wrap(temp).position(8 * i));
         }
     }
 
     private static void eaIdctCol(IntBuffer dest, IntBuffer src) {
         if ((src.get(src.position() + 8) | src.get(src.position() + 16) | src.get(src.position() + 24) | src.get(src.position() + 32) | src.get(src.position() + 40) | src.get(src.position() + 48) | src.get(src.position() + 56)) == 0) {
-            dest.put(dest.position() + 0, src.get(src.position() + 0));
-            dest.put(dest.position() + 8, src.get(src.position() + 0));
-            dest.put(dest.position() + 16, src.get(src.position() + 0));
-            dest.put(dest.position() + 24, src.get(src.position() + 0));
-            dest.put(dest.position() + 32, src.get(src.position() + 0));
-            dest.put(dest.position() + 40, src.get(src.position() + 0));
-            dest.put(dest.position() + 48, src.get(src.position() + 0));
-            dest.put(dest.position() + 56, src.get(src.position() + 0));
+            dest.put(dest.position(), src.get(src.position()));
+            dest.put(dest.position() + 8, src.get(src.position()));
+            dest.put(dest.position() + 16, src.get(src.position()));
+            dest.put(dest.position() + 24, src.get(src.position()));
+            dest.put(dest.position() + 32, src.get(src.position()));
+            dest.put(dest.position() + 40, src.get(src.position()));
+            dest.put(dest.position() + 48, src.get(src.position()));
+            dest.put(dest.position() + 56, src.get(src.position()));
         } else {
             idctTransform(dest, 0, 8, 16, 24, 32, 40, 48, 56, 0, 8, 16, 24, 32, 40, 48, 56, false, src);
         }
@@ -416,7 +413,7 @@ public class TgqFrame implements Comparable<TgqFrame> {
 
     private static byte clip(int val) {
         int value = (val >> 4);
-        return (byte) (value < 0 ? 0 : (value > 255 ? 255 : value));
+        return (byte) Math.max(0, (Math.min(value, 255)));
     }
 
     /**
@@ -430,7 +427,7 @@ public class TgqFrame implements Comparable<TgqFrame> {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
 
-                // Get the YUV pixels, croma channels are just done with nearest neighbour, not exactly the greatest method
+                // Get the YUV pixels, chroma channels are just done with nearest neighbour, not exactly the greatest method
                 int yPix = this.luma.get(y * width + x) & 0xFF;
                 int uPix = this.cb.get((int) Math.floor(y / 2) * (width / 2) + (int) Math.floor(x / 2)) & 0xFF;
                 int vPix = this.cr.get((int) Math.floor(y / 2) * (width / 2) + (int) Math.floor(x / 2)) & 0xFF;

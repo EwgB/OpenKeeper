@@ -376,7 +376,7 @@ public class GameWorldController implements IGameWorldController, IPlayerActions
         }
 
         // Update
-        mapController.updateRooms(updatableTiles.toArray(new Point[updatableTiles.size()]));
+        mapController.updateRooms(updatableTiles.toArray(new Point[0]));
 
         // New room, calculate gold capacity
         RoomInstance instance = mapController.getRoomCoordinates().get(instancePlots.get(0));
@@ -447,10 +447,10 @@ public class GameWorldController implements IGameWorldController, IPlayerActions
             roomCoordinates.addAll(roomInstance.getCoordinates());
             removeRoomInstance(roomInstance);
         }
-        mapController.removeRoomInstances(soldInstances.toArray(new RoomInstance[soldInstances.size()]));
+        mapController.removeRoomInstances(soldInstances.toArray(new RoomInstance[0]));
 
         // Update
-        mapController.updateRooms(updatableTiles.toArray(new Point[updatableTiles.size()]));
+        mapController.updateRooms(updatableTiles.toArray(new Point[0]));
 
         // See if any of the rooms survived
         Set<RoomInstance> newInstances = new HashSet<>();
